@@ -147,50 +147,56 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
 
 ## 7. Server
 
-This describes the type of server that was installed, the version number, where it was being hosted, and some other general details about it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* Operating System: 
+    * Ubuntu 22.04.3 LTS
 
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
-- This is a specific piece of software or extension that was installed
+* Software:
+
+    * PHP 8.2.13
+    * Apache 2.4.52
+    * MariaDB  10.6.12
+    * Certbot 1.21.0
 
 ## 8. Security
 
-This describes the security that was implemented on the server, and that will be implemented in the project.
+* Application Level:
+    * Escape User Inputs: We will use PHP regex expression to filter and validate user's inputs, and also escape special characters when displaying user input.
+    * Output Encoding: Encode user-generated content before displaying it in HTML to neutralize scripts, to prevent malicious scripts inserted by user.
+    * CSRF Tokens: We will put unique tokens in forms or requests to verify the request's authenticity to prevent CSRF attack.
+    * Cookies: We will set cookies to `SameSite=Strict` or `SameSite=Lax` to limit cross-origin cookie sharing.
+    * Search keywords validation: We will validate and sanitize user search keywords to prevent potential SQL injection.
 
-**On the server**
+* Server Level:
+    * Enable HTTPS: We will use a SSL Certificate to enable HTTPS protocol to encrypt and protect the commnuication between users and our server.
+    * Enable CDN: We will use a popular CDN service provider to make sure our visitors from all over the world could have a smooth and fast browsing experience.
+    * PHP script limiting: We will put a `.user.ini` file inside our document root folder, to make sure all the PHP script can be executed ONLY in this folder.
+    * Frequently update: We will update our operating system and software (Apache, PHP, MariaDB) to avoid loopholes that could be used by attackers.
+    * Web application firewall: We will use a web application firewall to protect our site. For example: we will set a whitelist rule in the firewall for our admin page (Only allow specific IP address to access our admin page).
 
-- incididunt ut labore et dolore magna aliqua
-- incididunt ut labore et dolore magna aliqua
-- incididunt ut labore et dolore magna aliqua
 
-**In the Web App**
+## 9. Value adds
 
-- incididunt ut labore et dolore magna aliqua
-- incididunt ut labore et dolore magna aliqua
-- incididunt ut labore et dolore magna aliqua
+* Use CDN: Our CDN service will speed up website loading times by storing cached content across multiple servers globally. It helps minimize latency by delivering content from servers closer to users, resulting in faster access to website resources and improved user experience.
 
-## 9. Database
+
+## 10. Database
 
 This is a brief description of the database, listing its primary entities, describing how far its been normalized or denormalized and why. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-## 10. Value adds
+## 11. Value adds
 
 This is a brief description of value adds, over and above the base ecommerce and administrative functionality you can add to the site, within the budget, and are willing to complete and deploy.
 
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-## 11. Revised ERD for Value Adds
+## 12. Revised ERD for Value Adds
 
 This is a brief description of the changes that will be required to your ERD if you are going to implement the value adds.
 
 - sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 - sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-## 12. Our Team
+## 13. Our Team
 
 Here is a brief description of our team, and a description of the primary role server for each person.
