@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tax_rates', function (Blueprint $table) {
             $table->id();
-            $table->province();
-            $table->pst();
-            $table->gst();
-            $table->value_added();
+            $table->string('province');
+            $table->float('pst');
+            $table->float('gst');
+            $table->integer('value_added');
             $table->timestamps();
         });
     }

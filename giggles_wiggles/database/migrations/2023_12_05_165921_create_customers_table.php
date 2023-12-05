@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->enum('is_admin', ["0", "1"])->default('0');
+            $table->tinyInteger('is_admin')->default('0');
             $table->string('password');
             $table->timestamps();
         });

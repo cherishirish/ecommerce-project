@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->product_id();
-            $table->status();
-            $table->transaction();
+            $table->integer('product_id');
+            $table->tinyInteger('status');
+            $table->string('transaction');
             $table->timestamps();
         });
     }

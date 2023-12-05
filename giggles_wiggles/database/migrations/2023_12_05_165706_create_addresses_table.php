@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->customer_id();
-            $table->address();
-            $table->postal_code();
-            $table->province();
-            $table->country();
-            $table->address_type();
+            $table->integer('customer_id');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('province');
+            $table->string('country');
+            $table->string('address_type');
             $table->timestamps();
         });
     }

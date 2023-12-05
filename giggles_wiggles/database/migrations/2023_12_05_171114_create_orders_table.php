@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->customer_id();
-            $table->subtotal();
-            $table->total();
-            $table->billing_address();
-            $table->shipping_address();
-            $table->pst();
-            $table->gst();
-            $table->status();
+            $table->integer('customer_id');
+            $table->float('subtotal');
+            $table->float('total');
+            $table->string('billing_address');
+            $table->string('shipping_address');
+            $table->float('pst');
+            $table->float('gst');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

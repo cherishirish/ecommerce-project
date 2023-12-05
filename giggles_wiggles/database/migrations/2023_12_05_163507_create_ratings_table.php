@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->customer_id();
-            $table->product_id();
-            $table->rating();
+            $table->integer('customer_id');
+            $table->integer('product_id');
+            $table->integer('rating');
             $table->timestamps();
         });
     }
