@@ -68,26 +68,76 @@ The project involves developing an e-commerce website specializing in baby produ
 ## 4. Proposed Design Solution
 
 **Home Page Wireframe**
-![Local Image](images/example.jpg)
+![](images/GigglesWiggles_WireFrame.jpg)
 
 
 **Home Page Mock up**
-![Local Image](images/example.jpg)
+![](images/GigglesWiggles_Home.jpg)
 
 
 **List View of the Product Page**
-![Local Image](images/example.jpg)
+![](images/GigglesWiggles_List.jpg)
 
 
 **Detailed View of the Product Page**
-![Local Image](images/example.jpg)
+![](images/GigglesWiggles_Detailed.jpg)
 
 
 **Generic Page**
-![Local Image](images/example.jpg)
+![](images/GigglesWiggles_GenericPage.jpg)
 
 
 ## 5. User Personas/Use Case statements
+
+The general front-end user of the GigglesWiggles Website is primarily new parents seeking baby products, gift shoppers looking for presents for new parents, and parenting enthusiasts interested in community engagement and information sharing. The website is designed to cater to their specific needs and offer a seamless and supportive experience, with user-friendly features such as product browsing, gift registry management, parenting community participation, and more. The design choices aim to simplify navigation and enhance the overall experience for these target audiences.
+
+# User Personas and Use Case Statements for GigglesWiggles Website
+
+## Guest User Persona
+
+**Persona Name:** Unauthenticated User
+
+**Description:** The guest user is a potential customer visiting the GigglesWiggles Website without signing in. They are likely expecting a user-friendly experience to explore the products and services the baby store offers.
+
+**Use Case Statement:**
+
+- **Use Case:** Browsing Product Catalog
+  - **Description:** As an unauthenticated user, I can browse through the GigglesWiggles Website's product catalog to view various baby products, clothing, furniture, toys, bedding, bathing items, and gear.
+  - **Objective:** To discover and explore the range of baby-related products offered by the store.
+
+## Authenticated User Persona
+
+**Persona Name:** New Parent | Authenticated User
+
+**Description:** The authenticated user is a new parent who has created an account on the GigglesWiggles Website. They are looking for products and information related to their baby's needs and are interested in making purchases.
+
+**Use Case Statements:**
+
+- **Use Case:** Adding Products to Cart
+  - **Description:** As an authenticated user (new parent), I can browse the product catalog, select products I want to purchase, and add them to my shopping cart.
+  - **Objective:** To prepare for the purchase of necessary baby products.
+
+- **Use Case:** Managing Gift Registry
+  - **Description:** As an authenticated user (new parent), I can create and manage a gift registry, making it easy for friends and family to select and purchase gifts for my baby.
+  - **Objective:** To facilitate gift-giving for special occasions like baby showers or birthdays.
+
+
+## Admin User Persona
+
+**Persona Name:** Administrator
+
+**Description:** The admin user is responsible for managing and maintaining the GigglesWiggles Website. They have access to administrative tools and features to ensure the smooth operation of the site.
+
+**Use Case Statements:**
+
+- **Use Case:** Managing Product Listings
+  - **Description:** As an admin user, I can add, edit, or remove product listings, ensuring that the website's product catalog is up-to-date.
+  - **Objective:** To maintain a current and accurate inventory of baby products.
+
+- **Use Case:** Monitoring User Activity
+  - **Description:** As an admin user, I can monitor user activity, moderate the parenting community forum, and ensure that the website's content is in compliance with community guidelines.
+  - **Objective:** To maintain a safe and supportive online environment for users.
+
 
 ## 6. Sitemaps
 
