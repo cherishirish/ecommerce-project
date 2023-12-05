@@ -263,9 +263,9 @@ DROP TABLE IF EXISTS `tax_rates`;
 CREATE TABLE `tax_rates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `province` varchar(45) NOT NULL,
-  `pst` int(11) NOT NULL,
-  `gst` int(11) NOT NULL,
-  `value_added` int(11) NOT NULL,
+  `pst` float NOT NULL,
+  `gst` float NOT NULL,
+  `value_added` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -315,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-05 10:52:55
+-- Dump completed on 2023-12-05 12:08:16
