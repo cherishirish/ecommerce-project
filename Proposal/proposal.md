@@ -1,8 +1,8 @@
-# DESCRIPTION OF THE PROJECT
+## DESCRIPTION OF THE PROJECT
 
-* The project involves developing an e-commerce website specializing in baby products, including apparel, furniture, toys, bedding, bathing, and gear. Targeting new parents, the platform aims to provide a seamless shopping experience with user-friendly navigation, detailed product information, and a secure checkout process. Additionally, the site may feature a blog for parenting tips and a community forum, creating a comprehensive and supportive online space for new parents. The goal is to establish a trusted one-stop shop that caters to the diverse needs of new parents, offering both quality products and valuable resources.
+- The project involves developing an e-commerce website specializing in baby products, including apparel, furniture, toys, bedding, bathing, and gear. Targeting new parents, the platform aims to provide a seamless shopping experience with user-friendly navigation, detailed product information, and a secure checkout process. Additionally, the site may feature a blog for parenting tips and a community forum, creating a comprehensive and supportive online space for new parents. The goal is to establish a trusted one-stop shop that caters to the diverse needs of new parents, offering both quality products and valuable resources.
 
-# TARGET AUDIENCE
+## TARGET AUDIENCE
 
 1. Primary Audience: New Parents
 
@@ -38,7 +38,7 @@
 
 - Given that the primary audience involves parents and caregivers, robust security measures are implemented to safeguard sensitive information, including personal details and transaction data.
 
-# PROJECT DETAILS
+## PROJECT DETAILS
 
 * Front-end Functionality:
 
@@ -96,3 +96,12 @@
 9. Content Management System (CMS):
    - Implement a CMS to easily update and manage blog content and other informational pages.
 
+## SITEMAP
+
+* Front-end Sitemap
+
+![Front End Sitemap](frontend_sitemap.jpg "Sitemap of Front End")
+
+* Back-end Sitemap
+
+![Back End Sitemap](backend_sitemap.jpg "Sitemap of Back End")
