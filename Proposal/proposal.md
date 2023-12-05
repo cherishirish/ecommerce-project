@@ -210,23 +210,24 @@ We have implemented foreign keys with all qualified tables.
 A separate table has been created to hold tax information for each province.
 Addresses are in separate tables (customers may have more than one).
 
-## EER Diagram
+## ERD Diagram
 
-![](images/eer_diagram.png)
+![](images/erd.png)
 
 ## 11. Value adds
 
-This is a brief description of value adds, over and above the base ecommerce and administrative functionality you can add to the site, within the budget, and are willing to complete and deploy.
+We will be implementing a registry:
 
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* Authenticated users can add products to their registry
+* If a user is signed in, they can view their registry and edit it
+* Possible addition: a link to share with friends/family
 
 ## 12. Revised ERD for Value Adds
 
-This is a brief description of the changes that will be required to your ERD if you are going to implement the value adds.
+The value add that we are deciding to implement is a gift registry for baby showers. In order to implement this, we will have to change the following:
 
-- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* A registry table will be created including a foreign key relating it to the user.
+* A separate table will need to be created for the list items within the registry.
 
 ## 13. Our Team
 
