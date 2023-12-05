@@ -181,7 +181,38 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
 
 ## 10. Database
 
-This is a brief description of the database, listing its primary entities, describing how far its been normalized or denormalized and why. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* Our database has 10 tables:
+
+  * customers
+    * The authenticated users of the website
+  * addresses
+    * Both billing and shipping addresses of the customers
+  * categories
+    * Categories of products
+  * images
+    * Images for products
+  * line_items
+    * Specific items listed in orders
+  * orders
+    * Contains each order placed
+  * tax_rates
+    * Tax rates for each province
+  * products
+    * List of products available on the site
+  * ratings
+    * Customer ratings on products
+  * transactions
+    * Transaction table for the payment gateway
+
+* Normalization:
+
+We have implemented foreign keys with all qualified tables.
+A separate table has been created to hold tax information for each province.
+Addresses are in separate tables (customers may have more than one).
+
+## EER Diagram
+
+![](images/eer_diagram.png)
 
 ## 11. Value adds
 
