@@ -67,23 +67,23 @@ The project involves developing an e-commerce website specializing in baby produ
 
 ## 4. Proposed Design Solution
 
-**Home Page Wireframe**
+### Home Page Wireframe ###
 ![](images/GigglesWiggles_WireFrame.jpg)
 
 
-**Home Page Mock up**
+ ### Home Page Mock up ###
 ![](images/GigglesWiggles_Home.jpg)
 
 
-**List View of the Product Page**
+### List View of the Product Page ###
 ![](images/GigglesWiggles_List.jpg)
 
 
-**Detailed View of the Product Page**
+### Detailed View of the Product Page ###
 ![](images/GigglesWiggles_Detailed.jpg)
 
 
-**Generic Page**
+### Generic Page ###
 ![](images/GigglesWiggles_GenericPage.jpg)
 
 
