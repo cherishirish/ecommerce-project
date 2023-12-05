@@ -204,10 +204,9 @@ CREATE TABLE `products` (
   `category_id` int(11) NOT NULL,
   `price` float NOT NULL,
   `description` varchar(1000) NOT NULL,
-  `image` varchar(45) NOT NULL,
   `availability` tinyint(4) NOT NULL DEFAULT 1,
   `quantity` int(11) NOT NULL,
-  `gender` varchar(45) NOT NULL,
+  `gender` enum('M','F','G') DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
@@ -316,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-05 10:43:16
+-- Dump completed on 2023-12-05 10:52:55
