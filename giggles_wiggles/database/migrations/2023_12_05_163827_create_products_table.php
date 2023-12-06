@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('availability');
             $table->integer('quantity');
             $table->enum('gender', ['M','F','G']);
+            $table->timestamps();
         });
     }
 

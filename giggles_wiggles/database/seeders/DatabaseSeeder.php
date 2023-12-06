@@ -27,14 +27,29 @@ class DatabaseSeeder extends Seeder
         // Create 10 customers
         \App\Models\Customer::factory(10)->create();
 
-        // Create 30 products
-        // \App\Models\Product::factory()->create();
+        // Create 36 products
+         \App\Models\Product::factory(36)->create();
 
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Generate 3 images for each product
+        for($i=1; $i<=36; $i++){
+            \App\Models\Image::factory()->create([
+                'product_id' => $i,
+                'image' => fake()->image(
+                    width: 600, height: 600, dir: storage_path('app/public/images/'), 
+                    fullPath: false),
+            ]);
+            \App\Models\Image::factory()->create([
+                'product_id' => $i,
+                'image' => fake()->image(
+                    width: 600, height: 600, dir: storage_path('app/public/images/'), 
+                    fullPath: false),
+            ]);
+            \App\Models\Image::factory()->create([
+                'product_id' => $i,
+                'image' => fake()->image(
+                    width: 600, height: 600, dir: storage_path('app/public/images/'), 
+                    fullPath: false),
+            ]);
+        }
     }
 }
