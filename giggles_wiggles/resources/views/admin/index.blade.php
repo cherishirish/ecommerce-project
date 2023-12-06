@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Giggles & Wiggles - Admin Dashboard </div>
+                <div class="sidebar-brand-text mx-3"><img src="/images/dashboard_logo.png" alt="" width=200></div>
             </a>
 
             <!-- Divider -->

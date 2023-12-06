@@ -10323,6 +10323,7 @@ a:focus {
   width: 6.5rem;
   min-height: 100vh;
   color: black !important;
+  padding: 40px 0 0 0;
 }
 
 .sidebar .nav-item {
