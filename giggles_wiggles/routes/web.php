@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 
 // Admin Dashboard Route
 
-Route::get('admin/dashboard', [AdminController::class, 'home'])->name('admin.dashboard');
+Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 Auth::routes();
 
