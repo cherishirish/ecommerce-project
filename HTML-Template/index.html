@@ -11,8 +11,27 @@
 </head>
 <body>
 
-<!-- Header -->
-<header class="bg-primary pt-5">
+<!-- Header - mobile view-->
+<header class="bg-primary pt-5 d-md-none">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <!-- Logo on the left -->
+        <img src="images/logo.png" alt="Logo" class="img-fluid">
+      </div>
+     
+      <div class="col-sm-9 text-right">
+         <!-- Login, Register, and Cart icons  -->
+         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
+         </span>
+         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Header - tablet and desktop view-->
+<header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -28,9 +47,10 @@
       </div>
       <div class="col-md-3 text-right">
          <!-- Login, Register, and Cart icons  -->
-        <span><a href="#" class="text-dark mx-2 btn btn-primary">Login</a></span>
-        <span><a href="#" class="text-dark mx-2 btn btn-primary">Register</a></span>
+         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
+        </span>
         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        
       </div>
     </div>
   </div>
@@ -48,25 +68,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Home</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Apparel</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="apparel.html">Apparel</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Furniture</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="furniture.html">Furniture</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Toys</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="toys.html">Toys</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bedding</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="bedding.html">Bedding</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bathing</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="bathing.html">Bathing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Gear</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="gear.html">Gear</a>
       </li>
     </ul>
   </div>
