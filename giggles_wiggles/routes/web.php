@@ -22,8 +22,4 @@ Route::get('admin/dashboard', [AdminController::class, 'home'])->name('admin.das
 
 Auth::routes();
 
-
-// Main Routes
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
