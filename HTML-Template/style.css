@@ -67,8 +67,61 @@ body {
     border-color: #E6AAAB;
   }
 
-  
-  
+  .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+
+  .card-img-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+
+  .rounded-corner {
+    border-radius: 15px 1px !important;
+    }
+
+/* Parallax container */
+.parallax-container {
+    position: relative;
+    height: 500px; /* Adjust the height as needed */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* Dark overlay to enhance text visibility */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Centered text within the parallax container */
+  .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
   /* Slider styles */
   /* Add your own styles for the slider container and content */
   
