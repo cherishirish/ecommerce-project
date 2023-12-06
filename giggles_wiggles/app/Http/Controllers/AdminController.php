@@ -15,7 +15,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    public function home()
+    public function index()
     {
         $title = "Admin Dashboard";
         return view('admin/index', compact('title'));
