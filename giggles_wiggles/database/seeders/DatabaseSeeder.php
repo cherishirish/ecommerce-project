@@ -19,15 +19,15 @@ class DatabaseSeeder extends Seeder
         $this->call([ SeedTaxRates::class ]);
 
         // Create Admin 
-        \App\Models\Customer::factory()->create([
+        \App\Models\User::factory()->create([
             'last_name' => 'Admin',
             'first_name' => 'User',
             'email' => 'admin@admin.com',
             'is_admin' => '1',
             'password' => Hash::make('mypass')
         ]);
-        // Create 10 customers
-        \App\Models\Customer::factory(10)->create();
+        // Create 10 users
+        \App\Models\User::factory(10)->create();
 
         // Create 36 products
          \App\Models\Product::factory(36)->create();
