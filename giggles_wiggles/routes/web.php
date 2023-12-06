@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontendController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +17,18 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome to GigglesWiggles');
 });
 
 // Admin Dashboard Route
 
 Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//FRONT-END ROUTES
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
+Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
+
+
+
