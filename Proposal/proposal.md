@@ -249,10 +249,11 @@ Loresa specializes in database management. Her responsibilities include:
 - Storing and organizing the team's data.
 - Ensuring data integrity, security, and efficiency for effective data access and manipulation.
 
-### Yesha - Programming ###
+### Yesha - Programming and Design ###
 Yesha is the team's programming expert, responsible for:
 - Writing, testing, and maintaining the code that powers software applications or projects.
 - Coding, debugging, and implementing new features or functionalities as required.
+- Handling the user-interface and user-experience along with Cherish
 
 ### Cherish - Project Manager and Design ###
 Cherish plays a dual role within the team, encompassing:
