@@ -5,65 +5,99 @@
 **To:** Steve George  
 **Date:** December 06, 2023
 
-## 1. Description of your project
+## 1. Description of Your Project
 
 The project involves developing an e-commerce website specializing in baby products, including apparel, furniture, toys, bedding, bathing, and gear. Targeting new parents, the platform aims to provide a seamless shopping experience with user-friendly navigation, detailed product information, and a secure checkout process. Additionally, the site may feature a blog for parenting tips and a community forum, creating a comprehensive and supportive online space for new parents. The goal is to establish a trusted one-stop shop that caters to the diverse needs of new parents, offering both quality products and valuable resources.
 
-## 2. Target audiences
+## 2. Target Audiences
 
 **Primary Audience: New Parents**  
-**Design Choices:** The website's overall design, content, and features prioritize simplicity and ease of use. Clear navigation, intuitive interfaces, and prominently displayed product categories cater to busy and potentially sleep-deprived new parents.
+**Design Choices:** 
+- The website's overall design, content, and features prioritize simplicity and ease of use. 
+- Clear navigation, intuitive interfaces, and prominently displayed product categories cater to busy and potentially sleep-deprived new parents.
 
 **Secondary Audience: Gift Shoppers (Friends and Family of New Parents)**  
-**Design Choices:** Implement a user-friendly gift registry feature to facilitate easy gift selection. Prominent calls-to-action for gift-related categories and personalized gift recommendations enhance the user experience for this audience.
+**Design Choices:** 
+- Implement a user-friendly gift registry feature to facilitate easy gift selection. 
+- Prominent calls-to-action for gift-related categories and personalized gift recommendations enhance the user experience for this audience.
 
 **Tertiary Audience: Parenting Enthusiasts and Community Seekers**  
-**Design Choices:** Including a blog with parenting tips, advice, and a community forum tailored to engage parenting enthusiasts. Social sharing options and interactive elements in the forum foster a sense of community and support.
+**Design Choices:** 
+- Include a blog with parenting tips, advice, and a community forum tailored to engage parenting enthusiasts. 
+- Social sharing options and interactive elements in the forum foster a sense of community and support.
 
 **Influence on Design Choices:**
-- **User-Friendly Interface:** For the primary audience of new parents, the design focuses on simplicity and clarity to ensure a straightforward shopping experience. Minimalistic design elements reduce cognitive load.
+- **User-Friendly Interface:** 
+  - For the primary audience of new parents, the design focuses on simplicity and clarity to ensure a straightforward shopping experience. 
+  - Minimalistic design elements reduce cognitive load.
 
-- **Mobile Responsiveness:** Recognizing that new parents may frequently access the website via mobile devices, a responsive design is crucial. The website adapts seamlessly to various screen sizes, optimizing the user experience.
+- **Mobile Responsiveness:** 
+  - Recognizing that new parents may frequently access the website via mobile devices, a responsive design is crucial. 
+  - The website adapts seamlessly to various screen sizes, optimizing the user experience.
 
-- **Personalization Features:** For gift shoppers, incorporating features like a gift registry and personalized recommendations based on the age of the baby enhances the shopping experience, making it more convenient and thoughtful.
+- **Personalization Features:** 
+  - For gift shoppers, incorporating features like a gift registry and personalized recommendations based on the age of the baby enhances the shopping experience, making it more convenient and thoughtful.
 
-- **Community Building:** To appeal to parenting enthusiasts and community seekers, the inclusion of a blog and forum fosters a sense of belonging. Interactive elements, such as commenting and discussion threads, encourage user engagement.
+- **Community Building:** 
+  - To appeal to parenting enthusiasts and community seekers, the inclusion of a blog and forum fosters a sense of belonging. 
+  - Interactive elements, such as commenting and discussion threads, encourage user engagement.
 
-- **Security Measures:** Given that the primary audience involves parents and caregivers, robust security measures are implemented to safeguard sensitive information, including personal details and transaction data.
+- **Security Measures:** 
+  - Given that the primary audience involves parents and caregivers, robust security measures are implemented to safeguard sensitive information, including personal details and transaction data.
 
 ## 3. Project Details
 
 ### Front-end Functionality:
 
-- **Registration and Authentication:** Allow users or admins to create accounts, log in, and manage their profiles. Implement secure authentication mechanisms.
+- **Registration and Authentication:** 
+  - Allow users or admins to create accounts, log in, and manage their profiles. 
+  - Implement secure authentication mechanisms.
 
-- **Product Catalog:** Display a comprehensive range of baby products categorized into apparel, furniture, toys, bedding, bathing, and gear. Include search and filter options for easy navigation.
+- **Product Catalog:** 
+  - Display a comprehensive range of baby products categorized into apparel, furniture, toys, bedding, bathing, and gear. 
+  - Include search and filter options for easy navigation.
 
-- **Product Pages:** Create detailed product pages with images, descriptions, pricing, and customer reviews. Implement a rating system for users to review and rate products.
+- **Product Pages:** 
+  - Create detailed product pages with images, descriptions, pricing, and customer reviews. 
+  - Implement a rating system for users to review and rate products.
 
-- **Shopping Cart and Checkout:** Enable users to add products to their cart, review items, and proceed to a secure checkout. Implement a smooth and user-friendly checkout process with multiple payment options.
+- **Shopping Cart and Checkout:** 
+  - Enable users to add products to their cart, review items, and proceed to a secure checkout. 
+  - Implement a smooth and user-friendly checkout process with multiple payment options.
 
-- **User Dashboard:** Provide users with a personalized dashboard to track orders, manage preferences, and view past purchases.
+- **User Dashboard:** 
+  - Provide users with a personalized dashboard to track orders, manage preferences, and view past purchases.
 
-- **Responsive Design:** Ensure the website is accessible and user-friendly across various devices (desktop, tablet, and mobile).
+- **Responsive Design:** 
+  - Ensure the website is accessible and user-friendly across various devices (desktop, tablet, and mobile).
 
 ### Back-end Functionality:
 
-- **Product Management:** Implement a robust system for adding, updating, and managing product information using CRUD operations.
+- **Product Management:** 
+  - Implement a robust system for adding, updating, and managing product information using CRUD operations.
 
-- **Order Processing:** Develop an order management system to track and process customer orders efficiently.
+- **Order Processing:** 
+  - Develop an order management system to track and process customer orders efficiently.
 
-- **User Management:** Securely store user profiles and manage account information.
+- **User Management:** 
+  - Securely store user profiles and manage account information.
 
-- **Payment Integration:** Integrate payment gateways to facilitate secure online transactions.
+- **Payment Integration:** 
+  - Integrate payment gateways to facilitate secure online transactions.
 
-- **Database Management:** Set up and maintain a database to store product details, user information, and order history.
+- **Database Management:** 
+  - Set up and maintain a database to store product details, user information, and order history.
 
-- **Security Measures:** Implement security protocols to protect user data, secure transactions, and prevent unauthorized access.
+- **Security Measures:** 
+  - Implement security protocols to protect user data, secure transactions, and prevent unauthorized access.
 
-- **Scalability and Performance:** Design the backend to be scalable to accommodate future growth in terms of products and users. Optimize performance for a smooth and responsive user experience.
+- **Scalability and Performance:** 
+  - Design the backend to be scalable to accommodate future growth in terms of products and users. 
+  - Optimize performance for a smooth and responsive user experience.
 
-- **Analytics and Reporting:** Integrate analytics tools to gather insights into user behavior, popular products, and website performance.
+- **Analytics and Reporting:** 
+  - Integrate analytics tools to gather insights into user behavior, popular products, and website performance.
+
 
 ## 4. Proposed Design Solution
 
@@ -87,7 +121,7 @@ The project involves developing an e-commerce website specializing in baby produ
 ![](images/GigglesWiggles_GenericPage.jpg)
 
 
-## 5. User Personas/Use Case statements
+## 5. User Personas/Use Case Statements
 
 The general front-end user of the GigglesWiggles Website is primarily new parents seeking baby products, gift shoppers looking for presents for new parents, and parenting enthusiasts interested in community engagement and information sharing. The website is designed to cater to their specific needs and offer a seamless and supportive experience, with user-friendly features such as product browsing, gift registry management, parenting community participation, and more. The design choices aim to simplify navigation and enhance the overall experience for these target audiences.
 
@@ -135,7 +169,7 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
   - **Objective:** To maintain a current and accurate inventory of baby products.
 
 - **Use Case:** Monitoring User Activity
-  - **Description:** As an admin user, I can monitor user activity, moderate the parenting community forum, and ensure that the website's content is in compliance with community guidelines.
+  - **Description:** As an admin user, I can monitor user activity, moderate the parenting community forum, and ensure that the website's content complies with community guidelines.
   - **Objective:** To maintain a safe and supportive online environment for users.
 
 
@@ -166,17 +200,17 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
 
 * Application Level:
     * Escape User Inputs: We will use PHP regex expression to filter and validate user's inputs, and also escape special characters when displaying user input.
-    * Output Encoding: Encode user-generated content before displaying it in HTML to neutralize scripts, to prevent malicious scripts inserted by user.
-    * CSRF Tokens: We will put unique tokens in forms or requests to verify the request's authenticity to prevent CSRF attack.
+    * Output Encoding: Encode user-generated content before displaying it in HTML to neutralize scripts, to prevent malicious scripts inserted by the user.
+    * CSRF Tokens: We will put unique tokens in forms or requests to verify the request's authenticity to prevent CSRF attacks.
     * Cookies: We will set cookies to `SameSite=Strict` or `SameSite=Lax` to limit cross-origin cookie sharing.
     * Search keywords validation: We will validate and sanitize user search keywords to prevent potential SQL injection.
 
 * Server Level:
-    * Enable HTTPS: We will use a SSL Certificate to enable HTTPS protocol to encrypt and protect the commnuication between users and our server.
-    * Enable CDN: We will use a popular CDN service provider to make sure our visitors from all over the world could have a smooth and fast browsing experience.
-    * PHP script limiting: We will put a `.user.ini` file inside our document root folder, to make sure all the PHP script can be executed ONLY in this folder.
+    * Enable HTTPS: We will use an SSL Certificate to enable HTTPS protocol to encrypt and protect the communication between users and our server.
+    * Enable CDN: We will use a popular CDN service provider to make sure our visitors from all over the world can have a smooth and fast browsing experience.
+    * PHP script limiting: We will put a `.user.ini` file inside our document root folder, to make sure all the PHP scripts can be executed ONLY in this folder.
     * Frequently update: We will update our operating system and software (Apache, PHP, MariaDB) to avoid loopholes that could be used by attackers.
-    * Web application firewall: We will use a web application firewall to protect our site. For example: we will set a whitelist rule in the firewall for our admin page (Only allow specific IP address to access our admin page).
+    * Web application firewall: We will use a web application firewall to protect our site. For example: we will set a whitelist rule in the firewall for our admin page (Only allow specific IP addresses to access our admin page).
 
 
 ## 9. Value adds
@@ -188,7 +222,7 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
 
 * Our database has 10 tables:
 
-  * customers
+  * Customers
     * The authenticated users of the website
   * addresses
     * Both billing and shipping addresses of the customers
@@ -229,10 +263,10 @@ We will be implementing a registry:
 
 ## 12. Revised ERD for Value Adds
 
-The value add that we are deciding to implement is a gift registry for baby showers. In order to implement this, we will have to change the following:
+The value add that we have decided to implement is a gift registry for baby showers. To implement this, we will have to change the following:
 
 * A registry table will be created including a foreign key relating it to the user.
-* A separate table will need to be created for the list items within the registry.
+* A separate table will need to be created for the list of items within the registry.
 
 ## 13. Our Team
 
@@ -253,7 +287,7 @@ Loresa specializes in database management. Her responsibilities include:
 Yesha is the team's programming expert, responsible for:
 - Writing, testing, and maintaining the code that powers software applications or projects.
 - Coding, debugging, and implementing new features or functionalities as required.
-- Handling the user-interface and user-experience along with Cherish
+- Handling the user interface and user-experience along with Cherish
 
 ### Cherish - Project Manager and Design ###
 Cherish plays a dual role within the team, encompassing:
