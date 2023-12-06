@@ -199,4 +199,28 @@ This is a brief description of the changes that will be required to your ERD if 
 
 ## 13. Our Team
 
-Here is a brief description of our team, and a description of the primary role server for each person.
+### Kun - Server ###
+Kun is responsible for managing and maintaining the server infrastructure. This includes:
+- Setting up and configuring servers.
+- Ensuring servers run smoothly.
+- Handling technical issues related to server performance and security.
+Kun is crucial for the team's backend operations.
+
+### Loresa - Database ###
+Loresa specializes in database management. Her responsibilities include:
+- Designing and maintaining the database system.
+- Storing and organizing the team's data.
+- Ensuring data integrity, security, and efficiency for effective data access and manipulation.
+
+### Yesha - Programming ###
+Yesha is the team's programming expert, responsible for:
+- Writing, testing, and maintaining the code that powers software applications or projects.
+- Coding, debugging, and implementing new features or functionalities as required.
+
+### Cherish - Project Manager and Design ###
+Cherish plays a dual role within the team, encompassing:
+- **Project Manager:** Overseeing project progress, coordinating tasks, setting deadlines, and ensuring the team stays on track to achieve its goals.
+- **Design:** Handling design aspects, including user interface and user experience design, to create an appealing and user-friendly look and feel for the project.
+
+These roles are essential for a well-rounded and efficient team, with each member bringing unique skills and expertise to contribute to the team's success.
+
