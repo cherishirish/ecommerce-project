@@ -143,11 +143,11 @@ The general front-end user of the GigglesWiggles Website is primarily new parent
 
 **Front-end Sitemap**
 
-![](images/frontend_sitemap.jpg)
+![](images/frontend_sitemap.png)
 
 **Back-end Sitemap**
 
-![](images/backend_sitemap.jpg)
+![](images/backend_sitemap.png)
 
 ## 7. Server
 
