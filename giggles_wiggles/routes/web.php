@@ -23,6 +23,11 @@ Route::get('/', function () {
 Route::get('admin/dashboard', [AdminController::class, 'index'])
 ->name('admin.dashboard')->middleware('auth', 'is_admin');
 
+// Admin Users CRUD
+
+Route::get('admin/users', [AdminController::class, 'users'])
+->name('admin.users')->middleware('auth', 'is_admin');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

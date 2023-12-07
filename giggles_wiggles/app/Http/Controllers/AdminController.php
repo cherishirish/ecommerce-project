@@ -27,4 +27,11 @@ class AdminController extends Controller
         $title = "Admin Dashboard";
         return view('admin/index', compact('title', 'customers', 'admin'));
     }
+
+    public function users()
+    {
+        $title = "Users CRUD";
+        $users = User::all();
+        return view('admin/users', compact('title', 'users'));
+    }
 }
