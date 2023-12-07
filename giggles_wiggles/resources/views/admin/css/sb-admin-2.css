@@ -4488,6 +4488,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 400px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -6515,7 +6516,7 @@ button.bg-dark:focus {
 }
 
 .border-left {
-  border-left: 1px solid #e3e6f0 !important;
+  border-left: 1px solid #e9a2a8 !important;
 }
 
 .border-0 {
@@ -10041,23 +10042,23 @@ a:focus {
 }
 
 .border-left-primary {
-  border-left: 0.25rem solid #4e73df !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-primary {
-  border-bottom: 0.25rem solid #4e73df !important;
+  border-bottom: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-left-secondary {
-  border-left: 0.25rem solid #858796 !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-secondary {
-  border-bottom: 0.25rem solid #858796 !important;
+  border-bottom: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-left-success {
-  border-left: 0.25rem solid #1cc88a !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-success {
@@ -10065,7 +10066,7 @@ a:focus {
 }
 
 .border-left-info {
-  border-left: 0.25rem solid #36b9cc !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-info {
@@ -10073,7 +10074,7 @@ a:focus {
 }
 
 .border-left-warning {
-  border-left: 0.25rem solid #f6c23e !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-warning {
@@ -10081,7 +10082,7 @@ a:focus {
 }
 
 .border-left-danger {
-  border-left: 0.25rem solid #e74a3b !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-danger {
@@ -10089,7 +10090,7 @@ a:focus {
 }
 
 .border-left-light {
-  border-left: 0.25rem solid #f8f9fc !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-light {
@@ -10097,7 +10098,7 @@ a:focus {
 }
 
 .border-left-dark {
-  border-left: 0.25rem solid #5a5c69 !important;
+  border-left: 0.25rem solid #e9a2a8 !important;
 }
 
 .border-bottom-dark {
@@ -10323,12 +10324,13 @@ a:focus {
   width: 6.5rem;
   min-height: 100vh;
   color: black !important;
-  padding: 40px 0 0 0;
+  padding: 40px 0 0 20px;
 }
 
 .sidebar .nav-item {
   position: relative;
   color: black !important;
+  
 }
 
 .sidebar .nav-item:last-child {
@@ -10350,6 +10352,7 @@ a:focus {
 .sidebar .nav-item.active .nav-link {
   font-weight: 700;
   color: black !important;
+  padding-left: 16;
 }
 
 .sidebar .nav-item .collapse {

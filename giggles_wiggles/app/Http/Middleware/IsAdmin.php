@@ -17,8 +17,8 @@ class IsAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(!Auth::check() || Auth::customer()->is_admin){
-            return view('auth/login');
+        if(!Auth::check() || !Auth::user()->is_admin){
+            return redirect('/');
         }
 
         return $next($request);

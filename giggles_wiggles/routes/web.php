@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 // Admin Dashboard Route
 
-Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('admin/dashboard', [AdminController::class, 'index'])
+->name('admin.dashboard')->middleware('auth', 'is_admin');
 
 Auth::routes();
 
