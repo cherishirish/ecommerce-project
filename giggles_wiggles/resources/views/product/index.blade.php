@@ -19,7 +19,9 @@
                         <div class="card-container col mb-5">
                             <div class="card h-100 border-0 p-0">
                                 <!-- Product image-->
-                                <a href="/apparel/{{ $product->id }}">
+                                
+                                <!-- <a href="/product/{{ $product->id }}"> -->
+                                <a href="{{ route('product.show', ['id' => $product->id]) }}">
                                     <img class="card-img-top" src="images/bugaboo-dragonfly-complete-stroller-graphite-frame-black-skylineblue4.webp" alt="..." />
                                 </a>
                                 <!-- Product details-->

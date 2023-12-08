@@ -27,6 +27,7 @@ class ProductController extends Controller
     }
     
     
+    
 
     /**
      * Show the form for creating a new resource.
@@ -47,10 +48,19 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $products = Product::find($id);
+        $categories = Category::all();
+    
+        if (!$products) {
+        
+            abort(404);
+        }
+    
+        return view('product.show', compact('products', 'categories'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

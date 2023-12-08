@@ -19,7 +19,7 @@
     <div class="row mt-3" id="header-row">
       <div class="col-md-3">
         <!-- Logo on the left -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
+        <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
       <div class="col-md-6">
         <!-- Search bar in the middle -->
@@ -38,7 +38,7 @@
   </div>
 </header>
 
-@include('layouts.categories')
+@include('layouts.nav')
 
 
 <main>
@@ -52,7 +52,7 @@
     <div class="row">
       <div class="col-md-3">
         <!-- Logo on the left in the footer -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
+        <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
       <div class="col-md-3">
         <!-- Column 1 with links -->
