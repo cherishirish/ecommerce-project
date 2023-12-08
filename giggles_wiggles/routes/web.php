@@ -41,7 +41,7 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 ->name('admin.users.create')->middleware('auth', 'is_admin');
 
 Route::post('admin/users/store', [UserController::class, 'store'])
-->name('admin.users.store')->middleware('auth', 'admin');
+->name('admin.users.store')->middleware('auth', 'is_admin');
 
 Auth::routes();
 
