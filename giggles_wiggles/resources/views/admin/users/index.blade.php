@@ -170,6 +170,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Users</h1>
+                        <a href="#" class="btn btn-primary">Create New User</a>
                     </div>
 
                     <!-- Content Row -->
@@ -182,19 +183,59 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Email</th>
-                                    <th>Shipping Address</th>
                                     <th>Billing Address</th>
-                                    <th>Password</th>
+                                    <th>Shipping Address</th>
                                     <th>Admin Status</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
+                                @foreach($users->sortBy('updated_at') as $user)
                                 <tr>
                                     <td>
+                                        {{$user->id}}
+                                    </td>
+                                    <td>
                                         {{$user->first_name}}
+                                    </td>
+                                    <td>
+                                        {{$user->last_name}}
+                                    </td>
+                                    <td>
+                                        {{$user->email}}
+                                    </td>
+                                    <td>
+                                        @foreach($addresses as $address)
+                                            @if($address->customer_id == $user->id && $address->address_type == 'billing')
+                                        {{$address->address}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($addresses as $address)
+                                            @if($address->customer_id == $user->id && $address->address_type == 'shipping')
+                                        {{$address->address}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @if($user->is_admin == 0)
+                                        Non-admin
+                                        @else 
+                                        Admin
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{$user->created_at}}
+                                    </td>
+                                    <td>
+                                        {{$user->updated_at}}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger">Delete</a><br><br>
+                                        <a href="{{route('admin.users.edit', ['id'=>$user->id])}}" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>
                                 @endforeach

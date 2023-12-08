@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,11 @@ Route::get('admin/dashboard', [AdminController::class, 'index'])
 
 // Admin Users CRUD
 
-Route::get('admin/users', [AdminController::class, 'users'])
+Route::get('admin/users', [UserController::class, 'index'])
 ->name('admin.users')->middleware('auth', 'is_admin');
+
+Route::get('admin/users/edit/{id}', [UserController::class, 'edit'])
+->name('admin.users.edit')->middleware('auth', 'is_admin');
 
 Auth::routes();
 
