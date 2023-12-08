@@ -3,7 +3,12 @@
 @section('content')
 
 <section class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
+    <div class="container px-4 px-lg-5 mb-5">
+        <!-- Main Content Header Image-->
+        <div class="main-header mb-5">
+            <img src="images/breadcrumb.jpg" alt="">
+        </div>
+
         <div class="row gx-4 gx-lg-5 align-items-center">
             <!-- <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="images/products/gear/bugaboo-dragonfly-complete-stroller-graphite-frame-black-skylineblue4.webp" alt="..." /></div> -->
             

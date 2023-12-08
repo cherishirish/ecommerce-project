@@ -12,5 +12,9 @@ class PagesController extends Controller
         return view('about', compact('title'));
     }
 
-   
+    public function contact()
+    {
+        $title = 'Contact Us';
+        return view('contact', compact('title'));
+    }
 }

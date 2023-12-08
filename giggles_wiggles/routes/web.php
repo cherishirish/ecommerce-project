@@ -49,6 +49,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/about', [App\Http\Controllers\PagesController::class, 'about'])->name('about'); // ABOUT
+Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact'); // CONTACT
 Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
 
 
