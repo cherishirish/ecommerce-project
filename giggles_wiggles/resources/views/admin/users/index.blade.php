@@ -20,8 +20,24 @@
     <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" >
     <!-- Custom styles for this template-->
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/views/admin/js/app.js'])
     @vite(['resources/views/admin/css/sb-admin-2.css'])
+
+    <script>
+        function confirmDelete(event)
+    {
+    
+        if(confirm("Are you sure you want to delete this user?")){
+            document.getElementById("delete").submit;
+            
+        }else{
+            event.preventDefault()
+            return;
+
+        }
+    }
+        
+    </script>
 
 </head>
 
@@ -170,7 +186,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Users</h1>
-                        <a href="#" class="btn btn-primary">Create New User</a>
+                        <a href="{{route('admin.users.create')}}" class="btn btn-primary">Create New User</a>
                     </div>
 
                     <!-- Content Row -->
@@ -192,7 +208,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users->sortBy('updated_at') as $user)
+                                @foreach($users->sortByDesc('updated_at') as $user)
                                 <tr>
                                     <td>
                                         {{$user->id}}
@@ -234,7 +250,13 @@
                                         {{$user->updated_at}}
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger">Delete</a><br><br>
+                                        <form method="post" action="{{route('admin.users.delete', ['id'=>$user->id])}}" id="delete">
+                                        @csrf    
+                                        @method('DELETE')
+                            
+                                        <button class="btn btn-danger" onclick=confirmDelete(event) id="delete_button">Delete</button>
+                                        </form>
+
                                         <a href="{{route('admin.users.edit', ['id'=>$user->id])}}" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>

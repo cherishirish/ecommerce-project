@@ -32,6 +32,15 @@ Route::get('admin/users', [UserController::class, 'index'])
 Route::get('admin/users/edit/{id}', [UserController::class, 'edit'])
 ->name('admin.users.edit')->middleware('auth', 'is_admin');
 
+Route::put('admin/users/update', [UserController::class, 'update'])
+->name('admin.users.update')->middleware('auth', 'is_admin');
+
+Route::delete('admin/users/delete/{id}', [UserController::class, 'destroy'])
+->name('admin.users.delete')->middleware('auth', 'is_admin');
+
+Route::get('admin/users/create', [UserController::class, 'create'])
+->name('admin.users.create')->middleware('auth', 'is_admin');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
