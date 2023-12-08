@@ -17,7 +17,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 Route::get('/', function () {
-    return view('Welcome to GigglesWiggles');
+    return view('welcome');
 });
 
 // Admin Dashboard Route
