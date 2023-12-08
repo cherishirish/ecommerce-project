@@ -48,8 +48,7 @@ class DatabaseSeeder extends Seeder
             $image_file4 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
             $image_file5 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
 
-            // On Linux platform, let's update the image file name to our product name
-            //
+            // On Linux platform, let's update the image file name to a specific file name
             if(PHP_OS === 'Linux'){
                 Storage::disk('images')->move($image_file1, $image_name1);
                 Storage::disk('images')->move($image_file2, $image_name2);
