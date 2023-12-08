@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 
@@ -49,7 +49,8 @@ Auth::routes();
 //FRONT-END ROUTES
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
-Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
+Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
+Route::get('/product/{id}', [ProductController:: class, 'show']);
 
 
 

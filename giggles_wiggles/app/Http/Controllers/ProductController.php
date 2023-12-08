@@ -1,47 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
-class FrontendController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request, $page)
+    public function index(Request $request)
     {
-        $title = 'All ' . ucfirst($page);
-
-        $pageToCategory = [
-            'apparel' => 1,
-            'furniture' => 2,
-            'toys' => 3,
-            'bedding' => 4,
-            'bathing' => 5,
-            'gear' => 6,
-        ];
-
-        $category_id = $pageToCategory[$page] ?? 1;
-
-        // Define a mapping of view names corresponding to each category
-        $viewMapping = [
-            1 => 'apparel',
-            2 => 'furniture',
-            3 => 'toys',
-            4 => 'bedding',
-            5 => 'bathing',
-            6 => 'gear',
-        ];
-
-        $viewName = $viewMapping[$category_id] ?? 'apparel';
-
-        $products = Product::where('category_id', $category_id)->get();
-
-        return view($viewName . '.index', compact('products', 'title'));
+        $title = 'GiggleWiggles Products';
+        $categories = Category::all();
+        
+        $category_id = $request->input('category_id');
+    
+        if ($category_id) {
+            $products = Product::where('category_id', $category_id)->get();
+        } else {
+            $products = Product::all();
+        }
+    
+        return view('product.index', compact('products', 'categories', 'title'));
     }
-
+    
     
 
     /**

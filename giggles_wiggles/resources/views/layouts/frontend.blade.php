@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
+
+  @vite(['resources/css/style.css'])
   <title>Giggles Wiggles</title>
 </head>
 <body>
@@ -36,37 +38,7 @@
   </div>
 </header>
 
-
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary">
-  <div class="container">
-    <!-- Navbar content -->
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Apparel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Furniture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Toys</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bedding</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bathing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="gear.html">Gear</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+@include('layouts.categories')
 
 
 <main>
