@@ -266,9 +266,7 @@
                             </div>
                             <div>
                                 <input type="hidden" name="address_type" id="address_type" value="billing">
-                                @error('address_type')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
+
                             </div>
                            
                             <button type="submit" class="btn btn-primary">Create</button>

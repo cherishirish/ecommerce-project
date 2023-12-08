@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('postal_code');
             $table->string('city');
             $table->string('province');
-            $table->string('country');
             $table->enum('address_type', ['billing', 'shipping']);
             $table->timestamps();
         });

@@ -61,7 +61,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $valid=$request->validate([
-            'id' => 'required|integer',
             'first_name' => 'required|string|min:1|max:255',
             'last_name' => 'required|string|min:1|max:255',
             'email' => 'required|email',
@@ -74,16 +73,16 @@ class UserController extends Controller
             'city' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
             'postal_code' => 'required|string|min:1|max:255',
-            'address_type' => 'required', Rule::in('billing', 'shipping')
+            'address_type' => 'required'
         ]);
-
-        
 
         $user = User::create($valid);
 
-        $address = Address::create($valid_address);
-
         $user->save();
+
+        $valid_address['user_id'] = $user['id'];
+
+        $address = Address::create($valid_address);
 
         $address->save();
 
