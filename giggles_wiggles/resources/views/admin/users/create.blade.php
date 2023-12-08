@@ -220,14 +220,6 @@
                             </div>
                             <div class="form-group">
                                 <label for="province">Province</label>
-                                <input type="email" class="form-control" name="province" id="province" aria-describedby="emailHelp"
-                                value="{{ old('province') }}">
-                                @error('province')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror                      
-                            </div>
-                            <div class="form-group">
-                                <label for="province">Province</label>
                                 <select class="custom-select" id="province" name="province">
                                 <option value="MB" >MB</option>
                                 <option value="SK" >SK</option>
@@ -252,6 +244,14 @@
                                 <input type="postal_code" class="form-control" name="postal_code" id="postal_code" aria-describedby="emailHelp"
                                 value="{{ old('province') }}">
                                 @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password"
+                                value="{{ old('password') }}">
+                                @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
                             </div>

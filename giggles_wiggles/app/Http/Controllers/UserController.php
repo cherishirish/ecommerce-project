@@ -63,6 +63,7 @@ class UserController extends Controller
             'first_name' => 'required|string|min:1|max:255',
             'last_name' => 'required|string|min:1|max:255',
             'email' => 'required|email',
+            'password' =>'required|',
             'is_admin' => 'required'
         ]);
 
@@ -73,6 +74,8 @@ class UserController extends Controller
             'postal_code' => 'required|string|min:1|max:255',
             'address_type' => 'required'
         ]);
+
+        dd("hi");
 
         $user = User::create($valid);
 
