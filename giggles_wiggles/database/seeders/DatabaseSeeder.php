@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
 
         // Create 36 products
-        //  \App\Models\Product::factory(36)->create();
+        \App\Models\Product::factory(36)->create();
 
         // Generate 5 images for each product
         for($i=1; $i<=36; $i++){
