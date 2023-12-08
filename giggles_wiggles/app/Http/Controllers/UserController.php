@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Address;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
 
 class UserController extends Controller
 {
@@ -72,10 +74,10 @@ class UserController extends Controller
             'city' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
             'postal_code' => 'required|string|min:1|max:255',
-            'address_type' => 'required'
+            'address_type' => 'required', Rule::in('billing', 'shipping')
         ]);
 
-        dd("hi");
+        
 
         $user = User::create($valid);
 
