@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -17,7 +18,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 Route::get('/', function () {
-    return view('Welcome to GigglesWiggles');
+    return view('home');
 });
 
 // Admin Dashboard Route
@@ -41,6 +42,8 @@ Route::delete('admin/users/delete/{id}', [UserController::class, 'destroy'])
 
 Route::get('admin/users/create', [UserController::class, 'create'])
 ->name('admin.users.create')->middleware('auth', 'is_admin');
+
+Auth::routes();
 
 
 //FRONT-END ROUTES
