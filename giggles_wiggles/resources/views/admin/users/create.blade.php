@@ -175,8 +175,8 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <form method="post" action="{{route('admin.users.update')}}" class="form" enctype="multipart/form-data" novalidate style="width:50%">
-                            @method('PUT')
+                        <form method="post" action="{{route('admin.users.store')}}" class="form" enctype="multipart/form-data" novalidate style="width:50%">
+                            @method('POST')
                             @csrf
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
@@ -203,6 +203,59 @@
                                 @enderror                      
                             </div>
                             <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="email" class="form-control" name="address" id="address" aria-describedby="emailHelp"
+                                value="{{ old('address') }}">
+                                @error('address')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="email" class="form-control" name="city" id="city" aria-describedby="emailHelp"
+                                value="{{ old('city') }}">
+                                @error('city')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Province</label>
+                                <input type="email" class="form-control" name="province" id="province" aria-describedby="emailHelp"
+                                value="{{ old('province') }}">
+                                @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Province</label>
+                                <select class="custom-select" id="province" name="province">
+                                <option value="MB" >Non-Admin</option>
+                                <option value="SK" >Admin</option>
+                                <option value="AB" >Admin</option>
+                                <option value="BC" >Admin</option>
+                                <option value="NS" >Admin</option>
+                                <option value="NB" >Admin</option>
+                                <option value="QO" >Admin</option>
+                                <option value="ON" >Admin</option>
+                                <option value="YT" >Admin</option>
+                                <option value="NT" >Admin</option>
+                                <option value="NU" >Admin</option>
+                                <option value="NL" >Admin</option>
+                                <option value="PE" >Admin</option>
+                                </select>
+                                @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
+                                <label for="postal_code">Postal Code</label>
+                                <input type="postal_code" class="form-control" name="postal_code" id="postal_code" aria-describedby="emailHelp"
+                                value="{{ old('province') }}">
+                                @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+                            <div class="form-group">
                                 <label for="is_admin">Admin Status</label>
                                 <select class="custom-select" id="admin_status" name="is_admin">
                                 <option value=0 >Non-Admin</option>
@@ -212,8 +265,11 @@
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror 
                             </div>
+                            <div>
+                                <input type="hidden" name="address_type" value="billing">
+                            </div>
                            
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                         
                     </div>
