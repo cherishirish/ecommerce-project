@@ -7,44 +7,69 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
+  @vite(['resources/css/style.css'])
   <title>Giggles Wiggles</title>
 </head>
 <body>
 
-<!-- Header -->
-<header class="bg-primary">
+<!-- Header - mobile view-->
+<header class="bg-primary pt-5 d-md-none">
   <div class="container">
-    <div class="row mt-3" id="header-row">
+    <div class="row">
+      <div class="col-sm-2">
+        <!-- Logo on the left -->
+        <img src="images/logo.png" alt="Logo" class="img-fluid">
+      </div>
+     
+      <div class="col-sm-9 text-right">
+         <!-- Login, Register, and Cart icons  -->
+         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
+         </span>
+         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Header - tablet and desktop view-->
+<header class="bg-primary pt-5 d-none d-sm-none d-md-block">
+  <div class="container">
+    <div class="row">
       <div class="col-md-3">
         <!-- Logo on the left -->
         <img src="images/logo.png" alt="Logo" class="img-fluid">
       </div>
       <div class="col-md-6">
         <!-- Search bar in the middle -->
-        <!-- <form id="header-search" class="form-inline "> -->
-          <form id="header-search">
-          <input class="form-control mr-0 " type="search" placeholder="Search here" aria-label="Search">
-          <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search here" aria-label="Search">
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search text-dark"></i></button>
         </form>
       </div>
       <div class="col-md-3 text-right">
-        <!-- Login, Register, and Cart icons -->
-        <span><a href="#" class="text-dark mx-2 ">Login</a> | <a href="#" class="text-dark mx-2 ">Register</a></span>
+         <!-- Login, Register, and Cart icons  -->
+         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
+        </span>
         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        
       </div>
     </div>
   </div>
 </header>
 
-
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
     <!-- Navbar content -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Apparel</a>
@@ -62,10 +87,11 @@
         <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bathing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="gear.html">Gear</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Gear</a>
       </li>
     </ul>
   </div>
+</div>
 </nav>
 
 
@@ -75,7 +101,12 @@
 
 
 <!-- Footer -->
-<footer class="bg-primary text-light mt-5">
+<!-- Parallax Container -->
+<div class="parallax-container" style="background-image: url('images/parallax.jpg');">
+    <div class="overlay"></div>
+    <div class="parallax-text">Subscribe to Newsletter</div>
+  </div>
+<footer class="bg-primary text-light">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

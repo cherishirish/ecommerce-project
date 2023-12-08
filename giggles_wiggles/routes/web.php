@@ -16,9 +16,7 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // Admin Dashboard Route
 
@@ -48,7 +46,7 @@ Route::post('admin/users/store', [UserController::class, 'store'])
 Auth::routes();
 
 //FRONT-END ROUTES
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
 
