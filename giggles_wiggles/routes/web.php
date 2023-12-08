@@ -22,7 +22,29 @@ Route::get('/', function () {
 
 // Admin Dashboard Route
 
-Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('admin/dashboard', [AdminController::class, 'index'])
+->name('admin.dashboard')->middleware('auth', 'is_admin');
+
+// Admin Users CRUD
+
+Route::get('admin/users', [UserController::class, 'index'])
+->name('admin.users')->middleware('auth', 'is_admin');
+
+Route::get('admin/users/edit/{id}', [UserController::class, 'edit'])
+->name('admin.users.edit')->middleware('auth', 'is_admin');
+
+Route::put('admin/users/update', [UserController::class, 'update'])
+->name('admin.users.update')->middleware('auth', 'is_admin');
+
+Route::delete('admin/users/delete/{id}', [UserController::class, 'destroy'])
+->name('admin.users.delete')->middleware('auth', 'is_admin');
+
+Route::get('admin/users/create', [UserController::class, 'create'])
+->name('admin.users.create')->middleware('auth', 'is_admin');
+
+Route::post('admin/users/store', [UserController::class, 'store'])
+->name('admin.users.store')->middleware('auth', 'admin');
+
 Auth::routes();
 
 //FRONT-END ROUTES
