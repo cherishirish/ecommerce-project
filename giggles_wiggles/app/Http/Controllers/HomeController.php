@@ -27,4 +27,5 @@ class HomeController extends Controller
         $title = 'Home';
         return view('home', compact('title'));
     }
+
 }
