@@ -43,6 +43,9 @@ Route::delete('admin/users/delete/{id}', [UserController::class, 'destroy'])
 Route::get('admin/users/create', [UserController::class, 'create'])
 ->name('admin.users.create')->middleware('auth', 'is_admin');
 
+Route::post('admin/users/store', [UserController::class, 'store'])
+->name('admin.users.store')->middleware('auth', 'is_admin');
+
 Auth::routes();
 
 

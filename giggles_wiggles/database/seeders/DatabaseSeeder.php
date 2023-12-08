@@ -20,14 +20,26 @@ class DatabaseSeeder extends Seeder
 
         // Create Admin 
         \App\Models\User::factory()->create([
-            'last_name' => 'Admin',
-            'first_name' => 'User',
+            'last_name' => 'User',
+            'first_name' => 'Admin',
             'email' => 'admin@admin.com',
             'is_admin' => '1',
             'password' => Hash::make('mypass')
         ]);
         // Create 10 users
         \App\Models\User::factory(10)->create();
+
+        // For now, we have 11 users, let generate billing address for each user
+        for($i=1; $i<=11; $i++){
+            \App\Models\Address::factory()->create([
+                'user_id' => $i,
+                'address' => fake()->streetAddress(), 
+                'postal_code' => fake()->postcode(), 
+                'province' => fake()->state(), 
+                'city' => fake()->city(), 
+                'address_type' => 'billing'
+            ]);
+        }
 
         // Create 36 products
         \App\Models\Product::factory(36)->create();
