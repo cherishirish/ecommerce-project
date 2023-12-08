@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontendController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome to GigglesWiggles');
 });
 
 // Admin Dashboard Route
@@ -41,6 +42,11 @@ Route::delete('admin/users/delete/{id}', [UserController::class, 'destroy'])
 Route::get('admin/users/create', [UserController::class, 'create'])
 ->name('admin.users.create')->middleware('auth', 'is_admin');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//FRONT-END ROUTES
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
+Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
+
+
+
