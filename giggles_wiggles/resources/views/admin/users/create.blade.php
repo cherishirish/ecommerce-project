@@ -229,19 +229,19 @@
                             <div class="form-group">
                                 <label for="province">Province</label>
                                 <select class="custom-select" id="province" name="province">
-                                <option value="MB" >Non-Admin</option>
-                                <option value="SK" >Admin</option>
-                                <option value="AB" >Admin</option>
-                                <option value="BC" >Admin</option>
-                                <option value="NS" >Admin</option>
-                                <option value="NB" >Admin</option>
-                                <option value="QO" >Admin</option>
-                                <option value="ON" >Admin</option>
-                                <option value="YT" >Admin</option>
-                                <option value="NT" >Admin</option>
-                                <option value="NU" >Admin</option>
-                                <option value="NL" >Admin</option>
-                                <option value="PE" >Admin</option>
+                                <option value="MB" >MB</option>
+                                <option value="SK" >SK</option>
+                                <option value="AB" >AB</option>
+                                <option value="BC" >BC</option>
+                                <option value="NS" >NS</option>
+                                <option value="NB" >NB</option>
+                                <option value="QC" >QC</option>
+                                <option value="ON" >ON</option>
+                                <option value="YT" >YT</option>
+                                <option value="NT" >NT</option>
+                                <option value="NU" >NU</option>
+                                <option value="NL" >NL</option>
+                                <option value="PE" >PE</option>
                                 </select>
                                 @error('province')
                                     <span class="text-danger">{{$message}}</span>
