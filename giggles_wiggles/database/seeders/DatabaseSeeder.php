@@ -29,19 +29,6 @@ class DatabaseSeeder extends Seeder
         // Create 10 users
         \App\Models\User::factory(10)->create();
 
-        // For now, we have 11 users, let generate billing address for each user
-        for($i=1; $i<=11; $i++){
-            \App\Models\Address::factory()->create([
-                'user_id' => $i,
-                'address' => fake()->streetAddress(), 
-                'postal_code' => fake()->postcode(), 
-                'province' => fake()->state(), 
-                'country' => fake()->country(), 
-                'city' => fake()->city(), 
-                'address_type' => 'billing'
-            ]);
-        }
-
         // Create 36 products
         \App\Models\Product::factory(36)->create();
 
@@ -53,16 +40,16 @@ class DatabaseSeeder extends Seeder
             $image_name3 = 'product_' . $i . '_image_03.png';
             $image_name4 = 'product_' . $i . '_image_04.png';
             $image_name5 = 'product_' . $i . '_image_05.png';
-            
+            // Generate random image locally, the image file name could be like: a1b439cbb6f2b71dbb669bf07614bee5.png. 
+            // This function is not working on Windows Platform due to permission constraints
+            $image_file1 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
+            $image_file2 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
+            $image_file3 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
+            $image_file4 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
+            $image_file5 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
+
             // On Linux platform, let's update the image file name to a specific file name
             if(PHP_OS === 'Linux'){
-                // Generate random image locally, the image file name could be like: a1b439cbb6f2b71dbb669bf07614bee5.png. 
-                // This function is not working on Windows Platform due to permission constraints
-                $image_file1 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
-                $image_file2 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
-                $image_file3 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
-                $image_file4 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
-                $image_file5 = fake()->image(width: 600, height: 600, fullPath: false, dir: storage_path('app/public/images/'));
                 Storage::disk('images')->move($image_file1, $image_name1);
                 Storage::disk('images')->move($image_file2, $image_name2);
                 Storage::disk('images')->move($image_file3, $image_name3);

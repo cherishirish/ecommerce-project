@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('customer_id');
             $table->string('address');
             $table->string('postal_code');
-            $table->string('city');
             $table->string('province');
             $table->string('country');
             $table->enum('address_type', ['billing', 'shipping']);
