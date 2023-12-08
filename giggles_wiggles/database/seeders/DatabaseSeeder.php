@@ -29,6 +29,19 @@ class DatabaseSeeder extends Seeder
         // Create 10 users
         \App\Models\User::factory(10)->create();
 
+        // For now, we have 11 users, let generate billing address for each user
+        for($i=1; $i<=11; $i++){
+            \App\Models\Address::factory()->create([
+                'user_id' => $i,
+                'address' => fake()->streetAddress(), 
+                'postal_code' => fake()->postcode(), 
+                'province' => fake()->state(), 
+                'country' => fake()->country(), 
+                'city' => fake()->city(), 
+                'address_type' => 'billing'
+            ]);
+        }
+
         // Create 36 products
         \App\Models\Product::factory(36)->create();
 
