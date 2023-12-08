@@ -63,7 +63,7 @@ class UserController extends Controller
             'first_name' => 'required|string|min:1|max:255',
             'last_name' => 'required|string|min:1|max:255',
             'email' => 'required|email',
-            'password' =>'required|',
+            'password' =>'required',
             'is_admin' => 'required'
         ]);
 
