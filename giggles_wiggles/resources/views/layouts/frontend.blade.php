@@ -21,14 +21,34 @@
         <!-- Logo on the left -->
         <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
+
+
+
       <div class="col-md-6">
         <!-- Search bar in the middle -->
         <!-- <form id="header-search" class="form-inline "> -->
-          <form id="header-search">
-          <input class="form-control mr-0 " type="search" placeholder="Search here" aria-label="Search">
-          <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
+        <form id="header-search" method="get" action="{{ route('product.index') }}">
+
+
+        
+          <!-- <input class="form-control mr-0" type="search" placeholder="Search here" aria-label="Search"
+                value="<//?= //isset($searchQuery) ? htmlspecialchars($searchQuery) : '' ?>"> -->
+
+                <input class="form-control mr-0" type="search" name="search" 
+                placeholder="Search here" aria-label="Search" 
+                value="{{ request('search') }}">
+
+
+                
+          <input class=searchButton type="submit" value="Search" hidden />
         </form>
       </div>
+
+
+
+
+
+
       <div class="col-md-3 text-right">
         <!-- Login, Register, and Cart icons -->
         <span><a href="#" class="text-dark mx-2 ">Login</a> | <a href="#" class="text-dark mx-2 ">Register</a></span>
@@ -38,7 +58,7 @@
   </div>
 </header>
 
-@include('layouts.nav')
+  @include('layouts.nav')
 
 
 <main>

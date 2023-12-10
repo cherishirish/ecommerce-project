@@ -14,13 +14,24 @@ class ProductController extends Controller
     {
         $title = 'GiggleWiggles Products';
         $categories = Category::all();
-        
-        $category_id = $request->input('category_id');
     
-        if ($category_id) {
-            $products = Product::where('category_id', $category_id)->get();
+        // Get the search query from the request
+        $searchQuery = $request->input('search');
+    
+        if ($searchQuery) {
+            // Perform a search based on the query
+            $products = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')->get();
         } else {
-            $products = Product::all();
+            // Check if a category filter is applied
+            $category_id = $request->input('category_id');
+    
+            if ($category_id) {
+                // Filter products by category
+                $products = Product::where('category_id', $category_id)->get();
+            } else {
+                // If no search query or category filter, get all products
+                $products = Product::all();
+            }
         }
     
         return view('product.index', compact('products', 'categories', 'title'));
@@ -85,4 +96,13 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('search');
+        $results = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')->get();
+    
+        return view('product.index', compact('results'));
+    }
+    
 }
