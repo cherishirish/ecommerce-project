@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
+    function index() {
+        $title = "Home";
+        return view('/home', compact('title'));
+    }
+
+
     function about() {
         $title = "About Us";
         return view('/about', compact('title'));

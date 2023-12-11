@@ -2,15 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-<<<<<<< HEAD
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\PagesController;
-=======
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +18,9 @@ use App\Http\Controllers\PageController;
 |
 */
 
-<<<<<<< HEAD
-
-=======
 // Route::get('/', function () {
 //     return view('home');
 // });
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
 
 // Admin Dashboard Route
 
@@ -58,22 +49,12 @@ Route::post('admin/users/store', [UserController::class, 'store'])
 
 Auth::routes();
 
+
 //FRONT-END ROUTES
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // HOMEPAGE
-<<<<<<< HEAD
-Route::get('/about', [App\Http\Controllers\PagesController::class, 'about'])->name('about'); // ABOUT
-Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('contact'); // CONTACT
-Route::get('/{page}', [FrontendController::class, 'index'])->where('page', 'apparel|furniture|toys|bedding|bathing|gear'); //PAGES
-=======
+
+Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
-
-
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
-
-
-
