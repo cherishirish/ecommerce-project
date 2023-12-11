@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -49,6 +50,11 @@ Route::post('admin/users/store', [UserController::class, 'store'])
 
 Auth::routes();
 
+
+// Admin Categories CRUD
+
+Route::get('admin/categories', [CategoryController::class, 'index'])
+->name('admin.categories')->middleware('auth', 'is_admin');
 
 //FRONT-END ROUTES
 
