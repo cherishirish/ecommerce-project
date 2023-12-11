@@ -70,7 +70,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-  
 
 <!-- shop -->
 <div class="container mt-5">

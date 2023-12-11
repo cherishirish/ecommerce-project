@@ -61,7 +61,7 @@ Route::get('admin/categories', [CategoryController::class, 'index'])
 Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
-Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
