@@ -1,6 +1,5 @@
 /* Import Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:ital@0;1&display=swap');
 
 /* Apply Poppins font to body */
 body {
@@ -26,6 +25,8 @@ body {
     width: 80%; /* Adjust the width as needed */
     margin-right: 10px; /* Add some margin between the search bar and the button */
   }
+
+  
   
   header button {
     width: 15%; /* Adjust the width as needed */
@@ -35,18 +36,35 @@ body {
     display: flex;
     align-items: baseline;
   }
-  #header-search input{
-    border-radius: 50px;
+
+  #header-search input {
+    border-radius: 50px;;
   }
 
-  @media (min-width: 576px){
-    .form-inline .form-control {
-        display: inline-block;
-        width: 80% !important;
-        vertical-align: middle;
-    }
-  }
 
+  .navbar-toggler {
+    background-color: none;
+}
+
+.navbar-toggler-icon {
+  background: linear-gradient(-45deg, #7ac0d2,#E6AAAB);
+    display: block;
+    height: 4px;
+    margin: 7px
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .form-inline .form-control {
+    width: 40%;
+  }
+}
+  
+@media (min-width: 1024px) {
+  .form-inline .form-control {
+    width: 80%;
+  }
+}
+  
   .separator-border {
     border-left: 1px solid #000; 
     height: 20px;
@@ -54,7 +72,6 @@ body {
   
   /* Navbar styles */
   .navbar {
-    font-family: 'Lato', sans-serif;
     width: 100%;
   }
 
@@ -77,9 +94,73 @@ body {
     border-color: #E6AAAB;
   }
 
-  
-  
+  .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+
+  .card-img-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+
+  .custom-hr {
+    border: 0;
+    height: 1px;
+    margin: 50px;
+    background-image: linear-gradient(to right, #f0f0f0, #7BBDD1,#E8A2A6, #f0f0f0);
+}
+
+.card {
+    border: none;
+}
+
+  .rounded-corner {
+    border-radius: 1px 1px 45px 1px !important;
+    }
+
+/* Parallax container */
+.parallax-container {
+    position: relative;
+    height: 200px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* Dark overlay to enhance text visibility */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Centered text within the parallax container */
+  .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
   /* Slider styles */
+<<<<<<< HEAD
 
   /* Content styles */
 
@@ -118,6 +199,9 @@ body {
     border: 1px solid black;
   }
 
+=======
+  /* Add your own styles for the slider container and content */
+>>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
   
   /* Footer styles */
   footer {
@@ -166,11 +250,10 @@ body {
     footer img {
       max-height: 40px; 
     }
-
   }
+  
 
-/* MAIN CONTENT HEADER IMAGE */
-
+  /* MAIN CONTENT HEADER IMAGE */
   .main-header 
   {
     margin:0;
@@ -184,12 +267,10 @@ body {
   }
 
   /* LIST VIEW CARD */
-/* .card-container
-{
 
-} */
-.card {
-  margin-bottom: 50px;
+.star-img {
+  width: 20px; 
+  margin-right: 2px; 
 }
 .card a{
   text-decoration: none;
@@ -212,17 +293,37 @@ body {
 {
   color: rgb(228, 36, 36);
 }
-/* .card-footer
-{
 
-} */
+/* detail carousel */
 
-#breadcrumb
-{
-  background-color: white;
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
 }
-.breadcrumb-item
-{
-  text-transform: capitalize;
 
+#custCarousel .carousel-indicators {
+position: static;
+margin-top:20px;
+}
+
+#custCarousel .carousel-indicators > li {
+width:100px;
+}
+
+#custCarousel .carousel-indicators li img {
+display: block;
+opacity: 0.5;
+}
+
+#custCarousel .carousel-indicators li.active img {
+opacity: 1;
+}
+
+#custCarousel .carousel-indicators li:hover img {
+opacity: 0.75;
+}
+
+.carousel-item img{
+
+width:80%;
 }
