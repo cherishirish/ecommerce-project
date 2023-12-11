@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $title = 'GiggleWiggles Products';
-        $categories = Category::all();
+        // $categories = Category::all();
 
         $categoryName = '';
     
@@ -36,7 +36,7 @@ class ProductController extends Controller
             }
         }
     
-        return view('product.index', compact('products', 'categories', 'title', 'categoryName', 'category_id'));
+        return view('product.index', compact('products', 'title', 'categoryName', 'category_id'));
     }
     
     
@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function show($id)
     {
     $product = Product::with('category')->find($id); // Use 'category' relationship
-    $categories = Category::all();
+
 
     if (!$product) {
         abort(404);
@@ -74,7 +74,7 @@ class ProductController extends Controller
     $categoryName = $product->category ? $product->category->category_name : '';
     $productName = $product->product_name;
 
-    return view('product.show', compact('product', 'categories', 'categoryName', 'productName'));
+    return view('product.show', compact('product', 'categoryName', 'productName'));
     }
 
 
