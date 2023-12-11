@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Slider -->
-<<<<<<< HEAD
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -30,9 +29,6 @@
   </a>
 </div>
 <!-- <div id="carouselExample" class="carousel slide" data-ride="carousel">
-=======
-<div id="carouselExample" class="carousel slide" data-ride="carousel">
->>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
     <div class="carousel-inner">
     <div class="carousel-item active">
         <img src="images/banner-1.jpg" class="d-block w-100" alt="Banner 1">
@@ -62,29 +58,6 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row">
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row">
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-=======
         <div class="row d-flex">
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
@@ -103,7 +76,6 @@
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
->>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
         </div>
     </div>
   </div>
@@ -118,15 +90,12 @@
 </div>
   
 
-<<<<<<< HEAD
 <div class="home_grid">
   <div id="grid_item_one"><img src="images/home_page_fake_image_one.jpg" alt=""></div>
   <div id="grid_item_two"></div>
   <div id="grid_item_three"></div>
   <div id="grid_item_four"></div>
 </div>
-=======
->>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
 
 <!-- shop -->
 <div class="container mt-5">
