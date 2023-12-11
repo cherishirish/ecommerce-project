@@ -29,18 +29,5 @@ class AdminController extends Controller
         return view('admin/index', compact('title', 'customers', 'admin'));
     }
 
-    public function users()
-    {
-        $title = "Users CRUD";
-        $users = User::all();
-        $addresses = Address::all();
-        return view('admin/users', compact('title', 'users', 'addresses'));
-    }
-
-    public function edit($id)
-    {
-        $title = "Edit User";
-        $user = User::where('id', $id)->get();
-        return view('admin.users.edit', compact('title', 'user'));
-    }
+    
 }
