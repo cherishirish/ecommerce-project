@@ -25,7 +25,7 @@ use Illuminate\Support\Str;
             'first_name' => fake()->firstName(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
-            // 'remember_token' => Str::random(10),
+            'remember_token' => Str::random(10),
             // 'password' => Hash::make(Str::random(8)),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         ];
@@ -34,10 +34,10 @@ use Illuminate\Support\Str;
     /**
      * Indicate that the model's email address should be unverified.
      */
-    // public function unverified(): static
-    // {
-    //     return $this->state(fn (array $attributes) => [
-    //         'email_verified_at' => null,
-    //     ]);
-    // }
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'email_verified_at' => null,
+        ]);
+    }
 }
