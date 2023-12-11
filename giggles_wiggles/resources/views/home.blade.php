@@ -88,14 +88,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-  
-
-<div class="home_grid">
-  <div id="grid_item_one"><img src="images/home_page_fake_image_one.jpg" alt=""></div>
-  <div id="grid_item_two"></div>
-  <div id="grid_item_three"></div>
-  <div id="grid_item_four"></div>
-</div>
 
 <!-- shop -->
 <div class="container mt-5">
