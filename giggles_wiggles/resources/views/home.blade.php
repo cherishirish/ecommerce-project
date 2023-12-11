@@ -108,7 +108,7 @@
       <img class="d-block w-100" src="images/banner-1.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="images/banner-1.jpg" alt="Second slide">
+      <img class="d-block w-100" src="images/slider.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="images/banner-1.jpg" alt="Third slide">
@@ -153,21 +153,24 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
-        <div class="row d-flex">
+        <div class="row">
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row d-flex">
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
         </div>
     </div>
     <div class="carousel-item">
-        <div class="row d-flex">
+        <div class="row">
+            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
+            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
+            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
+            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="row">
+            <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="images/product_fake.jpg" alt="First slide"></div>
@@ -184,62 +187,13 @@
   </a>
 </div>
   
-<!-- weekly offer -->
-<!-- <div class="container">
-    <div id="featuredCarousel" class="carousel slide mt-5" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-            <div class="col-6 text-left">
-              <a class="btn btn-primary mb-3 mr-1" href="#featuredCarousel" role="button" data-slide="prev">
-                <i class="fa fa-arrow-left"></i>
-              </a>
-            </div>
-            <div class="col-6 text-right">
-              <a class="btn btn-primary mb-3 " href="#featuredCarousel" role="button" data-slide="next">
-                <i class="fa fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-    </div>
-</div> -->
+
+<div class="home_grid">
+  <div id="grid_item_one"><img src="images/home_page_fake_image_one.jpg" alt=""></div>
+  <div id="grid_item_two"></div>
+  <div id="grid_item_three"></div>
+  <div id="grid_item_four"></div>
+</div>
 
 <!-- shop -->
 <div class="container mt-5">
