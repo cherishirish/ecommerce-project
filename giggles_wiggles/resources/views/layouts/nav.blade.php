@@ -5,7 +5,7 @@
     
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('home') }}">Home</a>
       </li>
       @foreach($categories as $category)
       <li class="nav-item">
