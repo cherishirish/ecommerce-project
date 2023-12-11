@@ -45,22 +45,17 @@
       <div class="col-md-6">
         <!-- Search bar in the middle -->
         <!-- <form id="header-search" class="form-inline "> -->
-        <form id="header-search" method="get" action="{{ route('product.index') }}">
+          <form id="header-search" method="get" action="{{ route('product.search') }}">
+
+                  <input class="form-control mr-0" type="search" name="search" 
+                  placeholder="Search here" aria-label="Search" 
+                  value="{{ request('search') }}">
 
 
-        
-          <!-- <input class="form-control mr-0" type="search" placeholder="Search here" aria-label="Search"
-                value="<//?= //isset($searchQuery) ? htmlspecialchars($searchQuery) : '' ?>"> -->
-
-                <input class="form-control mr-0" type="search" name="search" 
-                placeholder="Search here" aria-label="Search" 
-                value="{{ request('search') }}">
-
-
-                
-          <input class=searchButton type="submit" value="Search" hidden />
-        </form>
-      </div>
+                  
+            <input class=searchButton type="submit" value="Search" hidden />
+          </form>
+        </div>
 
 
 
@@ -133,5 +128,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -13,27 +13,17 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $title = 'GiggleWiggles Products';
-        // $categories = Category::all();
-
         $categoryName = '';
     
-    
-        $searchQuery = $request->input('search');
-    
-        if ($searchQuery) {
-           
-            $products = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')->get();
+
+        $category_id = $request->input('category_id');
+
+        if ($category_id) {
+            $products = Product::where('category_id', $category_id)->get();
+            $category = Category::find($category_id);
+            $categoryName = $category ? $category->category_name : '';
         } else {
-        
-            $category_id = $request->input('category_id');
-    
-            if ($category_id) {
-                $products = Product::where('category_id', $category_id)->get();
-                $category = Category::find($category_id);
-                $categoryName = $category ? $category->category_name : '';
-            } else {
-                $products = Product::all();
-            }
+            $products = Product::all();
         }
     
         return view('product.index', compact('products', 'title', 'categoryName', 'category_id'));
@@ -110,6 +100,7 @@ class ProductController extends Controller
         $results = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')->get();
     
         return view('product.index', compact('results'));
+        
     }
     
 }
