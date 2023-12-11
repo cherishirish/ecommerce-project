@@ -18,6 +18,13 @@ class AdminController extends Controller
     public function index()
     {
         $title = "Admin Dashboard";
+<<<<<<< HEAD
+        return view('admin/index', compact('title', 'customers', 'admin'));
+    }
+
+    
+=======
         return view('admin/index', compact('title'));
     }
+>>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
 }
