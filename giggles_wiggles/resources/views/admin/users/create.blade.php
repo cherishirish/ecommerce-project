@@ -268,8 +268,8 @@
                                 <input type="hidden" name="address_type" id="address_type" value="billing">
 
                             </div>
-                           
                             <button type="submit" class="btn btn-primary">Create</button>
+                           
                         </form>
                         
                     </div>

@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
+
+  @vite(['resources/css/style.css'])
   <title>Giggles Wiggles</title>
 </head>
 <body>
@@ -17,16 +19,36 @@
     <div class="row mt-3" id="header-row">
       <div class="col-md-3">
         <!-- Logo on the left -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
+        <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
+
+
+
       <div class="col-md-6">
         <!-- Search bar in the middle -->
         <!-- <form id="header-search" class="form-inline "> -->
-          <form id="header-search">
-          <input class="form-control mr-0 " type="search" placeholder="Search here" aria-label="Search">
-          <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
+        <form id="header-search" method="get" action="{{ route('product.index') }}">
+
+
+        
+          <!-- <input class="form-control mr-0" type="search" placeholder="Search here" aria-label="Search"
+                value="<//?= //isset($searchQuery) ? htmlspecialchars($searchQuery) : '' ?>"> -->
+
+                <input class="form-control mr-0" type="search" name="search" 
+                placeholder="Search here" aria-label="Search" 
+                value="{{ request('search') }}">
+
+
+                
+          <input class=searchButton type="submit" value="Search" hidden />
         </form>
       </div>
+
+
+
+
+
+
       <div class="col-md-3 text-right">
         <!-- Login, Register, and Cart icons -->
         <span><a href="#" class="text-dark mx-2 ">Login</a> | <a href="#" class="text-dark mx-2 ">Register</a></span>
@@ -36,37 +58,7 @@
   </div>
 </header>
 
-
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary">
-  <div class="container">
-    <!-- Navbar content -->
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Apparel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Furniture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Toys</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bedding</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bathing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="gear.html">Gear</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  @include('layouts.nav')
 
 
 <main>
@@ -80,7 +72,7 @@
     <div class="row">
       <div class="col-md-3">
         <!-- Logo on the left in the footer -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
+        <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
       <div class="col-md-3">
         <!-- Column 1 with links -->
