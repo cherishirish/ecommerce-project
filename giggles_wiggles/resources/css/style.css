@@ -1,3 +1,5 @@
+
+
 /* Import Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -160,7 +162,6 @@ body {
   }
 
   /* Slider styles */
-<<<<<<< HEAD
 
   /* Content styles */
 
@@ -199,9 +200,7 @@ body {
     border: 1px solid black;
   }
 
-=======
   /* Add your own styles for the slider container and content */
->>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
   
   /* Footer styles */
   footer {
@@ -326,4 +325,15 @@ opacity: 0.75;
 .carousel-item img{
 
 width:80%;
+}
+
+
+main {
+    background-color: white;
+}
+
+#breadcrumb
+{
+    background-color: white;
+    text-transform: capitalize;
 }
