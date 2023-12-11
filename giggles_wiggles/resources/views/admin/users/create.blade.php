@@ -20,7 +20,8 @@
     <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" >
     <!-- Custom styles for this template-->
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- Include Vite assets -->
+   
     @vite(['resources/views/admin/css/sb-admin-2.css'])
 
 </head>

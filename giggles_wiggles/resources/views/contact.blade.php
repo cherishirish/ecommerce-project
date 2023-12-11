@@ -11,7 +11,7 @@
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- Contact Form -->
-                <div class="mt-5">
+                <div>
                     <h2>Contact Us</h2>
                     <form action="#" method="post">
                         @csrf
