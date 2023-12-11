@@ -6165,10 +6165,20 @@ a.close.disabled {
   }
 }
 
+/* .carousel-item.active .col{
+  margin: 0 75px;
+} */
+
+div.col{
+  display: inline-flex;
+  justify-content: center;
+  width: 100px;
+}
+
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
-  display: block;
+
 }
 
 .carousel-item-next:not(.carousel-item-left),
