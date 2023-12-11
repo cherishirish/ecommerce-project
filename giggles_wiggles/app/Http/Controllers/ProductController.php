@@ -14,28 +14,31 @@ class ProductController extends Controller
     {
         $title = 'GiggleWiggles Products';
         $categories = Category::all();
+
+        $categoryName = '';
     
-        // Get the search query from the request
+    
         $searchQuery = $request->input('search');
     
         if ($searchQuery) {
-            // Perform a search based on the query
+           
             $products = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')->get();
         } else {
-            // Check if a category filter is applied
+        
             $category_id = $request->input('category_id');
     
             if ($category_id) {
-                // Filter products by category
                 $products = Product::where('category_id', $category_id)->get();
+                $category = Category::find($category_id);
+                $categoryName = $category ? $category->category_name : '';
             } else {
-                // If no search query or category filter, get all products
                 $products = Product::all();
             }
         }
     
-        return view('product.index', compact('products', 'categories', 'title'));
+        return view('product.index', compact('products', 'categories', 'title', 'categoryName', 'category_id'));
     }
+    
     
     
     
@@ -61,16 +64,20 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $products = Product::find($id);
-        $categories = Category::all();
-    
-        if (!$products) {
-        
-            abort(404);
-        }
-    
-        return view('product.show', compact('products', 'categories'));
+    $product = Product::with('category')->find($id); // Use 'category' relationship
+    $categories = Category::all();
+
+    if (!$product) {
+        abort(404);
     }
+
+    $categoryName = $product->category ? $product->category->category_name : '';
+    $productName = $product->product_name;
+
+    return view('product.show', compact('product', 'categories', 'categoryName', 'productName'));
+    }
+
+
     
 
     /**

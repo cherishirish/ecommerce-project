@@ -10,6 +10,21 @@
                 <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
             </div>
 
+
+
+            <nav aria-label="breadcrumb">
+                <ol id="breadcrumb" class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    @if (!empty($categoryName))
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('product.index', ['category_id' => $category_id]) }}">{{ $categoryName }}</a></li>
+                    @endif
+                </ol>
+            </nav>
+
+
+
+
             <!-- Display Search Results or All Products -->
             <h2>{{ isset($results) ? 'Search Results' : 'All Products' }}</h2>
 

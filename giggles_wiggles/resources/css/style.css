@@ -178,3 +178,13 @@ body {
 {
 
 } */
+
+#breadcrumb
+{
+  background-color: white;
+}
+.breadcrumb-item
+{
+  text-transform: capitalize;
+
+}
