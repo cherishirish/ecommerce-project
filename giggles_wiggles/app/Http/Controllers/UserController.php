@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Address;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -55,7 +56,8 @@ class UserController extends Controller
     {
         $title = "Create User";
         $users = User::all();
-        return view('admin/users/create', compact('title', 'users'));
+        $admin = Auth::user();
+        return view('admin/users/create', compact('title', 'users', 'admin'));
     }
 
     public function store(Request $request)
