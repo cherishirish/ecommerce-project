@@ -7,10 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
   @vite(['resources/css/style.css'])
   <title>Giggles Wiggles</title>
 </head>
@@ -38,7 +34,7 @@
 <!-- Header - tablet and desktop view-->
 <header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
-    <div class="row">
+    <div class="row mt-3" id="header-row">
       <div class="col-md-3">
         <!-- Logo on the left -->
         <img src="/images/logo.png" alt="Logo" class="img-fluid">
@@ -48,11 +44,6 @@
 
       <div class="col-md-6">
         <!-- Search bar in the middle -->
-<<<<<<< HEAD
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search here" aria-label="Search">
-          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search text-dark"></i></button>
-=======
         <!-- <form id="header-search" class="form-inline "> -->
         <form id="header-search" method="get" action="{{ route('product.index') }}">
 
@@ -68,7 +59,6 @@
 
                 
           <input class=searchButton type="submit" value="Search" hidden />
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
         </form>
       </div>
 
@@ -88,46 +78,7 @@
   </div>
 </header>
 
-<<<<<<< HEAD
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary">
-  <div class="container">
-    <!-- Navbar content -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Apparel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Furniture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Toys</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bedding</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Bathing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="#">Gear</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</nav>
-=======
   @include('layouts.nav')
->>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
 
 
 <main>

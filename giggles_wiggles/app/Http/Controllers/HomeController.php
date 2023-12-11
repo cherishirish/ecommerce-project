@@ -22,10 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $title = 'Home';
-        return view('home', compact('title'));
+    
+    public function index() {
+        $title = "Home";
+        return view('/home', compact('title'));
     }
 
 }
