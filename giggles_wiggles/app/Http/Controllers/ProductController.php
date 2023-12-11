@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $title = 'GiggleWiggles Products';
-
+        // $categories = Category::all();
 
         $categoryName = '';
     
