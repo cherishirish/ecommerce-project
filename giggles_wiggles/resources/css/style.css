@@ -4,7 +4,7 @@
 /* Apply Poppins font to body */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fff;
+  background-color: #f9edf1;
 }
   
   /* Header styles */
@@ -160,7 +160,48 @@ body {
   }
 
   /* Slider styles */
+<<<<<<< HEAD
+
+  /* Content styles */
+
+  div.home_grid{
+    display: grid;
+    row-gap: 15px;
+    column-gap: 15px;
+    width: 90%;
+    height: 700px;
+    margin: 30px auto;
+  }
+
+  div#grid_item_one{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    border: 1px solid black;
+  }
+
+  div#grid_item_two{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid black;
+  }
+
+  div#grid_item_three{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid black;
+  }
+
+  div#grid_item_four{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+  }
+
+=======
   /* Add your own styles for the slider container and content */
+>>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
   
   /* Footer styles */
   footer {
