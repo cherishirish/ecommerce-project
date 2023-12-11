@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -18,13 +19,10 @@ class AdminController extends Controller
     public function index()
     {
         $title = "Admin Dashboard";
-<<<<<<< HEAD
+        $customers = User::all();
+        $admin = User::where('is_admin', 1)->get();
         return view('admin/index', compact('title', 'customers', 'admin'));
     }
 
     
-=======
-        return view('admin/index', compact('title'));
-    }
->>>>>>> 2d82f84c19589600ebdb2d11943a476f26d1a4b5
 }
