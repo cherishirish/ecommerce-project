@@ -23,7 +23,7 @@
 </div> 
 
 <!-- Full-width black title bar -->
-<div class="container-fluid bg-dark text-light" style="margin: 30px 0" height="200">
+<div class="container-fluid bg-dark text-light py-3 mb-3" height="200">
     <div class="container text-center">
     <h3 class="font-weight-bold">Top Offer Now</h3>
     </div>
