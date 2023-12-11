@@ -64,7 +64,7 @@
 
       <div class="col-md-3 text-right">
          <!-- Login, Register, and Cart icons  -->
-         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
+         <span><a href="{{route('login')}}" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
         </span>
         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
         

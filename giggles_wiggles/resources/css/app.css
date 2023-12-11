@@ -42,6 +42,13 @@ div#admin_sidebar{
     margin-bottom: 40px;
 }
 
+#admin_sidebar ul li a{
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 #admin_header{
     grid-column-start: 1;
     grid-column-end: 5;
