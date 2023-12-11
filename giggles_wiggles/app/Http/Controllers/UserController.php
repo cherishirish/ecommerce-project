@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Address;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -53,13 +56,13 @@ class UserController extends Controller
     {
         $title = "Create User";
         $users = User::all();
-        return view('admin/users/create', compact('title', 'users'));
+        $admin = Auth::user();
+        return view('admin/users/create', compact('title', 'users', 'admin'));
     }
 
     public function store(Request $request)
     {
         $valid=$request->validate([
-            'id' => 'required|integer',
             'first_name' => 'required|string|min:1|max:255',
             'last_name' => 'required|string|min:1|max:255',
             'email' => 'required|email',
@@ -75,13 +78,13 @@ class UserController extends Controller
             'address_type' => 'required'
         ]);
 
-        dd("hi");
-
         $user = User::create($valid);
 
-        $address = Address::create($valid_address);
-
         $user->save();
+
+        $valid_address['user_id'] = $user['id'];
+
+        $address = Address::create($valid_address);
 
         $address->save();
 

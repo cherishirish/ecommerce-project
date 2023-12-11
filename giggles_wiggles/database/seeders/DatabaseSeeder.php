@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
         // Create Admin 
         \App\Models\User::factory()->create([
-            'last_name' => 'Admin',
-            'first_name' => 'User',
+            'last_name' => 'User',
+            'first_name' => 'Admin',
             'email' => 'admin@admin.com',
             'is_admin' => '1',
             'password' => Hash::make('mypass')
@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
                 'address' => fake()->streetAddress(), 
                 'postal_code' => fake()->postcode(), 
                 'province' => fake()->state(), 
-                'country' => fake()->country(), 
                 'city' => fake()->city(), 
                 'address_type' => 'billing'
             ]);

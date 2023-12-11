@@ -177,7 +177,6 @@
                     <div class="row">
 
                         <form method="post" action="{{route('admin.users.store')}}" class="form" enctype="multipart/form-data" novalidate style="width:50%">
-                            @method('POST')
                             @csrf
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
@@ -197,8 +196,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                                value="{{ old('email') }}">
+                                <input autocomplete="off" type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                value="{{old('email')}}">
                                 @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -206,7 +205,7 @@
                             <div class="form-group">
                                 <label for="address">Address</label>
                                 <input type="email" class="form-control" name="address" id="address" aria-describedby="emailHelp"
-                                value="{{ old('address') }}">
+                                value="{{old('address')}}">
                                 @error('address')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -214,7 +213,7 @@
                             <div class="form-group">
                                 <label for="city">City</label>
                                 <input type="email" class="form-control" name="city" id="city" aria-describedby="emailHelp"
-                                value="{{ old('city') }}">
+                                value="{{old('city')}}">
                                 @error('city')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -244,14 +243,14 @@
                                 <label for="postal_code">Postal Code</label>
                                 <input type="postal_code" class="form-control" name="postal_code" id="postal_code" aria-describedby="emailHelp"
                                 value="{{ old('province') }}">
-                                @error('province')
+                                @error('postal_code')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" name="password" id="password"
-                                value="{{ old('password') }}">
+                                >
                                 @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -267,7 +266,8 @@
                                 @enderror 
                             </div>
                             <div>
-                                <input type="hidden" name="address_type" value="billing">
+                                <input type="hidden" name="address_type" id="address_type" value="billing">
+
                             </div>
                            
                             <button type="submit" class="btn btn-primary">Create</button>
