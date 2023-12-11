@@ -195,8 +195,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                                value="{{ old('email') }}">
+                                <input autocomplete="off" type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                value="{{old('email')}}">
                                 @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -204,7 +204,7 @@
                             <div class="form-group">
                                 <label for="address">Address</label>
                                 <input type="email" class="form-control" name="address" id="address" aria-describedby="emailHelp"
-                                value="{{ old('address') }}">
+                                value="{{old('address')}}">
                                 @error('address')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
@@ -212,7 +212,7 @@
                             <div class="form-group">
                                 <label for="city">City</label>
                                 <input type="email" class="form-control" name="city" id="city" aria-describedby="emailHelp"
-                                value="{{ old('city') }}">
+                                value="{{old('city')}}">
                                 @error('city')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror                      
