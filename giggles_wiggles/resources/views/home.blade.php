@@ -23,7 +23,7 @@
 </div> 
 
 <!-- Full-width black title bar -->
-<div class="container-fluid bg-dark text-light py-3" style="margin: 30px 0" height="200">
+<div class="container-fluid bg-dark text-light" style="margin: 30px 0" height="200">
     <div class="container text-center">
     <h3 class="font-weight-bold">Top Offer Now</h3>
     </div>
@@ -139,11 +139,6 @@
     </div>
 </div>
 
-  <!-- Parallax Container -->
-<div class="parallax-container" style="background-image: url('/images/parallax.jpg');">
-    <div class="overlay"></div>
-    <div class="parallax-text">Subscribe to Newsletter</div>
-  </div>
 
 
 @endsection
