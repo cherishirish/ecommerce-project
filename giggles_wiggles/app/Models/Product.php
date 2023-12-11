@@ -18,4 +18,8 @@ class Product extends Model
         'quantity',
         'gender'
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

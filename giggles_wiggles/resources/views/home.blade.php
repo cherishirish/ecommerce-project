@@ -1,137 +1,8 @@
-<<<<<<< HEAD
 @extends('layouts.frontend')
 
 @section('content')
 <!-- Slider -->
 <div id="carouselExample" class="carousel slide" data-ride="carousel">
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  @vite(['resources/css/sb-admin-2.css'])
-
-  @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css'])
-  
-  <title>Giggles Wiggles</title>
-</head>
-<body>
-
-<!-- Header - mobile view-->
-<header class="bg-primary pt-5 d-md-none">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-        <!-- Logo on the left -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
-      </div>
-     
-      <div class="col-sm-9 text-right">
-         <!-- Login, Register, and Cart icons  -->
-         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
-         </span>
-         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Header - tablet and desktop view-->
-<header class="bg-primary pt-5 d-none d-sm-none d-md-block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <!-- Logo on the left -->
-        <img src="images/logo.png" alt="Logo" class="img-fluid">
-      </div>
-      <div class="col-md-6">
-        <!-- Search bar in the middle -->
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search here" aria-label="Search">
-          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search text-dark"></i></button>
-        </form>
-      </div>
-      <div class="col-md-3 text-right">
-         <!-- Login, Register, and Cart icons  -->
-         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
-        </span>
-        <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
-        
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary">
-  <div class="container">
-    <!-- Navbar content -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="apparel.html">Apparel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="furniture.html">Furniture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="toys.html">Toys</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="bedding.html">Bedding</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="bathing.html">Bathing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="gear.html">Gear</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</nav>
-
-
-<!-- Slider -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="images/banner-1.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/banner-1.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/banner-1.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<!-- <div id="carouselExample" class="carousel slide" data-ride="carousel">
->>>>>>> 121994d1f99925b375f09932256aa0a2c7e6343f
     <div class="carousel-inner">
     <div class="carousel-item active">
         <img src="images/banner-1.jpg" class="d-block w-100" alt="Banner 1">
@@ -149,75 +20,7 @@
         <i class="fas fa-arrow-right text-dark"></i>
         <span class="sr-only">Next</span>
     </a>
-<<<<<<< HEAD
-</div>
-
-<!-- Full-width black title bar -->
-<div class="container-fluid bg-dark text-light py-3">
-    <div class="container text-center">
-    <h3 class="font-weight-bold">Top Offer Now</h3>
-    </div>
-</div>
-  
-<!-- weekly offer -->
-<div class="container">
-    <div id="featuredCarousel" class="carousel slide mt-5" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 py-3">
-                        <img src="images/product-1.jpg" class="d-block w-100" alt="Product 1">
-                        <div class="carousel-caption">
-                        <h5>Product 1</h5>
-                        <p>Description goes here</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-            <div class="col-6 text-left">
-              <a class="btn btn-primary mb-3 mr-1" href="#featuredCarousel" role="button" data-slide="prev">
-                <i class="fa fa-arrow-left"></i>
-              </a>
-            </div>
-            <div class="col-6 text-right">
-              <a class="btn btn-primary mb-3 " href="#featuredCarousel" role="button" data-slide="next">
-                <i class="fa fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-    </div>
-</div>
-
-=======
-</div> -->
+</div> 
 
 <!-- Full-width black title bar -->
 <div class="container-fluid bg-dark text-light py-3" style="margin: 30px 0" height="200">
@@ -317,7 +120,6 @@
     </div>
 </div> -->
 
->>>>>>> 121994d1f99925b375f09932256aa0a2c7e6343f
 <!-- shop -->
 <div class="container mt-5">
     <div class="row">
@@ -392,10 +194,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-
-@endsection
-=======
   <!-- Parallax Container -->
 <div class="parallax-container" style="background-image: url('images/parallax.jpg');">
     <div class="overlay"></div>
@@ -449,4 +247,3 @@
 
 </body>
 </html>
->>>>>>> 121994d1f99925b375f09932256aa0a2c7e6343f

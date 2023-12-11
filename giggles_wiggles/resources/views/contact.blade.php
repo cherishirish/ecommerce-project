@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.frontend')
 
 @section('content')
@@ -40,3 +41,6 @@
 </section>
 
 @endsection
+=======
+contact
+>>>>>>> 2e0166c729c247bebfee7ca488384fc55d8d0986
