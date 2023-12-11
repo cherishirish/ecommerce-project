@@ -59,8 +59,3 @@ Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
-
-
-
-
-

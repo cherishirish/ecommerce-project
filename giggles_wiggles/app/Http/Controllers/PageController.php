@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
-    function index() {
+    public function index() {
         $title = "Home";
         return view('/home', compact('title'));
     }
