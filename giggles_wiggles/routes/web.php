@@ -52,6 +52,7 @@ Auth::routes();
 
 //FRONT-END ROUTES
 
+Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
