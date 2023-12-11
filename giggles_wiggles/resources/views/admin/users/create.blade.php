@@ -22,7 +22,7 @@
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
     <!-- Include Vite assets -->
    
-    @vite(['resources/views/admin/css/sb-admin-2.css'])
+    @vite(['resources/css/app.css'])
 
 </head>
 

@@ -22,10 +22,18 @@
       </div>
      
       <div class="col-sm-9 text-right">
-         <!-- Login, Register, and Cart icons  -->
-         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
-         </span>
-         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        <!-- Display login and register links if the user is not authenticated -->
+        @guest
+           <span><a href="{{ route('login') }}" class="text-dark mx-2">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2">Register</a></span>
+         @endguest
+
+         <!-- Display logout link if the user is authenticated -->
+         @auth
+           <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></span>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+             @csrf
+           </form>
+         @endauth
       </div>
     </div>
   </div>
@@ -63,11 +71,18 @@
 
 
       <div class="col-md-3 text-right">
-         <!-- Login, Register, and Cart icons  -->
-         <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
-        </span>
-        <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
-        
+         <!-- Display login and register links if the user is not authenticated -->
+          @guest
+            <span><a href="{{ route('login') }}" class="text-dark mx-2">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2">Register</a></span>
+          @endguest
+
+          <!-- Display logout link if the user is authenticated -->
+          @auth
+            <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          @endauth
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 /*
@@ -63,5 +63,6 @@ Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
+Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE

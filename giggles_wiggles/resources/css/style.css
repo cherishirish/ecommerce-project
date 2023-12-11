@@ -4,7 +4,6 @@
 /* Apply Poppins font to body */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9edf1;
 }
   
   /* Header styles */
@@ -110,6 +109,10 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+  }
+
+  .font-35 {
+    font-size: 35px;
   }
 
   .custom-hr {
