@@ -12,7 +12,6 @@ class PageController extends Controller
         return view('/home', compact('title'));
     }
 
-
     function about() {
         $title = "About Us";
         return view('/about', compact('title'));
