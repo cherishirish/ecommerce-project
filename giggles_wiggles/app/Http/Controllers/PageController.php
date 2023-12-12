@@ -12,6 +12,10 @@ class PageController extends Controller
     public function index(Request $request) {
         $title = "Home";
         $category_id = $request->input('category_id');
+        
+        // Fetch categories before checking category_id
+        $categories = Category::all();
+    
         if ($category_id) {
             $products = Product::where('category_id', $category_id)->get();
             $category = Category::find($category_id);
@@ -20,24 +24,25 @@ class PageController extends Controller
             $products = Product::all();
             $categoryName = ''; // Set a default value when not filtering by category
         }
-
-        $categories = Category::all();
-
-        return view('/home', compact('title','category_id', 'products', 'categoryName', 'categories'));
+        //dd($categories);
+        return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories'));
     }
-
+    
     function about() {
         $title = "About Us";
-        return view('/about', compact('title'));
+        $categories = Category::all();
+        return view('/about', compact('title', 'categories'));
     }
 
     function contact() {
         $title = "Contact Us";
-        return view('/contact', compact('title'));
+        $categories = Category::all();
+        return view('/contact', compact('title', 'categories'));
     }
 
     function profile() {
         $title = "Profile";
-        return view('/profile', compact('title'));
+        $categories = Category::all();
+        return view('/profile', compact('title', 'categories'));
     }
 }

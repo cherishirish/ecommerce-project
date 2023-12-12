@@ -186,12 +186,12 @@ body {
     padding: 0;
   }
   
-  footer ul li {
-    margin-bottom: 10px;
-  }
-  
   .bg-primary {
     background-color: #F9EDF1 !important;
+  }
+
+  .blue-font {
+    color: #7AC0D2;
   }
   
   .navbar-dark .navbar-nav .nav-link {
