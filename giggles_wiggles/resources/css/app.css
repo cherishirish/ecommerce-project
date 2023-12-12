@@ -14,8 +14,8 @@
 
 /* Admin Styles */
 
-#admin_grid{
-    display: grid;
+#main{
+    display: flex;
     
 }
 
@@ -26,7 +26,7 @@ div#admin_sidebar{
     grid-row-end: 3;
     position: relative;
     width: 300px;
-    height: 700px;
+    min-height: 800px;
     background-color: rgb(49, 49, 49);
     color: whitesmoke;
 
@@ -34,12 +34,17 @@ div#admin_sidebar{
 
 #admin_sidebar ul{
     list-style-type: none;
-    margin-top: 40px;
+    padding-top: 40px;
 }
 
 #admin_sidebar ul li{
     font-size: 1.2em;
     margin-bottom: 40px;
+}
+
+#admin_sidebar ul li a{
+    text-decoration: none;
+    color: white;
 }
 
 #admin_header{
@@ -72,4 +77,25 @@ div#admin_content{
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 5;
+}
+
+div#statistics{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+
+.stat_card{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.stat_card h2{
+    font-size: 1.5em;
+}
+
+.stat_card h3{
+    font-size: 1em;
 }
