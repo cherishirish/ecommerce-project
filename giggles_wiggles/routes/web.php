@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
+use App\Http\Controllers\SubscriberController;
 
 
 /*
@@ -88,5 +89,9 @@ Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clea
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
 Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+
+// SUBSCRIBE TO NEWSLETTER
+
+Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
 
 
