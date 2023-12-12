@@ -2,10 +2,10 @@
 
 @section('content')
 
-<section class="py-5">
+<section class="py-3">
     <div class="container px-4 px-lg-5">
         <!-- Main Content Header Image-->
-        <div class="main-header mb-5">
+        <div class="main-header mb-3">
             <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
         </div>
 
