@@ -49,7 +49,7 @@ class TaxRateController extends Controller
     {
         $tax_item = TaxRate::where('id', '=', $id)->first();
         $title = 'Edit Tax Rate for ' . $tax_item->province;
-        return view('admin/edit', compact('title', 'tax'));
+        return view('admin/edit', compact('title', 'tax_item'));
     }
 
     /**
