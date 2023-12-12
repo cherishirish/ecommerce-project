@@ -22,7 +22,7 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- About Form -->
                 <div>
-                    <h2>About Us</h2>
+                    <h2>Profile</h2>
                     
                 </div>
             </div>

@@ -4,6 +4,22 @@
 
 <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
+        <div class="main-header mb-5">
+            <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+        </div>
+
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <nav aria-label="breadcrumb">
             <ol id="breadcrumb" class="breadcrumb">
@@ -13,7 +29,6 @@
                         <a href="{{ route('product.index', ['category_id' => $product->category_id]) }}">{{ $categoryName }}</a>
                     </li>
                 @endif
-                <li class="breadcrumb-item active" aria-current="page">{{ $productName }}</li>
             </ol>
         </nav>
 
@@ -30,13 +45,24 @@
                         $ {{ $product->price}}
                     </div>
                     <p class="text-md">{{ $product->description }}</p>
+
+
+
+
+
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            +
-                        </button>
+                        <form id="product-addtocart" action="{{ route('cart.add') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0" type="submit" name="add_to_cart">+</button>
+                        </form>   
                     </div>
+
+
+
+
+
                 </div>
             </div>
         </div>

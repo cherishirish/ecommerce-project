@@ -1,10 +1,11 @@
+
+
 /* Import Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Apply Poppins font to body */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9edf1;
 }
   
   /* Header styles */
@@ -73,6 +74,7 @@ body {
   /* Navbar styles */
   .navbar {
     width: 100%;
+    padding: 25px;
   }
 
   .navbar-expand-lg {
@@ -110,6 +112,10 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+  }
+
+  .font-35 {
+    font-size: 35px;
   }
 
   .custom-hr {
@@ -160,11 +166,49 @@ body {
   }
 
   /* Slider styles */
+
+  /* Content styles */
+
+  div.home_grid{
+    display: grid;
+    row-gap: 15px;
+    column-gap: 15px;
+    width: 90%;
+    height: 700px;
+    margin: 30px auto;
+  }
+
+  div#grid_item_one{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    border: 1px solid black;
+  }
+
+  div#grid_item_two{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid black;
+  }
+
+  div#grid_item_three{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid black;
+  }
+
+  div#grid_item_four{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+  }
+
   /* Add your own styles for the slider container and content */
   
   /* Footer styles */
   footer {
-    padding: 30px 0;
+    padding: 30px 0 0 0;
   }
   
   footer img {
@@ -182,12 +226,12 @@ body {
     padding: 0;
   }
   
-  footer ul li {
-    margin-bottom: 10px;
-  }
-  
   .bg-primary {
     background-color: #F9EDF1 !important;
+  }
+
+  .blue-font {
+    color: #7AC0D2;
   }
   
   .navbar-dark .navbar-nav .nav-link {
@@ -216,8 +260,7 @@ body {
   .main-header 
   {
     margin:0;
-    width: 100%;
-    height: 200px;  
+    width: 100%;  
     overflow: hidden;
   }
   .main-header img
@@ -286,3 +329,92 @@ opacity: 0.75;
 
 width:80%;
 }
+
+.animated-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.animated-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.animated-icon span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.animated-icon span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.animated-icon span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.animated-icon.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0px;
+  left: 8px;
+}
+
+.animated-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.animated-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 21px;
+  left: 8px;
+}
+
+.animated-icon span {
+  background: #000;
+}
+
+button:focus {
+  outline: none;
+  }
