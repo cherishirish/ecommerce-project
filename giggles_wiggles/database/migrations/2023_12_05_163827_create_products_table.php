@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->tinyInteger('availability');
             $table->integer('quantity');
+            $table->string('image')->nullable;
             $table->enum('gender', ['M','F','G']);
             $table->timestamps();
         });
