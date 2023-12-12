@@ -16,12 +16,12 @@
 <header class="bg-primary pt-5 d-md-none">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-4">
         <!-- Logo on the left -->
         <img src="images/logo.png" alt="Logo" class="img-fluid">
       </div>
      
-      <div class="col-sm-9 text-right">
+      <div class="col-sm-8 text-right">
         <!-- Display login and register links if the user is not authenticated -->
         @guest
            <span><a href="{{ route('login') }}" class="text-dark mx-2">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2">Register</a></span>
@@ -29,11 +29,11 @@
 
          <!-- Display logout link if the user is authenticated -->
          @auth
-           <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></span>
-           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-             @csrf
-           </form>
-         @endauth
+            <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          @endauth
       </div>
     </div>
   </div>
@@ -47,28 +47,19 @@
         <!-- Logo on the left -->
         <img src="/images/logo.png" alt="Logo" class="img-fluid">
       </div>
-
-
-
+      
       <div class="col-md-6">
         <!-- Search bar in the middle -->
         <!-- <form id="header-search" class="form-inline "> -->
           <form id="header-search" method="get" action="{{ route('product.search') }}">
 
-                  <input class="form-control mr-0" type="search" name="search" 
+            <input class="form-control mr-0" type="search" name="search" 
                   placeholder="Search here" aria-label="Search" 
                   value="{{ request('search') }}">
-
-
-                  
+                 
             <input class=searchButton type="submit" value="Search" hidden />
           </form>
         </div>
-
-
-
-
-
 
       <div class="col-md-3 text-right">
          <!-- Display login and register links if the user is not authenticated -->
