@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\TaxRateController;
 
 
 /*
@@ -55,6 +56,15 @@ Auth::routes();
 
 Route::get('admin/categories', [CategoryController::class, 'index'])
 ->name('admin.categories')->middleware('auth', 'is_admin');
+
+// Admin TaxRates CRUD
+
+Route::get('admin/tax-rates', [TaxRateController::class, 'index'])
+->name('admin.tax-rates')->middleware('auth', 'is_admin');
+Route::get('admin/tax-rates/edit/{id}', [TaxRateController::class, 'edit'])
+->name('admin.tax-rates.edit')->middleware('auth', 'is_admin');
+Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
+->name('admin.tax-rates.update')->middleware('auth', 'is_admin');
 
 //FRONT-END ROUTES
 

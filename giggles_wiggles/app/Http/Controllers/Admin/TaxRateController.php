@@ -49,7 +49,7 @@ class TaxRateController extends Controller
     {
         $tax_item = TaxRate::where('id', '=', $id)->first();
         $title = 'Edit Tax Rate for ' . $tax_item->province;
-        return view('admin/edit', compact('title', 'tax'));
+        return view('admin/edit', compact('title', 'tax_item'));
     }
 
     /**
@@ -65,7 +65,7 @@ class TaxRateController extends Controller
         ]);
         $tax_item = \App\Models\TaxRate::find($valid['id']);
         $tax_item->update($valid);
-        return redirect(route('admin_tax_index'))->with(['flash' => ['type' => 'success', 'message' => 'Tax Rate updated successfully!']]);
+        return redirect(route('admin_tax_rates'))->with(['flash' => ['type' => 'success', 'message' => 'Tax Rate updated successfully!']]);
 
     }
 
