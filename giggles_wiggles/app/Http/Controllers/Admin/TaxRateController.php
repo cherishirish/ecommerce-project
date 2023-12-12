@@ -47,7 +47,9 @@ class TaxRateController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tax_item = TaxRate::where('id', '=', $id)->first();
+        $title = 'Edit Tax Rate for ' . $tax_item->province;
+        return view('admin/edit', compact('title', 'tax'));
     }
 
     /**
@@ -55,7 +57,16 @@ class TaxRateController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $valid =$request->validate([
+            'id' => 'required|integer',
+            'gst' => 'required|numeric',
+            'gst' => 'required|numeric',
+            'hst' => 'required|numeric',
+        ]);
+        $tax_item = \App\Models\TaxRate::find($valid['id']);
+        $tax_item->update($valid);
+        return redirect(route('admin_tax_index'))->with(['flash' => ['type' => 'success', 'message' => 'Tax Rate updated successfully!']]);
+
     }
 
     /**
@@ -63,6 +74,6 @@ class TaxRateController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
