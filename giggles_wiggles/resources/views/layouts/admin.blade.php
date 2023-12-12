@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{config('app.name', 'Laravel') }}
+                    {{ $title }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -89,7 +89,17 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="main">
+
+            <div id="admin_sidebar">
+                <ul>
+                    <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                    <li><a href="{{route('admin.users')}}">Users</a></li>
+                    <li>Categories</li>
+                    <li>Products</li>
+                    <li><a href="{{route('admix.tax-rates')}}">Users</a></li>
+                </ul>
+            </div>
             @yield('content')
         </main>
     </div>
