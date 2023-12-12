@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Contact;
 
 class PageController extends Controller
 {
@@ -38,6 +39,31 @@ class PageController extends Controller
         $title = "Contact Us";
         $categories = Category::all();
         return view('/contact', compact('title', 'categories'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // Storing the data 
+        $contact = Contact::create([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message'),
+        ]);
+
+        return redirect()->route('page.contact.success')->with('contact_id', $contact->id);
+    }
+
+    public function success()
+    {
+        return view('page.contact.success');
     }
 
     function profile() {

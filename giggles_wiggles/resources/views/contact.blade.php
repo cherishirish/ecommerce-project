@@ -21,7 +21,7 @@
                 <!-- Contact Form -->
                 <div>
                     <h2>Contact Us</h2>
-                    <form action="#" method="post">
+                    <form action="{{ route('page.contact.submit') }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label for="firstname" class="form-label">First Name</label>

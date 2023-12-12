@@ -66,3 +66,5 @@ Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.
 Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
+Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
+Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
