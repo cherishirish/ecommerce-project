@@ -6,6 +6,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\TaxRateController;
 
 
 /*
@@ -56,6 +59,16 @@ Auth::routes();
 Route::get('admin/categories', [CategoryController::class, 'index'])
 ->name('admin.categories')->middleware('auth', 'is_admin');
 
+
+// Admin TaxRates CRUD
+
+Route::get('admin/tax-rates', [TaxRateController::class, 'index'])
+->name('admin.tax-rates')->middleware('auth', 'is_admin');
+Route::get('admin/tax-rates/edit/{id}', [TaxRateController::class, 'edit'])
+->name('admin.tax-rates.edit')->middleware('auth', 'is_admin');
+Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
+->name('admin.tax-rates.update')->middleware('auth', 'is_admin');
+
 //FRONT-END ROUTES
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
@@ -63,5 +76,17 @@ Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
+Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
-Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
+Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
+Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
+Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
+
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
+Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
+Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
+Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+
+

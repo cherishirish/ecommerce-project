@@ -33,32 +33,56 @@
 <!-- Full-width black title bar -->
 <div class="container-fluid bg-dark text-light py-3 mb-3" height="200">
     <div class="container text-center">
-    <h3 class="font-weight-bold">Top Offer Now</h3>
+    <h3 class="font-weight-bold">Top Offers Now</h3>
     </div>
 </div>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
-      <h1>{{$products}}</h1>
         <div class="row d-flex">
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_one['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[0]->product_name}}</h2>
+              </div>
+            </div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_two['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[1]->product_name}}</h2>
+              </div>
+            </div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_three['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[2]->product_name}}</h2>
+              </div>
+            </div>
         </div>
     </div>
     <div class="carousel-item">
         <div class="row d-flex">
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row d-flex">
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
-            <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_four['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[3]->product_name}}</h2>
+              </div>
+            </div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_five['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[4]->product_name}}</h2>
+                <p class="old_price">${{$deals[4]->price - 20}}</p>
+                <p>${{$deals[4]->price}}</p>
+              </div>
+            </div>
+            <div class="col deal_box">
+              <img class="d-block w-30" src="{{$image_six['image']}}" alt="First slide">
+              <div class="deal_info">
+                <h2 class="deal_title">{{$deals[5]->product_name}}</h2>
+              </div>
+            </div>
         </div>
     </div>
   </div>
@@ -76,13 +100,13 @@
 <div class="container mt-5">
     <div class="row">
       <!-- Left column with one big image, title, and button -->
-        <div class="col-md-8 position-relative mb-3">
-            <img src="/images/grid-big.webp" class="img-fluid" alt="Big Image">
-            <div class="image-overlay">
-            <h5 class="card-title">Big Image Title</h5>
-            <a href="#" class="btn btn-primary">View Details</a>
-            </div>
-        </div>
+      <div class="col-md-8 position-relative mb-3">
+          <img src="/images/grid-apparel.jpg" class="img-fluid" alt="Big Image">
+          <div class="image-overlay">
+          <h2 class="card-title font-35">Apparel</h2>
+          <a href="{{ route('product.index', ['category_id' => 1]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
+          </div>
+      </div>
   
       <!-- Right column with three images matching the height of the left side image -->
       <div class="col-md-4">
@@ -90,22 +114,24 @@
           <div class="col-md-12 mb-3">
             <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 1">
             <div class="image-overlay">
-                <h5 class="card-title">Big Image Title</h5>
-                <a href="#" class="btn btn-primary">View Details</a>
+                <h5 class="card-title font-35">Furniture</h5>
+                <a href="{{ route('product.index', ['category_id' => 2]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
             </div>
           </div>
           <div class="col-md-12 mb-3">
             <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 2">
             <div class="image-overlay">
-                <h5 class="card-title">Big Image Title</h5>
-                <a href="#" class="btn btn-primary">View Details</a>
+                <h5 class="card-title font-35">Toys</h5>
+                <a href="{{ route('product.index', ['category_id' => 3]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
+            
             </div>
           </div>
           <div class="col-md-12">
             <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 3">
             <div class="image-overlay">
-                <h5 class="card-title">Big Image Title</h5>
-                <a href="#" class="btn btn-primary">View Details</a>
+                <h5 class="card-title font-35">Bedding</h5>
+                <a href="{{ route('product.index', ['category_id' => 4]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
+            
             </div>
           </div>
         </div>
@@ -120,8 +146,8 @@
     <div class="row">
       <!-- First column with a big title, centered and left-aligned, and a "Shop Now" button -->
       <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
-        <h2 class="font-weight-bold text-center mb-4">Big Title</h2>
-        <a href="#" class="btn btn-primary">Shop Now</a>
+        <h2 class="font-weight-bold text-center mb-4">Our Bestsellers</h2>
+        <a href="#" class="btn btn-primary text-dark font-weight-bold">Shop Now</a>
       </div>
   
       <!-- Second column with two cards -->
