@@ -25,7 +25,7 @@
          <!-- Login, Register, and Cart icons  -->
          <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
          </span>
-         <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+         <span class="pl-2"><a href="{{ route('cart.show') }}"><i class="fas fa-shopping-cart text-dark"></i></a></span>
       </div>
     </div>
   </div>
@@ -60,13 +60,15 @@
 
 
 
-
-
       <div class="col-md-3 text-right">
          <!-- Login, Register, and Cart icons  -->
          <span><a href="#" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
         </span>
-        <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        <span class="pl-2"><a href="{{ route('cart.show') }}"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        @if(session()->has('cart'))
+            <?php $itemCount = array_sum(array_column(session('cart'), 'quantity')); ?>
+            <span class="cart-badge">{{ $itemCount }}</span>
+        @endif
         
       </div>
     </div>
@@ -74,8 +76,7 @@
 </header>
 
   @include('layouts.nav')
-
-
+ 
 <main>
     @yield('content')
 </main>
@@ -128,6 +129,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".alert").fadeTo(1000, 500).slideUp(500, function(){
+            $(this).slideUp(500);
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -65,3 +66,11 @@ Route::get('/product/search', [ProductController::class, 'search'])->name('produ
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
+
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
+Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
+Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
+
+
