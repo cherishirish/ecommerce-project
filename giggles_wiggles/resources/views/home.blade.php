@@ -40,6 +40,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
+      <h1>{{$products}}</h1>
         <div class="row d-flex">
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
             <div class="col"><img class="d-block w-30" src="/images/product_fake.jpg" alt="First slide"></div>
