@@ -133,6 +133,31 @@ body {
     border-radius: 1px 1px 45px 1px !important;
     }
 
+/* Deals carousel */
+
+.deal_box{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.deal_title{
+  font-size: 1.3em;
+}
+
+.deal_info{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.old_price{
+  text-decoration: line-through;
+  color: rgb(129, 128, 128);
+}
+
 /* Parallax container */
 .parallax-container {
     position: relative;
