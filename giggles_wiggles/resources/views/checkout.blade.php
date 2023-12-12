@@ -10,9 +10,12 @@
             <h3>User Details</h3>
             <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
             <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-            <p><strong>Address:</strong> {{ Auth::user()->address }}</p>
-            <p><strong>Province:</strong> {{ Auth::user()->province }}</p>
+            <p><strong>Address:</strong> {{ $address->address }}</p>
+            <p><strong>Postal Code:</strong> {{ $address->postal_code }}</p>
+            <p><strong>City:</strong> {{ $address->city }}</p>
+            <p><strong>Province:</strong> {{ $address->province }}</p>
         </div>
+
         
         <!-- Cart Summary -->
         <div class="col-md-6">
@@ -53,10 +56,19 @@
             
             <p><strong>Subtotal:</strong> ${{ number_format($subtotal, 2) }}</p>
             <p><strong>GST (5%):</strong> ${{ number_format($gst, 2) }}</p>
-            <p><strong>PST ({{ $taxRates['PST'][$province] * 100 ?? 'N/A' }}%):</strong> ${{ number_format($pst, 2) }}</p>
+            <p>
+                <strong>PST 
+                    (@if(isset($taxRates['PST'][$province]))
+                        {{ $taxRates['PST'][$province] * 100 }}%
+                    @else
+                        N/A
+                    @endif
+                ):</strong> 
+                ${{ number_format($pst, 2) }}
+            </p>
             <p><strong>Total:</strong> ${{ number_format($total, 2) }}</p>
             
-            <a href="{{ route('order.place') }}" class="btn btn-success">Place Order</a>
+            <a href="{{ route('checkout.order') }}" class="btn btn-success">Place Order</a>
         </div>
     </div>
     
