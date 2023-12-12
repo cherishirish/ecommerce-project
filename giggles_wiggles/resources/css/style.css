@@ -72,6 +72,7 @@ body {
   /* Navbar styles */
   .navbar {
     width: 100%;
+    padding: 25px;
   }
 
   .navbar-expand-lg {

@@ -16,15 +16,13 @@
 <header class="bg-primary pt-5 d-md-none">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-12">
         <!-- Logo on the left -->
         <img src="images/logo.png" alt="Logo" class="img-fluid">
-      </div>
-     
-      <div class="col-sm-8 text-right">
+      
         <!-- Display login and register links if the user is not authenticated -->
         @guest
-           <span><a href="{{ route('login') }}" class="text-dark mx-2">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2">Register</a></span>
+           <span><a href="{{ route('login') }}" class="text-dark mx-2 pl-5">Login</a> | <a href="{{ route('register') }}" class="text-dark ml-2">Register</a></span>
          @endguest
 
          <!-- Display logout link if the user is authenticated -->
