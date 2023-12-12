@@ -15,7 +15,7 @@ class TaxRateController extends Controller
     {
         $title = "Tax Rates";
         $tax_list = TaxRate::all();
-        return view('admin/tax/index', compact('tax_list', 'title'));
+        return view('admin/tax-rates/index', compact('tax_list', 'title'));
     }
 
     /**
@@ -49,7 +49,7 @@ class TaxRateController extends Controller
     {
         $tax_item = TaxRate::where('id', '=', $id)->first();
         $title = 'Edit Tax Rate for ' . $tax_item->province;
-        return view('admin/edit', compact('title', 'tax_item'));
+        return view('admin/tax-rates/edit', compact('title', 'tax_item'));
     }
 
     /**
