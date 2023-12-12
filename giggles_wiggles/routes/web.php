@@ -76,8 +76,11 @@ Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name
 Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
+Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
-Route::get('/contact', [PageController:: class, 'contact'])->name('page.about'); // CONTACT PAGE
+Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
+Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
+Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
 Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
