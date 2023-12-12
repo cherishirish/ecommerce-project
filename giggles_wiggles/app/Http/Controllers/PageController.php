@@ -18,8 +18,12 @@ class PageController extends Controller
             $categoryName = $category ? $category->category_name : '';
         } else {
             $products = Product::all();
+            $categoryName = ''; // Set a default value when not filtering by category
         }
-        return view('/home', compact('title','category_id'));
+
+        $categories = Category::all();
+
+        return view('/home', compact('title','category_id', 'products', 'categoryName', 'categories'));
     }
 
     function about() {

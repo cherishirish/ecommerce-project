@@ -85,49 +85,14 @@
 </main>
 
 
-<!-- Footer -->
-<!-- Parallax Container -->
-<div class="parallax-container" style="background-image: url('images/parallax.jpg');">
-    <div class="overlay"></div>
-    <div class="parallax-text">Subscribe to Newsletter</div>
-  </div>
-<footer class="bg-primary text-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <!-- Logo on the left in the footer -->
-        <img src="/images/logo.png" alt="Logo" class="img-fluid">
-      </div>
-      <div class="col-md-3">
-        <!-- Column 1 with links -->
-        <h5 class="text-dark">Column 1</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <!-- Column 2 with links -->
-        <h5 class="text-dark">Column 2</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Link 4</a></li>
-          <li><a href="#">Link 5</a></li>
-          <li><a href="#">Link 6</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <!-- Column 3 with links -->
-        <h5 class="text-dark">Column 3</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Link 7</a></li>
-          <li><a href="#">Link 8</a></li>
-          <li><a href="#">Link 9</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
+
+@include('layouts.footer')
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
