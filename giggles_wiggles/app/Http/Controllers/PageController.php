@@ -51,23 +51,17 @@ class PageController extends Controller
         ]);
         
         // Storing the data 
-        $contact = Contact::create(
-            $valid
-        //     [
-        //     'first_name' => $request->input('first_name'),
-        //     'last_name' => $request->input('last_name'),
-        //     'email' => $request->input('email'),
-        //     'message' => $request->input('message'),
-        // ]
-        );
+        $contact = Contact::create($valid);
 
         return redirect()->route('page.contact.success')->with('contact_id', $contact->id);
     }
 
     public function success()
     {
-        return view('success');
+        $categories = Category::all();
+        return view('success', compact('categories'));
     }
+
 
     function profile() {
         $title = "Profile";
