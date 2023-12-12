@@ -97,6 +97,7 @@
                     <li><a href="{{route('admin.users')}}">Users</a></li>
                     <li>Categories</li>
                     <li>Products</li>
+                    <li><a href="{{route('admix.tax_rates')}}">Users</a></li>
                 </ul>
             </div>
             @yield('content')
