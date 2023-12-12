@@ -28,28 +28,10 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<!-- <div id="carouselExample" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="images/banner-1.jpg" class="d-block w-100" alt="Banner 1">
-    </div>
-    <div class="carousel-item">
-        <img src="images/banner-1.jpg" class="d-block w-100" alt="Banner 2">
-    </div>
-    </div>
-    
-    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-      <i class="fas fa-arrow-left text-dark"></i>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-        <i class="fas fa-arrow-right text-dark"></i>
-        <span class="sr-only">Next</span>
-    </a>
-</div> 
+
 
 <!-- Full-width black title bar -->
-<div class="container-fluid bg-dark text-light" style="margin: 30px 0" height="200">
+<div class="container-fluid bg-dark text-light py-3 mb-3" height="200">
     <div class="container text-center">
     <h3 class="font-weight-bold">Top Offer Now</h3>
     </div>
