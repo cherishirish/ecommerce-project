@@ -18,7 +18,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.categories.create');
+        $title = "Create Category";
+        return view('admin.categories.create', compact('title'));
     }
 
     public function store(Request $request)
@@ -29,13 +30,31 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category created successfully');
+        return redirect()->route('admin.categories')->with('success', 'Category created successfully');
     }
 
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        $title = "Create Category";
+        return view('admin.categories.edit', compact('title','category'));
     }
 
+    public function update(Request $request, Category $category)
+    {
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+        ]);
+
+        $category->update($request->all());
+
+        return redirect()->route('admin.categories')->with('success', 'Category updated successfully');
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->route('admin.categories')->with('success', 'Category deleted successfully');
+    }
 
 }

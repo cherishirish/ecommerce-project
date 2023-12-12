@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="px-4 w-100">
-               
+
+    <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-3">Create Category</a> 
+
     <table class="table">
         <thead>
             <tr>
@@ -22,7 +24,6 @@
                     <a href="{{route('admin.categories.edit', ['id'=>$category->id])}}" class="btn btn-info">Edit</a>
                 </td>
                 <td>
-                    <!-- <a href="{{route('admin.categories.delete', ['id'=>$category->id])}}" class="btn btn-info">Delete</a> -->
                     <form method="post" action="{{route('admin.categories.delete', ['id'=>$category->id])}}" id="delete">
                         @csrf    
                         @method('DELETE')
@@ -34,8 +35,7 @@
         @endforeach
         </tbody>
     </table>
-    <!-- <a href="{{route('admin.categories.create', ['id'=>$category->id])}}" class="btn btn-info">Create</a> -->
- 
+    
 </div>
     
 @endsection
