@@ -25,11 +25,11 @@
                         @csrf
                         <div class="mb-3">
                             <label for="firstname" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" required>
+                            <input type="text" class="form-control" id="firstname" name="first_name" required>
                         </div>
                         <div class="mb-3">
                             <label for="lastname" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            <input type="text" class="form-control" id="lastname" name="last_name" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -41,6 +41,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+
                 </div>
             </div>
         </div>

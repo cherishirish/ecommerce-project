@@ -43,27 +43,30 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
+        $valid = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string',
         ]);
-
+        
         // Storing the data 
-        $contact = Contact::create([
-            'firstname' => $request->input('firstname'),
-            'lastname' => $request->input('lastname'),
-            'email' => $request->input('email'),
-            'message' => $request->input('message'),
-        ]);
+        $contact = Contact::create(
+            $valid
+        //     [
+        //     'first_name' => $request->input('first_name'),
+        //     'last_name' => $request->input('last_name'),
+        //     'email' => $request->input('email'),
+        //     'message' => $request->input('message'),
+        // ]
+        );
 
         return redirect()->route('page.contact.success')->with('contact_id', $contact->id);
     }
 
     public function success()
     {
-        return view('page.contact.success');
+        return view('success');
     }
 
     function profile() {
