@@ -45,18 +45,24 @@
               <img class="d-block w-30" src="{{$image_one['image']}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[0]->product_name}}</h2>
+                <p class="old_price">${{$deals[0]->price - 20}}</p>
+                <p>${{$deals[0]->price}}</p>
               </div>
             </div>
             <div class="col deal_box">
               <img class="d-block w-30" src="{{$image_two['image']}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[1]->product_name}}</h2>
+                <p class="old_price">${{$deals[1]->price - 20}}</p>
+                <p>${{$deals[1]->price}}</p>
               </div>
             </div>
             <div class="col deal_box">
               <img class="d-block w-30" src="{{$image_three['image']}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[2]->product_name}}</h2>
+                <p class="old_price">${{$deals[2]->price - 20}}</p>
+                <p>${{$deals[2]->price}}</p>
               </div>
             </div>
         </div>
@@ -67,6 +73,8 @@
               <img class="d-block w-30" src="{{$image_four['image']}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[3]->product_name}}</h2>
+                <p class="old_price">${{$deals[3]->price - 20}}</p>
+                <p>${{$deals[3]->price}}</p>
               </div>
             </div>
             <div class="col deal_box">
@@ -81,6 +89,8 @@
               <img class="d-block w-30" src="{{$image_six['image']}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[5]->product_name}}</h2>
+                <p class="old_price">${{$deals[5]->price - 20}}</p>
+                <p>${{$deals[5]->price}}</p>
               </div>
             </div>
         </div>
