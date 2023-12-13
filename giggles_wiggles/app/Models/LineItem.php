@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LineItem extends Model
 {
     use HasFactory;
+    protected $table = "line_items";
     protected $fillable = [
         'order_id', 'product_id', 'unit_price', 'name', 'quantity'
     ];
