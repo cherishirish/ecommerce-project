@@ -5,11 +5,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\Admin\TaxRateController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TaxRateController;
+use App\Http\Controllers\Admin\ProductController as AdminProduct;
 
 
 /*
@@ -70,6 +71,45 @@ Route::get('admin/tax-rates/edit/{id}', [TaxRateController::class, 'edit'])
 Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
 ->name('admin.tax-rates.update')->middleware('auth', 'is_admin');
 
+// Admin Product CRUD
+
+
+// List view
+Route::get('admin/products', [AdminProduct::class, 'index'])
+  ->name('product.index')->middleware('auth','is_admin');
+
+// // Add new record
+// Route::get('/admin/athletes/create', [AdminController::class, 'create'])
+//     ->name('admin.create')->middleware('auth','is_admin');
+    
+// Route::post('/admin/athletes', [AdminController::class, 'store'])
+//     ->name('admin.store')->middleware('auth','is_admin');
+
+// // Edit record
+// Route::get('/admin/athletes/edit/{id}', [AdminController::class, 'edit'])
+//     ->name('admin.edit')->middleware('auth','is_admin');
+// Route::put('/admin/athletes/{id}', [AdminController::class, 'update'])
+//     ->name('admin.update')->middleware('auth','admin');
+
+// //Delete
+// Route::delete('/admin/title/{id}', [AdminController::class, 'destroy'])
+//     ->name('admin.destroy')->middleware('auth', 'is_admin');
+
+// //Search
+// Route::post('/admin/athletes/search', [AdminController::class, 'search'])
+//     ->name('admin.search')->middleware('auth', 'is_admin');
+
+// // Detailed view
+// Route::get('/admin/athletes/{id}', [AdminController::class, 'show'])
+// ->name('admin.show')->middleware('auth','is_admin');
+
+
+
+
+
+
+
+
 //FRONT-END ROUTES
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
@@ -93,5 +133,4 @@ Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('
 // SUBSCRIBE TO NEWSLETTER
 
 Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
-
 
