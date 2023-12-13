@@ -33,11 +33,11 @@
 
           <ul class="list-unstyled">
             
-            @foreach($categories as $category)
+          @foreach($categories->where('is_nav', 1) as $category)
             <li class="nav-item">
                 <a class="nav-link text-dark text-uppercase font-weight-bold pl-0" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
             </li>
-            @endforeach
+        @endforeach
             
           </ul>
         </div>

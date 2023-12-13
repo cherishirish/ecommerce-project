@@ -19,11 +19,11 @@
         <li class="nav-item">
           <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('home') }}">Home</a>
         </li>
-        @foreach($categories as $category)
-        <li class="nav-item">
-          <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
-        </li>
-        @endforeach
+        @foreach($categories->where('is_nav', 1) as $category)
+    <li class="nav-item">
+        <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
+    </li>
+@endforeach
         <li class="nav-item">
           <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('page.registry') }}">Registry</a>
         </li>

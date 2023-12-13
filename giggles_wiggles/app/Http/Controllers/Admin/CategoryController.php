@@ -23,15 +23,16 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'category_name' => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+        'category_name' => 'required|string|max:255',
+        'is_nav' => 'required|boolean',
+    ]);
 
-        Category::create($request->all());
+    Category::create($request->all());
 
-        return redirect()->route('admin.categories')->with('success', 'Category created successfully');
-    }
+    return redirect()->route('admin.categories')->with('success', 'Category created successfully');
+}
 
     public function edit($id)
     {
@@ -46,12 +47,13 @@ class CategoryController extends Controller
         $valid = $request->validate([
             'id' => 'required|integer',
             'category_name' => 'required|string|max:255',
+            'is_nav' => 'required|boolean',
         ]);
 
         $category = Category::find($valid['id']);
 
         // Check if the data has been modified
-        if ($category->category_name != $valid['category_name']) {
+        if ($category->category_name != $valid['category_name'] || $category->is_nav != $valid['is_nav']) {
             // Data has been modified, update the record
             $category->update($valid);
 
