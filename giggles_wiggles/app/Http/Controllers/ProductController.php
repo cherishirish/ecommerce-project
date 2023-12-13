@@ -53,17 +53,17 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-    $product = Product::with('category')->find($id); // Use 'category' relationship
+        $product = Product::with('category')->find($id); // Use 'category' relationship
+        $categories = Category::all();
 
+        if (!$product) {
+            abort(404);
+        }
 
-    if (!$product) {
-        abort(404);
-    }
+        $categoryName = $product->category ? $product->category->category_name : '';
+        $productName = $product->product_name;
 
-    $categoryName = $product->category ? $product->category->category_name : '';
-    $productName = $product->product_name;
-
-    return view('product.show', compact('product', 'categoryName', 'productName'));
+        return view('product.show', compact('product', 'categoryName', 'productName','categories'));
     }
 
 

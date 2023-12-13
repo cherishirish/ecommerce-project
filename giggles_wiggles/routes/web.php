@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
@@ -59,7 +59,16 @@ Auth::routes();
 
 Route::get('admin/categories', [CategoryController::class, 'index'])
 ->name('admin.categories')->middleware('auth', 'is_admin');
-
+Route::get('admin/categories/create', [CategoryController::class, 'create'])
+->name('admin.categories.create')->middleware('auth', 'is_admin');
+Route::get('admin/categories/edit/{id}', [CategoryController::class, 'edit'])
+->name('admin.categories.edit')->middleware('auth', 'is_admin');
+Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'destroy'])
+->name('admin.categories.delete')->middleware('auth', 'is_admin');
+Route::put('admin/categories/update', [CategoryController::class, 'update'])
+->name('admin.categories.update')->middleware('auth', 'is_admin');
+Route::post('admin/categories/store', [CategoryController::class, 'store'])
+->name('admin.categories.store')->middleware('auth', 'is_admin');
 
 // Admin TaxRates CRUD
 
