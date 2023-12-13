@@ -50,9 +50,15 @@
 
 
         <div class="cart-btn mb-5">
-            <div class="cart-checkout btn btn-primary"> <a href="{{ route('checkout.index') }}" class="text-white">Checkout</a></div>
+
+        @if(!empty($cart))
+            <div class="cart-checkout btn btn-primary"> 
+                <a href="{{ route('checkout.index') }}" class="text-white">Checkout</a>
+            </div>  
+            <!-- <div class="cart-checkout btn btn-primary"> <a href="{{ route('checkout.index') }}" class="text-white">Checkout</a></div> -->
             <div class="cart-clear btn btn-danger"><a href="{{ route('cart.clear') }}" class="text-white">Clear</a></div>
         </div>
+        @endif
 
 
     </div>
