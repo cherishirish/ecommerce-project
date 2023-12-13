@@ -27,7 +27,7 @@ class PageController extends Controller
             $categoryName = ''; // Set a default value when not filtering by category
         }
 
-        $deals = Product::orderBy('price', 'ASC')->limit(6)->get();
+        $deals = Product::orderBy('price', 'ASC')->limit(8)->get();
 
         // $image_one = Image::where('product_id', $deals[0]->id)->first('image');
 

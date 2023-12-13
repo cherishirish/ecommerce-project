@@ -4,6 +4,8 @@
 
         @section('content')
 
+        
+
         <div id="admin_content">
             <div id="statistics">
                 <div id="stat_card_one" class="stat_card">
