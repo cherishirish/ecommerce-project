@@ -135,6 +135,7 @@ body {
 
 /* Deals carousel */
 
+
 .deal_box{
   width: 175px;
   height: auto;
@@ -142,8 +143,9 @@ body {
 }
 
 .carousel-inner{
-  padding: 20px 80px;
+  padding: 20px 20px;
 }
+
 
 #deal_image{
   display: flex;
@@ -158,15 +160,11 @@ body {
 
 .deal_row{
   height: auto;
+  display: flex;
 }
 
 .deal_title{
   font-size: 1.3em;
-}
-
-.deal_info{
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .old_price{
