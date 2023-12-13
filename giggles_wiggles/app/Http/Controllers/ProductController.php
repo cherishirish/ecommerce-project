@@ -14,8 +14,7 @@ class ProductController extends Controller
     {
         $title = 'GiggleWiggles Products';
         $categoryName = '';
-    
-        $categories = Category::all();
+
         $category_id = $request->input('category_id');
 
         if ($category_id) {
@@ -26,7 +25,7 @@ class ProductController extends Controller
             $products = Product::all();
         }
     
-        return view('product.index', compact('products', 'title', 'categoryName', 'category_id', 'categories'));
+        return view('product.index', compact('products', 'title', 'categoryName', 'category_id'));
     }
     
     
