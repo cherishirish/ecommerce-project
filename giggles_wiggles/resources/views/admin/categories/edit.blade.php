@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    
+
+    <form action="{{ route('admin.categories.update', ['id' => $category->id]) }}" method="POST" class="px-3">
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -8,18 +11,10 @@
     @if(session('info'))
         <div class="alert alert-info">{{ session('info') }}</div>
     @endif
-
-    <form action="{{ route('admin.categories.update', ['id' => $category->id]) }}" method="POST" class="px-3">
         @csrf
         @method('PUT') <!-- Use PUT method for updating -->
 
         <h1>{{ $title }}</h1>
-
-        <!-- Id Field -->
-        <div class="mb-3">
-            <label for="id" class="form-label">ID</label>
-            <input type="text" class="form-control" id="id" name="id" value="{{ $category->id }}" readonly>
-        </div>
 
         <!-- Category Name Field -->
         <div class="mb-3">

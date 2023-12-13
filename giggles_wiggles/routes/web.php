@@ -32,6 +32,7 @@ use App\Http\Controllers\SubscriberController;
 Route::get('admin/dashboard', [AdminController::class, 'index'])
 ->name('admin.dashboard')->middleware('auth', 'is_admin');
 
+
 // Admin Users CRUD
 
 Route::get('admin/users', [UserController::class, 'index'])

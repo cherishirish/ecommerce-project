@@ -28,7 +28,7 @@
                         @csrf    
                         @method('DELETE')
         
-                        <button class="btn btn-danger" onclick=confirmDelete(event) id="delete_button">Delete</button>
+                        <button class="btn btn-danger" onclick="return confirm('Do you really want to delete this category?')" id="delete_button">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -39,3 +39,5 @@
 </div>
     
 @endsection
+
+
