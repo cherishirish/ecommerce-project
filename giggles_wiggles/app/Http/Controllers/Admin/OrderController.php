@@ -14,8 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('lineItems')->latest()->paginate(10);
-        dd($orders);
+        $title = "Orders";
+        $orders = Order::with('user', 'lineItems')->latest()->paginate(12);
+        return view('admin/orders/index', compact('title', 'orders'));
     }
 
     /**
