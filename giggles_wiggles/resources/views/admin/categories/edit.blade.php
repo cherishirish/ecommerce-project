@@ -13,12 +13,12 @@
         @csrf
         @method('PUT') <!-- Use PUT method for updating -->
 
-        <h1>Edit Category</h1>
+        <h1>{{ $title }}</h1>
 
         <!-- Id Field -->
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
-            <input type="text" class="form-control" id="id" name="id" value="{{ old('id', $category->id) }}" readonly>
+            <input type="text" class="form-control" id="id" name="id" value="{{ $category->id }}" readonly>
         </div>
 
         <!-- Category Name Field -->
@@ -30,4 +30,3 @@
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 @endsection
-  

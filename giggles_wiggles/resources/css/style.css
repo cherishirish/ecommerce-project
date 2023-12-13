@@ -1,5 +1,5 @@
 
-
+@import 'bootstrap/dist/css/bootstrap.min.css';
 /* Import Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -156,6 +156,18 @@ body {
 .old_price{
   text-decoration: line-through;
   color: rgb(129, 128, 128);
+}
+
+.alert-success{
+  margin-bottom: 0 !important;
+  text-align: center;
+  background-color: rgb(145, 232, 145);
+}
+
+.alert-danger{
+  margin-bottom: 0 !important;
+  text-align: center;
+  background-color: rgb(214, 106, 106);
 }
 
 /* Parallax container */
@@ -443,3 +455,34 @@ width:80%;
 button:focus {
   outline: none;
   }
+
+.cart-icon {
+    position: relative;
+    /* other styles */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px; /* Adjust as necessary */
+    right: -10px; /* Adjust as necessary */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  font-style: oblique;
+  background-color: white;
+}
+.breadcrumb-item
+{
+  background-color: white;
+  text-transform: capitalize;
+}
+.breadcrumb-item a 
+{
+  color:rgb(129, 128, 128);
+}

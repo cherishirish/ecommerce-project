@@ -42,7 +42,7 @@
     <div class="carousel-item active">
         <div class="row d-flex">
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[0]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[0]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[0]->product_name}}</h2>
                 <p class="old_price">${{$deals[0]->price - 20}}</p>
@@ -50,7 +50,7 @@
               </div>
             </div>
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[1]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[1]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[1]->product_name}}</h2>
                 <p class="old_price">${{$deals[1]->price - 20}}</p>
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[2]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[2]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[2]->product_name}}</h2>
                 <p class="old_price">${{$deals[2]->price - 20}}</p>
@@ -70,7 +70,7 @@
     <div class="carousel-item">
         <div class="row d-flex">
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[3]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[3]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[3]->product_name}}</h2>
                 <p class="old_price">${{$deals[3]->price - 20}}</p>
@@ -78,7 +78,7 @@
               </div>
             </div>
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[4]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[4]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[4]->product_name}}</h2>
                 <p class="old_price">${{$deals[4]->price - 20}}</p>
@@ -86,7 +86,7 @@
               </div>
             </div>
             <div class="col deal_box">
-              <img class="d-block w-30" src="{{$deals[5]->image}}" alt="First slide">
+              <img class="d-block w-30" src="/images/products/{{$deals[5]->image}}" alt="First slide">
               <div class="deal_info">
                 <h2 class="deal_title">{{$deals[5]->product_name}}</h2>
                 <p class="old_price">${{$deals[5]->price - 20}}</p>

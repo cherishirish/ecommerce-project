@@ -33,17 +33,27 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories')->with('success', 'Category created successfully');
     }
 
-    public function edit(Category $category)
+    public function edit($id)
     {
-        $title = "Create Category";
+        $title = "Edit Category";
+        $category = Category::where('id', $id)->first();
         return view('admin.categories.edit', compact('title','category'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         // Validate the request data
         $request->validate([
+            'id' => 'required|integer',
             'category_name' => 'required|string|max:255',
+        ]);
+
+        $valid=$request->validate([
+            'id' => 'required|integer',
+            'first_name' => 'required|string|min:1|max:255',
+            'last_name' => 'required|string|min:1|max:255',
+            'email' => 'required|email',
+            'is_admin' => 'required'
         ]);
 
         // Find the category by ID
@@ -64,10 +74,16 @@ class CategoryController extends Controller
         }
     }
 
+    
+        
+
+        
+   
+
     public function destroy($id)
     {
-        $categories = Category::find($id);
-        $categories->delete();
+        $category = Category::find($id);
+        $category->delete();
         
         return redirect()->route('admin.categories')->with('success', 'Category deleted successfully');
     }

@@ -12,6 +12,17 @@
 </head>
 <body>
 
+@if(Session::has('success'))
+<div class="alert alert-success" id="success">
+  {{Session::pull('success')}}
+</div>
+@endif
+
+@if(Session::has('danger'))
+<div class="alert alert-danger" id="success">
+  {{Session::pull('danger')}}
+</div>
+@endif
 <!-- Header - mobile view-->
 <header class="bg-primary pt-5 d-md-none">
   <div class="container">
@@ -23,7 +34,8 @@
         <!-- Display login and register links if the user is not authenticated -->
         @guest
            <span><a href="{{ route('login') }}" class="text-dark mx-2 pl-5">Login</a> | <a href="{{ route('register') }}" class="text-dark ml-2">Register</a></span>
-         @endguest
+        
+        @endguest
 
          <!-- Display logout link if the user is authenticated -->
          @auth
@@ -37,7 +49,6 @@
   </div>
 </header>
 
-<!-- Header - tablet and desktop view-->
 <header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
     <div class="row mt-3" id="header-row">
@@ -60,13 +71,6 @@
         </div>
 
       <div class="col-md-3 text-right">
-
-         <!-- Login, Register, and Cart icons  -->
-         <!-- <span><a href="{{route('login')}}" class="text-dark mx-2">Login</a> | <a href="#" class="text-dark mx-2">Register</a>
-        </span>
-        <span class="pl-2"><a href="#"><i class="fas fa-shopping-cart text-dark"></i></a></span>
-         -->
-
          <!-- Display login and register links if the user is not authenticated -->
           @guest
             <span><a href="{{ route('login') }}" class="text-dark mx-2">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2">Register</a></span>
@@ -80,6 +84,12 @@
             </form>
           @endauth
 
+        <span class="pl-2"><a href="{{ route('cart.show') }}"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+        @if(session()->has('cart'))
+            <?php $itemCount = array_sum(array_column(session('cart'), 'quantity')); ?>
+            <span class="cart-badge">{{ $itemCount }}</span>
+        @endif
+      </a>
       </div>
     </div>
   </div>
@@ -122,7 +132,7 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
+       
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <h5 class="text-uppercase mb-4 blue-font font-weight-bold">Categories</h5>
 
@@ -136,17 +146,24 @@
             
           </ul>
         </div>
-        <!--Grid column-->
+        <!--Grid column -->
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <h5 class="text-uppercase mb-4 blue-font font-weight-bold">Sign up to our newsletter</h5>
-
-          <div class="form-outline form-white mb-4">
-            <input type="email" id="formsubscribe" class="form-control" placeholder="Email address"/>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+          <form action="{{route('home.subscribe')}}" method="post">
+            @csrf
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email address"/>
+            </div>
+            <p>
+              @error('formsubscribe')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+            </p>
+            <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+          </form>
+          
         </div>
         <!--Grid column-->
       </div>

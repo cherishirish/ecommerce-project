@@ -2,8 +2,9 @@
 
     @section('content')
 
-
-                        <table class="table table-dark">
+    <div>
+        <a href="{{route('admin.users.create')}}" class="btn btn-primary"></a>
+    <table class="table table-dark">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -74,5 +75,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+    </div>
+
+                        
 
                     @endsection

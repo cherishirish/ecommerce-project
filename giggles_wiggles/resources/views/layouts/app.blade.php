@@ -34,6 +34,17 @@
     </script>
 </head>
 <body>
+    @if(Session::has('success'))
+    <div class="alert alert-success" id="success">
+    {{Session::pull('success')}}
+    </div>
+    @endif
+
+    @if(Session::has('danger'))
+    <div class="alert alert-danger" id="success">
+    {{Session::pull('danger')}}
+    </div>
+    @endif
     <div id="app" class="admin_header">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
