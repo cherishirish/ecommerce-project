@@ -18,7 +18,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => rand(1,11),
+            'user_id' => rand(1,11),
             'subtotal' => fake()->randomFloat(2, 1, 999),
             'total' => fake()->randomFloat(2, 1, 999),
             'billing_address' => fake()->words(rand(3, 6), true),
