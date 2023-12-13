@@ -92,6 +92,7 @@ Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // 
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
 Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
 Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
+Route::get('/registry', [PageController:: class, 'registry'])->name('page.registry'); // REGISTRY PAGE
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
 Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
@@ -99,6 +100,7 @@ Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clea
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
 Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+
 
 // SUBSCRIBE TO NEWSLETTER
 

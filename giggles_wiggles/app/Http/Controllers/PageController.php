@@ -83,4 +83,10 @@ class PageController extends Controller
         $categories = Category::all();
         return view('/profile', compact('title', 'categories'));
     }
+
+    function registry() {
+        $title = "Gift Registry";
+        $categories = Category::all();
+        return view('/registry', compact('title', 'categories'));
+    }
 }
