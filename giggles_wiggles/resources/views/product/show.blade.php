@@ -37,7 +37,7 @@
 
             <div class="row gx-4 gx-lg-5 align-items-center">                
                 <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
-                    src="/images/bugaboo-dragonfly-complete-stroller-graphite-frame-black-skylineblue4.webp" alt="..." /></div>
+                    src="/images/products/{{ $product->image }}" alt="{{ $product->product_name }}" /></div>
                 <div class="col-md-6">      
                     <div class="small mb-1">BRAND</div>
                     <h1 class="display-5 fw-bolder">{{ $product->product_name }}</h1>
@@ -50,16 +50,17 @@
 
 
 
-            <div class="d-flex">
-                <form id="product-addtocart" action="{{ route('cart.add') }}" method="post">
+            <div class="d-flex align-items-center">
+                <form id="product-addtocart" action="{{ route('cart.add') }}" method="post" class="d-flex align-items-center">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <input class="form-control text-center me-3" id="inputQuantity" 
-                        type="number" name="quantity" placeholder="1" style="max-width: 4rem;"
-                        value="{{ old('quantity', 1) }}" min="1" />
-                    <button class="btn btn-outline-dark flex-shrink-0" type="submit" name="add_to_cart">+</button>
+                    <input class="form-control text-center me-2" id="inputQuantity" 
+                        type="number" name="quantity" placeholder="1" 
+                        style="max-width: 3.5rem;" value="{{ old('quantity', 1) }}" min="1" />
+                    <button class="btn btn-outline-dark m-2" type="submit" name="add_to_cart">+</button>
                 </form>   
             </div>
+
 
 
 
