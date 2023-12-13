@@ -139,7 +139,7 @@ body {
 .deal_box{
   width: 175px;
   height: auto;
-
+  text-align: center;
 }
 
 .carousel-inner{
@@ -161,6 +161,7 @@ body {
 .deal_row{
   height: auto;
   display: flex;
+  padding: 0 80px;
 }
 
 .deal_title{
