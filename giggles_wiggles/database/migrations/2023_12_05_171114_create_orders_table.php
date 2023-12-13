@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id');
+            $table->integer('user_id');
             $table->float('subtotal');
             $table->float('total');
             $table->string('billing_address');
