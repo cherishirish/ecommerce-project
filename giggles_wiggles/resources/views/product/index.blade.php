@@ -42,7 +42,7 @@
                             <div class="card h-100 border-0 p-0">
                                 <!-- Product image -->
                                 <a href="{{ route('product.show', ['id' => $product->id]) }}">
-                                    <img class="card-img-top" src="images/products/{{ $product->image }}" alt="{{  $product->product_name }}" />
+                                    <img class="card-img-top" src="/images/products/{{ $product->image }}" alt="{{  $product->product_name }}" />
                                 </a>
                                 <!-- Product details -->
                                 <div class="card-body pl-3">
