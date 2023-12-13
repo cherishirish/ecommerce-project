@@ -460,3 +460,17 @@ button:focus {
     font-size: 0.8rem;
 }
 
+.breadcrumb {
+  font-size: 14px;
+  font-style: oblique;
+  background-color: white;
+}
+.breadcrumb-item
+{
+  background-color: white;
+  text-transform: capitalize;
+}
+.breadcrumb-item a 
+{
+  color:rgb(129, 128, 128);
+}
