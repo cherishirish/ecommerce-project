@@ -24,15 +24,21 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->user->email }}</td>
-                <td>{{ $order->line_items }}</td>
-                <td>{{ $order->subtotal }}</td>
-                <td>{{ $order->pst }}</td>
-                <td>{{ $order->gst }}</td>
-                <td>{{ $order->hst }}</td>
-                <td>{{ $order->total }}</td>
+                <td>
+                    @foreach($order->lineItems as $item)
+                    <ul>
+                        <li>{{ $item->name }} ()</li>
+                    </ul>
+                    @endforeach
+                </td>
+                <td>{{ '$' . $order->subtotal }}</td>
+                <td>{{ ($order->pst == 0) ? '' : '$' . $order->pst }}</td>
+                <td>{{ ($order->gst == 0) ? '' : '$' . $order->gst }}</td>
+                <td>{{ ($order->hst == 0) ? '' : '$' . $order->hst }}</td>
+                <td>{{ '$' . $order->total }}</td>
                 <td>{{ $order->billing_address }}</td>
                 <td>{{ $order->shipping_address }}</td>
-                <td>{{ $order->shipping_status }}</td>
+                <td>{{ ($order->shipping_status == 0) ? 'Not Shipped' : 'Shipped' }}</td>
                 <td>
                 <a href="{{route('admin.orders.edit', ['id'=>$order->id])}}" class="btn btn-info">Edit</a>
                 </td>
