@@ -7,9 +7,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\TaxRateController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\TaxRateController;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
 
 
@@ -32,6 +33,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProduct;
 
 Route::get('admin/dashboard', [AdminController::class, 'index'])
 ->name('admin.dashboard')->middleware('auth', 'is_admin');
+
 
 // Admin Users CRUD
 
@@ -70,6 +72,17 @@ Route::put('admin/categories/update', [CategoryController::class, 'update'])
 ->name('admin.categories.update')->middleware('auth', 'is_admin');
 Route::post('admin/categories/store', [CategoryController::class, 'store'])
 ->name('admin.categories.store')->middleware('auth', 'is_admin');
+
+// Admin Orders CRUD
+
+Route::get('admin/orders', [AdminOrderController::class, 'index'])
+->name('admin.orders')->middleware('auth', 'is_admin');
+Route::get('admin/orders/edit/{id}', [AdminOrderController::class, 'edit'])
+->name('admin.orders.edit')->middleware('auth', 'is_admin');
+Route::put('admin/orders/update', [AdminOrderController::class, 'update'])
+->name('admin.orders.update')->middleware('auth', 'is_admin');
+Route::delete('admin/orders/delete/{id}', [AdminOrderController::class, 'destroy'])
+->name('admin.orders.delete')->middleware('auth', 'is_admin');
 
 // Admin TaxRates CRUD
 
@@ -131,6 +144,7 @@ Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // 
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
 Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
 Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
+Route::get('/registry', [PageController:: class, 'registry'])->name('page.registry'); // REGISTRY PAGE
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
 Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
@@ -138,6 +152,7 @@ Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clea
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
 Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+
 
 // SUBSCRIBE TO NEWSLETTER
 

@@ -14,22 +14,28 @@ class SeedCategories extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'category_name' => 'apparel'
+            'category_name' => 'apparel',
+            'is_nav' => true
         ]);
         DB::table('categories')->insert([
-            'category_name' => 'furniture'
+            'category_name' => 'furniture',
+            'is_nav' => true
         ]);
         DB::table('categories')->insert([
-            'category_name' => 'toys'
+            'category_name' => 'toys',
+            'is_nav' => true
         ]);
         DB::table('categories')->insert([
-            'category_name' => 'bedding'
+            'category_name' => 'bedding',
+            'is_nav' => true
         ]);
         DB::table('categories')->insert([
-            'category_name' => 'bathing'
+            'category_name' => 'bathing',
+            'is_nav' => true
         ]);
         DB::table('categories')->insert([
-            'category_name' => 'gear'
+            'category_name' => 'gear',
+            'is_nav' => true
         ]);
     }
 }
