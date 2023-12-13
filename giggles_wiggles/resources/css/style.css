@@ -135,28 +135,59 @@ body {
 
 /* Deals carousel */
 
-.deal_box{
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
 
+.deal_box{
+  width: 175px;
+  height: auto;
+  text-align: center;
+}
+
+.carousel-inner{
+  padding: 20px 20px;
+}
+
+
+#deal_image{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+
+.deal_box img{
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px darkgrey;
+  width: 500px;
+}
+
+.deal_row{
+  height: auto;
+  display: flex;
+  padding: 0 80px;
 }
 
 .deal_title{
   font-size: 1.3em;
 }
 
-.deal_info{
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .old_price{
   text-decoration: line-through;
   color: rgb(129, 128, 128);
 }
+
+#carouselExampleControls{
+  margin-top: 20px;
+  background-color: #f9edf1;
+}
+
+#deals_div{
+  background-color: #000;
+}
+
+#deals_container{
+  background-color: #f9edf1;
+}
+
+
+/* flash messages */
 
 .alert-success{
   margin-bottom: 0 !important;

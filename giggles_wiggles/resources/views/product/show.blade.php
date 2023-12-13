@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
+        <div class="container px-4 px-lg-5">
         <div class="main-header mb-5">
             <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
         </div>
