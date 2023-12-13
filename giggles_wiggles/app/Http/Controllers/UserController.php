@@ -42,14 +42,14 @@ class UserController extends Controller
 
         $user->update($valid);
 
-        return redirect(route('admin.users'));
+        return redirect(route('admin.users'))->with('success', 'You have successfully edited a user');
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect(route('admin.users'));
+        return redirect(route('admin.users'))->with('success', 'You have successfully deleted a user');
     }
 
     public function create()
@@ -88,7 +88,7 @@ class UserController extends Controller
 
         $address->save();
 
-        return redirect(route('admin.users'));
+        return redirect(route('admin.users'))->with('success', 'You have successfully created a user');
     }
 
 }
