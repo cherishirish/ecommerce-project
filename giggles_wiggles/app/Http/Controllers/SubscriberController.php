@@ -17,6 +17,6 @@ class SubscriberController extends Controller
 
         $subscriber->save();
 
-        return redirect(route('home'));
+        return redirect(route('home'))->with('success', 'You have successfully subscribed for our newsletter!');
     }
 }
