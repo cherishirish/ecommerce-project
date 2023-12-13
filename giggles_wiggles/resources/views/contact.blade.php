@@ -15,7 +15,6 @@
             </ol>
         </nav>
 
-        
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- Contact Form -->
@@ -25,23 +24,22 @@
                         @csrf
                         <div class="mb-3">
                             <label for="firstname" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstname" name="first_name" required>
+                            <input type="text" class="form-control" id="firstname" name="first_name" value="{{ old('first_name') }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="lastname" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastname" name="last_name" required>
+                            <input type="text" class="form-control" id="lastname" name="last_name" value="{{ old('last_name') }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="4" required>{{ old('message') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-
                 </div>
             </div>
         </div>
