@@ -13,17 +13,20 @@ class CheckoutController extends Controller
     {
    
         if (!Auth::check()) {
-            return redirect()->route('login')->with('url.intended', route('checkout.index'));
+            return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
         }
-    
+        $cart = session('cart', []);
+
+        if (empty($cart)) {
+            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+        }
         $user = Auth::user();
     
-        // Fetch the address associated with the user
+        
         $address = $user->address;
     
         if (!$address) {
-            // Handle the case where the user does not have an address
-            // Redirect back or show a message to update the address
+
             return redirect()->route('some.route')->with('error', 'Please update your address.');
         }
     
