@@ -24,6 +24,9 @@
           <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
         </li>
         @endforeach
+        <li class="nav-item">
+          <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('page.registry') }}">Registry</a>
+        </li>
       </ul>
       <!-- Links -->
     
