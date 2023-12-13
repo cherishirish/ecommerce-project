@@ -140,12 +140,19 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <h5 class="text-uppercase mb-4 blue-font font-weight-bold">Sign up to our newsletter</h5>
-
-          <div class="form-outline form-white mb-4">
-            <input type="email" id="formsubscribe" class="form-control" placeholder="Email address"/>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+          <form action="{{route('home.subscribe')}}" method="post">
+            @csrf
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email address"/>
+            </div>
+            <p>
+              @error('formsubscribe')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+            </p>
+            <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+          </form>
+          
         </div>
         <!--Grid column-->
       </div>
