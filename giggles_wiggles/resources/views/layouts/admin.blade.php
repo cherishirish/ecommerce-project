@@ -106,7 +106,7 @@
                 <ul>
                     <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                     <li><a href="{{route('admin.users')}}">Users</a></li>
-                    <li>Categories</li>
+                    <li><a href="{{route('admin.categories')}}">Categories</a></li>
                     <li>Products</li>
                     <li><a href="{{route('admin.tax-rates')}}">Tax Rates</a></li>
                 </ul>
