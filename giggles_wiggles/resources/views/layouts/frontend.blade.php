@@ -12,6 +12,17 @@
 </head>
 <body>
 
+@if(Session::has('success'))
+<div class="alert alert-success" id="success">
+  {{Session::pull('success')}}
+</div>
+@endif
+
+@if(Session::has('danger'))
+<div class="alert alert-danger" id="success">
+  {{Session::pull('danger')}}
+</div>
+@endif
 <!-- Header - mobile view-->
 <header class="bg-primary pt-5 d-md-none">
   <div class="container">
