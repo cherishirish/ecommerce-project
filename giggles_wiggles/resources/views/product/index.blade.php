@@ -7,7 +7,7 @@
         <div class="container px-4 px-lg-5">
             <!-- Main Content Header Image-->
             <div class="main-header mb-5">
-                <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+                <img src="images/breadcrumb.jpg" alt="Header Image">
             </div>
 
 
@@ -26,7 +26,7 @@
 
 
             <!-- Display Search Results or All Products -->
-            <h2>{{ isset($results) ? 'Search Results' : 'All Products' }}</h2>
+            <h2 style="margin-bottom: 30px;">{{ isset($results) ? 'Search Results' : 'All Products' }}</h2>
 
             @if(isset($results) && $results->isEmpty())
                 <p>No results found for "{{ request('search') }}"</p>
@@ -42,7 +42,7 @@
                             <div class="card h-100 border-0 p-0">
                                 <!-- Product image -->
                                 <a href="{{ route('product.show', ['id' => $product->id]) }}">
-                                    <img class="card-img-top" src="/images/bugaboo-dragonfly-complete-stroller-graphite-frame-black-skylineblue4.webp" alt="..." />
+                                    <img class="card-img-top" src="images/products/{{ $product->image }}" alt="{{  $product->product_name }}" />
                                 </a>
                                 <!-- Product details -->
                                 <div class="card-body pl-3">
