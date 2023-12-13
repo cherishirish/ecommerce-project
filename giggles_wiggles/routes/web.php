@@ -93,16 +93,17 @@ Route::get('admin/tax-rates/edit/{id}', [TaxRateController::class, 'edit'])
 Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
 ->name('admin.tax-rates.update')->middleware('auth', 'is_admin');
 
-// Admin Product CRUD
 
+
+// Admin Product CRUD
 
 // List view
 Route::get('admin/products', [AdminProduct::class, 'index'])
   ->name('product.index')->middleware('auth','is_admin');
 
 // // Add new record
-// Route::get('/admin/athletes/create', [AdminController::class, 'create'])
-//     ->name('admin.create')->middleware('auth','is_admin');
+Route::get('admin/products/create', [AdminProduct::class, 'create'])
+    ->name('product.create')->middleware('auth','is_admin');
     
 // Route::post('/admin/athletes', [AdminController::class, 'store'])
 //     ->name('admin.store')->middleware('auth','is_admin');
