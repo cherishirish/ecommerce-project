@@ -13,7 +13,7 @@ class Order extends Model
         'shipping_address', 'pst', 'gst', 'status'
     ];
 
-    public function customer()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

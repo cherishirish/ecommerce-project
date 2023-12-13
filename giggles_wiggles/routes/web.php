@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SubscriberController;
 
 
@@ -70,6 +71,17 @@ Route::put('admin/categories/update', [CategoryController::class, 'update'])
 ->name('admin.categories.update')->middleware('auth', 'is_admin');
 Route::post('admin/categories/store', [CategoryController::class, 'store'])
 ->name('admin.categories.store')->middleware('auth', 'is_admin');
+
+// Admin Orders CRUD
+
+Route::get('admin/orders', [AdminOrderController::class, 'index'])
+->name('admin.orders')->middleware('auth', 'is_admin');
+Route::get('admin/orders/edit/{id}', [AdminOrderController::class, 'edit'])
+->name('admin.orders.edit')->middleware('auth', 'is_admin');
+Route::put('admin/orders/update', [AdminOrderController::class, 'update'])
+->name('admin.orders.update')->middleware('auth', 'is_admin');
+Route::delete('admin/orders/delete/{id}', [AdminOrderController::class, 'destroy'])
+->name('admin.orders.delete')->middleware('auth', 'is_admin');
 
 // Admin TaxRates CRUD
 
