@@ -5,12 +5,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController as AdminProduct;
 
 
 /*
@@ -92,6 +93,42 @@ Route::get('admin/tax-rates/edit/{id}', [TaxRateController::class, 'edit'])
 Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
 ->name('admin.tax-rates.update')->middleware('auth', 'is_admin');
 
+
+
+// Admin Product CRUD
+
+// List view
+Route::get('admin/products', [AdminProduct::class, 'index'])
+  ->name('admin.products')->middleware('auth','is_admin');
+
+// // Add new record
+Route::get('admin/products/create', [AdminProduct::class, 'create'])
+    ->name('product.create')->middleware('auth','is_admin');
+Route::post('admin/products/store', [AdminProduct::class, 'store'])
+    ->name('product.store')->middleware('auth','is_admin');
+
+// Edit record
+Route::get('admin/products/edit/{id}', [AdminProduct::class, 'edit'])
+    ->name('product.edit')->middleware('auth','is_admin');
+Route::put('admin/products/{id}', [AdminProduct::class, 'update'])
+    ->name('product.update')->middleware('auth','is_admin');
+
+//Delete
+Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
+    ->name('product.destroy')->middleware('auth', 'is_admin');
+
+//Search
+Route::get('/admin/products/search', [AdminProduct::class, 'search'])
+    ->name('admin.product.search')->middleware('auth', 'is_admin');
+
+
+
+
+
+
+
+
+
 //FRONT-END ROUTES
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
@@ -117,5 +154,4 @@ Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('
 // SUBSCRIBE TO NEWSLETTER
 
 Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
-
 
