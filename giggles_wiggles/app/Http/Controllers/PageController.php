@@ -64,12 +64,13 @@ class PageController extends Controller
             'email' => 'required|email|max:255',
             'message' => 'required|string',
         ]);
-        
+
         // Storing the data 
         $contact = Contact::create($valid);
 
-        return redirect()->route('page.contact.success')->with('contact_id', $contact->id);
+        return redirect()->route('page.contact.success')->with('contact_id', $contact->id)->withInput();
     }
+    
 
     public function success()
     {
@@ -82,5 +83,11 @@ class PageController extends Controller
         $title = "Profile";
         $categories = Category::all();
         return view('/profile', compact('title', 'categories'));
+    }
+
+    function registry() {
+        $title = "Gift Registry";
+        $categories = Category::all();
+        return view('/registry', compact('title', 'categories'));
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -29,7 +30,7 @@ class DatabaseSeeder extends Seeder
         // Create 10 users
         \App\Models\User::factory(10)->create();
 
-        // For now, we have 11 users, let generate billing address for each user
+        // For now, we have 11 users, let's generate billing address for each user
         for($i=1; $i<=11; $i++){
             \App\Models\Address::factory()->create([
                 'user_id' => $i,
@@ -122,6 +123,27 @@ class DatabaseSeeder extends Seeder
                'quantity' => $product[5],
                'gender' => $product[6],
                'image' => $product[7]
+           ]);
+       }
+
+       // Generate fake orders
+       \App\Models\Order::factory(60)->create();
+
+       // Generate 2 items for each order
+       for($p=1; $p<=60; $p++){
+           \App\Models\LineItem::factory()->create([
+               'order_id' => $p,
+               'product_id' => rand(1,20),
+               'unit_price' => fake()->randomFloat(2, 1, 99),
+               'name' => fake()->words(rand(3, 6), true),
+               'quantity' => rand(1,10)
+           ]);
+           \App\Models\LineItem::factory()->create([
+               'order_id' => $p,
+               'product_id' => rand(21,40),
+               'unit_price' => fake()->randomFloat(2, 1, 99),
+               'name' => fake()->words(rand(3, 6), true),
+               'quantity' => rand(1,10)
            ]);
        }
 
