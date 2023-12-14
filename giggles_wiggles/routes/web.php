@@ -114,12 +114,12 @@ Route::put('admin/products/{id}', [AdminProduct::class, 'update'])
     ->name('product.update')->middleware('auth','is_admin');
 
 //Delete
-Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
+Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
     ->name('product.destroy')->middleware('auth', 'is_admin');
 
-// //Search
-// Route::post('/admin/athletes/search', [AdminController::class, 'search'])
-//     ->name('admin.search')->middleware('auth', 'is_admin');
+//Search
+Route::get('/admin/products/search', [AdminProduct::class, 'search'])
+    ->name('admin.product.search')->middleware('auth', 'is_admin');
 
 
 

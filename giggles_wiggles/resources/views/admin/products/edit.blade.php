@@ -10,9 +10,9 @@
         <input type="hidden" name="id" value="{{ $product->id }}">
 
         <div class="form-group mb-3">
-            <label for="name">Product Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') ?? $product->product_name }}">
-            @error('name')
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product_name" class="form-control" value="{{ old('product_name') ?? $product->product_name }}">
+            @error('product_name')
             <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

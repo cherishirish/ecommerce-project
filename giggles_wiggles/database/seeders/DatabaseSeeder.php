@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             ['Changing Table', 2, 89.99, 'Make diaper changes a breeze with our convenient changing table. Its designed for efficiency and safety, ensuring your baby is comfortable during every diaper change.', 1, 40, 'G', 'product-12.jpg', null, null],
             ['Rocking Chair', 2, 149.99, 'Soothe your baby with our comfortable rocking chair. Its the perfect addition to your nursery, providing a cozy spot for you and your baby to bond.', 1, 25, 'G', 'product-13.jpg', null, null],
             ['Baby Dresser', 2, 129.99, 'Organize your babys clothes and essentials with our spacious dresser. Its designed to keep everything neat and tidy, making it easier for you to care for your baby.', 1, 35, 'G', 'product-14.jpg', null, null],
-            ['Baby High Chair', 2, 79.99, 'Enjoy mealtime with your baby using our adjustable high chair. Its designed to provide a safe and comfortable eating experience for your little one.', 1, 50, 'G', 'product-15.jpg', null, null],
+            ['Baby High Chair Blue', 2, 79.99, 'Enjoy mealtime with your baby using our adjustable high chair. Its designed to provide a safe and comfortable eating experience for your little one.', 1, 50, 'G', 'product-15.jpg', null, null],
             
             
             ['Baby Bassinet', 2, 69.99, 'Keep your newborn close and cozy with our portable bassinet. Its perfect for naptime and nighttime sleep, ensuring your baby feels secure.', 1, 20, 'G', 'product-16.jpg', null, null],
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             ['Baby Diaper Bag', 6, 49.99, 'Stay organized and stylish with our spacious diaper bag. It features multiple compartments for all your babys essentials.', 1, 60, 'G', 'product-52.jpg', null, null],
             ['Baby Car Seat', 6, 99.99, 'Ensure your babys safety during car rides with our comfortable and secure car seat. Its designed for infants and provides peace of mind.', 1, 35, 'G', 'product-53.jpg', null, null],
             ['Baby Carrier', 6, 39.99, 'Experience hands-free mobility with our ergonomic baby carrier. Its designed for comfort and convenience, allowing you to keep your baby close.', 1, 50, 'G', 'product-54.jpg', null, null],
-            ['Baby Playpen', 6, 69.99, 'Create a safe space for your baby to explore and play with our secure playpen. Its perfect for keeping your baby engaged and protected.', 1, 30, 'G', 'product-55.jpg', null, null],
+            ['Baby Playpen Blue', 6, 69.99, 'Create a safe space for your baby to explore and play with our secure playpen. Its perfect for keeping your baby engaged and protected.', 1, 30, 'G', 'product-55.jpg', null, null],
             ['Baby Monitor', 6, 79.99, 'Keep an eye on your baby with our video baby monitor. It provides real-time monitoring and peace of mind.', 1, 45, 'G', 'product-56.jpg', null, null],
             ['Baby Bouncer', 6, 29.99, 'Keep your baby entertained and comfortable with our bouncing seat. Its perfect for playtime and relaxation.', 1, 55, 'G', 'product-57.jpg', null, null],
             ['Baby Travel Cot', 6, 59.99, 'Ensure your baby has a comfortable sleeping arrangement while traveling with our portable travel cot. Its designed for on-the-go parents.', 1, 25, 'G', 'product-58.jpg', null, null],

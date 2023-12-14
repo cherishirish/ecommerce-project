@@ -99,3 +99,9 @@ div#statistics{
 .stat_card h3{
     font-size: 1em;
 }
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+

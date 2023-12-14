@@ -5,12 +5,11 @@
     <form action="{{ route('product.store') }}" method="post" class="form p-5" enctype="multipart/form-data" novalidate>
         
         @csrf
-        
 
 
         <div class="form-group mb-3">
-            <label for="name">Product Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') ?? '' }}">
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product_name" class="form-control" value="{{ old('product_name') ?? '' }}">
             @error('name')
             <div class="text-danger">{{ $message }}</div>
             @enderror
