@@ -47,4 +47,10 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
+    public function is_admin()
+    {
+        // Check if the user's role is 'admin'
+        return $this->role === 'admin';
+    }
+
 }

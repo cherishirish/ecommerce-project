@@ -29,6 +29,12 @@ use App\Http\Controllers\Admin\ProductController as AdminProduct;
 //     return view('home');
 // });
 
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+
 // Admin Dashboard Route
 
 Route::get('admin/dashboard', [AdminController::class, 'index'])
