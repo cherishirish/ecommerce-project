@@ -23,8 +23,8 @@
                     <td>{{ $product->category->category_name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('products.edit', ['id' => $product->id]) }}">EDIT</a>
-                        <a class="btn btn-danger" href="#" onclick="confirmDelete(<?=e($product['id']) ?>)">DELETE</a>
+                        <a class="btn btn-primary" href="{{ route('product.edit', ['id' => $product->id]) }}">EDIT</a>
+                        <a class="btn btn-danger" href="{{ route('product.destroy', $product->id) }}" onclick="return confirm('Do you really want to delete this product?')">DELETE</a>
                     </td>
                 </tr>
             @endforeach

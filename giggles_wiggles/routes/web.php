@@ -99,32 +99,28 @@ Route::put('admin/tax-rates/update', [TaxRateController::class, 'update'])
 
 // List view
 Route::get('admin/products', [AdminProduct::class, 'index'])
-  ->name('product.index')->middleware('auth','is_admin');
+  ->name('admin.products')->middleware('auth','is_admin');
 
 // // Add new record
 Route::get('admin/products/create', [AdminProduct::class, 'create'])
     ->name('product.create')->middleware('auth','is_admin');
-    
-// Route::post('/admin/athletes', [AdminController::class, 'store'])
-//     ->name('admin.store')->middleware('auth','is_admin');
+Route::post('admin/products/store', [AdminProduct::class, 'store'])
+    ->name('product.store')->middleware('auth','is_admin');
 
-// // Edit record
-// Route::get('/admin/athletes/edit/{id}', [AdminController::class, 'edit'])
-//     ->name('admin.edit')->middleware('auth','is_admin');
-// Route::put('/admin/athletes/{id}', [AdminController::class, 'update'])
-//     ->name('admin.update')->middleware('auth','admin');
+// Edit record
+Route::get('admin/products/edit/{id}', [AdminProduct::class, 'edit'])
+    ->name('product.edit')->middleware('auth','is_admin');
+Route::put('admin/products/{id}', [AdminProduct::class, 'update'])
+    ->name('product.update')->middleware('auth','is_admin');
 
-// //Delete
-// Route::delete('/admin/title/{id}', [AdminController::class, 'destroy'])
-//     ->name('admin.destroy')->middleware('auth', 'is_admin');
+//Delete
+Route::delete('/admin/products/{id}', [AdminController::class, 'destroy'])
+    ->name('product.destroy')->middleware('auth', 'is_admin');
 
 // //Search
 // Route::post('/admin/athletes/search', [AdminController::class, 'search'])
 //     ->name('admin.search')->middleware('auth', 'is_admin');
 
-// // Detailed view
-// Route::get('/admin/athletes/{id}', [AdminController::class, 'show'])
-// ->name('admin.show')->middleware('auth','is_admin');
 
 
 

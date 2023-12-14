@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \View::composer('*', function ($view) {
+        \View::composer('layouts\nav', function ($view) {
             $categories = Category::where('is_nav', true)->take(6)->get();
             $view->with(['categories' => $categories]);
         });
