@@ -9,7 +9,7 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <form method="post" action="{{route('admin.users.store')}}" class="form" enctype="multipart/form-data" novalidate style="width:50%">
+                        <form method="post" action="{{route('product.store')}}" class="form" enctype="multipart/form-data" novalidate style="width:50%">
                             @csrf
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
