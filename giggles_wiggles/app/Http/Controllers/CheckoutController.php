@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\LineItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Pacewdd\_5bx;
+use Pacewdd\Bx\_5bx;
 
 class CheckoutController extends Controller
 {
@@ -67,7 +67,7 @@ class CheckoutController extends Controller
         public function placeOrder(Request $request)
         {
 
-            $transaction = new _5bx(BX_LOGIN_ID, BX_API_KEY);
+            $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
             $transaction->amount(5.99);
             $transaction->card_num(4111111111111111);
             $transaction->exp_date ('0418');
