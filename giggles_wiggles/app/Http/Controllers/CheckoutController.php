@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\LineItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Pacewdd\_5bx;
 
 class CheckoutController extends Controller
 {
@@ -65,6 +66,20 @@ class CheckoutController extends Controller
 
         public function placeOrder(Request $request)
         {
+
+            $transaction = new _5bx(BX_LOGIN_ID, BX_API_KEY);
+            $transaction->amount(5.99);
+            $transaction->card_num(4111111111111111);
+            $transaction->exp_date ('0418');
+            $transaction->cvv(333);
+            $transaction->ref_num('2011099');
+            $transaction->card_type('visa');
+
+            $response = $transaction->authorize_and_capture();
+
+            var_dump($response);
+            die;
+
             if (!Auth::check()) {
                 return redirect()->route('login')->with('error', 'Please login to place an order.');
             }
