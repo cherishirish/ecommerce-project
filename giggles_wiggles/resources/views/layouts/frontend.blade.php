@@ -32,18 +32,26 @@
         <img src="images/logo.png" alt="Logo" class="img-fluid">
       
         <!-- Display login and register links if the user is not authenticated -->
+
+
+        
+
         @guest
            <span><a href="{{ route('login') }}" class="text-dark mx-2 pl-5">Login</a> | <a href="{{ route('register') }}" class="text-dark ml-2">Register</a></span>
         
-        @endguest
-
-         <!-- Display logout link if the user is authenticated -->
-         @auth
-            <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+        @else
+              <!-- @if(auth()->user()->is_admin)  -->
+                <span><a href="{{ route('admin.dashboard') }}" class="text-dark mx-2">Dashboard</a> | 
+                <a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></span>
+              <!-- @else
+              <span><a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a> | 
+              <a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></span>
+              @endif -->
+           
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
             </form>
-          @endauth
+        @endguest
       </div>
     </div>
   </div>
