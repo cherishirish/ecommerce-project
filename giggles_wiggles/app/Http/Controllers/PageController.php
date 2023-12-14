@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Image;
 use App\Models\Order;
+use App\Models\Address;
 
 class PageController extends Controller
 {
@@ -85,7 +86,8 @@ class PageController extends Controller
         $title = "Profile";
         $categories = Category::all();
         $orders = Order::where('user_id', auth()->id())->get();
-        return view('/profile', compact('title', 'categories', 'orders'));
+        $address = Address::all();
+        return view('/profile', compact('title', 'categories', 'orders', 'address'));
     }
 
     public function profileEdit()
@@ -106,15 +108,22 @@ class PageController extends Controller
         ]);
 
         $user = Auth::user();
+        
+        // Update user details
         $user->update([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
-            'address' => $request->input('address'),
         ]);
+
+        // Update address details
+        $address = $user->address ?? new Address();
+        $address->address = $request->input('address');
+        $address->save();
 
         return redirect()->route('page.profile')->with('success', 'Profile changes updated successfully.');
     }
+
 
     function registry() {
         $title = "Gift Registry";

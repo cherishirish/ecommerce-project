@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <th>Address</th>
-                                    <td>{{ Auth::user()->address }}</td>
+                                    <td>{{ optional(Auth::user()->address)->address }}</td>
                                 </tr>
                             </tbody>
                         </table>
