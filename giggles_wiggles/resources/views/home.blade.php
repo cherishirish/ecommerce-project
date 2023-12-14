@@ -31,117 +31,63 @@
 
 
 <!-- Full-width black title bar -->
-<div id="deals_container">
-<div class="container-fluid text-light py-3 mb-3" height="200" id="deals_div">
-    <div class="container text-center" id="top_deals_banner">
-    <h3 class="font-weight-bold">Top Offers Now</h3>
-    </div>
+<div id="weekly_deals">
+  Weekly Deals
 </div>
-
-<div id="carouselExampleControls"  data-bs-wrap=false>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-    <div class="carousel-inner" >
-      <div class="carousel-item active" data-bs-interval=false data-bs-wrap=false>
-          <div class="row deal_row">
+<div id="deals_container">
               <div class="col deal_box">
-              <h2 class="deal_title">{{$deals[0]->product_name}}</h2>
-                <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[0]->image}}" alt="First slide">
+                <div class="deal_image">
+                  <a href="{{ route('product.show', ['id' => $deals[0]->id]) }}">
+                    <img class="d-block w-30" src="images/products/{{$deals[0]->image}}" alt="First slide" id="deal_one">
+                  </a>
                 </div>
+                <h2 class="deal_title">{{$deals[0]->product_name}}</h2>
                 <div class="deal_info">
                     
                     <p class="old_price">${{$deals[0]->price + 10}}</p>
-                    <p>${{$deals[0]->price}}</p>
+                    <p class="deal_price">${{$deals[0]->price}}</p>
                 </div>
               </div>
               <div class="col deal_box">
-              <h2 class="deal_title">{{$deals[1]->product_name}}</h2>
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[1]->image}}" alt="First slide">
+              <div class="deal_image">
+                  <a href="{{ route('product.show', ['id' => $deals[1]->id]) }}">
+                    <img class="d-block w-30" src="images/products/{{$deals[1]->image}}" alt="First slide" id="deal_two">
+                  </a>
                 </div>
+                <h2 class="deal_title">{{$deals[1]->product_name}}</h2>
                 <div class="deal_info">
                     
                     <p class="old_price">${{$deals[1]->price + 10}}</p>
-                    <p>${{$deals[1]->price}}</p>
+                    <p class="deal_price">${{$deals[1]->price}}</p>
                 </div>
               </div>
               <div class="col deal_box">
-              <h2 class="deal_title">{{$deals[2]->product_name}}</h2>
-              <div id="deal_image">
-              
-                  <img class="d-block w-30" src="images/products/{{$deals[2]->image}}" alt="First slide">
+              <div class="deal_image">
+                  <a href="{{ route('product.show', ['id' => $deals[2]->id]) }}">
+                    <img class="d-block w-30" src="images/products/{{$deals[2]->image}}" alt="First slide" id="deal_three">
+                  </a>
                 </div>
+                <h2 class="deal_title">{{$deals[2]->product_name}}</h2>
                 <div class="deal_info">
                     <p class="old_price">${{$deals[2]->price + 10}}</p>
-                    <p>${{$deals[2]->price}}</p>
+                    <p class="deal_price">${{$deals[2]->price}}</p>
                 </div>
               </div>
               <div class="col deal_box">
-              <h2 class="deal_title">{{$deals[3]->product_name}}</h2>
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[3]->image}}" alt="First slide">
-                </div>
+              <div class="deal_image">
+                <a href="{{ route('product.show', ['id' => $deals[3]->id]) }}">
+                  <img class="d-block w-30" src="images/products/{{$deals[3]->image}}" alt="First slide" id="deal_four">
+                </a>
+              </div>
+                <h2 class="deal_title">{{$deals[3]->product_name}}</h2>
                 <div class="deal_info">
                     
                     <p class="old_price">${{$deals[3]->price + 10}}</p>
-                    <p>${{$deals[3]->price}}</p>
+                    <p class="deal_price">${{$deals[3]->price}}</p>
                 </div>
               </div>
           </div>
       </div>
-      <div class="carousel-item">
-          <div class="row d-flex deal_row">
-              <div class="col deal_box">
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[4]->image}}" alt="First slide">
-                </div>
-                <div class="deal_info">
-                    <h2 class="deal_title">{{$deals[4]->product_name}}</h2>
-                    <p class="old_price">${{$deals[4]->price + 10}}</p>
-                    <p>${{$deals[4]->price}}</p>
-                </div>
-              </div>
-              <div class="col deal_box">
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[5]->image}}" alt="First slide">
-                </div>
-                <div class="deal_info">
-                    <h2 class="deal_title">{{$deals[5]->product_name}}</h2>
-                    <p class="old_price">${{$deals[5]->price + 10}}</p>
-                    <p>${{$deals[5]->price}}</p>
-                </div>
-              </div>
-              <div class="col deal_box">
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[6]->image}}" alt="First slide">
-                </div>
-                <div class="deal_info">
-                    <h2 class="deal_title">{{$deals[6]->product_name}}</h2>
-                    <p class="old_price">${{$deals[6]->price + 10}}</p>
-                    <p>${{$deals[6]->price}}</p>
-                </div>
-              </div>
-              <!-- <div class="col deal_box">
-              <div id="deal_image">
-                  <img class="d-block w-30" src="images/products/{{$deals[3]->image}}" alt="First slide">
-                </div>
-                <div class="deal_info">
-                    <h2 class="deal_title">{{$deals[7]->product_name}}</h2>
-                    <p class="old_price">${{$deals[7]->price + 10}}</p>
-                    <p>${{$deals[7]->price}}</p>
-                </div> -->
-              </div>
-          </div>
-      </div>
-    </div>
-</div>
 
   
 </div>
