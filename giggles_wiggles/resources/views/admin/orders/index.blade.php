@@ -42,10 +42,10 @@
                 <td>
                     <a href="{{route('admin.orders.edit', ['id'=>$order->id])}}" class="btn btn-info">Edit</a>
                     <td>
-                    <form method="post" action="{{route('admin.orders.delete', ['id'=>$order->id])}}" id="delete">
+                    <form method="post" action="{{ route('admin.orders.delete', ['id'=>$order->id]) }}" id="delete">
                         @csrf    
                         @method('DELETE')
-                        <button class="btn btn-danger" onclick="return confirm('Do you really want to delete this category?')" id="delete_button">Delete</button>
+                        <button class="btn btn-danger" onclick="return confirm('Do you really want to delete this order?')" id="delete_button">Delete</button>
                     </form>
                 </td>
                 </td>
