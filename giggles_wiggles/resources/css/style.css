@@ -224,7 +224,7 @@ body {
 /* Payment Gateway */
 
 #payment_form{
-  width: 450px;
+  width: 700px;
   box-shadow: 2px 2px 7px darkgrey;
   padding: 20px;
 
@@ -235,6 +235,15 @@ body {
 
 #payment_title{
   font-size: 1.3em;
+}
+
+.checkout_titles{
+  font-size: 1.2em;
+  color: rgb(125, 125, 173);
+}
+
+.checkout_info{
+  margin-bottom: 20px;
 }
 
 

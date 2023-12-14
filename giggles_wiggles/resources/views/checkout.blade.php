@@ -10,18 +10,48 @@
         <!-- User Details -->
         <div class="col-md-6">
             <h3>User Details</h3>
-            <p><strong>Name: </strong> {{ Auth::user()->name }}</p>
-            <p><strong>Email: </strong>{{ Auth::user()->email }}</p>
-            <p><strong>Billing Address:</strong></p>
+            <h4 class="checkout_titles">Name:</h4> <p class="checkout_info">{{ Auth::user()->name }}</p>
+            <h4 class="checkout_titles">Email:</h4><p class="checkout_info">{{ Auth::user()->email }}</p>
+            <h4 class="checkout_titles">Billing Address:</h4>
             <p> {{ $address->address}}</p>
             <p>{{ $address->city . ', ' . $address->province . ', Canada'}}</p>
             <p>{{ $address->postal_code }}</p>
-            <p><strong>Shipping Address:</strong></p>
-            <input type="checkbox" id="shipping_address_different" name="shipping_address_different">
-            <label for="shipping_address_different">Same as billing address</label>
+            <h4 class="checkout_titles">Shipping Address:</h4>
+
+            <div class="form-group">
+            <input type="checkbox" id="shipping_address_different" value=1 class="form-check-input" name="shipping_address_different" onclick="checkShipping()">
+            <label for="shipping_address_different" class="form-check-label">Same as billing address</label>
+            </div>
 
             <div class="form-group">
                 <input type="text" class="form-control" id="address" name="address" placeholder="Street Name and Number">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+            </div>
+            <div class="form-group">
+                                <select class="custom-select" id="province" name="province">
+                                <option value="" disabled selected>Province</option>
+                                <option value="MB" >MB</option>
+                                <option value="SK" >SK</option>
+                                <option value="AB" >AB</option>
+                                <option value="BC" >BC</option>
+                                <option value="NS" >NS</option>
+                                <option value="NB" >NB</option>
+                                <option value="QC" >QC</option>
+                                <option value="ON" >ON</option>
+                                <option value="YT" >YT</option>
+                                <option value="NT" >NT</option>
+                                <option value="NU" >NU</option>
+                                <option value="NL" >NL</option>
+                                <option value="PE" >PE</option>
+                                </select>
+                                @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Postal Code">
             </div>
         </div>
 
