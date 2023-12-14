@@ -56,9 +56,22 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $valid =$request->validate([
+            'id' => 'required|integer',
+            'gst' => 'required|numeric',
+            'gst' => 'required|numeric',
+            'hst' => 'required|numeric',
+            'subtotal' => 'required|numeric',
+            'total' => 'required|numeric',
+            'billing_address' => 'required|string|max:255',
+            'shipping_address' => 'required|string|max:255',
+            'status' => 'required|numeric',
+        ]);
+        $tax_item = \App\Models\Order::find($valid['id']);
+        $tax_item->update($valid);
+        return redirect(route('admin.orders'))->with('success', 'Order Info created successfully');
     }
 
     /**
