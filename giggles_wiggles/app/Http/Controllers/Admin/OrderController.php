@@ -69,8 +69,8 @@ class OrderController extends Controller
             'shipping_address' => 'required|string|max:255',
             'status' => 'required|numeric',
         ]);
-        $tax_item = \App\Models\Order::find($valid['id']);
-        $tax_item->update($valid);
+        $order = \App\Models\Order::find($valid['id']);
+        $order->update($valid);
         return redirect(route('admin.orders'))->with('success', 'Order Info created successfully');
     }
 
@@ -79,6 +79,10 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $order = \App\Models\Order::find($id);
+        $line_items = \App\Models\LineItem::where('order_id', $id);
+        $order->delete();
+        $line_items->delete();
+        return redirect(route('admin.orders'))->with('success', 'Order deleted successfully'); 
     }
 }
