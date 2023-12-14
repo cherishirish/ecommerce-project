@@ -103,8 +103,7 @@ class PageController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'address' => 'required|string|max:255',
+            'email' => 'required|email|max:255'
         ]);
 
         $user = Auth::user();
@@ -116,14 +115,76 @@ class PageController extends Controller
             'email' => $request->input('email'),
         ]);
 
-        // Update address details
-        $address = $user->address ?? new Address();
-        $address->address = $request->input('address');
-        $address->save();
-
         return redirect()->route('page.profile')->with('success', 'Profile changes updated successfully.');
     }
 
+    public function ShippingAddressEdit()
+    {
+        $title = "Edit Shipping Address";
+        $user = Auth::user();
+        $categories = Category::all();
+        return view('shippingaddress_edit', compact('title','categories'));
+    }
+   
+    public function updateShippingAddress(Request $request)
+    {
+        // No need to explicitly check validation, Laravel will handle it
+        $request->validate([
+            'address' => 'required|string|max:255',
+            'postal_code' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+        ]);
+
+        $user = auth()->user();
+
+        // Update or create shipping address
+        $user->address()->updateOrCreate(
+            ['address_type' => 'shipping'],
+            [
+                'address' => $request->input('address'),
+                'postal_code' => $request->input('postal_code'),
+                'city' => $request->input('city'),
+                'province' => $request->input('province'),
+            ]
+        );
+
+        return redirect()->route('page.profile')->with('success', 'Shipping Address updated successfully.');
+    }
+
+    public function BillingAddressEdit()
+    {
+        $title = "Edit Billing Address";
+        $user = Auth::user();
+        $categories = Category::all();
+        return view('billingaddress_edit', compact('title','categories'));
+    }
+   
+    public function updateBillingAddress(Request $request)
+    {
+        // No need to explicitly check validation, Laravel will handle it
+        $request->validate([
+            'address' => 'required|string|max:255',
+            'postal_code' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+        ]);
+
+        $user = auth()->user();
+
+        // Update or create shipping address
+        $user->address()->updateOrCreate(
+            ['address_type' => 'billing'],
+            [
+                'address' => $request->input('address'),
+                'postal_code' => $request->input('postal_code'),
+                'city' => $request->input('city'),
+                'province' => $request->input('province'),
+            ]
+        );
+
+        return redirect()->route('page.profile')->with('success', 'Billing Address updated successfully.');
+    }
 
     function registry() {
         $title = "Gift Registry";

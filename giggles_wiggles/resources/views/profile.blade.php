@@ -40,19 +40,79 @@
                                     <th>Email</th>
                                     <td>{{ Auth::user()->email }}</td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr class="custom-hr">
+
+                    <!-- Edit Shipping Address Button -->
+                    <div class="mb-4">
+                        <a href="{{ route('page.shippingaddress_edit') }}" class="btn btn-primary">Edit Your Shipping Address</a>
+                    </div>
+
+                    <!-- Shipping Address Table -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">Shipping Address Information</h5>
+                        <table class="table table-bordered">
+                            <thead>
                                 <tr>
-                                    <th>Address</th>
-                                    <td>{{ optional(Auth::user()->address)->address }}</td>
+                                    <th>Shipping Address</th>
+                                    <th>City</th>
+                                    <th>Province</th>
+                                    <th>Postal Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ optional(Auth::user()->shippingAddress)->address ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->shippingAddress)->city ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->shippingAddress)->province ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->shippingAddress)->postal_code ?? '-' }}</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+
+                    <hr class="custom-hr">
+
+                    <!-- Edit Billing Address Button -->
+                    <div class="mb-4">
+                        <a href="{{ route('page.billingaddress_edit') }}" class="btn btn-primary">Edit Your Billing Address</a>
+                    </div>
+
+                    <!-- Billing Address Table -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">Billing Address Information</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Billing Address</th>
+                                    <th>City</th>
+                                    <th>Province</th>
+                                    <th>Postal Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ optional(Auth::user()->billingAddress)->address ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->billingAddress)->city ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->billingAddress)->province ?? '-' }}</td>
+                                    <td>{{ optional(Auth::user()->billingAddress)->postal_code ?? '-' }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <hr class="custom-hr">
 
                     <!-- Number of Orders -->
                     <div class="mb-4">
                         <h5 class="mb-3">Order History</h5>
                         <p class="mb-0">Number of Orders: {{ $orders->count() }}</p>
                     </div>
+
+                    <hr class="custom-hr">
 
                     <!-- Orders Table -->
                     <div>
