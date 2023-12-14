@@ -65,7 +65,7 @@ class TaxRateController extends Controller
         ]);
         $tax_item = \App\Models\TaxRate::find($valid['id']);
         $tax_item->update($valid);
-        return redirect(route('admin.tax-rates'))->with(['flash' => ['type' => 'success', 'message' => 'Tax Rate updated successfully!']]);
+        return redirect(route('admin.tax-rates'))->with('success', 'Tax Rate created successfully');
 
     }
 

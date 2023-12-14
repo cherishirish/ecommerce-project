@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('shipping_address');
             $table->float('pst');
             $table->float('gst');
-            $table->tinyInteger('status');
+            $table->float('hst')->default('0.00');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

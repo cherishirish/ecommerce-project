@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0916371ad6944219d713280facc6746",
+    "content-hash": "7d967351ea35b43459b18016eb2d9861",
     "packages": [
         {
             "name": "brick/math",
@@ -2452,6 +2452,32 @@
                 }
             ],
             "time": "2023-02-08T01:06:31+00:00"
+        },
+        {
+            "name": "pacewdd/5bx-client-library",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pacewdd/5bx-client-library",
+                "reference": "de789b77973c39953f95333c448ca378b2bb9a51"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Pacewdd\\Bx\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve George",
+                    "email": "edu@pagerange.com"
+                }
+            ],
+            "description": "5bx Client Library",
+            "time": "2021-11-29T17:22:47+00:00"
         },
         {
             "name": "phpoption/phpoption",
