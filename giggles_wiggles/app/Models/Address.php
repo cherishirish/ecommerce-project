@@ -12,7 +12,6 @@ class Address extends Model
         'address', 'user_id', 'postal_code', 'province', 'city', 'address_type'
     ];
 
-    
     public function user()
     {
         return $this->belongsTo(User::class);

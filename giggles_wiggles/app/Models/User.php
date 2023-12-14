@@ -47,4 +47,15 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
+    public function shippingAddress()
+    {
+        return $this->hasOne(Address::class, 'user_id')->where('address_type', 'shipping');
+    }
+
+    public function billingAddress()
+    {
+        return $this->hasOne(Address::class, 'user_id')->where('address_type', 'billing');
+    }
+
+
 }

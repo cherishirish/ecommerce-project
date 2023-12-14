@@ -49,6 +49,7 @@
   </div>
 </header>
 
+<!-- Desktop view and tablet view -->
 <header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
     <div class="row mt-3" id="header-row">
