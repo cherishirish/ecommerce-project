@@ -31,11 +31,11 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required|string|max:255',
             'category_id' => 'required|integer',
-            'price' => 'required|numeric|between:0,99999.99',
-            'description' => 'nullable|string',
+            'price' => 'required|numeric|between:1,99999.99',
+            'description' => 'required|string',
             'availability' => 'required|boolean',
-            'quantity' => 'required|integer',
-            'image' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:1',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
             'gender' => 'required|in:M,F,G',
         ]);
     
@@ -75,16 +75,16 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $valid = $request->validate([
-        //     'product_name' => 'required|string|max:255',
-        //     'category_id' => 'required|numeric',
-        //     'price' => 'required|numeric|between:1,99999.99',
-        //     'description' => 'required|string',
-        //     'availability' => 'required|boolean',
-        //     'quantity' => 'required|integer|min:1',
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg',
-        //     'gender' => 'required|in:M,F,G',
-        // ]);
+        $valid = $request->validate([
+            'product_name' => 'required|string|max:255',
+            'category_id' => 'required|integer',
+            'price' => 'required|numeric|between:1,99999.99',
+            'description' => 'required|string',
+            'availability' => 'required|boolean',
+            'quantity' => 'required|integer|min:1',
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp',
+            'gender' => 'required|in:M,F,G',
+         ]);
     
 
         $product = Product::find($id);
