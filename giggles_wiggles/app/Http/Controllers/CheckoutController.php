@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\LineItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 use Pacewdd\Bx\_5bx;
 
 class CheckoutController extends Controller
@@ -60,8 +61,10 @@ class CheckoutController extends Controller
         }
         $total = $subtotal + $gst + $pst;
 
+        $categories = Category::all();
+
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'total', 'userProvince', 'address'));
+        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'total', 'userProvince', 'address', 'categories'));
     }
 
         public function placeOrder(Request $request)
