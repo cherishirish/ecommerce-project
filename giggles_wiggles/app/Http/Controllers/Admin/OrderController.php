@@ -60,7 +60,7 @@ class OrderController extends Controller
     {
         $valid =$request->validate([
             'id' => 'required|integer',
-            'gst' => 'required|numeric',
+            'pst' => 'required|numeric',
             'gst' => 'required|numeric',
             'hst' => 'required|numeric',
             'subtotal' => 'required|numeric',
