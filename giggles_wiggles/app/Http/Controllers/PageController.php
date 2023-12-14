@@ -128,12 +128,12 @@ class PageController extends Controller
    
     public function updateShippingAddress(Request $request)
     {
-        // No need to explicitly check validation, Laravel will handle it
+        // Validate the request data
         $request->validate([
             'address' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'province' => 'required|string|max:255',
+            'postal_code' => 'required|regex:/^[0-9]{6}$/',
+            'city' => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
+            'province' => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
         ]);
 
         $user = auth()->user();
@@ -162,17 +162,17 @@ class PageController extends Controller
    
     public function updateBillingAddress(Request $request)
     {
-        // No need to explicitly check validation, Laravel will handle it
+        // Validate the request data
         $request->validate([
             'address' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'province' => 'required|string|max:255',
+            'postal_code' => 'required|regex:/^[0-9]{6}$/',
+            'city' => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
+            'province' => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
         ]);
 
         $user = auth()->user();
 
-        // Update or create shipping address
+        // Update or create billing address
         $user->address()->updateOrCreate(
             ['address_type' => 'billing'],
             [

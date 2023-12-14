@@ -20,6 +20,15 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- Edit Address Form -->
                 <div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2>{{ $title }}</h2>
                     <form action="{{ route('page.billingaddress_update') }}" method="post">
                         @csrf
