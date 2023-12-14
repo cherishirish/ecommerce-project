@@ -28,16 +28,16 @@ class ProductController extends Controller
     
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'product_name' => 'required|string|max:255',
-        //     'category_id' => 'required|numeric',
-        //     'price' => 'required|numeric|between:1,99999.99',
-        //     'description' => 'required|nullable|string',
-        //     'availability' => 'required|boolean',
-        //     'quantity' => 'required|integer|min:1',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg',
-        //     'gender' => 'required|in:M,F,G',
-        // ]);
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'category_id' => 'required|integer',
+            'price' => 'required|numeric|between:0,99999.99',
+            'description' => 'nullable|string',
+            'availability' => 'required|boolean',
+            'quantity' => 'required|integer',
+            'image' => 'required|string|max:255',
+            'gender' => 'required|in:M,F,G',
+        ]);
     
         $uploadedImage = $request->file('image');
         $productName = $request->input('product_name');

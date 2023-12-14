@@ -112,7 +112,8 @@ class DatabaseSeeder extends Seeder
         
             ['Baby High Chair', 6, 49.99, 'Enjoy mealtime with your baby using our adjustable high chair. Its designed to provide a safe and comfortable eating experience for your little one.', 1, 40, 'G', 'baby_high_chair.jpg', None, None],
             ['Baby Backpack', 6, 34.99, 'Stay on the move with our backpack-style diaper bag designed for parents who are always on the go. It combines style and functionality for busy families.', 1, 70, 'G', 'baby_backpack.jpg', None, None],
-            ];
+           
+        ];
         foreach($products as $product){
            
            \App\Models\Product::factory()->create([
