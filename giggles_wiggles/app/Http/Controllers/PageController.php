@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -85,6 +86,34 @@ class PageController extends Controller
         $categories = Category::all();
         $orders = Order::where('user_id', auth()->id())->get();
         return view('/profile', compact('title', 'categories', 'orders'));
+    }
+
+    public function profileEdit()
+    {
+        $title = "Edit Profile";
+        $categories = Category::all();
+        $user = Auth::user();
+        return view('profile_edit', compact('title', 'categories','user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'address' => 'required|string|max:255',
+        ]);
+
+        $user = Auth::user();
+        $user->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+        ]);
+
+        return redirect()->route('page.profile')->with('success', 'Profile changes updated successfully.');
     }
 
     function registry() {

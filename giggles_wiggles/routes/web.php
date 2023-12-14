@@ -137,6 +137,8 @@ Route::get('/product', [ProductController::class, 'index'])->name('product.index
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
+Route::get('/profile_edit', [PageController::class, 'profileEdit'])->name('page.profile_edit'); //PROFILE EDIT PAGE
+Route::post('/profile_update', [PageController::class, 'updateProfile'])->name('page.profile_update'); //PROFILE UPDATE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
 Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
