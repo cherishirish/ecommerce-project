@@ -69,6 +69,17 @@ class CheckoutController extends Controller
 
         public function placeOrder(Request $request)
         {
+            $valid=$request->validate([
+                'name_on_card' => 'required|string|min:1|max:255',
+                'card_number' => 'required|string|min:16|max:16',
+                'month' => 'required|string|min:2|max:2',
+                'year' => 'required|string|min:4|max:4',
+                'cvv' => 'required|string|min:3|max:3',
+            ]);
+
+            $order = Order::create($valid);
+
+            $user->save();
 
             $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
             $transaction->amount(5.99);

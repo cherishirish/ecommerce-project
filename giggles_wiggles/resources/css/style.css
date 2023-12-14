@@ -221,6 +221,22 @@ body {
   padding: 20px;
 }
 
+/* Payment Gateway */
+
+#payment_form{
+  width: 450px;
+  box-shadow: 2px 2px 7px darkgrey;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#payment_title{
+  font-size: 1.3em;
+}
+
 
 /* flash messages */
 

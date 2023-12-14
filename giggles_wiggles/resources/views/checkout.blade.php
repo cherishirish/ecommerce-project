@@ -3,34 +3,44 @@
 @section('content')
 <div class="container">
     <h2>Checkout</h2>
+
+    <form id="payment_form" autocomplete="off" action="{{ route('checkout.order') }}">
     
     <div class="row">
         <!-- User Details -->
         <div class="col-md-6">
             <h3>User Details</h3>
-            <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
-            <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-            <p><strong>Address:</strong> {{ $address->address }}</p>
-            <p><strong>Postal Code:</strong> {{ $address->postal_code }}</p>
-            <p><strong>City:</strong> {{ $address->city }}</p>
-            <p><strong>Province:</strong> {{ $address->province }}</p>
+            <p><strong>Name: </strong> {{ Auth::user()->name }}</p>
+            <p><strong>Email: </strong>{{ Auth::user()->email }}</p>
+            <p><strong>Billing Address:</strong></p>
+            <p> {{ $address->address}}</p>
+            <p>{{ $address->city . ', ' . $address->province . ', Canada'}}</p>
+            <p>{{ $address->postal_code }}</p>
+            <p><strong>Shipping Address:</strong></p>
+            <input type="checkbox" id="shipping_address_different" name="shipping_address_different">
+            <label for="shipping_address_different">Same as billing address</label>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="address" name="address" placeholder="Street Name and Number">
+            </div>
         </div>
 
-        <form>
-            <div class="form-group" id="payment_form">
-                <label for="name_on_card">Name on Card</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name on Card">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+       
+            <h1 id="payment_title">Payment Details</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on Card" size=40>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="card_number" name="card_number" placeholder="Enter Card Number">
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="form-group">
+                <input type="text" id="month" name="month" min=2 max=2 placeholder="MM" size=2>
+                <input type="text" id="year" name="year" min=4 max=4 placeholder="YYYY" size=4> 
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <input type="text" id="cvv" name="cvv" min=3 max=3 placeholder="CVV" size=3>
+            </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
 
         
