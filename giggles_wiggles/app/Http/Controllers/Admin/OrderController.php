@@ -48,7 +48,9 @@ class OrderController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $order = Order::where('id', '=', $id)->first();
+        $title = 'Edit Order: ' . $order->id;
+        return view('admin/orders/edit', compact('title', 'order'));
     }
 
     /**
