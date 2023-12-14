@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Image;
+use App\Models\Order;
 
 class PageController extends Controller
 {
@@ -82,7 +83,8 @@ class PageController extends Controller
     function profile() {
         $title = "Profile";
         $categories = Category::all();
-        return view('/profile', compact('title', 'categories'));
+        $orders = Order::where('user_id', auth()->id())->get();
+        return view('/profile', compact('title', 'categories', 'orders'));
     }
 
     function registry() {
