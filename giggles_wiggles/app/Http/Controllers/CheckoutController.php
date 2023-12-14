@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
+use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
@@ -49,11 +50,13 @@ class CheckoutController extends Controller
                 'ON' => 0.08,
                 
             ],
+            'HST' => 0
         ];
 
         // Calculate taxes based on the user's province
         $gst = $subtotal * $taxRates['GST'];
         $pst = 0;
+        $hst = $subtotal * $taxRates['HST'];
         $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
 
         if (array_key_exists($userProvince, $taxRates['PST'])) {
@@ -64,11 +67,54 @@ class CheckoutController extends Controller
         $categories = Category::all();
 
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'total', 'userProvince', 'address', 'categories'));
+        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'total', 'userProvince', 'address', 'categories'));
     }
 
-        public function placeOrder(Request $request)
+        public function store(Request $request)
         {
+            $taxRates = [
+                'GST' => 0.05,
+                'PST' => [
+                    'BC' => 0.07, 
+                    'ON' => 0.08,
+                    
+                ],
+                'HST' => 0
+            ];
+
+            $cart = session('cart', []);
+            $subtotal = array_sum(array_map(function($item) {
+                return $item['quantity'] * $item['price'];
+            }, $cart));
+
+            $gst = $subtotal * $taxRates['GST'];
+            $pst = 0;
+            $hst = $subtotal * $taxRates['HST'];
+            $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+
+            if (array_key_exists($userProvince, $taxRates['PST'])) {
+                $pst = $subtotal * $taxRates['PST'][$userProvince];
+            }
+            $total = $subtotal + $gst + $pst;
+
+            $address_info = Address::where('user_id', Auth::user()->id)->first();
+
+            $billing_address = [
+                'address' => $address_info['address'],
+                'city' => $address_info['city'],
+                'province' => $address_info['province'],
+                'postal_code' => $address_info['postal_code'],
+            ];
+
+            if($_POST['address']){
+              $valid_address=$request->validate([
+                'address' => 'required|string|min:1|max:255',
+                'city' => 'required|string|min:1|max:255',
+                'province' => 'required',
+                'postal_code' => 'required|string|min:1|max:255',
+              ]);
+            }
+
             $valid=$request->validate([
                 'name_on_card' => 'required|string|min:1|max:255',
                 'card_number' => 'required|string|min:16|max:16',
@@ -77,9 +123,36 @@ class CheckoutController extends Controller
                 'cvv' => 'required|string|min:3|max:3',
             ]);
 
-            $order = Order::create($valid);
+            if($_POST['address']){
+                $order_info = [
+                    'user_id' => Auth::user()->id,
+                    'subtotal' => $subtotal,
+                    'total' => $total,
+                    'billing_address' => json_encode($billing_address),
+                    'shipping_address' => json_encode($valid_address),
+                    'pst' => $pst,
+                    'gst' => $gst,
+                    'hst' => $hst,
+                    'status' => 0
+                ];
+            }else{
+                $order_info = [
+                    'user_id' => Auth::user()->id,
+                    'subtotal' => $subtotal,
+                    'total' => $total,
+                    'billing_address' => json_encode($billing_address),
+                    'pst' => $pst,
+                    'gst' => $gst,
+                    'hst' => $hst,
+                    'status' => 0
+                ];
+            }
 
-            $user->save();
+            $order = Order::create($order_info);
+
+            $order->save();
+
+            die;
 
             $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
             $transaction->amount(5.99);

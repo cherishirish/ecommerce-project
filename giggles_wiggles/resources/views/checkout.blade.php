@@ -4,8 +4,8 @@
 <div class="container">
     <h2>Checkout</h2>
 
-    <form id="payment_form" autocomplete="off" action="{{ route('checkout.order') }}">
-    
+    <form method="post" id="payment_form" autocomplete="off" action="{{ route('checkout.order') }}" enctype="multipart/form-data" novalidate>
+    @csrf
     <div class="row">
         <!-- User Details -->
         <div class="col-md-6">
@@ -26,9 +26,15 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="address" name="address" placeholder="Street Name and Number">
             </div>
+            @error('address')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
             <div class="form-group">
                 <input type="text" class="form-control" id="city" name="city" placeholder="City">
             </div>
+            @error('city')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
             <div class="form-group">
                                 <select class="custom-select" id="province" name="province">
                                 <option value="" disabled selected>Province</option>
@@ -53,6 +59,9 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Postal Code">
             </div>
+            @error('postal_code')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
         </div>
 
        
@@ -60,16 +69,31 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on Card" size=40>
             </div>
+            @error('name_on_card')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
             <div class="form-group">
-                <input type="password" class="form-control" id="card_number" name="card_number" placeholder="Enter Card Number">
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Enter Card Number">
             </div>
+            @error('card_number')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
             <div class="form-group">
                 <input type="text" id="month" name="month" min=2 max=2 placeholder="MM" size=2>
-                <input type="text" id="year" name="year" min=4 max=4 placeholder="YYYY" size=4> 
-            </div>
+                @error('month')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+                <input type="text" id="year" name="year" min=4 max=4 placeholder="YYYY" size=4>
+                @error('year')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>  
             <div class="form-group">
                 <input type="text" id="cvv" name="cvv" min=3 max=3 placeholder="CVV" size=3>
             </div>
+            @error('cvv')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
 
@@ -117,6 +141,16 @@
                 <strong>PST 
                     (@if(isset($taxRates['PST'][$province]))
                         {{ $taxRates['PST'][$province] * 100 }}%
+                    @else
+                        N/A
+                    @endif
+                ):</strong> 
+                ${{ number_format($pst, 2) }}
+            </p>
+            <p>
+                <strong>HST 
+                    (@if(isset($taxRates['HST'][$province]))
+                        {{ $taxRates['HST'][$province] * 100 }}%
                     @else
                         N/A
                     @endif

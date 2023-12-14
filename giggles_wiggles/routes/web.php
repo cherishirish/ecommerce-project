@@ -148,7 +148,7 @@ Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show')
 Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
-Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order');
 
 
 // SUBSCRIBE TO NEWSLETTER

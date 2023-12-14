@@ -17,7 +17,7 @@ return new class extends Migration
             $table->float('subtotal');
             $table->float('total');
             $table->string('billing_address');
-            $table->string('shipping_address');
+            $table->string('shipping_address')->nullable();
             $table->float('pst');
             $table->float('gst');
             $table->float('hst')->default('0.00');
