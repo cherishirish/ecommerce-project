@@ -15,7 +15,7 @@
                 <input type="hidden" name="id" id="id" value="{{ $order->id }}">
 
                 <div class="form-group row my-4">
-                    <label for="province" class="col-sm-2 col-form-label">Ordered by</label>
+                    <label for="province" class="col-sm-2 col-form-label text-end">Ordered by</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control-plaintext" name="province" id="province" readonly
                         value="{{ $order->user->email }}">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="province" class="col-sm-2 col-form-label">Ordered Items</label>
+                    <label for="province" class="col-sm-2 col-form-label text-end">Ordered Items</label>
                     <div class="col-sm-10">
                         <table class="table">
                             <thead>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="subtotal" class="col-sm-2 col-form-label">Subtotal</label>
+                    <label for="subtotal" class="col-sm-2 col-form-label text-end">Subtotal</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="subtotal" id="subtotal"
                         value="{{ old('subtotal', $order->subtotal) }}">
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="pst" class="col-sm-2 col-form-label">PST</label>
+                    <label for="pst" class="col-sm-2 col-form-label text-end">PST</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="pst" id="pst"
                         value="{{ old('pst', $order->pst) }}">
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="gst" class="col-sm-2 col-form-label">GST</label>
+                    <label for="gst" class="col-sm-2 col-form-label text-end">GST</label>
                     <div class="col-sm-10">
                         <input type="gst" class="form-control" name="gst" id="gst"
                         value="{{ old('gst', $order->gst) }}">
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="hst" class="col-sm-2 col-form-label">HST</label>
+                    <label for="hst" class="col-sm-2 col-form-label text-end">HST</label>
                     <div class="col-sm-10">
                         <input type="hst" class="form-control" name="hst" id="hst"
                         value="{{ old('hst', $order->hst) }}">
@@ -94,7 +94,7 @@
 
 
                 <div class="form-group row my-4">
-                    <label for="billing_address" class="col-sm-2 col-form-label">billing_address</label>
+                    <label for="billing_address" class="col-sm-2 col-form-label text-end">billing_address</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="billing_address" id="billing_address"
                         value="{{ old('billing_address', $order->billing_address) }}">
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="shipping_address" class="col-sm-2 col-form-label">shipping_address</label>
+                    <label for="shipping_address" class="col-sm-2 col-form-label text-end">shipping_address</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="shipping_address" id="shipping_address"
                         value="{{ old('shipping_address', $order->shipping_address) }}">
@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="total" class="col-sm-2 col-form-label">Total</label>
+                    <label for="total" class="col-sm-2 col-form-label text-end">Total</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="total" id="total"
                         value="{{ old('total', $order->total) }}">
@@ -127,11 +127,11 @@
                 </div>
 
                 <div class="form-group row my-4">
-                    <label for="status" class="col-sm-2 col-form-label">Shipping status</label>
+                    <label for="status" class="col-sm-2 col-form-label text-end">Shipping Status</label>
                     <div class="col-sm-10">
                         <select class="form-select" id="status" name='status'>
-                            <option value="0" {{ ($order->status == 0) ? 'selected' : '' }}>Not Shipped</option>
-                            <option value="1" {{ $order->status !== 0 ? 'selected' : '' }}>Shipped</option>
+                            <option {{ $order->status == 0 ? 'selected' : '' }} value="0">Not Shipped</option>
+                            <option {{ $order->status != 0 ?  'selected' : '' }} value="1">Shipped</option>
                         </select>
                         @error('status')
                         <span class="text-danger">{{$message}}</span>
@@ -139,7 +139,12 @@
                     </div>                         
                 </div>
             
-                <button type="submit" class="btn btn-primary">Update</button>
+                <div class="form-group row my-4">
+                    <label for="value_added" class="col-sm-2 col-form-label text-end"></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
             </form>
             
         </div>
