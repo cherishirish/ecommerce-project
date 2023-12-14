@@ -38,7 +38,7 @@
                 <td>{{ '$' . $order->total }}</td>
                 <td>{{ $order->billing_address }}</td>
                 <td>{{ $order->shipping_address }}</td>
-                <td>{{ ($order->shipping_status == 0) ? 'Not Shipped' : 'Shipped' }}</td>
+                <td>{{ $order->status == 0 ? 'Not Shipped' : 'Shipped' }}</td>
                 <td>
                 <a href="{{route('admin.orders.edit', ['id'=>$order->id])}}" class="btn btn-info">Edit</a>
                 </td>
