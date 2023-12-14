@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>User</th>
+                <th>User ID</th>
                 <th>Ordered Items</th>
                 <th>Subtotal</th>
                 <th>PST</th>
@@ -23,11 +23,11 @@
             @foreach($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->user->email }}</td>
+                <td>{{ $order->user->id }}</td>
                 <td>
                     @foreach($order->lineItems as $item)
                     <ul>
-                        <li>{{ $item->name }} ()</li>
+                        <li>{{ $item->name }} (Unit Price: {{ '$' . $item->unit_price . ', Quantity: ' . $item->quantity }})</li>
                     </ul>
                     @endforeach
                 </td>
