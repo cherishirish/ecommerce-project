@@ -7,7 +7,7 @@
     <div class="mt-5" style="display: flex; justify-content: space-between">
         <a href="{{ route('product.create') }}" class="btn btn-success mb-3">Create Product</a>
 
-    <form action="{{ route('admin.product.search') }}" method="get">
+    <form action="{{ route('admin.products.search') }}" method="get">
     <input class="form-control mr-0" type="search" name="search" 
                   placeholder="Search here" aria-label="Search" 
                   value="{{ request('search') }}">
@@ -69,7 +69,7 @@
                                         <button class="btn btn-default btn-sm"> Edit </button>
                                     </a>
 
-                                    <form action="{{ route('product.edit', ['id' => $product->id]) }}" method="POST">
+                                    <form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-close"
