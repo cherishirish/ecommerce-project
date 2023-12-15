@@ -20,7 +20,7 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- Profile Information -->
                 <div>
-                    <h2 class="mb-4">Profile</h2>
+                    <h2 class="mb-4">{{$title}}</h2>
                     
                     <!-- Edit Profile Button -->
                     <div class="mb-4">
@@ -43,12 +43,14 @@
                             </tbody>
                         </table>
                     </div>
+                    
 
                     <hr class="custom-hr">
 
                     <!-- Edit Shipping Address Button -->
                     <div class="mb-4">
                         <a href="{{ route('page.shippingaddress_edit') }}" class="btn btn-primary">Edit Your Shipping Address</a>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteShippingAddressModal">Delete</button>
                     </div>
 
                     <!-- Shipping Address Table -->
@@ -74,11 +76,33 @@
                         </table> 
                     </div>
 
+                    <!-- Delete Shipping Address Modal -->
+                    <div class="modal fade" id="deleteShippingAddressModal" tabindex="-1" aria-labelledby="deleteShippingAddressModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteShippingAddressModalLabel">Delete Shipping Address</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete your shipping address?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <a href="{{ route('page.delete_shipping_address') }}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <hr class="custom-hr">
 
                     <!-- Edit Billing Address Button -->
                     <div class="mb-4">
                         <a href="{{ route('page.billingaddress_edit') }}" class="btn btn-primary">Edit Your Billing Address</a>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteBillingAddressModal">Delete</button>
                     </div>
 
                     <!-- Billing Address Table -->
@@ -102,6 +126,27 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <!-- Delete Billing Address Modal -->
+                    <div class="modal fade" id="deleteBillingAddressModal" tabindex="-1" aria-labelledby="deleteBillingAddressModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteBillingAddressModalLabel">Delete Billing Address</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete your billing address?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <a href="{{ route('page.delete_billing_address') }}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <hr class="custom-hr">

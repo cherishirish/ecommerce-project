@@ -161,3 +161,8 @@ Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
 Route::get('/admin/products/search', [AdminProduct::class, 'search'])
     ->name('admin.products.search')->middleware('auth', 'is_admin');
 
+
+
+
+
+
