@@ -93,7 +93,7 @@
                 @error('month')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
-                <input type="text" id="year" name="year" min=4 max=4 placeholder="YYYY" size=4>
+                <input type="text" id="year" name="year" min=2 max=2 placeholder="YY" size=2>
                 @error('year')
                     <span class="text-danger">{{$message}}</span>
                 @enderror

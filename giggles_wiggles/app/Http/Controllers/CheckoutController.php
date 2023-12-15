@@ -164,12 +164,26 @@ class CheckoutController extends Controller
             $transaction->ref_num($new_order['id']);
             $transaction->card_type($valid['card_type']);
 
-            dd($transaction);
-
             $response = $transaction->authorize_and_capture();
 
-            var_dump($response);
-            die;
+            $cvv_error = '';
+            $cc_error = '';
+
+            if(!empty($response->transaction_response->errors->cvv_result) && empty($response->transaction_response->errors->cc_result)){
+               $cvv_error = $response->transaction_response->errors->cvv_result;
+               return redirect(route('checkout.index'))->with('danger', $cvv_error);
+            }
+
+            if(!empty($response->transaction_response->errors->cc_result) && empty($response->transaction_response->errors->cvv_result)){
+                $cc_error = $response->transaction_response->errors->cc_result;
+                return redirect(route('checkout.index'))->with('danger', $cc_error);
+             }
+
+            if(!empty($response->transaction_response->errors->cc_result) && !empty($response->transaction_response->errors->cvv_result)){
+                $cvv_error = $response->transaction_response->errors->cvv_result;
+                $cc_error = $response->transaction_response->errors->cc_result;
+                return redirect(route('checkout.index'))->with('danger', "$cc_error and $cvv_error");
+            }
 
             if (!Auth::check()) {
                 return redirect()->route('login')->with('error', 'Please login to place an order.');
