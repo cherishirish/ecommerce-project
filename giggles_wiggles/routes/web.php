@@ -113,6 +113,21 @@ Route::put('admin/categories/update', [CategoryController::class, 'update'])
 Route::post('admin/categories/store', [CategoryController::class, 'store'])
 ->name('admin.categories.store')->middleware('auth', 'is_admin');
 
+// Admin Brands CRUD
+
+Route::get('admin/brands', [BrandController::class, 'index'])
+->name('admin.brands')->middleware('auth', 'is_admin');
+Route::get('admin/brands/create', [BrandController::class, 'create'])
+->name('admin.brands.create')->middleware('auth', 'is_admin');
+Route::get('admin/brands/edit/{id}', [BrandController::class, 'edit'])
+->name('admin.brands.edit')->middleware('auth', 'is_admin');
+Route::delete('admin/brands/delete/{id}', [BrandController::class, 'destroy'])
+->name('admin.brands.delete')->middleware('auth', 'is_admin');
+Route::put('admin/brands/update', [BrandController::class, 'update'])
+->name('admin.brands.update')->middleware('auth', 'is_admin');
+Route::post('admin/brands/store', [BrandController::class, 'store'])
+->name('admin.brands.store')->middleware('auth', 'is_admin');
+
 // Admin Orders CRUD
 
 Route::get('admin/orders', [AdminOrderController::class, 'index'])
