@@ -21,6 +21,7 @@ class IsAdmin
             return redirect(route('home'))->with('danger', 'You are not authorized to view that page');
         }
 
-        return $next($request);
+
+        return redirect( route('login')); 
     }
 }

@@ -29,6 +29,46 @@ use App\Http\Controllers\Admin\ProductController as AdminProduct;
 //     return view('home');
 // });
 
+Auth::routes();
+
+//FRONT-END ROUTES
+
+Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
+Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
+Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
+Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
+Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
+Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
+Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
+Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
+Route::get('/registry', [PageController:: class, 'registry'])->name('page.registry'); // REGISTRY PAGE
+
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
+Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
+Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
+Route::get('/checkout/order', [CheckoutController::class, 'placeOrder'])->name('checkout.order');
+
+
+// SUBSCRIBE TO NEWSLETTER
+
+Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Admin Dashboard Route
 
 Route::get('admin/dashboard', [AdminController::class, 'index'])
@@ -126,42 +166,3 @@ Route::get('/admin/products/search', [AdminProduct::class, 'search'])
 
 
 
-
-
-
-//FRONT-END ROUTES
-
-Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
-Route::get('/home', [App\Http\Controllers\PageController::class, 'index'])->name('home'); // HOMEPAGE
-Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // PRODUCTPAGE
-Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
-Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
-Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
-Route::get('/profile_edit', [PageController::class, 'profileEdit'])->name('page.profile_edit'); //PROFILE EDIT PAGE
-Route::post('/profile_update', [PageController::class, 'updateProfile'])->name('page.profile_update'); //PROFILE UPDATE
-Route::get('/shippingaddress_edit', [PageController::class, 'ShippingAddressEdit'])->name('page.shippingaddress_edit'); //PROFILE SHIPPING ADDRESS PAGE
-Route::post('/shippingaddress_update', [PageController::class, 'updateShippingAddress'])->name('page.shippingaddress_update'); //PROFILE SHIPPING ADDRESS UPDATE
-Route::get('/billingaddress_edit', [PageController::class, 'BillingAddressEdit'])->name('page.billingaddress_edit'); //PROFILE BILLING ADDRESS PAGE
-Route::post('/billingaddress_update', [PageController::class, 'updateBillingAddress'])->name('page.billingaddress_update'); //PROFILE BILLING ADDRESS UPDATE
-Route::get('/delete_shipping_address', [PageController::class, 'deleteShippingAddress'])->name('page.delete_shipping_address'); //PROFILE SHIPPING ADDRESS DELETE
-Route::get('/delete_billing_address', [PageController::class, 'deleteBillingAddress'])->name('page.delete_billing_address'); //PROFILE BILLING ADDRESS DELETE
-Route::get('/invoice', [PageController:: class, 'invoice'])->name('page.invoice'); // INVOICE PAGE
-Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
-Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
-Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT
-Route::get('/contact/success', [PageController::class, 'success'])->name('page.contact.success');
-Route::get('/registry', [PageController:: class, 'registry'])->name('page.registry'); // REGISTRY PAGE
-
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
-Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
-Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
-
-Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
-Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order');
-
-
-// SUBSCRIBE TO NEWSLETTER
-
-Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
-
-Auth::routes();
