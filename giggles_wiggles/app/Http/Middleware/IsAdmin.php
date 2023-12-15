@@ -18,7 +18,7 @@ class IsAdmin
     {
 
         if(!Auth::check() || !Auth::user()->is_admin){
-            return view('auth/login');
+            return redirect(route('home'))->with('danger', 'You are not authorized to view that page');
         }
 
         return $next($request);

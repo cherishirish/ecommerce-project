@@ -1,6 +1,17 @@
 @extends('layouts.frontend')
 
 @section('content')
+@if(Session::has('success'))
+<div class="alert alert-success" id="success">
+  {{Session::pull('success')}}
+</div>
+@endif
+
+@if(Session::has('danger'))
+<div class="alert alert-danger" id="success">
+  {{Session::pull('danger')}}
+</div>
+@endif
 <!-- Slider -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

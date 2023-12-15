@@ -55,7 +55,7 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
-Auth::routes();
+
 
 
 // Admin Categories CRUD
@@ -161,3 +161,4 @@ Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('chec
 
 Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('home.subscribe');
 
+Auth::routes();
