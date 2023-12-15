@@ -34,19 +34,19 @@
                         @csrf
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" value="{{ optional(Auth::user()->billingAddress)->address }}">
+                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address', optional(Auth::user()->billingAddress)->address) }}">
                         </div>
                         <div class="mb-3">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" id="city" name="city" value="{{ optional(Auth::user()->billingAddress)->city }}">
+                            <input type="text" class="form-control" id="city" name="city" value="{{ old('city', optional(Auth::user()->billingAddress)->city) }}">
                         </div>
                         <div class="mb-3">
                             <label for="province" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="province" name="province" value="{{ optional(Auth::user()->billingAddress)->province }}">
+                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province', optional(Auth::user()->billingAddress)->province) }}">
                         </div>
                         <div class="mb-3">
                             <label for="postal_code" class="form-label">Postal Code</label>
-                            <input type="text" class="form-control" id="postal_code" name="postal_code" value="{{ optional(Auth::user()->billingAddress)->postal_code }}">
+                            <input type="text" class="form-control" id="postal_code" name="postal_code" value="{{ old('postal_code', optional(Auth::user()->billingAddress)->postal_code) }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
