@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
-            $table->tinyInteger('status');
-            $table->string('transaction');
+            $table->integer('order_id');
+            $table->tinyInteger('status'); //transaction status 1,0
+            $table->text('transaction'); //text with JSON encoded transaction
             $table->timestamps();
         });
     }
