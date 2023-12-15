@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   
 
-  @vite(['resources/css/style.css'])
+  @vite(['resources/js/app.js', 'resources/css/style.css'])
   <title>Giggles Wiggles</title>
+
+
 </head>
 <body>
 
@@ -19,7 +21,7 @@
 @endif
 
 @if(Session::has('danger'))
-<div class="alert alert-danger" id="success">
+<div class="alert alert-danger" id="danger">
   {{Session::pull('danger')}}
 </div>
 @endif
@@ -30,24 +32,36 @@
       <div class="col-sm-12">
           <img src="images/logo.png" alt="Logo" class="img-fluid">
 
-            <!-- Display login and register links if the user is not authenticated -->
-            @guest
-              <span><a href="{{ route('login') }}" class="text-dark mx-2 pl-5">Login</a> | <a href="{{ route('register') }}" class="text-dark ml-2">Register</a></span>
-
-            @endguest
-
-            <!-- Display logout link if the user is authenticated -->
-            @auth
-                <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-              @endauth
+         <!-- Display logout link if the user is authenticated -->
+         
+        @auth
+          @if(Auth::user()->is_admin == 1)
+          <span><a href="{{ route('admin.dashboard') }}" class="text-dark mx-2" >Dashboard</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+          @endif
+          @if(Auth::user()->is_admin == 0)
+          <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          @endif
+        @endauth
       </div>
     </div>
   </div>
 </header>
 
+<!-- Desktop view and tablet view -->
+@if(Session::has('success'))
+<div class="alert alert-success" id="success">
+  {{Session::pull('success')}}
+</div>
+@endif
+
+@if(Session::has('danger'))
+<div class="alert alert-danger" id="danger">
+  {{Session::pull('danger')}}
+</div>
+@endif
 <header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
     <div class="row mt-3" id="header-row">

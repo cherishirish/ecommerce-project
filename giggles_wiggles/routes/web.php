@@ -95,7 +95,7 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
-Auth::routes();
+
 
 
 // Admin Categories CRUD
@@ -160,13 +160,4 @@ Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
 //Search
 Route::get('/admin/products/search', [AdminProduct::class, 'search'])
     ->name('admin.products.search')->middleware('auth', 'is_admin');
-
-
-
-
-
-
-
-
-
 

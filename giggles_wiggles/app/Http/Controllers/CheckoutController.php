@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
+use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Pacewdd\_5bx;
+use App\Models\Category;
+use Pacewdd\Bx\_5bx;
+use Illuminate\Validation\Rule;
 
 class CheckoutController extends Controller
 {
@@ -48,11 +51,13 @@ class CheckoutController extends Controller
                 'ON' => 0.08,
                 
             ],
+            'HST' => 0
         ];
 
         // Calculate taxes based on the user's province
         $gst = $subtotal * $taxRates['GST'];
         $pst = 0;
+        $hst = $subtotal * $taxRates['HST'];
         $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
 
         if (array_key_exists($userProvince, $taxRates['PST'])) {
@@ -60,20 +65,106 @@ class CheckoutController extends Controller
         }
         $total = $subtotal + $gst + $pst;
 
+        $categories = Category::all();
+
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'total', 'userProvince', 'address'));
+        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'total', 'userProvince', 'address', 'categories'));
     }
 
-        public function placeOrder(Request $request)
+        public function store(Request $request)
         {
+            $taxRates = [
+                'GST' => 0.05,
+                'PST' => [
+                    'BC' => 0.07, 
+                    'ON' => 0.08,
+                    
+                ],
+                'HST' => 0
+            ];
 
-            $transaction = new _5bx(BX_LOGIN_ID, BX_API_KEY);
-            $transaction->amount(5.99);
-            $transaction->card_num(4111111111111111);
-            $transaction->exp_date ('0418');
-            $transaction->cvv(333);
-            $transaction->ref_num('2011099');
-            $transaction->card_type('visa');
+            $cart = session('cart', []);
+            $subtotal = array_sum(array_map(function($item) {
+                return $item['quantity'] * $item['price'];
+            }, $cart));
+
+            $gst = $subtotal * $taxRates['GST'];
+            $pst = 0;
+            $hst = $subtotal * $taxRates['HST'];
+            $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+
+            if (array_key_exists($userProvince, $taxRates['PST'])) {
+                $pst = $subtotal * $taxRates['PST'][$userProvince];
+            }
+            $total = $subtotal + $gst + $pst;
+
+            $address_info = Address::where('user_id', Auth::user()->id)->first();
+
+            $billing_address = [
+                'address' => $address_info['address'],
+                'city' => $address_info['city'],
+                'province' => $address_info['province'],
+                'postal_code' => $address_info['postal_code'],
+            ];
+
+            if($_POST['address']){
+              $valid_address=$request->validate([
+                'address' => 'required|string|min:1|max:255',
+                'city' => 'required|string|min:1|max:255',
+                'province' => 'required',
+                'postal_code' => 'required|string|min:1|max:255',
+              ]);
+            }
+
+            $valid=$request->validate([
+                'name_on_card' => 'required|string|min:1|max:255',
+                'card_number' => 'required|integer|digits:16',
+                'month' => 'required|integer|min:01|max:12|digits:2',
+                'year' => 'required|integer|min:23|max:50|digits:2',
+                'cvv' => 'required|integer|digits:3',
+                'card_type' => ['required', Rule::in(['visa', 'mastercard', 'amex'])]
+            ]);
+
+            if($_POST['address']){
+                $order_info = [
+                    'user_id' => Auth::user()->id,
+                    'subtotal' => $subtotal,
+                    'total' => $total,
+                    'billing_address' => json_encode($billing_address),
+                    'shipping_address' => json_encode($valid_address),
+                    'pst' => $pst,
+                    'gst' => $gst,
+                    'hst' => $hst,
+                    'status' => 0
+                ];
+            }else{
+                $order_info = [
+                    'user_id' => Auth::user()->id,
+                    'subtotal' => $subtotal,
+                    'total' => $total,
+                    'billing_address' => json_encode($billing_address),
+                    'pst' => $pst,
+                    'gst' => $gst,
+                    'hst' => $hst,
+                    'status' => 0
+                ];
+            }
+
+            $order = Order::create($order_info);
+
+            $order->save();
+
+            $new_order = Order::where('user_id', Auth::user()->id)->orderBy('updated_at')->first();
+
+            $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
+            $transaction->amount($order_info['total']);
+            $transaction->card_num($valid['card_number']);
+            $transaction->exp_date ($valid['month'] . $valid['year']);
+            $transaction->cvv($valid['cvv']);
+            $transaction->ref_num($new_order['id']);
+            $transaction->card_type($valid['card_type']);
+
+            dd($transaction);
 
             $response = $transaction->authorize_and_capture();
 

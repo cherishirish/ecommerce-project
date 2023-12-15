@@ -16,15 +16,12 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->is_admin) {
-            return $next($request);
+
+        if(!Auth::check() || !Auth::user()->is_admin){
+            return redirect(route('home'))->with('danger', 'You are not authorized to view that page');
         }
 
-        $request->session()->flash('flash', [
-            'type' => 'danger', 
-            'message' => 'Access denied. You do not have the necessary permissions'
-        ]);
-        
+
         return redirect( route('login')); 
     }
 }

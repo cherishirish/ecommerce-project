@@ -41,7 +41,7 @@
     @endif
 
     @if(Session::has('danger'))
-    <div class="alert alert-danger" id="success">
+    <div class="alert alert-danger" id="danger">
     {{Session::pull('danger')}}
     </div>
     @endif
