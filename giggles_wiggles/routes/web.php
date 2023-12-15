@@ -8,7 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
-use App\Http\Controllers\Admin\BrandController as BrandController;
+use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -116,17 +116,17 @@ Route::post('admin/categories/store', [CategoryController::class, 'store'])
 
 // Admin Brands CRUD
 
-Route::get('admin/brands', [BrandController::class, 'index'])
+Route::get('admin/brands', [AdminBrandController::class, 'index'])
 ->name('admin.brands')->middleware('auth', 'is_admin');
-Route::get('admin/brands/create', [BrandController::class, 'create'])
+Route::get('admin/brands/create', [AdminBrandController::class, 'create'])
 ->name('admin.brands.create')->middleware('auth', 'is_admin');
-Route::get('admin/brands/edit/{id}', [BrandController::class, 'edit'])
+Route::get('admin/brands/edit/{id}', [AdminBrandController::class, 'edit'])
 ->name('admin.brands.edit')->middleware('auth', 'is_admin');
-Route::delete('admin/brands/delete/{id}', [BrandController::class, 'destroy'])
+Route::delete('admin/brands/delete/{id}', [AdminBrandController::class, 'destroy'])
 ->name('admin.brands.delete')->middleware('auth', 'is_admin');
-Route::put('admin/brands/update', [BrandController::class, 'update'])
+Route::put('admin/brands/update', [AdminBrandController::class, 'update'])
 ->name('admin.brands.update')->middleware('auth', 'is_admin');
-Route::post('admin/brands/store', [BrandController::class, 'store'])
+Route::post('admin/brands/store', [AdminBrandController::class, 'store'])
 ->name('admin.brands.store')->middleware('auth', 'is_admin');
 
 // Admin Orders CRUD
