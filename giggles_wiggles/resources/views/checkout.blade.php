@@ -66,12 +66,15 @@
 
        
             <h1 id="payment_title">Payment Details</h1>
-            <div id="card_type">
+            <div id="card_type_field">
                 <p>Card Type:</p>
                 <img src="images/transactions/visa.svg" alt="Visa" width=50 id="visa">
                 <img src="images/transactions/mastercard.svg" alt="Mastercard" width=50 id="mastercard">
                 <img src="images/transactions/amex.svg" alt="amex" width=50 id="amex">
             </div>
+            @error('card_type')
+                <span class="text-danger">Please choose a card type</span>
+            @enderror
             <input type="hidden" id="card_type" name="card_type">
             <div class="form-group">
                 <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on Card" size=40>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Pacewdd\Bx\_5bx;
+use Illuminate\Validation\Rule;
 
 class CheckoutController extends Controller
 {
@@ -117,10 +118,11 @@ class CheckoutController extends Controller
 
             $valid=$request->validate([
                 'name_on_card' => 'required|string|min:1|max:255',
-                'card_number' => 'required|string|min:16|max:16',
-                'month' => 'required|integer|min:01|max:12',
-                'year' => 'required|integer|min:00|max:99',
-                'cvv' => 'required|string|min:3|max:3',
+                'card_number' => 'required|integer|digits:16',
+                'month' => 'required|integer|min:01|max:12|digits:2',
+                'year' => 'required|integer|min:23|max:50|digits:2',
+                'cvv' => 'required|integer|digits:3',
+                'card_type' => ['required', Rule::in(['visa', 'mastercard', 'amex'])]
             ]);
 
             if($_POST['address']){
@@ -154,15 +156,13 @@ class CheckoutController extends Controller
 
             $new_order = Order::where('user_id', Auth::user()->id)->orderBy('updated_at')->first();
 
-            dd($new_order);
-
             $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
             $transaction->amount($order_info['total']);
             $transaction->card_num($valid['card_number']);
             $transaction->exp_date ($valid['month'] . $valid['year']);
             $transaction->cvv($valid['cvv']);
             $transaction->ref_num($new_order['id']);
-            $transaction->card_type('visa');
+            $transaction->card_type($valid['card_type']);
 
             $response = $transaction->authorize_and_capture();
 
