@@ -58,6 +58,17 @@
 </header>
 
 <!-- Desktop view and tablet view -->
+@if(Session::has('success'))
+<div class="alert alert-success" id="success">
+  {{Session::pull('success')}}
+</div>
+@endif
+
+@if(Session::has('danger'))
+<div class="alert alert-danger" id="danger">
+  {{Session::pull('danger')}}
+</div>
+@endif
 <header class="bg-primary pt-5 d-none d-sm-none d-md-block">
   <div class="container">
     <div class="row mt-3" id="header-row">
