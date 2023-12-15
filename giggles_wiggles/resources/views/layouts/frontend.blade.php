@@ -40,12 +40,18 @@
         @endguest
 
          <!-- Display logout link if the user is authenticated -->
-         @auth
-            <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+         
+        @auth
+          @if(Auth::user()->is_admin == 1)
+          <span><a href="{{ route('admin.dashboard') }}" class="text-dark mx-2" >Dashboard</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
+          @endif
+          @if(Auth::user()->is_admin == 0)
+          <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
             </form>
-          @endauth
+          @endif
+        @endauth
       </div>
     </div>
   </div>
