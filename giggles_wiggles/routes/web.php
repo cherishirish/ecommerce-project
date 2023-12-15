@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\TaxRateController;
+use App\Http\Controllers\Admin\BrandController as BrandController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;

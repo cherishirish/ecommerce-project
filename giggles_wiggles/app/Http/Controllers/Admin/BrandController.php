@@ -14,7 +14,7 @@ class BrandController extends Controller
     public function index()
     {
         $title = "Brands";
-        $orders = Brand::all();
+        $brands = Brand::all();
         return view('admin/brands/index', compact('title', 'brands'));
     }
 
