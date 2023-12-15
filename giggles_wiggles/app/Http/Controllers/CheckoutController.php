@@ -164,6 +164,8 @@ class CheckoutController extends Controller
             $transaction->ref_num($new_order['id']);
             $transaction->card_type($valid['card_type']);
 
+            dd($transaction);
+
             $response = $transaction->authorize_and_capture();
 
             var_dump($response);
