@@ -109,6 +109,7 @@
                     <li><a href="{{route('admin.categories')}}">Categories</a></li>
                     <li><a href="{{route('admin.products')}}">Products</li>
                     <li><a href="{{route('admin.orders')}}">Orders</a></li>
+                    <li><a href="{{route('admin.brands')}}">Brands</a></li>
                     <li><a href="{{route('admin.tax-rates')}}">Tax Rates</a></li>
                 </ul>
             </div>
