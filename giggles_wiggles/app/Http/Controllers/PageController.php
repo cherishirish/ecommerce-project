@@ -10,6 +10,12 @@ use App\Models\Contact;
 use App\Models\Image;
 use App\Models\Order;
 use App\Models\Address;
+use App\Models\User;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PageController extends Controller
 {
@@ -44,6 +50,7 @@ class PageController extends Controller
 
         // $image_six = Image::where('product_id', $deals[5]->id)->first('image');
         //dd($categories);
+
         return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals'));
     }
     

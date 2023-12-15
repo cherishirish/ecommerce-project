@@ -221,6 +221,43 @@ body {
   padding: 20px;
 }
 
+/* Payment Gateway */
+
+#payment_form{
+  width: 700px;
+  box-shadow: 2px 2px 7px darkgrey;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#payment_title{
+  font-size: 1.3em;
+}
+
+.checkout_titles{
+  font-size: 1.2em;
+  color: rgb(125, 125, 173);
+}
+
+.checkout_info{
+  margin-bottom: 20px;
+}
+
+#card_type_field{
+  display: flex;
+  justify-content: space-evenly;
+  width: 350px;
+}
+
+#card_type_field img:hover{
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
 
 /* flash messages */
 

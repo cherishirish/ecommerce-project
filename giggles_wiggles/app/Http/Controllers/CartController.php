@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class CartController extends Controller
 {
@@ -48,9 +49,10 @@ class CartController extends Controller
         $totalPrice = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
         }, $cart));
-    
+
+        $categories = Category::all();
       
-        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice]);
+        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice], compact('categories'));
     }
     
     public function clearCart()
