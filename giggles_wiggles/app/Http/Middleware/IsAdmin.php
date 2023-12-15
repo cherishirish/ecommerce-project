@@ -16,11 +16,15 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        if(!Auth::check() || !Auth::user()->is_admin){
-            return view('auth/login');
+        if (Auth::check() && Auth::user()->is_admin) {
+            return $next($request);
         }
 
-        return $next($request);
+        $request->session()->flash('flash', [
+            'type' => 'danger', 
+            'message' => 'Access denied. You do not have the necessary permissions'
+        ]);
+        
+        return redirect( route('login')); 
     }
 }

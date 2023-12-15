@@ -18,7 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'is_admin', 'remember_token', 'email_verified_at'
+        'first_name', 
+        'last_name', 
+        'email', 
+        'password', 
+        'is_admin', 
+        'remember_token', 
+        'email_verified_at'
     ];
 
     /**
@@ -45,11 +51,6 @@ class User extends Authenticatable
     public function address()
     {
         return $this->hasOne(Address::class);
-    }
-
-    public function is_admin()
-    {
-        return $this->role === 'admin';
     }
 
 }
