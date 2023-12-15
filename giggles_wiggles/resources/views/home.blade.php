@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
+
 <!-- Slider -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

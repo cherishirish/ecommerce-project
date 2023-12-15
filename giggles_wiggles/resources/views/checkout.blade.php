@@ -3,18 +3,109 @@
 @section('content')
 <div class="container">
     <h2>Checkout</h2>
-    
+
+    <form method="post" id="payment_form" autocomplete="off" action="{{ route('checkout.order') }}" enctype="multipart/form-data" novalidate>
+    @csrf
     <div class="row">
         <!-- User Details -->
         <div class="col-md-6">
             <h3>User Details</h3>
-            <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
-            <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-            <p><strong>Address:</strong> {{ $address->address }}</p>
-            <p><strong>Postal Code:</strong> {{ $address->postal_code }}</p>
-            <p><strong>City:</strong> {{ $address->city }}</p>
-            <p><strong>Province:</strong> {{ $address->province }}</p>
+            <h4 class="checkout_titles">Name:</h4> <p class="checkout_info">{{ Auth::user()->name }}</p>
+            <h4 class="checkout_titles">Email:</h4><p class="checkout_info">{{ Auth::user()->email }}</p>
+            <h4 class="checkout_titles">Billing Address:</h4>
+            <p> {{ $address->address}}</p>
+            <p>{{ $address->city . ', ' . $address->province . ', Canada'}}</p>
+            <p>{{ $address->postal_code }}</p>
+            <h4 class="checkout_titles">Shipping Address:</h4>
+
+            <div class="form-group">
+            <input type="checkbox" id="shipping_address_different" value=1 class="form-check-input" name="shipping_address_different">
+            <label for="shipping_address_different" class="form-check-label">Same as billing address</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="address" name="address" placeholder="Street Name and Number">
+            </div>
+            @error('address')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
+            <div class="form-group">
+                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+            </div>
+            @error('city')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
+            <div class="form-group">
+                                <select class="custom-select" id="province" name="province">
+                                <option value="" disabled selected>Province</option>
+                                <option value="MB" >MB</option>
+                                <option value="SK" >SK</option>
+                                <option value="AB" >AB</option>
+                                <option value="BC" >BC</option>
+                                <option value="NS" >NS</option>
+                                <option value="NB" >NB</option>
+                                <option value="QC" >QC</option>
+                                <option value="ON" >ON</option>
+                                <option value="YT" >YT</option>
+                                <option value="NT" >NT</option>
+                                <option value="NU" >NU</option>
+                                <option value="NL" >NL</option>
+                                <option value="PE" >PE</option>
+                                </select>
+                                @error('province')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror                      
+                            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Postal Code">
+            </div>
+            @error('postal_code')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
         </div>
+
+       
+            <h1 id="payment_title">Payment Details</h1>
+            <div id="card_type_field">
+                <p>Card Type:</p>
+                <img src="images/transactions/visa.svg" alt="Visa" width=50 id="visa">
+                <img src="images/transactions/mastercard.svg" alt="Mastercard" width=50 id="mastercard">
+                <img src="images/transactions/amex.svg" alt="amex" width=50 id="amex">
+            </div>
+            @error('card_type')
+                <span class="text-danger">Please choose a card type</span>
+            @enderror
+            <input type="hidden" id="card_type" name="card_type">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on Card" size=40>
+            </div>
+            @error('name_on_card')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
+            <div class="form-group">
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Enter Card Number">
+            </div>
+            @error('card_number')
+                <span class="text-danger">{{$message}}</span>
+            @enderror  
+            <div class="form-group">
+                <input type="text" id="month" name="month" min=2 max=2 placeholder="MM" size=2>
+                @error('month')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+                <input type="text" id="year" name="year" min=4 max=4 placeholder="YYYY" size=4>
+                @error('year')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>  
+            <div class="form-group">
+                <input type="text" id="cvv" name="cvv" min=3 max=3 placeholder="CVV" size=3>
+            </div>
+            @error('cvv')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
 
         
         <!-- Cart Summary -->
@@ -60,6 +151,16 @@
                 <strong>PST 
                     (@if(isset($taxRates['PST'][$province]))
                         {{ $taxRates['PST'][$province] * 100 }}%
+                    @else
+                        N/A
+                    @endif
+                ):</strong> 
+                ${{ number_format($pst, 2) }}
+            </p>
+            <p>
+                <strong>HST 
+                    (@if(isset($taxRates['HST'][$province]))
+                        {{ $taxRates['HST'][$province] * 100 }}%
                     @else
                         N/A
                     @endif
