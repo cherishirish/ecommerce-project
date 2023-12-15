@@ -63,5 +63,8 @@ class User extends Authenticatable
         return $this->hasOne(Address::class, 'user_id')->where('address_type', 'billing');
     }
 
-
+    public function wishlist()
+    {
+    return $this->hasOne(Registry::class);
+    }
 }

@@ -20,7 +20,7 @@
                 <a href="{{ route('page.profile') }}" class="text-dark nav-link text-dark text-uppercase font-weight-bold pl-0">Profile</a>
             </li>
             <li>
-                <a href="#" class="text-dark nav-link text-dark text-uppercase font-weight-bold pl-0">Registry</a>
+                <a href="{{ route('registry.index') }}" class="text-dark nav-link text-dark text-uppercase font-weight-bold pl-0">Registry</a>
             </li>
         </ul>
 

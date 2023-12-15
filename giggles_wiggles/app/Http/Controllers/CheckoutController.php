@@ -31,7 +31,7 @@ class CheckoutController extends Controller
     
         if (!$address) {
 
-            return redirect()->route('some.route')->with('error', 'Please update your address.');
+            return redirect()->route('cart.show')->with('error', 'Please update your address.');
         }
     
         $province = $address->province;

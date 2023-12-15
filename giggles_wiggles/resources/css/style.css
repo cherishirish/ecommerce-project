@@ -589,3 +589,36 @@ button:focus {
 {
   color:rgb(129, 128, 128);
 }
+
+/* REGISTRY */
+
+.registry-section {
+  width: 30%;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(227, 222, 245, 0.553);
+  border-radius: 10px;
+}
+.registry-title {
+  color: #E8A2A6;
+  font-weight: bold;
+}
+.registry-description {
+  margin: 10px 0;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+.registry-link {
+  color: #E8A2A6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.clearfix{
+  clear: both;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  gap: 5px;
+}

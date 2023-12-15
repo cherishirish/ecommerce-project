@@ -7,7 +7,7 @@
 
         <!-- Main Content Header Image-->
         <div class="main-header mb-3">
-            <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+            <img src="/images/breadcrumb.jpg" alt="">
         </div>
 
         <nav aria-label="breadcrumb">
@@ -16,15 +16,19 @@
             </ol>
         </nav>
 
-
-        
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-12 pt-5 pt-md-0">
-                <!--  -->
-                <div>
-                    <h2>Registry</h2>
-                    
-                </div>
+                
+                            <h2 class="text-center">{{ $registry->registryName }}</h2> 
+                            <p class="text-center"> Event Date :  {{ $registry->eventDate }} </p>
+                           
+                            @foreach ($products as $product)
+                                <div>
+                                    {{ $product->product_name }} - {{ $product->price }}
+                                </div>
+                            @endforeach
+
+                
             </div>
         </div>
     </div>

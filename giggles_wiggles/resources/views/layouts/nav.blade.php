@@ -26,7 +26,7 @@
     </li>
 @endforeach
         <li class="nav-item">
-          <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('page.registry') }}">Registry</a>
+          <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('registry.index') }}">Registry</a>
         </li>
       </ul>
       <!-- Links -->
