@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::where('is_nav', true)->take(6)->get();
             $view->with(['categories' => $categories]);
         });
+        \View::composer('*', function ($view) {
+            $categories = Category::all();
+            $view->with(['categories' => $categories]);
+        });
 
         
     }

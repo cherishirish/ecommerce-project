@@ -12,7 +12,7 @@ class CartController extends Controller
     {
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity', 1); 
-
+       
         $product = Product::find($productId);
         if (!$product) {
             return redirect()->back()->with('error', 'Product not found!');
@@ -44,6 +44,7 @@ class CartController extends Controller
     {
        
         $cart = session()->get('cart', []);
+
         
       
         $totalPrice = array_sum(array_map(function($item) {
@@ -52,7 +53,7 @@ class CartController extends Controller
 
         $categories = Category::all();
       
-        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice], compact('categories'));
+        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice] );
     }
     
     public function clearCart()
