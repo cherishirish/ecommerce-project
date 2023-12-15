@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Address;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
@@ -203,9 +204,17 @@ class CheckoutController extends Controller
                 return redirect(route('checkout.index'))->with('danger', "$cc_error and $cvv_error");
             }
 
+            $transaction = (array)$transaction;
 
+            $transaction_info = [
+                'order_id' => $order->id,
+                'status' => $response->transaction_response->response_code,
+                'transaction' => json_encode($transaction)
+            ];
 
             $transaction = Transaction::create($transaction_info);
+
+            die;
     
                 foreach ($cart as $item) {
                     $lineItem = new LineItem();
