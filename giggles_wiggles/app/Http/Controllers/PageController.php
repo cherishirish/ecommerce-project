@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
+use App\Models\LineItem;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -89,7 +90,7 @@ class PageController extends Controller
     }
 
 
-    function profile() {
+    public function profile() {
         $title = "Profile";
         $categories = Category::all();
         $orders = Order::where('user_id', auth()->id())->get();
@@ -208,7 +209,22 @@ class PageController extends Controller
 
         return redirect()->route('page.profile')->with('success', 'Billing Address deleted successfully.');
     }
-    
+
+    public function invoice()
+    {
+        $title = "Your Invoice";
+        $categories = Category::all();
+        $user = Auth::user();
+        $orders = Order::where('user_id', auth()->id())->get();
+
+        $lineItems = LineItem::whereIn('order_id', $orders->pluck('id'))->get();
+
+        $address = Address::all();
+
+        return view('/invoice', compact('title', 'categories', 'user', 'orders', 'lineItems', 'address'));
+    }
+
+
     function registry() {
         $title = "Gift Registry";
         $categories = Category::all();

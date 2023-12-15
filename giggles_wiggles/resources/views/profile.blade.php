@@ -20,7 +20,7 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!-- Profile Information -->
                 <div>
-                    <h2 class="mb-4">Profile</h2>
+                    <h2 class="mb-4">{{$title}}</h2>
                     
                     <!-- Edit Profile Button -->
                     <div class="mb-4">
