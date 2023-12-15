@@ -246,6 +246,18 @@ body {
   margin-bottom: 20px;
 }
 
+#card_type{
+  display: flex;
+  justify-content: space-evenly;
+  width: 350px;
+}
+
+#card_type img:hover{
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
 
 /* flash messages */
 

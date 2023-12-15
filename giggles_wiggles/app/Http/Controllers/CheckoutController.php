@@ -118,8 +118,8 @@ class CheckoutController extends Controller
             $valid=$request->validate([
                 'name_on_card' => 'required|string|min:1|max:255',
                 'card_number' => 'required|string|min:16|max:16',
-                'month' => 'required|string|min:2|max:2',
-                'year' => 'required|string|min:4|max:4',
+                'month' => 'required|integer|min:01|max:12',
+                'year' => 'required|integer|min:00|max:99',
                 'cvv' => 'required|string|min:3|max:3',
             ]);
 
@@ -152,14 +152,16 @@ class CheckoutController extends Controller
 
             $order->save();
 
-            die;
+            $new_order = Order::where('user_id', Auth::user()->id)->orderBy('updated_at')->first();
+
+            dd($new_order);
 
             $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
-            $transaction->amount(5.99);
-            $transaction->card_num(4111111111111111);
-            $transaction->exp_date ('0418');
-            $transaction->cvv(333);
-            $transaction->ref_num('2011099');
+            $transaction->amount($order_info['total']);
+            $transaction->card_num($valid['card_number']);
+            $transaction->exp_date ($valid['month'] . $valid['year']);
+            $transaction->cvv($valid['cvv']);
+            $transaction->ref_num($new_order['id']);
             $transaction->card_type('visa');
 
             $response = $transaction->authorize_and_capture();

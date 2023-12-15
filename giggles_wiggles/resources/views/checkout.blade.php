@@ -19,7 +19,7 @@
             <h4 class="checkout_titles">Shipping Address:</h4>
 
             <div class="form-group">
-            <input type="checkbox" id="shipping_address_different" value=1 class="form-check-input" name="shipping_address_different" onclick="checkShipping()">
+            <input type="checkbox" id="shipping_address_different" value=1 class="form-check-input" name="shipping_address_different">
             <label for="shipping_address_different" class="form-check-label">Same as billing address</label>
             </div>
 
@@ -66,6 +66,13 @@
 
        
             <h1 id="payment_title">Payment Details</h1>
+            <div id="card_type">
+                <p>Card Type:</p>
+                <img src="images/transactions/visa.svg" alt="Visa" width=50 id="visa">
+                <img src="images/transactions/mastercard.svg" alt="Mastercard" width=50 id="mastercard">
+                <img src="images/transactions/amex.svg" alt="amex" width=50 id="amex">
+            </div>
+            <input type="hidden" id="card_type" name="card_type">
             <div class="form-group">
                 <input type="text" class="form-control" name="name_on_card" id="name_on_card" placeholder="Name on Card" size=40>
             </div>
