@@ -175,7 +175,6 @@
                                         <th>Shipping Address</th>
                                         <th>PST</th>
                                         <th>GST</th>
-                                        <th>Status</th>
                                         <th>Date</th>
                                     </tr>
                                 </thead>
@@ -189,7 +188,6 @@
                                             <td>{{ $order->shipping_address }}</td>
                                             <td>${{ number_format($order->pst, 2) }}</td>
                                             <td>${{ number_format($order->gst, 2) }}</td>
-                                            <td>{{ $order->status }}</td>
                                             <td>{{ $order->created_at->format('M d, Y H:i A') }}</td>
                                         </tr>
                                     @endforeach

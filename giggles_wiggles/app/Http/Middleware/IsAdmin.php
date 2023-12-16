@@ -22,6 +22,6 @@ class IsAdmin
         }
 
 
-        return redirect( route('login')); 
+        return $next($request); 
     }
 }
