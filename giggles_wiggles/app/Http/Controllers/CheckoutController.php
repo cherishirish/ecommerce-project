@@ -127,7 +127,7 @@ class CheckoutController extends Controller
 
             $valid=$request->validate([
                 'name_on_card' => 'required|string|min:1|max:255',
-                'card_number' => 'required|integer|digits:16',
+                'card_number' => 'required|integer|digits_between:15,16',
                 'month' => 'required|integer|min:01|max:12|digits:2',
                 'year' => 'required|integer|min:23|max:50|digits:2',
                 'cvv' => 'required|integer|digits:3',
@@ -230,11 +230,8 @@ class CheckoutController extends Controller
                 }
             }
 
-           
-                session()->forget('cart');
 
-                return redirect()->route('order.confirmation', $order->id)
-                                 ->with('success', 'Order placed successfully!');
+                return redirect()->route('checkout.email');
         
         }
 
@@ -255,7 +252,10 @@ class CheckoutController extends Controller
         $template_path = 'email_template';
         $order = Order::where('id', session('order'))->first();
         $user = User::where('id', $order->user_id)->first();
-        $cart = session('cart');
+        $cart = session('cart', []);
+        $billing_address = json_decode($order->billing_address);
+
+        dd($billing_address->city);
 
         $data = [
             'order' => $order,
@@ -270,7 +270,9 @@ class CheckoutController extends Controller
             $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
         });
 
-        return "email sent";
+        session()->forget('cart');
+
+        return redirect(route('order.confirmation'))->with('success', 'You order has been placed!');
     }
     
 

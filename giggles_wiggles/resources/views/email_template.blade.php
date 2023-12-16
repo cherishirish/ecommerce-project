@@ -169,30 +169,39 @@ html {
 																<table cellpadding="0" cellspacing="0" border="0">
 																	<tr>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Products sum:
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Subtotal:
 																			<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">$XX.XX<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->subtotal}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Shipment:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">GST:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">$XX.XX<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->gst}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Discount:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">PST:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">-$XX.XX<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->pst}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																		</div></td>
+																	</tr>
+																	<tr>
+																		<td align="right">
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">HST:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																		</div></td>
+																		<td width="50">&nbsp;</td>
+																		<td align="right">
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->hst}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
@@ -201,27 +210,8 @@ html {
 																		</strong></div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="font-family: font-family-4remove-0, -apple-system, " ui="" helvetica="" neue="" font-size:="" line-height:="" color:=""><st></st><strong style="line-height: 21px; color: #082846; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 14px">$XX.XX<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="font-family: font-family-4remove-0, -apple-system, " ui="" helvetica="" neue="" font-size:="" line-height:="" color:=""><st></st><strong style="line-height: 21px; color: #082846; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 14px">{{$order->total}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</strong></div></td>
-																	</tr>
-																	<tr>
-																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Paid:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-																		</div></td>
-																		<td width="50">&nbsp;</td>
-																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">$XX.XX<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-																		</div></td>
-																	</tr>
-																	<tr>
-																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">Due:<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-																		</div></td>
-																		<td width="50">&nbsp;</td>
-																		<td align="right">
-																			<div style="font-family: font-family-4remove-0, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 14px; line-height: 21px; color: #D82E2E;"><strong style="line-height: 21px;" font-family:="" segoe="" ui="" helvetica="" neue="">$XX.XX</strong></div>
-																			<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-																		</td>
 																	</tr>
 																</table>
 															</td>
@@ -257,7 +247,7 @@ html {
 								<td align="left">
 <div em="atom">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-  <div style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #333333;"><span style="color: #082846;"><strong>Shipping Address</strong>: [Shipping Address]</span><br><br><span style="color: #082846;"><strong>Payment Method</strong>: [Payment Method]</span><br><br><span style="color: #082846;">If you have any questions or concerns regarding your order, please feel free to reach out to us via email or phone, and we'll be happy to assist you.</span><br><br><span style="color: #082846;">Best regards,</span><br><br><span style="color: #082846;">[Your Name and Title]</span><br><br><span style="color: #082846;">[Company Name]</span><br></div>
+  <div style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #333333;"><span style="color: #082846;"><strong>Shipping Address</strong>: <?php if(!empty($order['billing_address'])) : ?> <?= json_decode($order['billing_address']) ?> <?php endif ?></span><br><br><span style="color: #082846;"><strong>Payment Method</strong>: [Payment Method]</span><br><br><span style="color: #082846;">If you have any questions or concerns regarding your order, please feel free to reach out to us via email or phone, and we'll be happy to assist you.</span><br><br><span style="color: #082846;">Best regards,</span><br><br><span style="color: #082846;">[Your Name and Title]</span><br><br><span style="color: #082846;">[Company Name]</span><br></div>
 </div>
 </td>
 							</tr>
