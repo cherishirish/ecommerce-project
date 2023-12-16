@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Address;
+use App\Models\User;
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -12,15 +14,17 @@ use App\Models\Category;
 use Pacewdd\Bx\_5bx;
 use Illuminate\Validation\Rule;
 use Session;
+use Mail;
+
 
 class CheckoutController extends Controller
 {
     public function index()
     {
    
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
-        }
+        // if (!Auth::check()) {
+        //     return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
+        // }
         $cart = session('cart', []);
 
         if (empty($cart)) {
@@ -214,24 +218,38 @@ class CheckoutController extends Controller
 
             $transaction = Transaction::create($transaction_info);
 
-            die;
-    
-                foreach ($cart as $item) {
-                    $lineItem = new LineItem();
-                    $lineItem->order_id = $order->id;
-                    $lineItem->product_id = $item['id'];
-                    $lineItem->unit_price = $item['price'];
-                    $lineItem->name = $item['name']; // Assuming you have a name field
-                    $lineItem->quantity = $item['quantity'];
-                    $lineItem->save();
-                }
+            $transaction->save();
 
+            $order->status = 1;            
     
+            foreach ($cart as $item) {
+                $lineItem = new LineItem();
+                $lineItem->order_id = $order->id;
+                $lineItem->product_id = $item['product_id'];
+                $lineItem->unit_price = $item['price'];
+                $lineItem->name = $item['name']; // Assuming you have a name field
+                $lineItem->quantity = $item['quantity'];
+                $lineItem->save();
+
+                $product = Product::where('id', $item['product_id'])->first();
+                $product->quantity = $product->quantity - $item['quantity'];
+
+                if($product->quantity == 0){
+                    $product->availability = 0;
+                }
+            }
+
+           
                 session()->forget('cart');
-    
+
                 return redirect()->route('order.confirmation', $order->id)
                                  ->with('success', 'Order placed successfully!');
         
+        }
+
+        public function orderConfirm()
+        {
+            return view('order_confirmation');
         }
     
         private function calculateSubtotal($cart)
@@ -240,6 +258,29 @@ class CheckoutController extends Controller
                 return $total + ($item['quantity'] * $item['price']);
             }, 0);
         }
+
+        public function htmlmail()
+    {
+        $template_path = 'email_template';
+        $order = Order::where('id', session('order'))->first();
+        $user = User::where('id', $order->user_id)->first();
+        $cart = session('cart');
+
+        $data = [
+            'order' => $order,
+            'user' => $user,
+            'cart' => $cart
+        ];
+        
+
+        Mail::send($template_path, $data, function($message){
+            $message->to('cheezbrgeryumm@gmail.com', 'Loresa Bueckert')->subject('Giggles Wiggles Order Confirmation');
+
+            $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
+        });
+
+        return "email sent";
+    }
     
 
 }

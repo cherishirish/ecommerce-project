@@ -51,6 +51,8 @@ Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clea
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
 Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order');
+Route::get('/checkout/order/email', [CheckoutController::class, 'htmlmail'])->name('checkout.email');
+Route::get('/order/confirmation', [CheckoutController::class, 'orderConfirm'])->name('order.confirmation');
 
 
 // SUBSCRIBE TO NEWSLETTER
