@@ -48,7 +48,7 @@
                                 <div class="card-body pl-3">
                                     <div>
                                         <!-- Product brand -->
-                                        <p class="text-sm text-muted p-0 m-0">Brand</p>
+                                        <p class="text-sm text-muted p-0 m-0">{{ $product->brand->brand_name }}</p>
                                         <!-- Product name -->
                                         <h5 class="fw-bolder p-0 m-0">{{ $product->product_name }}</h5>
                                         <!-- Product price -->
