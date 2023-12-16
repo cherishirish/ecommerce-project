@@ -2,26 +2,37 @@
 
 @section('content')
     
+<!-- Page Heading -->
+<div class="px-4 w-100">
+    <h1>{{ $title }}</h1>
 
-    <form action="{{ route('admin.brand.update', ['id' => $brand->id]) }}" method="POST" class="px-3">
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    <!-- Content Row -->
+    <div class="row">
+        
+        @if(isset($brand))
+        <form action="{{ route('admin.brands.update', ['id' => $brand->id]) }}" method="POST" class="px-3">
+            @csrf
+            @method('PUT')
+            <input type="hidden" name="id" value="{{ $brand->id }}">
+        @else
+        <form action="{{ route('admin.brands.store') }}" method="POST" class="px-3">
+            @csrf
+        @endif
+            <!-- Brand Name Field -->
+            <div class="form-group row my-4">
+                <label for="brand_name" class="col-sm-2 col-form-label text-center">Brand Name</label>
+                <div class="col-sm-10">
+                        <input type="text" class="form-control" name="brand_name" id="brand_name"
+                        value="{{ old('brand_name', $brand->brand_name ?? '') }}">
+                        @error('brand_name')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror   
+                </div>     
+            </div>
 
-    @if(session('info'))
-        <div class="alert alert-info">{{ session('info') }}</div>
-    @endif
-        @csrf
-        @method('PUT') <!-- Use PUT method for updating -->
+            <button type="submit" class="btn btn-primary">{{ isset($brand) ? 'Update' : 'Create' }}</button>
+        </form>
+    </div>
 
-        <h1>{{ $title }}</h1>
-
-        <!-- Brand Name Field -->
-        <div class="mb-3">
-            <label for="brand_name" class="form-label">Brand Name</label>
-            <input type="text" class="form-control" id="brand_name" name="brand_name" value="{{ old('brand_name', $brand->brand_name) }}">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+</div>
 @endsection

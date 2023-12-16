@@ -11,7 +11,6 @@
                 <th>ID</th>
                 <th>Brand Name</th>
                 <th>Action</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -20,10 +19,8 @@
                 <td>{{ $brand->id }}</td>
                 
                 <td>{{ strtoupper($brand->brand_name) }}</td>
-                <td>
+                <td class="d-flex gap-3">
                     <a href="{{route('admin.brands.edit', ['id'=>$brand->id])}}" class="btn btn-info">Edit</a>
-                </td>
-                <td>
                     <form method="post" action="{{route('admin.brands.delete', ['id'=>$brand->id])}}" id="delete">
                         @csrf    
                         @method('DELETE')

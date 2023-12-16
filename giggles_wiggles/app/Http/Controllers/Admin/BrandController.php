@@ -23,7 +23,8 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Create new brand";
+        return view('admin/brands/edit', compact('title'));
     }
 
     /**
@@ -31,7 +32,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid =$request->validate([
+            'brand_name' => 'required|string|min:1|max:255',
+        ]);
+        Brand::create($valid);
+        return redirect(route('admin.brands'))->with('success', 'Brand created successfully');
     }
 
     /**
@@ -47,15 +52,23 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $brand = Brand::where('id', '=', $id)->first();
+        $title = 'Edit Brand';
+        return view('admin/brands/edit', compact('title', 'brand'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $valid =$request->validate([
+            'id' => 'required|integer',
+            'brand_name' => 'required|string|min:1|max:255',
+        ]);
+        $brand = Brand::find($valid['id']);
+        $brand->update($valid);
+        return redirect(route('admin.brands'))->with('success', 'Brand updated successfully');
     }
 
     /**
@@ -63,6 +76,8 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $brand = Brand::find($id);
+        $brand->delete();
+        return redirect(route('admin.brands'))->with('success', 'Brand deleted successfully');
     }
 }
