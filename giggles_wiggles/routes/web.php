@@ -65,9 +65,12 @@ Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('hom
 Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
 Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
 Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
-Route::get('/registry/edit', [RegistryController::class, 'edit'])->name('registry.edit')->middleware('auth');
-Route::put('/registry/update', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');
+Route::get('/registry/edit/{id}', [RegistryController::class, 'edit'])->name('registry.edit')->middleware('auth');
+Route::put('/registry/update/{id}', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');
 Route::get('/registry/{id}', [RegistryController:: class, 'show'])->name('registry.show')->middleware('auth');
+Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->middleware('auth');
+Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
+Route::delete('/registry/{registry}/remove-product', [RegistryController::class, 'removeProduct'])->name('registry.removeProduct')->middleware('auth');
 
 
 //--------------------------------------------------------------------------------------

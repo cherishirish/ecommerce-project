@@ -40,7 +40,7 @@
                         <div class="registry-section">
                             <div class="registry-title">Manage a Registry</div>
                             <div class="registry-description">Add, remove or change items and share with friends and family.</div>
-                            <a href="#" class="registry-link">Manage ></a>
+                            <a href="{{ route('manage') }}" class="registry-link">Manage ></a>
                         </div>
                     
                         <div class="registry-section">
@@ -49,39 +49,6 @@
                             <a href="#" class="registry-link">Find ></a>
                         </div>
                     </div>
-
-
-
-
-                <div>
-                    <h2>Registry Table</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Registry Name</th>
-                                        <th>Event Date</th>
-                                        <th>Link</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($registries as $registry)
-                                        <tr>
-                                            <td>{{ $registry->registryName }}</td>
-                                            <td>{{ $registry->eventDate }}</td>
-                                            <td>
-                                                <a href="{{ route('registry.show', $registry->id) }}">View</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-
-
-
                 </div>
             </div>
         </div>

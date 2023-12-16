@@ -84,8 +84,6 @@
             $(this).slideUp(500);
         });
     });
-
-    
 </script>
 
 </body>

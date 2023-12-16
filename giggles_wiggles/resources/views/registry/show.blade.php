@@ -23,10 +23,12 @@
                             <p class="text-center"> Event Date :  {{ $registry->eventDate }} </p>
                            
                             @foreach ($products as $product)
-                                <div>
-                                    {{ $product->product_name }} - {{ $product->price }}
-                                </div>
-                            @endforeach
+                            <div>
+                                {{ $product->product_name }} - {{ $product->price }}
+                                <button onclick="deleteProduct({{ $product->id }})">Delete</button>
+                            </div>
+                        @endforeach
+
 
                 
             </div>
@@ -34,4 +36,22 @@
     </div>
 </section>
 
+
+<script>
+    function deleteProduct(productId) {
+        if(confirm('Are you sure you want to remove this product?')) {
+            axios.post('{{ route("registry.removeProduct", $registry->id) }}', {
+                productId: productId,
+                _method: 'DELETE',
+                _token: '{{ csrf_token() }}'
+            })
+            .then(function (response) {
+                location.reload();
+            })
+            .catch(function (error) {
+                console.error('Error removing product:', error);
+            });
+        }
+    }
+</script>
 @endsection

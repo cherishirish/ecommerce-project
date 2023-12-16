@@ -22,8 +22,8 @@
                     <h2>Edit Baby Registry</h2>
                     <form action="{{ route('registry.update', $registry->id) }}" method="post">
                         @csrf
-                        @method('PUT')
-
+                        @method('PUT') 
+                        
                         <div class="form-group">
                             <label for="registryName">Registry Name:</label>
                             <input type="text" id="registryName" name="registryName" value="{{ $registry->registryName }}" required>
