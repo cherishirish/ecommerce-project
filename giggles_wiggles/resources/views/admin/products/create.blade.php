@@ -6,6 +6,22 @@
         
         @csrf
 
+        <div class="form-group mb-3">
+            <label for="brand_id">Brand</label><br />
+            <select class="form-select custom-select" name="brand_id">
+            <option value="">Select Brand</option>
+                @foreach ($brands as $brand)
+                    <option value="{{ $brand->id }}" 
+                    @if(old('brand_id') == $brand->id) 
+                    selected 
+                    @endif
+                    >{{ $brand->brand_name }}</option>
+                @endforeach
+            </select>
+            @error('brand_id')
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
         <div class="form-group mb-3">
             <label for="product_name">Product Name</label>

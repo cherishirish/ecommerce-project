@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +24,8 @@ class ProductController extends Controller
     {
         $title = "Create Product";
         $categories = Category::all();
-        return view('admin/products/create', compact('title','categories') );
+        $brands = Brand::all();
+        return view('admin/products/create', compact('title','categories', 'brands') );
     }
     
     public function store(Request $request)
@@ -31,6 +33,7 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required|string|max:255',
             'category_id' => 'required|integer',
+            'brand_id' => 'required|integer',
             'price' => 'required|numeric|between:1,99999.99',
             'description' => 'required|string',
             'availability' => 'required|boolean',
@@ -51,6 +54,7 @@ class ProductController extends Controller
         Product::create([
             'product_name' => $request->input('product_name'),
             'category_id' => $request->input('category_id'),
+            'brand_id' => $request->input('brand_id'),
             'price' => $request->input('price'),
             'description' => $request->input('description'),
             'availability' => $request->input('availability'),
@@ -68,7 +72,8 @@ class ProductController extends Controller
         $title = 'Edit Product Record';
         $product = Product::where('id', $id)->first();
         $categories = Category::all();
-        return view('admin/products/edit', compact('title', 'product', 'categories'));
+        $brands = Brand::all();
+        return view('admin/products/edit', compact('title', 'product', 'categories', 'brands'));
     
     }
 
@@ -78,6 +83,7 @@ class ProductController extends Controller
         $valid = $request->validate([
             'product_name' => 'required|string|max:255',
             'category_id' => 'required|integer',
+            'brand_id' => 'required|integer',
             'price' => 'required|numeric|between:1,99999.99',
             'description' => 'required|string',
             'availability' => 'required|boolean',
@@ -92,6 +98,7 @@ class ProductController extends Controller
         $product->update([
             'product_name' => $request->input('product_name'),
             'category_id' => $request->input('category_id'),
+            'brand_id' => $request->input('brand_id'),
             'price' => $request->input('price'),
             'description' => $request->input('description'),
             'availability' => $request->input('availability'),

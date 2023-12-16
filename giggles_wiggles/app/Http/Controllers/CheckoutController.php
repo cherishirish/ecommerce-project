@@ -5,11 +5,13 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Address;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Pacewdd\Bx\_5bx;
 use Illuminate\Validation\Rule;
+use Session;
 
 class CheckoutController extends Controller
 {
@@ -73,6 +75,18 @@ class CheckoutController extends Controller
 
         public function store(Request $request)
         {
+
+            if (!Auth::check()) {
+                return redirect()->route('login')->with('error', 'Please login to place an order.');
+            }
+    
+            $user = Auth::user();
+            $cart = session('cart', []);
+    
+            if (empty($cart)) {
+                return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+            }
+
             $taxRates = [
                 'GST' => 0.05,
                 'PST' => [
@@ -125,80 +139,82 @@ class CheckoutController extends Controller
                 'card_type' => ['required', Rule::in(['visa', 'mastercard', 'amex'])]
             ]);
 
-            if($_POST['address']){
-                $order_info = [
-                    'user_id' => Auth::user()->id,
-                    'subtotal' => $subtotal,
-                    'total' => $total,
-                    'billing_address' => json_encode($billing_address),
-                    'shipping_address' => json_encode($valid_address),
-                    'pst' => $pst,
-                    'gst' => $gst,
-                    'hst' => $hst,
-                    'status' => 0
-                ];
+            if(!session()->has('order')){
+                if($_POST['address']){
+                    $order_info = [
+                        'user_id' => Auth::user()->id,
+                        'subtotal' => $subtotal,
+                        'total' => $total,
+                        'billing_address' => json_encode($billing_address),
+                        'shipping_address' => json_encode($valid_address),
+                        'pst' => $pst,
+                        'gst' => $gst,
+                        'hst' => $hst,
+                        'status' => 0
+                    ];
+                }else{
+                    $order_info = [
+                        'user_id' => Auth::user()->id,
+                        'subtotal' => $subtotal,
+                        'total' => $total,
+                        'billing_address' => json_encode($billing_address),
+                        'pst' => $pst,
+                        'gst' => $gst,
+                        'hst' => $hst,
+                        'status' => 0
+                    ];
+                }
+    
+                $order = Order::create($order_info);
+    
+                $order->save();
+    
+                Session::put('order', $order->id);
+
             }else{
-                $order_info = [
-                    'user_id' => Auth::user()->id,
-                    'subtotal' => $subtotal,
-                    'total' => $total,
-                    'billing_address' => json_encode($billing_address),
-                    'pst' => $pst,
-                    'gst' => $gst,
-                    'hst' => $hst,
-                    'status' => 0
-                ];
+                $order = Order::where('id', session()->get('order'))->first();
             }
 
-            $order = Order::create($order_info);
-
-            $order->save();
-
-            $new_order = Order::where('user_id', Auth::user()->id)->orderBy('updated_at')->first();
-
             $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
-            $transaction->amount($order_info['total']);
+            $transaction->amount($order['total']);
             $transaction->card_num($valid['card_number']);
             $transaction->exp_date ($valid['month'] . $valid['year']);
             $transaction->cvv($valid['cvv']);
-            $transaction->ref_num($new_order['id']);
+            $transaction->ref_num($order['id']);
             $transaction->card_type($valid['card_type']);
-
-            dd($transaction);
 
             $response = $transaction->authorize_and_capture();
 
-            var_dump($response);
-            die;
+            $cvv_error = '';
+            $cc_error = '';
 
-            if (!Auth::check()) {
-                return redirect()->route('login')->with('error', 'Please login to place an order.');
+            if(!empty($response->transaction_response->errors->cvv_result) && empty($response->transaction_response->errors->cc_result)){
+               $cvv_error = $response->transaction_response->errors->cvv_result;
+               return redirect(route('checkout.index'))->with('danger', $cvv_error);
             }
-    
-            $user = Auth::user();
-            $cart = session('cart', []);
-    
-            if (empty($cart)) {
-                return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+
+            if(!empty($response->transaction_response->errors->cc_result) && empty($response->transaction_response->errors->cvv_result)){
+                $cc_error = $response->transaction_response->errors->cc_result;
+                return redirect(route('checkout.index'))->with('danger', $cc_error);
+             }
+
+            if(!empty($response->transaction_response->errors->cc_result) && !empty($response->transaction_response->errors->cvv_result)){
+                $cvv_error = $response->transaction_response->errors->cvv_result;
+                $cc_error = $response->transaction_response->errors->cc_result;
+                return redirect(route('checkout.index'))->with('danger', "$cc_error and $cvv_error");
             }
-    
-            DB::beginTransaction();
-    
-            try {
-                $subtotal = $this->calculateSubtotal($cart);
-                $gst = $subtotal * 0.05; // Assume 5% GST
-                $pst = $subtotal * 0.07; // Assume 7% PST, adjust based on province
-    
-                $order = new Order();
-                $order->customer_id = $user->id;
-                $order->subtotal = $subtotal;
-                $order->gst = $gst;
-                $order->pst = $pst;
-                $order->total = $subtotal + $gst + $pst;
-                $order->billing_address = 'Your Billing Address'; // Retrieve from user or input
-                $order->shipping_address = 'Your Shipping Address'; // Retrieve from user or input
-                $order->status = 1; // Assuming 1 represents a specific status
-                $order->save();
+
+            $transaction = (array)$transaction;
+
+            $transaction_info = [
+                'order_id' => $order->id,
+                'status' => $response->transaction_response->response_code,
+                'transaction' => json_encode($transaction)
+            ];
+
+            $transaction = Transaction::create($transaction_info);
+
+            die;
     
                 foreach ($cart as $item) {
                     $lineItem = new LineItem();
@@ -209,17 +225,13 @@ class CheckoutController extends Controller
                     $lineItem->quantity = $item['quantity'];
                     $lineItem->save();
                 }
-    
-                DB::commit();
+
     
                 session()->forget('cart');
     
                 return redirect()->route('order.confirmation', $order->id)
                                  ->with('success', 'Order placed successfully!');
-            } catch (\Exception $e) {
-                DB::rollBack();
-                return redirect()->route('cart.show')->with('error', 'Error processing your order.');
-            }
+        
         }
     
         private function calculateSubtotal($cart)
