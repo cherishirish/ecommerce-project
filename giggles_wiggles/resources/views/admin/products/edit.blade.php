@@ -10,6 +10,22 @@
         <input type="hidden" name="id" value="{{ $product->id }}">
 
         <div class="form-group mb-3">
+            <label for="brand_id">Brand</label><br />
+            <select class="form-select custom-select" name="brand_id">
+                @foreach($brands as $brand)
+                    @if($brand->id == old('brand_id', $product->brand_id ?? ''))
+                        <option selected value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                    @else
+                        <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                    @endif
+                @endforeach
+            </select>
+            @error('brand_id')
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group mb-3">
             <label for="product_name">Product Name</label>
             <input type="text" name="product_name" class="form-control" value="{{ old('product_name') ?? $product->product_name }}">
             @error('product_name')
