@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $title = "Giggles Wiggles - Admin Dashboard";
+        $title = "Admin Dashboard";
         $customers = User::where('is_admin', 0)->get();
         $admin = User::where('is_admin', 1)->get();
         return view('admin/index', compact('title', 'customers', 'admin'));

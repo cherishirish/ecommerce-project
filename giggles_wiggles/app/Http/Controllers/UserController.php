@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $title = "Users CRUD";
+        $title = "Users";
         $users = User::all();
         $addresses = Address::all();
         return view('admin/users/index', compact('title', 'users', 'addresses'));
