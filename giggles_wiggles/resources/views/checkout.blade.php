@@ -112,10 +112,7 @@
         <div class="col-md-6">
             <h3>Cart Summary</h3>
             @php
-                $gst = 0;
-                $pst = 0;
                 $subtotal = 0;
-                $total = 0;
                 
                 // Define GST and PST rates based on the user's province
                 $taxRates = [
@@ -145,27 +142,31 @@
                 $total = $subtotal + $gst + $pst;
             @endphp
             
-            <p><strong>Subtotal:</strong> ${{ number_format($subtotal, 2) }}</p>
-            <p><strong>GST (5%):</strong> ${{ number_format($gst, 2) }}</p>
+            <p><strong>Subtotal:</strong> ${{ $subtotal }}</p>
+            <p><strong>GST ({{$gst_rate * 100}}%):</strong> ${{ number_format($subtotal * $gst_rate, 2) }}</p>
             <p>
                 <strong>PST 
-                    (@if(isset($taxRates['PST'][$province]))
-                        {{ $taxRates['PST'][$province] * 100 }}%
-                    @else
+                    @if($pst_rate == 0.00)
                         N/A
+                    @else
+                        ({{$pst_rate * 100}}%):
                     @endif
-                ):</strong> 
-                ${{ number_format($pst, 2) }}
+                </strong> 
+                @if($pst_rate !== 0.00)
+                ${{ number_format($subtotal * $pst_rate, 2) }}
+                @endif
             </p>
             <p>
                 <strong>HST 
-                    (@if(isset($taxRates['HST'][$province]))
-                        {{ $taxRates['HST'][$province] * 100 }}%
-                    @else
+                    (@if($hst_rate == 0.00)
                         N/A
+                    @else
+                        ({{$hst_rate * 100}}%)
                     @endif
                 ):</strong> 
+                @if($hst_rate !== 0.00)
                 ${{ number_format($pst, 2) }}
+                @endif
             </p>
             <p><strong>Total:</strong> ${{ number_format($total, 2) }}</p>
             

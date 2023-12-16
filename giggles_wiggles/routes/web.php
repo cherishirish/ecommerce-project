@@ -50,7 +50,7 @@ Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show')
 Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
-Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order');
+Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order')->middleware('auth');
 Route::get('/checkout/order/email', [CheckoutController::class, 'htmlmail'])->name('checkout.email');
 Route::get('/order/confirmation', [CheckoutController::class, 'orderConfirm'])->name('order.confirmation');
 

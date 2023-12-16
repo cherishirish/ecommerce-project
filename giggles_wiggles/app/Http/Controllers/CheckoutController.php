@@ -8,6 +8,7 @@ use App\Models\Address;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Transaction;
+use App\Models\TaxRate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
@@ -49,71 +50,61 @@ class CheckoutController extends Controller
             return $item['quantity'] * $item['price'];
         }, $cart));
 
-     
-        $taxRates = [
-            'GST' => 0.05,
-            'PST' => [
-                'BC' => 0.07, 
-                'ON' => 0.08,
-                
-            ],
-            'HST' => 0
-        ];
-
         // Calculate taxes based on the user's province
-        $gst = $subtotal * $taxRates['GST'];
-        $pst = 0;
-        $hst = $subtotal * $taxRates['HST'];
-        $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+        $user = Auth::user();
+        $cart = session('cart', []);
+        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $province = $address->province;
+        $taxRates = TaxRate::where('province', $province)->first();
+        $gst_rate = $taxRates->gst;
+        $pst_rate = $taxRates->pst;
+        $hst_rate = $taxRates->hst;
 
-        if (array_key_exists($userProvince, $taxRates['PST'])) {
-            $pst = $subtotal * $taxRates['PST'][$userProvince];
+
+        if (empty($cart)) {
+            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
-        $total = $subtotal + $gst + $pst;
 
+        $subtotal = array_sum(array_map(function($item) {
+            return $item['quantity'] * $item['price'];
+        }, $cart));
+
+        $gst = $subtotal * $gst_rate;
+        $pst = $subtotal * $pst_rate;
+        $hst = $subtotal * $hst_rate;
+
+        $total = $subtotal + $gst + $pst + $hst;
+        
         $categories = Category::all();
 
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'total', 'userProvince', 'address', 'categories'));
+        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'gst_rate', 'pst_rate', 'hst_rate', 'total', 'province', 'address', 'categories'));
     }
 
         public function store(Request $request)
         {
-
-            if (!Auth::check()) {
-                return redirect()->route('login')->with('error', 'Please login to place an order.');
-            }
     
             $user = Auth::user();
             $cart = session('cart', []);
+            $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+            $province = $address->province;
+            $taxRates = TaxRate::where('province', $province)->first();
+            $gst_rate = $taxRates->gst;
+            $pst_rate = $taxRates->pst;
+            $hst_rate = $taxRates->hst;
     
             if (empty($cart)) {
                 return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
             }
 
-            $taxRates = [
-                'GST' => 0.05,
-                'PST' => [
-                    'BC' => 0.07, 
-                    'ON' => 0.08,
-                    
-                ],
-                'HST' => 0
-            ];
-
-            $cart = session('cart', []);
             $subtotal = array_sum(array_map(function($item) {
                 return $item['quantity'] * $item['price'];
             }, $cart));
 
-            $gst = $subtotal * $taxRates['GST'];
-            $pst = 0;
-            $hst = $subtotal * $taxRates['HST'];
-            $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+            $gst = $subtotal * $gst_rate;
+            $pst = $subtotal * $pst_rate;
+            $hst = $subtotal * $hst_rate;
 
-            if (array_key_exists($userProvince, $taxRates['PST'])) {
-                $pst = $subtotal * $taxRates['PST'][$userProvince];
-            }
             $total = $subtotal + $gst + $pst;
 
             $address_info = Address::where('user_id', Auth::user()->id)->first();
