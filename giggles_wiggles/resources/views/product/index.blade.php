@@ -46,24 +46,14 @@
                                 </a>
                                 <!-- Product details -->
                                 <div class="card-body pl-3">
-                                    <div id="item_info">
-                                        <div>
-                                            <!-- Product brand -->
-                                            <p class="text-sm text-muted p-0 m-0">Brand</p>
-                                            <!-- Product name -->
-                                            <h5 class="fw-bolder p-0 m-0">{{ $product->product_name }}</h5>
-                                            <!-- Product price -->
-                                            <p class="price">$ {{ $product->price }}</p>
-                                            
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <form id="product-addtocart" action="{{ route('cart.add') }}" method="post" class="d-flex align-items-center">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button class="btn m-2 cart_button" type="submit" name="add_to_cart"><i class="fas fa-shopping-cart cart_logo"></i></button>
-                                            </form>   
-                                        </div>
-                                    </div> 
+                                    <div>
+                                        <!-- Product brand -->
+                                        <p class="text-sm text-muted p-0 m-0">{{ $product->brand->brand_name }}</p>
+                                        <!-- Product name -->
+                                        <h5 class="fw-bolder p-0 m-0">{{ $product->product_name }}</h5>
+                                        <!-- Product price -->
+                                        <p class="price">$ {{ $product->price }}</p>
+                                    </div>
                                 </div>
                                 <!-- Product actions -->
                                 <div class="card-footer p-3 border-top-0 bg-transparent">

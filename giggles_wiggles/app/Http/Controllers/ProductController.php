@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 
 class ProductController extends Controller
 {
@@ -18,11 +19,12 @@ class ProductController extends Controller
         $category_id = $request->input('category_id');
 
         if ($category_id) {
-            $products = Product::where('category_id', $category_id)->get();
+            $products = Product::where('category_id', $category_id)->with('brand')->get();
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
         } else {
-            $products = Product::all();
+            // $products = Product::all();
+            $products = Product::with('brand');
         }
     
         return view('product.index', compact('products', 'title', 'categoryName', 'category_id', 'categories'));
@@ -53,7 +55,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with('category')->find($id); // Use 'category' relationship
+        $product = Product::with('category', 'brand')->find($id); // Use 'category' relationship
         $categories = Category::all();
 
         if (!$product) {
