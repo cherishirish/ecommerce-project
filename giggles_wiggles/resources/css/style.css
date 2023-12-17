@@ -133,6 +133,23 @@ body {
     border-radius: 1px 1px 45px 1px !important;
     }
 
+  #item_info{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart_button{
+    position: relative;
+    z-index: 2;
+    box-shadow: 1px 1px 3px darkgrey;
+  }
+
+  .cart_logo{
+    position: relative;
+    z-index: 1;
+    cursor: pointer !important;
+  }
+
 /* Deals carousel */
 
 
