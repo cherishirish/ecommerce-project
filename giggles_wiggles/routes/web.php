@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\RegistryController;
 use App\Http\Controllers\Admin\TaxRateController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -62,6 +63,20 @@ Route::post('home/subscribe', [SubscriberController::class, 'store'])->name('hom
 
 
 
+//REGISTRY
+
+Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
+Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
+Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
+Route::get('/registry/edit/{id}', [RegistryController::class, 'edit'])->name('registry.edit')->middleware('auth');
+Route::put('/registry/update/{id}', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');
+Route::get('/registry/{id}', [RegistryController:: class, 'show'])->name('registry.show')->middleware('auth');
+Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->middleware('auth');
+Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
+Route::delete('/registry/{registry}/remove-product', [RegistryController::class, 'removeProduct'])->name('registry.removeProduct')->middleware('auth');
+
+
+//--------------------------------------------------------------------------------------
 
 
 
@@ -98,6 +113,15 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
+//REGISTRY
+
+Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
+Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
+Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
+
+
+
+//--------------------------------------------------------------------------------------
 
 
 

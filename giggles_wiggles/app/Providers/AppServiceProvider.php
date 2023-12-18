@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
+use App\Models\Registry;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::all();
             $view->with(['categories' => $categories]);
         });
+        \View::composer('*', function ($view) {
+            $registry = Registry::all();
+            $view->with(['registries' => $registry]);
+        });
+       
 
         
     }
