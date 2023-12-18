@@ -103,8 +103,8 @@ div#statistics{
 }
 
 .stat_card_bg_four {
-    border: 1px solid #214c59;
-    background-color: #214c59;
+    border: 1px solid #285765;
+    background-color: #285765;
 }
 
 .stat_card h2{
@@ -178,4 +178,7 @@ div#statistics{
     border-color: #F9EDF1;
   }
 
-  
+  .big-font {
+    font-size: 54px;
+    font-weight: 800;
+  }
