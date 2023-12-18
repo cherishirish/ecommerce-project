@@ -10,7 +10,7 @@
         <input type="hidden" name="id" value="{{ $product->id }}">
 
         <div class="form-group mb-3">
-            <label for="brand_id">Brand</label><br />
+            <label for="brand_id" class="mb-2">Brand</label><br />
             <select class="form-select custom-select" name="brand_id">
                 @foreach($brands as $brand)
                     @if($brand->id == old('brand_id', $product->brand_id ?? ''))
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="product_name">Product Name</label>
+            <label for="product_name" class="mb-2">Product Name</label>
             <input type="text" name="product_name" class="form-control" value="{{ old('product_name') ?? $product->product_name }}">
             @error('product_name')
             <div class="text-danger">{{ $message }}</div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="category_id">Category</label><br />
+            <label for="category_id" class="mb-2">Category</label><br />
             <select class="form-select custom-select" name="category_id">
                 <option value="">Select Category</option>
                 @foreach ($categories as $category)
@@ -52,7 +52,7 @@
 
 
         <div class="form-group mb-3">
-            <label for="price">Price</label>
+            <label for="price" class="mb-2">Price</label>
             <input type="text" name="price" class="form-control" value="{{ old('price') ?? $product->price }}">
             @error('price')
             <div class="text-danger">{{ $message }}</div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="description">Description</label> 
+            <label for="description" class="mb-2">Description</label> 
             <textarea class="form-control wysiwyg" id="description" name="description">{{ old('description') ??  $product->description  }}</textarea>
             @error('description')
             <div class="text-danger">{{ $message }}</div>
@@ -68,7 +68,7 @@
         </div>
     
         <div class="form-group mb-3">
-            <label for="availability">Availability</label>
+            <label for="availability" class="mb-2">Availability</label>
             <select class="form-select custom-select" name="availability">
                 <option value="">Select Availability</option>
                 <option value="1" {{ (old('availability') == '1' || (isset($product) && $product->availability == '1')) ? 'selected' : '' }}>In Stock</option>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="quantity">Quantity</label>
+            <label for="quantity" class="mb-2">Quantity</label>
             <input type="text" name="quantity" class="form-control" value="{{ old('quantity') ??  $product->quantity  }}">
             @error('quantity')
             <div class="text-danger">{{ $message }}</div>
@@ -88,7 +88,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="image">Image</label>
+            <label for="image" class="mb-2">Image</label>
             <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image">
             @error('image')
             <div class="text-danger">{{ $message }}</div>
@@ -104,7 +104,7 @@
 
 
         <div class="form-group mb-3">
-            <label for="gender">Gender</label>
+            <label for="gender" class="mb-2">Gender</label>
             <select class="form-select custom-select" name="gender">
                 <option value="">Select Gender</option>
                 <option value="F" {{ (old('gender') == 'F' || (isset($product) && $product->gender == 'F')) ? 'selected' : '' }}>Female</option>

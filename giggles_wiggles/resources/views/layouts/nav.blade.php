@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
     <!-- Collapse button -->
-    <button class="navbar-toggler third-button ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler third-button ml-auto border-0" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon">
         <span></span>
@@ -21,10 +21,10 @@
           <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('home') }}">Home</a>
         </li>
         @foreach($categories->where('is_nav', 1) as $category)
-    <li class="nav-item">
-        <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
-    </li>
-@endforeach
+            <li class="nav-item">
+                <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('product.index', ['category_id' => $category->id]) }}">{{ $category->category_name }}</a>
+            </li>
+        @endforeach
         <li class="nav-item">
           <a class="nav-link text-dark text-uppercase font-weight-bold" href="{{ route('registry.index') }}">Registry</a>
         </li>

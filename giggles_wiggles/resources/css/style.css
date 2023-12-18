@@ -27,7 +27,9 @@ body {
     margin-right: 10px; /* Add some margin between the search bar and the button */
   }
 
-  
+  .left-padding {
+    padding-left: 30px;
+  }
   
   header button {
     width: 15%; /* Adjust the width as needed */
@@ -47,12 +49,7 @@ body {
     background-color: none;
 }
 
-.navbar-toggler-icon {
-  background: linear-gradient(-45deg, #7ac0d2,#E6AAAB);
-    display: block;
-    height: 4px;
-    margin: 7px
-}
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .form-inline .form-control {
@@ -623,7 +620,13 @@ width:80%;
 }
 
 .animated-icon span {
-  background: #000;
+  background: linear-gradient(-45deg, #7ac0d2,#E6AAAB);
+  display: block;
+  height: 4px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 button:focus {

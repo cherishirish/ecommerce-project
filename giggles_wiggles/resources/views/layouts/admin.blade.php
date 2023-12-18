@@ -10,8 +10,12 @@
     <title>{{ config('app.name', 'Giggles Wiggles') }}</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     
-    <!-- Scripts -->
+
     @vite(['resources/css/style.css', 'resources/css/app.css', 'resources/js/app.js'])
 
     <script>
@@ -114,11 +118,6 @@
     </main>
 
     </div>
-
-    <script>
-        
-    </script>
-
 
 </body>
 </html>
