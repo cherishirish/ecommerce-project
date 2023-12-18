@@ -32,10 +32,6 @@ body {
 }
 
 #admin_sidebar{
-    grid-column-start: 0;
-    grid-column-end: 2;
-    grid-row-start: 0;
-    grid-row-end: 3;
     position: relative;
     width: 240px;
     min-height: 800px;
@@ -66,12 +62,9 @@ body {
 
 div#admin_content{
     width: 100%;
-    height: 700px;
+    height: auto;
     background-color: whitesmoke;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 5;
+    overflow-y: hidden;
 }
 
 div#statistics{
@@ -123,14 +116,14 @@ div#statistics{
 
 .bg-primary {
     background-color: #F9EDF1 !important;
-  }
+}
 
-  .blue-font {
-    color: #7AC0D2;
-  }
+.blue-font {
+    color: #377f95;
+}
 
 
-  header {
+header {
     background-color: #007BFF; /* Use your desired background color */
     color: #fff;
     padding: 10px;
@@ -171,14 +164,14 @@ div#statistics{
 .btn-primary {
     background-color: #7AC0D2;
     border-color: #7AC0D2;
-  }
+}
 
-  .btn-primary:hover {
-    background-color: #F9EDF1;
-    border-color: #F9EDF1;
-  }
+.btn-primary:hover {
+    background-color: #377f95;
+    border-color: #377f95;
+}
 
-  .big-font {
+.big-font {
     font-size: 54px;
     font-weight: 800;
-  }
+}
