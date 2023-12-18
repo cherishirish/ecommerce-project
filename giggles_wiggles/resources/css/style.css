@@ -581,6 +581,9 @@ width:80%;
   height: 4px;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;
+}
 
 button:focus {
   outline: none;
