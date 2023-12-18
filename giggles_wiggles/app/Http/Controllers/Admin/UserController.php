@@ -46,7 +46,7 @@ class UserController extends Controller
             'address' => 'required|string|min:1|max:255',
             'city' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
-            'postal_code' => 'required|string|min:1|max:255'
+            'postal_code' => 'required|regex:/^[A-z][0-9][A-z]\s?[0-9][A-z][0-9]$/'
         ]);
 
         $user = User::find($valid['id']);
@@ -89,7 +89,7 @@ class UserController extends Controller
             'address' => 'required|string|min:1|max:255',
             'city' => 'required|string|min:1|max:255',
             'province' => 'required|string|min:1|max:255',
-            'postal_code' => 'required|string|min:1|max:255',
+            'postal_code' => 'required|regex:/^[A-z][0-9][A-z]\s?[0-9][A-z][0-9]$/gm',
             'address_type' => 'required'
         ]);
 
