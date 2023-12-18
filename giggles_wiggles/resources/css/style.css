@@ -141,7 +141,7 @@ body {
   .cart_button{
     position: relative;
     z-index: 2;
-    box-shadow: 1px 1px 3px darkgrey;
+    box-shadow: 1px 1px 3px rgb(205, 203, 203);
   }
 
   .cart_logo{
@@ -274,6 +274,16 @@ body {
   cursor: pointer;
   border: 3px solid white;
 }
+
+#payment_form{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#checkout_container{
+  width: 75%;
+}
+
 
 
 /* flash messages */

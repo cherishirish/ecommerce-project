@@ -255,7 +255,7 @@ class CheckoutController extends Controller
         $cart = session('cart', []);
         $billing_address = json_decode($order->billing_address);
 
-        dd($billing_address->city);
+        // dd($billing_address->city);
 
         $data = [
             'order' => $order,

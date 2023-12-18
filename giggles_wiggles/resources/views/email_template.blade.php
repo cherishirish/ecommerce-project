@@ -119,13 +119,9 @@ html {
 															<td valign="top" style="border-bottom: 1px solid #c0c0c0;">&nbsp;</td>
 															<td valign="top" style="border-bottom: 1px solid #c0c0c0;">&nbsp;</td>
 															<td valign="top" align="right" style="border-bottom: 1px solid #c0c0c0;">
-																<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue',
-                                                                 Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="" white-space:="" 
-                                                                 padding:="">Quantity</div>
 																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="15"></td></tr></table>
 															</td>
 															<td valign="top" align="right" style="border-bottom: 1px solid #c0c0c0;">
-																<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: line-height: color: white-space: padding:">Price</div>
 																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="20"></td></tr></table>
 															</td>
 														</tr>
@@ -174,7 +170,7 @@ html {
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->subtotal}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{number_format($order->subtotal, 2)}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
@@ -183,7 +179,7 @@ html {
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->gst}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{number_format($order->gst, 2)}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
@@ -192,7 +188,7 @@ html {
 																		</div></td>
 																		<td width="50">&nbsp;</td>
 																		<td align="right">
-																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{$order->pst}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
+																			<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:="">${{number_format($order->pst, 2)}}<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
 																		</div></td>
 																	</tr>
 																	<tr>
@@ -247,7 +243,11 @@ html {
 								<td align="left">
 <div em="atom">
   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-  <div style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #333333;"><span style="color: #082846;"><strong>Shipping Address</strong>: <?php if(!empty($order['billing_address'])) : ?> <?= json_decode($order['billing_address']) ?> <?php endif ?></span><br><br><span style="color: #082846;"><strong>Payment Method</strong>: [Payment Method]</span><br><br><span style="color: #082846;">If you have any questions or concerns regarding your order, please feel free to reach out to us via email or phone, and we'll be happy to assist you.</span><br><br><span style="color: #082846;">Best regards,</span><br><br><span style="color: #082846;">[Your Name and Title]</span><br><br><span style="color: #082846;">[Company Name]</span><br></div>
+  <div style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; 
+  font-size: 16px; line-height: 24px; color: #333333;"><span style="color: #082846;">If you have any questions or concerns
+   regarding your order, please feel free to reach out to us via email or phone, and we'll be happy to assist you.</span><br><br><span
+    style="color: #082846;">Best regards,</span><br><br><span 
+	style="color: #082846;">Giggles Wiggles</span><br></div>
 </div>
 </td>
 							</tr>
@@ -297,13 +297,9 @@ html {
 											</tr>
 										</table>
 										<div style="height: 15px; line-height: 15px; font-size: 8px;">&nbsp;</div>
-										<div class="Montserrat400 " style="font-family: Arial, sans-serif; color: #082846; font-size: 14px; line-height: 20px;">You’ve received this email because you subscribed to&nbsp;get our updates.</div>
 										<div style="height: 15px; line-height: 15px; font-size: 8px;">&nbsp;</div>
-										<a href="" target="_blank" class="Montserrat400 " style="font-family: Arial, sans-serif; color: #082846; font-size: 14px; line-height: 20px; text-decoration: underline;">Unsubscribe</a>
 										<div style="height: 40px; line-height: 40px; font-size: 8px;">&nbsp;</div>
-										<span><a href="" target="_blank" style="display: block; max-width: 116px;">
-											<img src="https://cdn.useblocks.io/4909/230316_431_GIW5Jhp.png" width="116" border="0" alt="" style="display: block; width: 100%; max-width: 116px;">
-										</a></span>
+
 										<div style="height: 60px; line-height: 60px; font-size: 8px;">&nbsp;</div>
 									</td>
 								</tr>

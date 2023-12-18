@@ -1,12 +1,13 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="container">
-    <h2>Checkout</h2>
+<h2>Checkout</h2>
+<div class="container" id="checkout_container">
+    
 
     <form method="post" id="payment_form" autocomplete="off" action="{{ route('checkout.order') }}" enctype="multipart/form-data" novalidate>
     @csrf
-    <div class="row">
+    <div class="row" id="user_info">
         <!-- User Details -->
         <div class="col-md-6">
             <h3>User Details</h3>
@@ -64,7 +65,7 @@
             @enderror  
         </div>
 
-       
+        <div id="payment_details">
             <h1 id="payment_title">Payment Details</h1>
             <div id="card_type_field">
                 <p>Card Type:</p>
@@ -104,13 +105,35 @@
             @error('cvv')
                 <span class="text-danger">{{$message}}</span>
             @enderror
+        </div>       
+            
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
 
         
         <!-- Cart Summary -->
-        <div class="col-md-6">
+        <div class="col-md-6" id="cart_summary">
             <h3>Cart Summary</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(session('cart') as $item)
+                        <tr>
+                            <td>{{ $item['name'] }}</td>
+                            <td>{{ $item['quantity'] }}</td>
+                            <td>${{ number_format($item['price'], 2) }}</td>
+                            <td>${{ number_format($item['quantity'] * $item['price'], 2) }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
             @php
                 $subtotal = 0;
                 
@@ -175,25 +198,6 @@
     </div>
     
     <!-- Cart Details -->
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(session('cart') as $item)
-                <tr>
-                    <td>{{ $item['name'] }}</td>
-                    <td>{{ $item['quantity'] }}</td>
-                    <td>${{ number_format($item['price'], 2) }}</td>
-                    <td>${{ number_format($item['quantity'] * $item['price'], 2) }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    
 </div>
 @endsection
