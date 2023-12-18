@@ -34,17 +34,38 @@
 
          <!-- Display logout link if the user is authenticated -->
          
-        @auth
-          @if(Auth::user()->is_admin == 1)
-          <span><a href="{{ route('admin.dashboard') }}" class="text-dark mx-2" >Dashboard</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
-          @endif
-          @if(Auth::user()->is_admin == 0)
-          <span><a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> | <a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a></span>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-            </form>
-          @endif
-        @endauth
+         @guest
+            <span><a href="{{ route('login') }}" class="text-dark mx-2 text-decoration-none left-padding ">Login</a> | <a href="{{ route('register') }}" class="text-dark mx-2 text-decoration-none">Register</a></span>
+            <span class="pl-2"><a href="{{ route('cart.show') }}"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+            @if(session()->has('cart'))
+                <?php $itemCount = array_sum(array_column(session('cart'), 'quantity')); ?>
+                <span class="cart-badge">{{ $itemCount }}</span>
+            @endif
+          @else
+
+          
+          @if(auth()->user()->is_admin)  
+
+                <span>
+                  <span><a href="{{ route('admin.dashboard') }}" class="text-dark mx-2 text-decoration-none">Dashboard</a> |
+                  <a href="{{ route('logout') }}" class="text-dark mx-2 text-decoration-none" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </span>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
+                @else
+                  <span><a href="{{ route('page.profile') }}" class="text-dark mx-2">Profile</a> | 
+                  <a href="{{ route('logout') }}" class="text-dark mx-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </span>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
+                @endif
+
+            <span class="pl-2"><a href="{{ route('cart.show') }}"><i class="fas fa-shopping-cart text-dark"></i></a></span>
+            @if(session()->has('cart'))
+                <?php $itemCount = array_sum(array_column(session('cart'), 'quantity')); ?>
+                <span class="cart-badge">{{ $itemCount }}</span>
+            @endif
+          @endguest
       </div>
     </div>
   </div>

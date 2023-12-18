@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
     <!-- Collapse button -->
-    <button class="navbar-toggler third-button ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler third-button ml-auto border-0" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon">
         <span></span>
