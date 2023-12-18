@@ -2,21 +2,16 @@
 
 @section('content')
 
-<section class="py-5">
+<section class="py-3">
         <div class="container px-4 px-lg-5">
-        <div class="main-header mb-5">
-            <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+        <!-- Main Content Header Image-->
+        <div class="main-header mb-3">
+            <img src="/images/breadcrumb.jpg" alt="">
         </div>
-
 
         <nav aria-label="breadcrumb">
             <ol id="breadcrumb" class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                @if (!empty($categoryName))
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('product.index', ['category_id' => $product->category_id]) }}">{{ $categoryName }}</a>
-                    </li>
-                @endif
+                <li class="breadcrumb-item"><a class="pr-1 text-dark" href="{{ route('home') }}">Home</a> | {{ $title }}</li>
             </ol>
         </nav>
 
