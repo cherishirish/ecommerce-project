@@ -45,7 +45,7 @@
                                 </thead>
                                 <tbody>
                                 @php
-                                    $userId = Auth::id(); // Get the current authenticated user's ID
+                                    $userId = Auth::id();
                                     $filteredRegistries = $registries->filter(function($registry) use ($userId) {
                                         return $registry->user_id == $userId;
                                     });

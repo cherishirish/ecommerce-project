@@ -20,8 +20,9 @@ class UserController extends Controller
     {
         $title = "Users CRUD";
         $users = User::all();
-        $addresses = Address::all();
-        return view('admin/users/index', compact('title', 'users', 'addresses'));
+        $billing_addresses = Address::all()->where('address_type', 'billing');
+        $shipping_addresses = Address::all()->where('address_type', 'shipping');
+        return view('admin/users/index', compact('title', 'users', 'billing_addresses', 'shipping_addresses'));
     }
 
     public function edit($id)
@@ -41,9 +42,20 @@ class UserController extends Controller
             'is_admin' => 'required'
         ]);
 
+        $valid_address = $request->validate([
+            'address' => 'required|string|min:1|max:255',
+            'city' => 'required|string|min:1|max:255',
+            'province' => 'required|string|min:1|max:255',
+            'postal_code' => 'required|string|min:1|max:255'
+        ]);
+
         $user = User::find($valid['id']);
 
         $user->update($valid);
+
+        $address = Address::where('user_id', $user->id)->where('address_type', 'billing');
+
+        $address->update($valid_address);
 
         return redirect(route('admin.users'))->with('success', 'You have successfully edited a user');
     }

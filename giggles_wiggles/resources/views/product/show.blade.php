@@ -27,7 +27,7 @@
                 <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
                     src="/images/products/{{ $product->image }}" alt="{{ $product->product_name }}" /></div>
                 <div class="col-md-6">      
-                    <div class="small mb-1">BRAND</div>
+                    <div class="small mb-1">{{ $product->brand->brand_name }}</div>
                     <h1 class="display-5 fw-bolder">{{ $product->product_name }}</h1>
                     <div class="fs-5 mt-3 mb-3 text-danger">
                         $ {{ $product->price}}
