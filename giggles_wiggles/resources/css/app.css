@@ -100,6 +100,14 @@ div#statistics{
     background-color: #285765;
 }
 
+.card-font-color-1 {
+    color: #285765;
+}
+
+.card-font-color-2 {
+    color: #79bacd;
+}
+
 .stat_card h2{
     font-size: 1.5em;
 }
@@ -113,6 +121,9 @@ div#statistics{
     object-fit: cover;
 }
 
+.shadow {
+    box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
 
 .bg-primary {
     background-color: #F9EDF1 !important;

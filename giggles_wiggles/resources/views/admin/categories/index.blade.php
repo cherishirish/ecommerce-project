@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="px-4 w-100">
+<div class="px-4 pt-5 w-100">
 
     <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-3">Create Category</a> 
 

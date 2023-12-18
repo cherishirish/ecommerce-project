@@ -14,8 +14,7 @@
     <!-- Include Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Include ProgressBar.js -->
-    <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
+    
 
     @vite(['resources/css/style.css', 'resources/css/app.css', 'resources/js/app.js'])
 
@@ -119,72 +118,6 @@
     </main>
 
     </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Initialize Chart.js chart
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Users', 'Categories', 'Orders', 'Products'],
-                datasets: [{
-                    label: 'Count',
-                    data: [
-                        {{ count($customers ?? []) }},
-                        {{ count($categories ?? []) }},
-                        {{ count($orders ?? []) }},
-                        {{ count($products ?? []) }}
-                    ],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Animated Counters
-        animateCounter('Users', {{ count($customers ?? []) }}, 'users-counter');
-        animateCounter('Categories', {{ count($categories ?? []) }}, 'categories-counter');
-        animateCounter('Orders', {{ count($orders ?? []) }}, 'orders-counter');
-        animateCounter('Products', {{ count($products ?? []) }}, 'products-counter');
-    });
-
-    function animateCounter(label, endValue, elementId) {
-        let startValue = 0;
-        let duration = 2000;
-
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            document.getElementById(elementId).innerText = Math.floor(progress * (endValue - startValue) + startValue);
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-</script>
-
-
 
 </body>
 </html>
