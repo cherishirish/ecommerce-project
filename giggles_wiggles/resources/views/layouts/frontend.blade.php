@@ -132,6 +132,6 @@
 </main>
 
 
-
+@yield('scripts')
 
 @include('layouts.footer')

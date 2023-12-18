@@ -5,22 +5,27 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\LineItem;
 use App\Models\Address;
+use App\Models\User;
+use App\Models\Product;
 use App\Models\Transaction;
+use App\Models\TaxRate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Pacewdd\Bx\_5bx;
 use Illuminate\Validation\Rule;
 use Session;
+use Mail;
+
 
 class CheckoutController extends Controller
 {
     public function index()
     {
    
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
-        }
+        // if (!Auth::check()) {
+        //     return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
+        // }
         $cart = session('cart', []);
 
         if (empty($cart)) {
@@ -45,71 +50,61 @@ class CheckoutController extends Controller
             return $item['quantity'] * $item['price'];
         }, $cart));
 
-     
-        $taxRates = [
-            'GST' => 0.05,
-            'PST' => [
-                'BC' => 0.07, 
-                'ON' => 0.08,
-                
-            ],
-            'HST' => 0
-        ];
-
         // Calculate taxes based on the user's province
-        $gst = $subtotal * $taxRates['GST'];
-        $pst = 0;
-        $hst = $subtotal * $taxRates['HST'];
-        $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+        $user = Auth::user();
+        $cart = session('cart', []);
+        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $province = $address->province;
+        $taxRates = TaxRate::where('province', $province)->first();
+        $gst_rate = $taxRates->gst;
+        $pst_rate = $taxRates->pst;
+        $hst_rate = $taxRates->hst;
 
-        if (array_key_exists($userProvince, $taxRates['PST'])) {
-            $pst = $subtotal * $taxRates['PST'][$userProvince];
+
+        if (empty($cart)) {
+            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
-        $total = $subtotal + $gst + $pst;
 
+        $subtotal = array_sum(array_map(function($item) {
+            return $item['quantity'] * $item['price'];
+        }, $cart));
+
+        $gst = $subtotal * $gst_rate;
+        $pst = $subtotal * $pst_rate;
+        $hst = $subtotal * $hst_rate;
+
+        $total = $subtotal + $gst + $pst + $hst;
+        
         $categories = Category::all();
 
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'total', 'userProvince', 'address', 'categories'));
+        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'gst_rate', 'pst_rate', 'hst_rate', 'total', 'province', 'address', 'categories'));
     }
 
         public function store(Request $request)
         {
-
-            if (!Auth::check()) {
-                return redirect()->route('login')->with('error', 'Please login to place an order.');
-            }
     
             $user = Auth::user();
             $cart = session('cart', []);
+            $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+            $province = $address->province;
+            $taxRates = TaxRate::where('province', $province)->first();
+            $gst_rate = $taxRates->gst;
+            $pst_rate = $taxRates->pst;
+            $hst_rate = $taxRates->hst;
     
             if (empty($cart)) {
                 return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
             }
 
-            $taxRates = [
-                'GST' => 0.05,
-                'PST' => [
-                    'BC' => 0.07, 
-                    'ON' => 0.08,
-                    
-                ],
-                'HST' => 0
-            ];
-
-            $cart = session('cart', []);
             $subtotal = array_sum(array_map(function($item) {
                 return $item['quantity'] * $item['price'];
             }, $cart));
 
-            $gst = $subtotal * $taxRates['GST'];
-            $pst = 0;
-            $hst = $subtotal * $taxRates['HST'];
-            $userProvince = Auth::user()->province ?? 'default'; // Fallback to a default if province is not set
+            $gst = $subtotal * $gst_rate;
+            $pst = $subtotal * $pst_rate;
+            $hst = $subtotal * $hst_rate;
 
-            if (array_key_exists($userProvince, $taxRates['PST'])) {
-                $pst = $subtotal * $taxRates['PST'][$userProvince];
-            }
             $total = $subtotal + $gst + $pst;
 
             $address_info = Address::where('user_id', Auth::user()->id)->first();
@@ -132,7 +127,7 @@ class CheckoutController extends Controller
 
             $valid=$request->validate([
                 'name_on_card' => 'required|string|min:1|max:255',
-                'card_number' => 'required|integer|digits:16',
+                'card_number' => 'required|integer|digits_between:15,16',
                 'month' => 'required|integer|min:01|max:12|digits:2',
                 'year' => 'required|integer|min:23|max:50|digits:2',
                 'cvv' => 'required|integer|digits:3',
@@ -214,24 +209,35 @@ class CheckoutController extends Controller
 
             $transaction = Transaction::create($transaction_info);
 
-            die;
-    
-                foreach ($cart as $item) {
-                    $lineItem = new LineItem();
-                    $lineItem->order_id = $order->id;
-                    $lineItem->product_id = $item['id'];
-                    $lineItem->unit_price = $item['price'];
-                    $lineItem->name = $item['name']; // Assuming you have a name field
-                    $lineItem->quantity = $item['quantity'];
-                    $lineItem->save();
-                }
+            $transaction->save();
 
+            $order->status = 1;            
     
-                session()->forget('cart');
-    
-                return redirect()->route('order.confirmation', $order->id)
-                                 ->with('success', 'Order placed successfully!');
+            foreach ($cart as $item) {
+                $lineItem = new LineItem();
+                $lineItem->order_id = $order->id;
+                $lineItem->product_id = $item['product_id'];
+                $lineItem->unit_price = $item['price'];
+                $lineItem->name = $item['name']; // Assuming you have a name field
+                $lineItem->quantity = $item['quantity'];
+                $lineItem->save();
+
+                $product = Product::where('id', $item['product_id'])->first();
+                $product->quantity = $product->quantity - $item['quantity'];
+
+                if($product->quantity == 0){
+                    $product->availability = 0;
+                }
+            }
+
+
+                return redirect()->route('checkout.email');
         
+        }
+
+        public function orderConfirm()
+        {
+            return view('order_confirmation');
         }
     
         private function calculateSubtotal($cart)
@@ -240,6 +246,34 @@ class CheckoutController extends Controller
                 return $total + ($item['quantity'] * $item['price']);
             }, 0);
         }
+
+        public function htmlmail()
+    {
+        $template_path = 'email_template';
+        $order = Order::where('id', session('order'))->first();
+        $user = User::where('id', $order->user_id)->first();
+        $cart = session('cart', []);
+        $billing_address = json_decode($order->billing_address);
+
+        // dd($billing_address->city);
+
+        $data = [
+            'order' => $order,
+            'user' => $user,
+            'cart' => $cart
+        ];
+        
+
+        Mail::send($template_path, $data, function($message){
+            $message->to('cheezbrgeryumm@gmail.com', 'Loresa Bueckert')->subject('Giggles Wiggles Order Confirmation');
+
+            $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
+        });
+
+        session()->forget('cart');
+
+        return redirect(route('order.confirmation'))->with('success', 'You order has been placed!');
+    }
     
 
 }
