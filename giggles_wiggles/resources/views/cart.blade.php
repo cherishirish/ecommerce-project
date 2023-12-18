@@ -3,19 +3,7 @@
 @section('content')
 <div class="container my-4">
     <h2 class="mb-3 pt-5">Shopping Cart</h2>
-
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if(session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
+    
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="thead-light">
