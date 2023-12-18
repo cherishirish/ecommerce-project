@@ -34,9 +34,6 @@ class CheckoutController extends Controller
 
         $user = Auth::user();
 
-
-        // dd($address->province);
-
         
         $cart = session('cart', []);
        

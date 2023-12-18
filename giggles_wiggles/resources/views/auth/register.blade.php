@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('content')
+<div id="register_container">
 <div class="container">
+<h2 id="login_title">Register</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -154,4 +154,6 @@
         </div>
     </div>
 </div>
+</div>
+
 @endsection
