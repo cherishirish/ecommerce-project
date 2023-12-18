@@ -153,13 +153,13 @@
 </div>
 
 <!-- shop -->
-<div class="container mt-5 px-0">
+<div class="container mt-5 px-3 px-md-0">
     <div class="row">
       <!-- Left column with one big image, title, and button -->
       <div class="col-md-8 position-relative mb-3">
           <img src="/images/grid-apparel.jpg" class="img-fluid" alt="Big Image">
           <div class="image-overlay">
-          <h2 class="card-title font-35">Apparel</h2>
+          <h2 class="card-title font-35 mb-3">Apparel</h2>
           <a href="{{ route('product.index', ['category_id' => 1]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
           </div>
       </div>
@@ -168,24 +168,24 @@
       <div class="col-md-4">
         <div class="row">
           <div class="col-md-12 mb-3">
-            <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 1">
+            <img src="/images/grid-small-furniture.jpg" class="img-fluid" alt="Small Image 1">
             <div class="image-overlay">
-                <h5 class="card-title font-35">Furniture</h5>
+                <h5 class="card-title font-35 mb-3">Furniture</h5>
                 <a href="{{ route('product.index', ['category_id' => 2]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
             </div>
           </div>
           <div class="col-md-12 mb-3">
-            <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 2">
+            <img src="/images/grid-small-toy.jpg" class="img-fluid" alt="Small Image 2">
             <div class="image-overlay">
-                <h5 class="card-title font-35">Toys</h5>
+                <h5 class="card-title font-35 mb-3">Toys</h5>
                 <a href="{{ route('product.index', ['category_id' => 3]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
             
             </div>
           </div>
           <div class="col-md-12">
-            <img src="/images/grid-small.jpg" class="img-fluid" alt="Small Image 3">
+            <img src="/images/grid-small-bedding.jpg" class="img-fluid" alt="Small Image 3">
             <div class="image-overlay">
-                <h5 class="card-title font-35">Bedding</h5>
+                <h5 class="card-title font-35 mb-3">Bedding</h5>
                 <a href="{{ route('product.index', ['category_id' => 4]) }}" class="btn btn-primary text-dark font-weight-bold">View Details</a>
             
             </div>
@@ -198,16 +198,16 @@
   <hr class="custom-hr">
 
 <!-- Bestsellers - Three-Column Layout -->
-<div class="container my-5 px-0">
+<div class="container my-5 px-3 px-md-0">
     <div class="row">
       <!-- First column with a big title, centered and left-aligned, and a "Shop Now" button -->
       <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
         <h2 class="font-weight-bold text-center mb-4">Our Bestsellers</h2>
-        <a href="#" class="btn btn-primary text-dark font-weight-bold">Shop Now</a>
+        <a href="#" class="btn btn-primary text-dark font-weight-bold mb-2">Shop Now</a>
       </div>
   
       <!-- Second column with two cards -->
-      <div class="col-md-4 pt-2">
+      <div class="col-md-4 py-2">
         <div class="card position-relative">
             <img src="/images/bestseller.webp" class="card-img rounded-corner" alt="Card Image 1">
             <div class="card-img-overlay">
@@ -217,7 +217,7 @@
       </div>
   
       <!-- Third column with two cards -->
-      <div class="col-md-4 pt-2">
+      <div class="col-md-4 py-2">
         <div class="card position-relative">
             <img src="/images/bestseller.webp" class="card-img rounded-corner" alt="Card Image 1">
             <div class="card-img-overlay">
