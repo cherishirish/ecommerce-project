@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <section class="py-3">
     <div class="container px-4 px-lg-5">
 
@@ -43,7 +44,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($registries as $registry)
+                                @php
+                                    $userId = Auth::id(); // Get the current authenticated user's ID
+                                    $filteredRegistries = $registries->filter(function($registry) use ($userId) {
+                                        return $registry->user_id == $userId;
+                                    });
+                                    @endphp
+
+                                    @foreach ($filteredRegistries as $registry)
+
                                         <tr>
                                             <td>{{ $registry->registryName }}</td>
                                             <td>{{ $registry->eventDate }}</td>

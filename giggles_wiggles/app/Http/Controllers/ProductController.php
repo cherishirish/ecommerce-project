@@ -18,11 +18,15 @@ class ProductController extends Controller
         $category_id = $request->input('category_id');
 
         if ($category_id) {
-            $products = Product::where('category_id', $category_id)->get();
+            $products = Product::where('category_id', $category_id)
+                    ->where('availability', 1)
+                    ->get();
+
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
         } else {
-            $products = Product::all();
+            $products = Product::where('availability', 1)->get();
+            
         }
     
         return view('product.index', compact('products', 'title', 'categoryName', 'category_id', 'categories'));

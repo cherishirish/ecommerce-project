@@ -16,7 +16,7 @@
     </form>
 </div>
 
-    <!-- <table class=" mt-2 table table-bordered table-hover">
+    <table class=" mt-2 table table-bordered table-hover">
         <thead>
                 <tr>
                     <th>Product Name</th>
@@ -32,22 +32,22 @@
                     <td>{{ $product->product_name }}</td>
                     <td>{{ $product->category->category_name }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>
+                    <td style="display:flex; gap:10px;">
                         <a class="btn btn-primary" href="{{ route('product.edit', ['id' => $product->id]) }}">EDIT</a>
                         <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-close"
-                                onclick="return confirm('Are you sure you want to delete this product?')"></button>
+                            <button type="submit" class="btn btn btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this product?')">DELETE</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
-    </table> -->
+    </table>
 
 
-    <div class="container mt-4">
+    <!-- <div class="container mt-4">
             <div class="row">
                 @foreach ($products as $product)
                     <div class="col-md-4 mb-4">
@@ -77,8 +77,7 @@
                                     </form>
 
                                 </div>
-                            </div> <!--card-footer-->
-
+                            </div>
                         </div>
                     </div>
 
@@ -88,7 +87,7 @@
                     @endif
                 @endforeach
             </div>
-        </div>
+        </div> -->
 
 </div>
 @endsection

@@ -19,9 +19,10 @@ class RegistryController extends Controller
     }
     public function manage(Request $request)
     {
+        $userId = Auth::id();
         $title = 'Manage Registry';
-        $registries = Registry::where('user_id', Auth::id())->get();
-        return view('/manage', compact('title','registries'));
+        $registries = Registry::where('user_id', $userId)->get();
+        return view('/manage', compact('title','registries','userId'));
     }
 
     public function create()
