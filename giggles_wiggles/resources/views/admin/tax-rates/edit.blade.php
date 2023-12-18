@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Page Heading -->
-    <div class="px-4 w-100">
+    <div class="px-4 py-4 w-100">
         <h1>{{ $title }}</h1>
 
         <!-- Content Row -->

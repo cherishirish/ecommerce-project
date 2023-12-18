@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="px-4 w-100">
+<div class="px-4 py-4 w-100">
+    <!-- Pagination -->
+    <div>
+        {{ $orders->links('pagination::bootstrap-5') }}
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -53,5 +57,8 @@
             @endforeach
         </tbody>
     </table>
+    <div>
+        {{ $orders->links('pagination::bootstrap-5') }}
+    </div>
 </div>
 @endsection
