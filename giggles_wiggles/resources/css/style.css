@@ -152,16 +152,17 @@ body {
 
   /* Login CSS */
 
-  #login_container{
-    margin: 0 auto;
-    padding: 50px 0 250px 0;
-  }
+  
 
   @media (max-width: 768px) {
     #register_container{
       margin: 0 auto;
       padding-top: 40px;
       height: 970px;
+    }
+    #login_container{
+      margin: 0 auto;
+      padding: 50px 0 340px 0;
     }
   }
     
@@ -170,6 +171,10 @@ body {
       margin: 0 auto;
       padding-top: 40px;
       height: 700px;
+    }
+    #login_container{
+      margin: 0 auto;
+      padding: 50px 0 250px 0;
     }
   }
 
