@@ -7,24 +7,28 @@
 
         <div id="admin_content">
             <div id="statistics">
-                <div id="stat_card_one" class="stat_card">
-                    <h2>User Amount</h2>
-                    <h3>Admin:</h3>
-                    <p>{{count($admin)}}</p>
-                    <h3>Customers:</h3>
+                <div class="stat_card stat_card_bg_one text-center">
+                    <h4 class="text-uppercase font-weight-bold">Users</h4>
                     <p>{{count($customers)}}</p>
                 </div>
-                <div id="stat_card_one" class="stat_card">
-
+                <div class="stat_card stat_card_bg_two text-center">
+                    <h4 class="text-uppercase">Categories</h4>
+                    <p>{{ count($categories) }}</p>
                 </div>
-                <div id="stat_card_one" class="stat_card">
 
+                <div class="stat_card stat_card_bg_three text-center">
+                    <h4 class="text-uppercase">Orders</h4>
+                    <p>{{ count($orders) }}</p>
                 </div>
-                <div id="stat_card_one" class="stat_card">
 
-                </div>
+                <div class="stat_card stat_card_bg_four text-center">
+                    <h4 class="text-uppercase">Products</h4>
+                    <p>{{ count($products) }}</p>
+                </div>                
+
             </div>
         </div>
     </div>
+    
     
     @endsection
