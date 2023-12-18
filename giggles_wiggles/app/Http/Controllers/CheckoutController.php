@@ -29,22 +29,16 @@ class CheckoutController extends Controller
         $cart = session('cart', []);
 
         if (empty($cart)) {
-            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+            return redirect()->route('cart.show')->with('danger', 'Your cart is empty.');
         }
-        $user = Auth::user();
-    
-        
-        $address = $user->address;
-    
-        if (!$address) {
 
-            return redirect()->route('cart.show')->with('error', 'Please update your address.');
-        }
-    
-        $province = $address->province;
+        $user = Auth::user();
+
+
+        // dd($address->province);
+
         
         $cart = session('cart', []);
-
        
         $subtotal = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
@@ -53,7 +47,7 @@ class CheckoutController extends Controller
         // Calculate taxes based on the user's province
         $user = Auth::user();
         $cart = session('cart', []);
-        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $address = Address::where('user_id', $user->id)->where('address_type', 'billing')->first();
         $province = $address->province;
         $taxRates = TaxRate::where('province', $province)->first();
         $gst_rate = $taxRates->gst;
@@ -65,6 +59,7 @@ class CheckoutController extends Controller
             return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
 
+        
         $subtotal = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
         }, $cart));
