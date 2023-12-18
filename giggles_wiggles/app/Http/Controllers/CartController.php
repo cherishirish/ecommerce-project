@@ -64,4 +64,18 @@ class CartController extends Controller
         return redirect()->route('cart.show')->with('success', 'Your cart has been cleared.');
     }
 
+    public function removeItem($productId)
+    {
+        $cart = session()->get('cart', []);
+        // dd($productId, $cart);
+        if(isset($cart[$productId])){
+            $product_name = $cart[$productId]['name'];
+            unset($cart[$productId]);
+            session()->put('cart', $cart);
+            return redirect()->route('cart.show')->with('success', $product_name . ' has been removed from your cart.');
+        }else{
+            return redirect()->route('cart.show')->with('error', 'Item does not in your cart.');
+        }
+    }
+
 }

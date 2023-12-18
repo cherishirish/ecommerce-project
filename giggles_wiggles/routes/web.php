@@ -60,6 +60,7 @@ Route::get('/registry', [PageController:: class, 'registry'])->name('page.regist
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); //ADD TO CART
 Route::get('/cart/show', [CartController::class, 'showCart'])->name('cart.show'); //SHOWCART
 Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear'); //CLEARCART
+Route::get('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove'); //REMOVE ITEM FROM CART
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout.index');
 Route::post('/checkout/order', [CheckoutController::class, 'store'])->name('checkout.order')->middleware('auth');
