@@ -41,6 +41,16 @@ Route::get('/product', [ProductController::class, 'index'])->name('product.index
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/product/{id}', [ProductController:: class, 'show'])->name('product.show'); // DETAILED PAGE
 Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
+Route::get('/profile', [PageController:: class, 'profile'])->name('page.profile'); // PROFILE PAGE
+Route::get('/profile_edit', [PageController::class, 'profileEdit'])->name('page.profile_edit'); //PROFILE EDIT PAGE
+Route::post('/profile_update', [PageController::class, 'updateProfile'])->name('page.profile_update'); //PROFILE UPDATE
+Route::get('/shippingaddress_edit', [PageController::class, 'ShippingAddressEdit'])->name('page.shippingaddress_edit'); //PROFILE SHIPPING ADDRESS PAGE
+Route::post('/shippingaddress_update', [PageController::class, 'updateShippingAddress'])->name('page.shippingaddress_update'); //PROFILE SHIPPING ADDRESS UPDATE
+Route::get('/billingaddress_edit', [PageController::class, 'BillingAddressEdit'])->name('page.billingaddress_edit'); //PROFILE BILLING ADDRESS PAGE
+Route::post('/billingaddress_update', [PageController::class, 'updateBillingAddress'])->name('page.billingaddress_update'); //PROFILE BILLING ADDRESS UPDATE
+Route::get('/delete_shipping_address', [PageController::class, 'deleteShippingAddress'])->name('page.delete_shipping_address'); //PROFILE SHIPPING ADDRESS DELETE
+Route::get('/delete_billing_address', [PageController::class, 'deleteBillingAddress'])->name('page.delete_billing_address'); //PROFILE BILLING ADDRESS DELETE
+Route::get('/invoice', [PageController:: class, 'invoice'])->name('page.invoice'); // INVOICE PAGE
 Route::get('/about', [PageController:: class, 'about'])->name('page.about'); // ABOUT PAGE
 Route::get('/contact', [PageController:: class, 'contact'])->name('page.contact'); // CONTACT PAGE
 Route::post('/contact', [PageController:: class, 'store'])->name('page.contact.submit'); // CONTACT PAGE SUBMIT

@@ -3,7 +3,7 @@
     @section('content')
 
     <div>
-        <a href="{{route('admin.users.create')}}" class="btn btn-primary"></a>
+        <a href="{{route('admin.users.create')}}" class="btn btn-primary">Create User</a>
     <table class="table table-dark">
                             <thead>
                                 <tr>
