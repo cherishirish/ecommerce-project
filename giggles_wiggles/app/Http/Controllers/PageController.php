@@ -224,7 +224,6 @@ class PageController extends Controller
         return view('/invoice', compact('title', 'categories', 'user', 'orders', 'lineItems', 'address'));
     }
 
-
     function registry() {
         $title = "Gift Registry";
         $categories = Category::all();

@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $title = "Users CRUD";
+        $title = "Users";
         $users = User::all();
         $billing_addresses = Address::all()->where('address_type', 'billing');
         $shipping_addresses = Address::all()->where('address_type', 'shipping');
