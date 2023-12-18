@@ -15,11 +15,20 @@ class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    /**
+     * Constructing AdminController instance
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Prepares data for Admin dashboard
+     *
+     * @return view(admin/index)
+     */
     public function index()
     {
         $title = "Giggles Wiggles - Admin Dashboard";
