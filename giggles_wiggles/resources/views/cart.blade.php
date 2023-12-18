@@ -12,6 +12,7 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
                     <th scope="col">Subtotal</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                         <td>{{ $item['quantity'] }}</td>
                         <td>${{ number_format($item['price'], 2) }}</td>
                         <td>${{ number_format($item['quantity'] * $item['price'], 2) }}</td>
+                        <td><a href="{{ route('cart.remove', $item['product_id']) }}" class="btn btn-danger">Remove</a></td>
                     </tr>
                 @empty
                     <tr>
