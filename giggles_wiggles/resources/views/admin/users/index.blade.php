@@ -35,18 +35,16 @@
                                         {{$user->email}}
                                     </td>
                                     <td>
-                                        @foreach($addresses as $address)
-                                            @if($address->customer_id == $user->id && $address->address_type == 'billing')
-                                        {{$address->address}}
+                                        @foreach($billing_addresses as $ba)
+                                            @if($ba->user_id == $user->id)
+                                            {{$ba->address}}<br>
+                                            {{$ba->city}}, {{$ba->province}}<br>
+                                            {{$ba->postal_code}}
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>
-                                        @foreach($addresses as $address)
-                                            @if($address->customer_id == $user->id && $address->address_type == 'shipping')
-                                        {{$address->address}}
-                                            @endif
-                                        @endforeach
+                                    <td>       
+                                        
                                     </td>
                                     <td>
                                         @if($user->is_admin == 0)

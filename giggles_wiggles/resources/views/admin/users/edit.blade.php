@@ -48,6 +48,38 @@
                 @enderror                      
             </div>
             <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" id="address" aria-describedby="emailHelp"
+                value="{{ old('address', $user->billingAddress->address) }}">
+                @error('address')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror                      
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" name="city" id="city" aria-describedby="emailHelp"
+                value="{{ old('city', $user->billingAddress->city) }}">
+                @error('email')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror                      
+            </div>
+            <div class="form-group">
+                <label for="province">Province</label>
+                <input type="text" class="form-control" name="province" id="province" aria-describedby="emailHelp"
+                value="{{ old('province', $user->billingAddress->province) }}">
+                @error('province')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror                      
+            </div>
+            <div class="form-group">
+                <label for="postal_code">Postal Code</label>
+                <input type="text" class="form-control" name="postal_code" id="postal_code" aria-describedby="emailHelp"
+                value="{{ old('postal_code', $user->billingAddress->postal_code) }}">
+                @error('postal_code')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror                      
+            </div>
+            <div class="form-group">
                 <label for="is_admin">Admin Status</label>
                 <select class="custom-select" id="admin_status" name="is_admin">
                 <option value=0 <?php if($user->is_admin == 0) : ?>selected <?php endif ?>>Non-Admin</option>

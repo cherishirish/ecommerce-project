@@ -19,14 +19,46 @@ class ProductController extends Controller
         $category_id = $request->input('category_id');
 
         if ($category_id) {
-            $products = Product::where('category_id', $category_id)->with('brand')->get();
+            $products = Product::where('category_id', $category_id)
+            ->where('availability', 1)
+            ->get();
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
         } else {
-            // $products = Product::all();
-            $products = Product::with('brand');
+
+            $products = Product::where('availability', 1)->get();
         }
     
+        $sortOption = $request->input('sort');
+
+        if ($category_id) {
+            $query = Product::where('category_id', $category_id)->where('availability', 1);
+        } else {
+            $query = Product::where('availability', 1);
+        }
+
+        switch ($sortOption) {
+            case 'name_asc':
+                $query->orderBy('product_name', 'asc');
+                break;
+            case 'name_desc':
+                $query->orderBy('product_name', 'desc');
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'brand':
+                // Assuming you have a 'brand_name' field in your 'brands' table
+                $query->join('brands', 'products.brand_id', '=', 'brands.id')
+                    ->orderBy('brands.brand_name', 'asc');
+                break;
+        }
+
+        $products = $query->get();
+
         return view('product.index', compact('products', 'title', 'categoryName', 'category_id', 'categories'));
     }
     

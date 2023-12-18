@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $i,
                 'address' => fake()->streetAddress(), 
                 'postal_code' => fake()->postcode(), 
-                'province' => fake()->state(), 
+                'province' => 'MB', 
                 'city' => fake()->city(), 
                 'address_type' => 'billing'
             ]);
