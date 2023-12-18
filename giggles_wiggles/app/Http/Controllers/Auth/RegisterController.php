@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string','max:255'],
             'city' => ['required', 'string', 'max:255'],
             'province' => ['required'],
-            'postal_code' => ['required', 'regex:/^[A-z][0-9][A-z]\s?[0-9][A-z][0-9]$/gm'],
+            'postal_code' => ['required', 'regex:/^[A-z][0-9][A-z]\s?[0-9][A-z][0-9]$/'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
