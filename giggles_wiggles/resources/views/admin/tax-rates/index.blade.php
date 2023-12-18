@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="px-4 w-100">
+<div class="px-4 py-4 w-100">
     <table class="table table-striped">
         <thead>
             <tr>
