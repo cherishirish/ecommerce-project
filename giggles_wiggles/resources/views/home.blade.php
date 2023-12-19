@@ -42,7 +42,7 @@
     </a>
 </div> -->
 
-
+<div class="d-md-none">
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -51,26 +51,26 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/images/banner-1.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <button>Shop now</button>
-      </div>
-    </div>
-    <!-- <div class="carousel-item">
-      <img src="/images/banner-1.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+      <img src="/images/mobile-banner-1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h5 class="text-dark">Gigglies are here</h5>
+        <button class="btn btn-primary text-dark">Shop now</button>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/images/banner-1.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+      <img src="/images/mobile-banner-2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h5 class="text-dark">Get your Registry</h5>
+        <button class="btn btn-primary text-dark">Shop now</button>
       </div>
-    </div> -->
+    </div>
+    <div class="carousel-item">
+      <img src="/images/mobile-banner-3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h5 class="text-dark">Shop from our  bestsellers</h5>
+        <button class="btn btn-primary text-dark">Shop now</button>
+      </div>
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,7 +81,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+</div>
 <!-- Full-width black title bar -->
 <div id="weekly_deals" class="mb-0 mb-md-4">
   Weekly Deals

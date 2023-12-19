@@ -3,7 +3,7 @@
 @section('content')
 <div class="main-content">
     <!-- MAIN CONTENT -->
-    <div class="list-mainclass= py-5">
+    <div class="list-mainclass py-3">
         <div class="container px-4 px-lg-5">
             <!-- Main Content Header Image-->
             <div class="main-header mb-5">
