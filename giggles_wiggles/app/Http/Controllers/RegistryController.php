@@ -19,7 +19,7 @@ class RegistryController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'Registry';
+        $title = 'Registry - ' . config('app.name');
         $registry = Registry::all();
         return view('registry/index', compact('title', 'registry'));
     }
@@ -33,7 +33,7 @@ class RegistryController extends Controller
     public function manage(Request $request)
     {
         $userId = Auth::id();
-        $title = 'Manage Registry';
+        $title = 'Manage Registry - ' . config('app.name');
         $registries = Registry::where('user_id', $userId)->get();
         return view('/manage', compact('title','registries','userId'));
     }
@@ -45,10 +45,11 @@ class RegistryController extends Controller
      */
     public function create()
     {
-        $title = 'Create Registry';
+        $title = 'Create Registry - ' . config('app.name');
         $userId = Auth::id();   
 
         $user = User::findOrFail($userId);
+        
         $products = Product::all();  
         return view('registry/create', compact('title', 'products' ,'user'));
     }
@@ -87,7 +88,7 @@ class RegistryController extends Controller
      */
     public function edit($id)
                 {
-    $title = 'Edit Registry';
+    $title = 'Edit Registry - ' . config('app.name');
     $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
     $selectedProductIds = json_decode($registry->product_ids, true);
     $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
@@ -134,8 +135,8 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        $title = "Registry";
-        $registry = Registry::findOrFail($id);
+        $title = "Registry - " . config('app.name');
+        $registry = Registry::find($id);
         $productIds = json_decode($registry->product_ids, true);
 
         $productIds = json_decode($registry->product_ids, true);

@@ -22,7 +22,8 @@ class PageController extends Controller
 {
 
     public function index(Request $request) {
-        $title = "Home";
+        // $title = "Home";
+        $title = config('app.name');
         $category_id = $request->input('category_id');
         
         $categories = Category::all();
@@ -55,13 +56,14 @@ class PageController extends Controller
     }
     
     function about() {
-        $title = "About Us";
+        $title = 'About Us - ' . config('app.name');
         $categories = Category::all();
         return view('/about', compact('title', 'categories'));
     }
 
     function contact() {
-        $title = "Contact Us";
+        $title = "Contact Us - " . config('app.name');
+        
         $categories = Category::all();
         return view('/contact', compact('title', 'categories'));
     }
@@ -90,7 +92,8 @@ class PageController extends Controller
 
 
     public function profile() {
-        $title = "Profile";
+        $title = "Profile - " . config('app.name');
+        
         $categories = Category::all();
         $orders = Order::where('user_id', auth()->id())->get();
         $address = Address::all();
@@ -99,7 +102,7 @@ class PageController extends Controller
 
     public function profileEdit()
     {
-        $title = "Edit Profile";
+        $title = "Edit Profile - " . config('app.name');
         $categories = Category::all();
         $user = Auth::user();
         return view('profile_edit', compact('title', 'categories','user'));
@@ -127,7 +130,7 @@ class PageController extends Controller
 
     public function ShippingAddressEdit()
     {
-        $title = "Edit Shipping Address";
+        $title = "Edit Shipping Address - " . config('app.name');
         $user = Auth::user();
         $categories = Category::all();
         return view('shippingaddress_edit', compact('title','categories'));
@@ -169,7 +172,7 @@ class PageController extends Controller
 
     public function BillingAddressEdit()
     {
-        $title = "Edit Billing Address";
+        $title = "Edit Billing Address - " . config('app.name');
         $user = Auth::user();
         $categories = Category::all();
         return view('billingaddress_edit', compact('title','categories'));
@@ -211,7 +214,7 @@ class PageController extends Controller
 
     public function invoice()
     {
-        $title = "Your Invoice";
+        $title = "Your Invoice - " . config('app.name');
         $categories = Category::all();
         $user = Auth::user();
         $orders = Order::where('user_id', auth()->id())->get();
@@ -224,7 +227,7 @@ class PageController extends Controller
     }
 
     function registry() {
-        $title = "Gift Registry";
+        $title = "Gift Registry - " . config('app.name');
         $categories = Category::all();
         return view('/registry', compact('title', 'categories'));
     }
