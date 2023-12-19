@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -86,10 +86,6 @@ Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->mi
 Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
 Route::delete('/registry/{registry}/remove-product', [RegistryController::class, 'removeProduct'])->name('registry.removeProduct')->middleware('auth');
 
-// public routes
-Route::get('/public/{id}', [RegistryController::class, 'showPublic' ])->name('registries.public');
-Route::get('/search-registry', [RegistryController::class, 'search'])->name('registry.search');
-
 
 //--------------------------------------------------------------------------------------
 
@@ -127,14 +123,6 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
-
-//REGISTRY
-
-Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
-Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
-Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
-
-
 
 //--------------------------------------------------------------------------------------
 
@@ -217,9 +205,3 @@ Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
 //Search
 Route::get('/admin/products/search', [AdminProduct::class, 'search'])
     ->name('admin.products.search')->middleware('auth', 'is_admin');
-
-
-
-
-
-

@@ -50,7 +50,7 @@ class CheckoutController extends Controller
         // Calculate taxes based on the user's province
         $user = Auth::user();
         $cart = session('cart', []);
-        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $address = Address::where('user_id', $user->id)->where('address_type', 'billing')->first();
         $province = $address->province;
         $taxRates = TaxRate::where('province', $province)->first();
         $gst_rate = $taxRates->gst;
@@ -59,7 +59,7 @@ class CheckoutController extends Controller
 
 
         if (empty($cart)) {
-            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+            return redirect()->route('cart.show')->with('danger', 'Your cart is empty.');
         }
 
         // Calculate cart values
@@ -91,7 +91,7 @@ class CheckoutController extends Controller
 
         $user = Auth::user();
         $cart = session('cart', []);
-        $address = Address::where('user_id', $user->id)->where('address_type', 'billing')->first();
+        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
         $province = $address->province;
         $taxRates = TaxRate::where('province', $province)->first();
         $gst_rate = $taxRates->gst;

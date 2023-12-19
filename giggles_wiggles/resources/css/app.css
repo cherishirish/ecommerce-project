@@ -122,6 +122,9 @@ div#statistics{
     background-color: #F9EDF1 !important;
 }
 
+.shadow {
+    box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
 
 .stat_card h2{
     font-size: 1.5em;
@@ -142,7 +145,7 @@ div#statistics{
   }
 
   .blue-font {
-    color: #377f95
+    color: #377f95;
   }
 
 
