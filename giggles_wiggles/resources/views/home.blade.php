@@ -208,23 +208,30 @@
   
       <!-- Second column with two cards -->
       <div class="col-md-4 py-2">
-        <div class="card position-relative">
-            <img src="/images/bestseller.webp" class="card-img rounded-corner" alt="Card Image 1">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card Title 1</h5>
-            </div>
-        </div>
+          <div class="card position-relative">
+              <img src="/images/bestseller-winterjacket.jpg" class="card-img rounded-corner" alt="Best Winter Jacket">
+              <div class="card-img-overlay overlay">
+                  <div class="overlay-content">
+                      <h4 class="card-title text-dark">Winter Jacket</h4>
+                      <a href="#" class="btn btn-primary">Shop Now</a>
+                  </div>
+              </div>
+          </div>
       </div>
-  
+
       <!-- Third column with two cards -->
       <div class="col-md-4 py-2">
-        <div class="card position-relative">
-            <img src="/images/bestseller.webp" class="card-img rounded-corner" alt="Card Image 1">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card Title 1</h5>
-            </div>
-        </div>
+          <div class="card position-relative">
+              <img src="/images/bestseller-stroller.jpg" class="card-img rounded-corner" alt="Baby Stroller">
+              <div class="card-img-overlay overlay">
+                  <div class="overlay-content">
+                      <h4 class="card-title text-dark">Baby Stroller</h4>
+                      <a href="#" class="btn btn-primary">Shop Now</a>
+                  </div>
+              </div>
+          </div>
       </div>
+
     </div>
 </div>
 
