@@ -18,7 +18,7 @@
         <!-- About Us Section -->
         <div class="row gx-4 gx-lg-5 align-items-center">
             
-            <div class="col-md-6">
+            <div class="col-md-6 pb-3 pb-md-0">
                 <!-- About Us Image -->
                 <img src="/images/mobile-banner-1.jpg" alt="About Us Image" class="img-fluid rounded">
             </div>

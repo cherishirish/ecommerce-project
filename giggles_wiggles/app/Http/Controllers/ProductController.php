@@ -51,7 +51,6 @@ class ProductController extends Controller
                 $query->orderBy('price', 'desc');
                 break;
             case 'brand':
-                // Assuming you have a 'brand_name' field in your 'brands' table
                 $query->join('brands', 'products.brand_id', '=', 'brands.id')
                     ->orderBy('brands.brand_name', 'asc');
                 break;

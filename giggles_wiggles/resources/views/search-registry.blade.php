@@ -1,8 +1,6 @@
 @extends('layouts.frontend')
 
 @section('content')
-
-
 <section class="py-3">
     <div class="container px-4 px-lg-5">
 
@@ -28,22 +26,22 @@
                     </div>
 
 
-                        <h2 class="text-center">Make Your Special Occasion Unforgettable</h2>
-                        <p class="text-center">Let your loved ones make your day even more special by sharing your wish list of the must-have items you truly desire and need!</p>
+                    
+                        <h2 class="text-center mb-3">Search Registries</h2>
+                        <div id="search-input" class="mb-5">
+                            <form action="{{ route('registry.search') }}" method="GET">
+                                <div class="form-group d-flex">
+                                    <label for="search">Enter Registry Number:</label>
+                                    <input type="text" class="form-control" id="search" name="search" value="{{ $searchTerm ?? '' }}" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary" hidden>Search</button>
+                            </form>
+                        </div>
 
-
-
-
-                        <div class="container">
-                        
-                        @php
-                            $userId = Auth::id();
-                            $filteredRegistries = $registries->filter(function($registry) use ($userId) {
-                                return $registry->user_id == $userId;
-                            });
-                            @endphp
-
-                            @foreach ($filteredRegistries as $registry)
+                        @if(!isset($searchTerm))
+                            <h4>Search Result</h4>
+                            
+                            @forelse ($registries as $registry)
                             <div class="col-md-3 col-12 mb-4 mt-4">
                                 <div id="registry-card" class="card">
                                     <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
@@ -63,21 +61,14 @@
                                         </p>
 
                                         <div>
-                                            <a href="{{ route('registry.show', $registry->id) }}" class="btn btn-outline-danger">View Registry</a>
-                                            <a href="{{ route('registry.edit', $registry->id) }}" class="btn btn-primary">Edit Registry Info</a>
+                                            <a href="{{ route('registries.public', $registry->id) }}" class="btn btn-outline-danger">View Registry</a>
                                         </div>  
                                 </div>
                                 
                             </div>
-                            @endforeach
+                            @empty
+                                <p>No registries found.</p>
+                            @endforelse
+                        @endif
                     </div>
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 @endsection

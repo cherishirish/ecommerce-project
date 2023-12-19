@@ -46,7 +46,7 @@
                         <div class="registry-section">
                             <div class="registry-title">Find a Registry</div>
                             <div class="registry-description">Search by a parent's name or code to see their wish list.</div>
-                            <a href="#" class="registry-link">Find ></a>
+                            <a href="{{ route('registry.search') }}" class="registry-link">Find ></a>
                         </div>
                     </div>
                 </div>

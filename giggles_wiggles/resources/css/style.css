@@ -96,7 +96,18 @@ body {
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
   }
 
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.9); 
+    transition: background-color 0.3s ease-in-out;
+}
 
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
   .image-overlay {
     position: absolute;
@@ -649,6 +660,70 @@ button:focus {
   flex-direction:row;
   justify-content: space-around;
   gap: 5px;
+}
 
+#registry-card
+{
+  width: 400px;
+  margin: auto;
+  display: flex;
+  border: 2px solid  #7BBDD1;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow:  0 3px 5px hsla(261deg, 28%, 42%, 30%);
+  overflow: hidden;
+}
+#registry-card .card-subtitle
+{
+  font-size: 14px;
+  font-style: oblique;
+}
+#registry-card div>a.btn-outline-danger{
+  border-color: #E8A2A6 !important;
+}
+#registry-card div>a.btn-outline-danger:hover 
+{
+ background-color: #E8A2A6 !important; 
+}
 
+#registry-card div a.btn-primary:hover
+{
+  background-color: #7BBDD1, !important; 
+  color: #fff !important;
+}
+#registry-show-info
+{
+  padding: 10px 20px;
+  line-height: 15px;;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#registry-show-info input[type="text"]
+{
+  font-size: 12px !important;
+  border-radius: 10px;
+  border: 1px solid  #E8A2A6;
+  padding: 10px;
+  width: 100%;
+}
+#registry-card-info{
+  display:flex;
+  justify-content:space-between;
+  padding: 20px;
+  background-color:rgba(227, 222, 245, 0.553);
+  border-radius: 10px;
+}
+#search-input form div
+{
+  align-items: center;
+  justify-content: space-between;
+}
+
+#search-input form input[type="text"]
+{
+  width: 80%;
 }
