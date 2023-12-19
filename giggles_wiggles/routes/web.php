@@ -124,14 +124,6 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
-//REGISTRY
-
-Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
-Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
-Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
-
-
-
 //--------------------------------------------------------------------------------------
 
 
@@ -213,9 +205,3 @@ Route::delete('/admin/products/delete/{id}', [AdminProduct::class, 'destroy'])
 //Search
 Route::get('/admin/products/search', [AdminProduct::class, 'search'])
     ->name('admin.products.search')->middleware('auth', 'is_admin');
-
-
-
-
-
-

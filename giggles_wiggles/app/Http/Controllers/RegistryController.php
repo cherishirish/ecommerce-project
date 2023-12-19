@@ -19,7 +19,7 @@ class RegistryController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'Registry';
+        $title = 'Registry - ' . config('app.name');
         $registry = Registry::all();
         return view('registry/index', compact('title', 'registry'));
     }
@@ -33,7 +33,7 @@ class RegistryController extends Controller
     public function manage(Request $request)
     {
         $userId = Auth::id();
-        $title = 'Manage Registry';
+        $title = 'Manage Registry - ' . config('app.name');
         $registries = Registry::where('user_id', $userId)->get();
         return view('/manage', compact('title','registries','userId'));
     }
@@ -45,9 +45,13 @@ class RegistryController extends Controller
      */
     public function create()
     {
-        $title = 'Create Registry';
+        $title = 'Create Registry - ' . config('app.name');
+        $userId = Auth::id();   
+
+        $user = User::findOrFail($userId);
+        
         $products = Product::all();  
-        return view('registry/create', compact('title', 'products'));
+        return view('registry/create', compact('title', 'products' ,'user'));
     }
 
     /**
@@ -72,7 +76,7 @@ class RegistryController extends Controller
         'product_ids' => json_encode($request->product_ids ?? [])
     ]);
 
-    return redirect()->route('/manage')->with('success', 'Registry created successfully!');
+    return redirect()->route('manage')->with('success', 'Registry created successfully!');
     }   
 
 
@@ -84,9 +88,12 @@ class RegistryController extends Controller
      */
     public function edit($id)
                 {
-    $title = 'Edit Registry';
+    $title = 'Edit Registry - ' . config('app.name');
     $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
-    $products = Product::all();  
+    $selectedProductIds = json_decode($registry->product_ids, true);
+    $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
+        return !in_array($product->id, $selectedProductIds);
+    });
 
     return view('registry.edit', compact('title', 'products', 'registry'));
     }
@@ -128,12 +135,13 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        $title = "Registry";
+        $title = "Registry - " . config('app.name');
         $registry = Registry::find($id);
         $productIds = json_decode($registry->product_ids, true);
 
+        $productIds = json_decode($registry->product_ids, true);
         $products = Product::whereIn('id', $productIds)->get();
-
+    
         return view('registry.show', compact('registry', 'products', 'title'));
     }
 
@@ -173,5 +181,39 @@ class RegistryController extends Controller
     return response()->json(['success' => 'Product removed successfully']);
     }
 
+
+    public function showPublic($registryId)
+    {   
+        $title = "Registry";
+        $registry = Registry::find($registryId);
+        $productIds = json_decode($registry->product_ids, true);
+        $products = Product::whereIn('id', $productIds)->get();
+        $registry = Registry::findOrFail($registryId);
+        return view('public', compact('registry', 'products', 'title'));
+    }
+
+
+    public function search(Request $request)
+    {
+         
+        $title = "Registry";
+        $searchTerm = $request->input('search');
+       
+        $registries = collect();
+    
+        if ($searchTerm) {
+            $year = substr($searchTerm, 0, 4);
+            $idWithPadding = substr($searchTerm, 4);
+            $originalId = intval($idWithPadding); // Convert to integer to remove leading zeros
+    
+            
+
+            $registries = Registry::where('id', $originalId)->get();
+            
+        }
+    
+        return view('search-registry', compact('registries', 'searchTerm', 'title'));
+    }
+    
 
 }
