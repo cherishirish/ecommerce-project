@@ -13,7 +13,6 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        // $title = 'Products';
         $title = 'Products - ' . config('app.name');
         $categoryName = '';
         $categories = Category::all();
@@ -88,7 +87,6 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        // $title = "";
         $product = Product::with('category', 'brand')->find($id); // Use 'category' relationship
         // $title = $product->category->category_name;
         $title = ucfirst($product->product_name) . ' - ' . config('app.name');
