@@ -144,17 +144,12 @@ class RegistryController extends Controller
         return view('registry.show', compact('registry', 'products', 'title'));
     }
 
-<<<<<<< HEAD
-
-
-=======
     /**
      * Delete registry
      *
      * @param [type] $id
      * @return redirect
      */
->>>>>>> aac051ec1f7ebfd0776f3d42b92fa58948e43f14
     public function destroy($id)
     {
         $registry = Registry::find($id);
