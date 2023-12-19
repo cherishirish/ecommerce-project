@@ -92,12 +92,17 @@ class PageController extends Controller
 
 
     public function profile() {
-        $title = "Profile - " . config('app.name');
+        if(Auth::check()){
+            $title = "Profile - " . config('app.name');
         
-        $categories = Category::all();
-        $orders = Order::where('user_id', auth()->id())->get();
-        $address = Address::all();
-        return view('/profile', compact('title', 'categories', 'orders', 'address'));
+            $categories = Category::all();
+            $orders = Order::where('user_id', auth()->id())->get();
+            $address = Address::all();
+            return view('/profile', compact('title', 'categories', 'orders', 'address'));
+        }else{
+            return redirect()->route('login');
+        }
+        
     }
 
     public function profileEdit()
