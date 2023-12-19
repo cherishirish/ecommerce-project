@@ -8,7 +8,7 @@
   
 
   @vite(['resources/js/app.js', 'resources/css/style.css'])
-  <title>{{  $title ?? config('app.name', 'Giggles Wiggles') }}</title>
+  <title>{{ isset($title) ? $title . ' - ' . config('app.name', 'Giggles Wiggles') : config('app.name', 'Giggles Wiggles') }}</title>
 
 
 </head>
