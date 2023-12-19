@@ -15,21 +15,21 @@
             <img class="d-block w-100" src="images/banner-1.jpg" alt="First slide">
             <div class="carousel-caption top-36">
                 <h2 class="banner-heading text-shadow">Welcome to Giggles Wiggles</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('product.index') }}">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="images/banner-2.jpg" alt="Second slide">
             <div class="carousel-caption top-36">
                 <h2 class="banner-heading text-shadow">Make Your Own Registry</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <a class="btn btn-primary text-dark mt-3" href="#">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="images/banner-3.jpg" alt="Third slide">
             <div class="carousel-caption top-36">
-                <h2 class="banner-heading text-shadow">Shop From Our Bestsellers</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <h2 class="banner-heading text-shadow">Get to Know About Us</h2>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('page.about') }}">Shop Now</a>
             </div>
         </div>
       </div>
@@ -57,21 +57,21 @@
             <img class="d-block w-100" src="images/banner-1.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h2 class="tablet-banner-heading text-shadow">Welcome to Giggles Wiggles</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('product.index') }}">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="images/banner-2.jpg" alt="Second slide">
             <div class="carousel-caption">
                 <h2 class="tablet-banner-heading text-shadow">Make Your Own Registry</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <a class="btn btn-primary text-dark mt-3" href="#">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="images/banner-3.jpg" alt="Third slide">
             <div class="carousel-caption">
-                <h2 class="tablet-banner-heading text-shadow">Shop From Our Bestsellers</h2>
-                <button class="btn btn-primary text-dark mt-3">Shop Now</button>
+                <h2 class="tablet-banner-heading text-shadow">Get to Know About Us</h2>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('page.about') }}">Shop Now</a>
             </div>
         </div>
       </div>
@@ -99,21 +99,21 @@
         <img src="/images/mobile-banner-1.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5 class="text-dark text-shadow">Welcome to Giggles Wiggles</h5>
-          <button class="btn btn-primary text-dark">Shop now</button>
+          <a class="btn btn-primary text-dark" href="{{ route('product.index') }}">Shop now</a>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/images/mobile-banner-2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5 class="text-dark text-shadow">Make Your Own Registry</h5>
-          <button class="btn btn-primary text-dark">Shop now</button>
+          <a class="btn btn-primary text-dark" href="#">Shop now</a>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/images/mobile-banner-3.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
-          <h5 class="text-dark text-shadow">Shop From Our Bestsellers</h5>
-          <button class="btn btn-primary text-dark">Shop now</button>
+          <h5 class="text-dark text-shadow">Get to Know About Us</h5>
+          <a class="btn btn-primary text-dark" href="{{ route('page.about') }}">Shop now</a>
         </div>
       </div>
     </div>
@@ -248,7 +248,7 @@
       <!-- First column with a big title, centered and left-aligned, and a "Shop Now" button -->
       <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
         <h2 class="font-weight-bold text-center mb-4">Our Bestsellers</h2>
-        <a href="#" class="btn btn-primary text-dark font-weight-bold mb-2">Shop Now</a>
+        <a href="{{ route('product.index') }}" class="btn btn-primary text-dark font-weight-bold mb-2">Shop Now</a>
       </div>
   
       <!-- Second column with two cards -->
@@ -258,7 +258,7 @@
               <div class="card-img-overlay overlay">
                   <div class="overlay-content">
                       <h4 class="card-title text-dark">Winter Jacket</h4>
-                      <a href="#" class="btn btn-primary">Shop Now</a>
+                      <a href="{{ route('product.index', ['category_id' => 1]) }}" class="btn btn-primary">Shop Now</a>
                   </div>
               </div>
           </div>
@@ -271,7 +271,7 @@
               <div class="card-img-overlay overlay">
                   <div class="overlay-content">
                       <h4 class="card-title text-dark">Baby Stroller</h4>
-                      <a href="#" class="btn btn-primary">Shop Now</a>
+                      <a href="{{ route('product.index', ['category_id' => 6]) }}" class="btn btn-primary">Shop Now</a>
                   </div>
               </div>
           </div>
