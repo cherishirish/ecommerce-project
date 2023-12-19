@@ -29,19 +29,19 @@ class CheckoutController extends Controller
     public function index()
     {
    
-        $title = "Checkout";
+        $title = "Checkout - " . config('app.name');
         // if (!Auth::check()) {
         //     return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
         // }
         $cart = session('cart', []);
 
         if (empty($cart)) {
-            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
+            return redirect()->route('cart.show')->with('danger', 'Your cart is empty.');
         }
+
         $user = Auth::user();
         
         $cart = session('cart', []);
-
        
         $subtotal = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
@@ -59,7 +59,7 @@ class CheckoutController extends Controller
 
 
         if (empty($cart)) {
-            return redirect()->route('cart.show')->with('danger', 'Your cart is empty.');
+            return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
 
         // Calculate cart values
