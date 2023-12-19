@@ -21,6 +21,11 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Prepares data for Admin dashboard
+     *
+     * @return view
+     */
     public function index()
     {
         $title = "Admin Dashboard";

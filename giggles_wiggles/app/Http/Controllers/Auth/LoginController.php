@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -28,6 +29,26 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    /**
+     * Once authenticated, redirect to dashboard if admin, and profile if regular auth user
+     *
+     * @param Request $request
+     * @param [type] $user
+     * @return redirect
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if($user->is_admin == 1){
+            return redirect(route('admin.dashboard'))->with('success', 'You have successfully logged in');
+        }else{
+            return redirect(RouteServiceProvider::HOME)->with('success', 'You have successfully logged in');
+        }
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        $request->session()->flash('success', 'You have successfully logged out');
+    }
     /**
      * Create a new controller instance.
      *

@@ -86,7 +86,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        // $title = "";
         $product = Product::with('category', 'brand')->find($id); // Use 'category' relationship
+        $title = $product->category->category_name;
         $categories = Category::all();
 
         if (!$product) {
@@ -96,7 +98,7 @@ class ProductController extends Controller
         $categoryName = $product->category ? $product->category->category_name : '';
         $productName = $product->product_name;
 
-        return view('product.show', compact('product', 'categoryName', 'productName','categories'));
+        return view('product.show', compact('title', 'product', 'categoryName', 'productName','categories'));
     }
 
 

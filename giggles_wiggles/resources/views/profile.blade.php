@@ -165,36 +165,39 @@
                         @if($orders->isEmpty())
                             <p class="mb-0">No orders found.</p>
                         @else
-                            <table class="table table-bordered">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>Order ID</th>
-                                        <th>Subtotal</th>
-                                        <th>Total</th>
-                                        <th>Billing Address</th>
-                                        <th>Shipping Address</th>
-                                        <th>PST</th>
-                                        <th>GST</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($orders as $order)
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <td>{{ $order->id }}</td>
-                                            <td>${{ number_format($order->subtotal, 2) }}</td>
-                                            <td>${{ number_format($order->total, 2) }}</td>
-                                            <td>{{ $order->billing_address }}</td>
-                                            <td>{{ $order->shipping_address }}</td>
-                                            <td>${{ number_format($order->pst, 2) }}</td>
-                                            <td>${{ number_format($order->gst, 2) }}</td>
-                                            <td>{{ $order->created_at->format('M d, Y H:i A') }}</td>
+                                            <th>Order ID</th>
+                                            <th>Subtotal</th>
+                                            <th>Total</th>
+                                            <th>Billing Address</th>
+                                            <th>Shipping Address</th>
+                                            <th>PST</th>
+                                            <th>GST</th>
+                                            <th>Date</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($orders as $order)
+                                            <tr>
+                                                <td>{{ $order->id }}</td>
+                                                <td>${{ number_format($order->subtotal, 2) }}</td>
+                                                <td>${{ number_format($order->total, 2) }}</td>
+                                                <td>{{ $order->billing_address }}</td>
+                                                <td>{{ $order->shipping_address }}</td>
+                                                <td>${{ number_format($order->pst, 2) }}</td>
+                                                <td>${{ number_format($order->gst, 2) }}</td>
+                                                <td>{{ $order->created_at->format('M d, Y H:i A') }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         @endif
                     </div>
+
                 </div>
             </div>
         </div>

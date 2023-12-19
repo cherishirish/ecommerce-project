@@ -8,6 +8,13 @@ use App\Models\Category;
 
 class CartController extends Controller
 {
+
+    /**
+     * add item to cart
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function add(Request $request)
     {
         $productId = $request->input('product_id');
@@ -40,13 +47,14 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart!');
     }
 
-
+    /**
+     * show view with cart and list items
+     *
+     * @return view
+     */
     public function showCart()
-    {
-       
+    {  
         $cart = session()->get('cart', []);
-
-        
       
         $totalPrice = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
@@ -56,12 +64,37 @@ class CartController extends Controller
       
         return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice] );
     }
-    
+
+    /**
+     * Empty contents of cart
+     *
+     * @return redirect
+     */
     public function clearCart()
     {
         session()->forget('cart');
 
         return redirect()->route('cart.show')->with('success', 'Your cart has been cleared.');
+    }
+
+    /**
+     * Remove single item from cart
+     *
+     * @param [type] $productId
+     * @return redirect
+     */
+    public function removeItem($productId)
+    {
+        $cart = session()->get('cart', []);
+        // dd($productId, $cart);
+        if(isset($cart[$productId])){
+            $product_name = $cart[$productId]['name'];
+            unset($cart[$productId]);
+            session()->put('cart', $cart);
+            return redirect()->route('cart.show')->with('success', $product_name . ' has been removed from your cart.');
+        }else{
+            return redirect()->route('cart.show')->with('error', 'Item does not in your cart.');
+        }
     }
 
 }

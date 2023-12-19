@@ -11,12 +11,25 @@ use App\Models\User;
 
 class RegistryController extends Controller
 {
+    /**
+     * Display registry start page
+     *
+     * @param Request $request
+     * @return view
+     */
     public function index(Request $request)
     {
         $title = 'Registry';
         $registry = Registry::all();
         return view('registry/index', compact('title', 'registry'));
     }
+
+    /**
+     * Display page for managing registry
+     *
+     * @param Request $request
+     * @return view
+     */
     public function manage(Request $request)
     {
         $userId = Auth::id();
@@ -25,6 +38,11 @@ class RegistryController extends Controller
         return view('/manage', compact('title','registries','userId'));
     }
 
+    /**
+     * Show form to create a new registry
+     *
+     * @return view
+     */
     public function create()
     {
         $title = 'Create Registry';
@@ -35,7 +53,12 @@ class RegistryController extends Controller
         return view('registry/create', compact('title', 'products' ,'user'));
     }
 
-
+    /**
+     * Store new registry information in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
     {
     $request->validate([
@@ -56,6 +79,12 @@ class RegistryController extends Controller
     }   
 
 
+    /**
+     * Show form to edit registry
+     *
+     * @param [type] $id
+     * @return view
+     */
     public function edit($id)
                 {
     $title = 'Edit Registry';
@@ -68,9 +97,13 @@ class RegistryController extends Controller
     return view('registry.edit', compact('title', 'products', 'registry'));
     }
 
-
-
-
+    /**
+     * Update registry in database
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return redirect
+     */
     public function update(Request $request, $id)
     {
         $valid = $request->validate([
@@ -93,6 +126,12 @@ class RegistryController extends Controller
     }
     
 
+    /**
+     * Show list of user's registry items
+     *
+     * @param [type] $id
+     * @return view
+     */
     public function show($id)
     {
         $title = "Registry";
@@ -105,8 +144,17 @@ class RegistryController extends Controller
         return view('registry.show', compact('registry', 'products', 'title'));
     }
 
+<<<<<<< HEAD
 
 
+=======
+    /**
+     * Delete registry
+     *
+     * @param [type] $id
+     * @return redirect
+     */
+>>>>>>> aac051ec1f7ebfd0776f3d42b92fa58948e43f14
     public function destroy($id)
     {
         $registry = Registry::find($id);
@@ -114,6 +162,13 @@ class RegistryController extends Controller
         return redirect()->route('manage')->with('success', 'Registry deleted successfully!');
     }
 
+    /**
+     * remove product from registry
+     *
+     * @param Request $request
+     * @param [type] $registryId
+     * @return id
+     */
     public function removeProduct(Request $request, $registryId)
     {
     $registry = Registry::findOrFail($registryId);

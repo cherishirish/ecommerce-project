@@ -33,7 +33,7 @@ class PageController extends Controller
             $categoryName = $category ? $category->category_name : '';
         } else {
             $products = Product::all();
-            $categoryName = ''; // Set a default value when not filtering by category
+            $categoryName = ''; 
         }
 
         $deals = Product::orderBy('price', 'ASC')->limit(8)->get();

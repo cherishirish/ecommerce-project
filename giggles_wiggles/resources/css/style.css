@@ -27,7 +27,9 @@ body {
     margin-right: 10px; /* Add some margin between the search bar and the button */
   }
 
-  
+  .left-padding {
+    padding-left: 30px;
+  }
   
   header button {
     width: 15%; /* Adjust the width as needed */
@@ -47,12 +49,7 @@ body {
     background-color: none;
 }
 
-.navbar-toggler-icon {
-  background: linear-gradient(-45deg, #7ac0d2,#E6AAAB);
-    display: block;
-    height: 4px;
-    margin: 7px
-}
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .form-inline .form-control {
@@ -95,6 +92,16 @@ body {
     background-color: #E6AAAB;
     border-color: #E6AAAB;
   }
+
+  .banner-heading {
+    float: end;
+    font-size: 40px;
+    color: #285765;
+    top: 30%;
+    left: 70%;
+  }
+
+  
 
   .image-overlay {
     position: absolute;
@@ -150,14 +157,75 @@ body {
     cursor: pointer !important;
   }
 
+  /* Login CSS */
+
+  
+
+  @media (max-width: 768px) {
+    #register_container{
+      margin: 0 auto;
+      padding-top: 40px;
+      height: 970px;
+    }
+    #login_container{
+      margin: 0 auto;
+      padding: 50px 0 340px 0;
+    }
+  }
+    
+  @media (min-width: 770px) {
+    #register_container{
+      margin: 0 auto;
+      padding-top: 40px;
+      height: 700px;
+    }
+    #login_container{
+      margin: 0 auto;
+      padding: 50px 0 250px 0;
+    }
+  }
+
+  #login_title, #register_title{
+    color: #7AC0D2;
+  }
+
+  #register_message{
+
+    font-size: .8em;
+    padding-top: 20px;
+  }
+
+  #register_message a{
+    font-size: 1em;
+    color: #507c87;
+  }
+
 /* Deals carousel */
 
-
-.deal_box{
-  width: 175px;
-  height: auto;
-  text-align: center;
+/* Desktop view */
+@media (min-width: 992px) {
+  .deals_container {
+    background-color: #f9edf1;
+    padding: 0 40px 40px 40px;
+  }
 }
+
+/* Tablet view */
+@media (min-width: 768px) and (max-width: 991px) {
+  .deals_container {
+    background-color: #f9edf1;
+    padding: 0 20px 60px 20px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .deals_container {
+    background-color: #f9edf1;
+    padding: 0 10px 30px 10px;
+  }
+}
+
 
 .deal_info{
   display: flex;
@@ -170,10 +238,6 @@ body {
   color: red;
 }
 
-.carousel-inner{
-  padding: 20px 20px;
-}
-
 #weekly_deals{
   width: 100%;
   height: 70px;
@@ -181,31 +245,8 @@ body {
   background-color: #000;
   color: #fff;
   padding: 15px;
-  font-size: 1.5em;
+  font-size: 30px;
   font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.deal_image{
-  display: flex;
-  justify-content: center;
-}
-
-.deal_box img{
-  border-bottom-right-radius: 30px;
-  box-shadow: 5px 5px 15px darkgrey;
-  width: 280px;
-  margin-bottom: 10px;
-
-}
-
-#deal_one, #deal_two, #deal_three, #deal_four{
-  transition: all ease-in-out .2s;
-}
-
-#deal_one:hover, #deal_two:hover, #deal_three:hover, #deal_four:hover{
-  cursor: pointer;
-  transform: translate(2px, -2px);
 }
 
 .deal_row{
@@ -214,28 +255,18 @@ body {
   padding: 0 80px;
 }
 
-.deal_title{
+.weekly-deal-title{
   font-size: 1.3em;
+  background-color: #79BACD;
+  text-align: center;
+  padding: 10px;
 }
 
 .old_price{
   text-decoration: line-through;
-  color: rgb(129, 128, 128);
-}
-
-#carouselExampleControls{
-  margin-top: 20px;
-  background-color: #f9edf1;
-}
-
-#deals_div{
-  background-color: #000;
-}
-
-#deals_container{
-  background-color: #f9edf1;
-  display: flex;
-  padding: 20px;
+  color: #111;
+  font-size: 20px !important;
+  font-style: normal !important;
 }
 
 /* Payment Gateway */
@@ -376,6 +407,7 @@ body {
   /* Footer styles */
   footer {
     padding: 30px 0 0 0;
+    margin-top: 20px;
   }
   
   footer img {
@@ -579,7 +611,13 @@ width:80%;
 }
 
 .animated-icon span {
-  background: #000;
+  background: linear-gradient(-45deg, #7ac0d2,#E6AAAB);
+  display: block;
+  height: 4px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 button:focus {

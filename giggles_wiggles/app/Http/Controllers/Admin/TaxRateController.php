@@ -10,6 +10,7 @@ class TaxRateController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return view
      */
     public function index()
     {
@@ -44,6 +45,7 @@ class TaxRateController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @return view
      */
     public function edit(string $id)
     {
@@ -54,6 +56,7 @@ class TaxRateController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @return redirect
      */
     public function update(Request $request)
     {

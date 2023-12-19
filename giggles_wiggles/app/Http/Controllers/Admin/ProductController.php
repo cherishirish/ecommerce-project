@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    /**
+     * Display list of resources
+     *
+     * @return view
+     */
     public function index()
     {
         $title = "Products";
@@ -20,6 +26,11 @@ class ProductController extends Controller
         return view('admin/products/index', compact('title','products'));
     }
 
+    /**
+     * Create a new instance of the resource
+     *
+     * @return view
+     */
     public function create()
     {
         $title = "Create Product";
@@ -28,6 +39,12 @@ class ProductController extends Controller
         return view('admin/products/create', compact('title','categories', 'brands') );
     }
     
+    /**
+     * Store new resource in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -66,7 +83,12 @@ class ProductController extends Controller
         return redirect(route('admin.products'))->with('success', 'Product created successfully');
     }
 
-
+    /**
+     * Edit a resource
+     *
+     * @param [type] $id
+     * @return view
+     */
     public function edit($id)
     {
         $title = 'Edit Product Record';
@@ -77,7 +99,13 @@ class ProductController extends Controller
     
     }
 
-
+    /**
+     * Update a resource
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return redirect
+     */
     public function update(Request $request, $id)
     {
         $valid = $request->validate([
@@ -118,6 +146,12 @@ class ProductController extends Controller
         return redirect()->route('admin.products')->with('success', 'Product updated successfully');
     }
 
+    /**
+     * Delete a product
+     *
+     * @param [type] $id
+     * @return redirect
+     */
     public function destroy($id)
     {
         $product = Product::find($id);
@@ -125,7 +159,12 @@ class ProductController extends Controller
         return redirect(route('admin.products'))->with('success', 'Product deleted successfully');
     }
 
-
+    /**
+     * Search for a category
+     *
+     * @param Request $request
+     * @return view
+     */
     public function search(Request $request)
     {   
     
