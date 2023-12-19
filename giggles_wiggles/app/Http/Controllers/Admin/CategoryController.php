@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
+    /**
+     * Display a listing of the resource
+     *
+     * @return view
+     */
     public function index()
     {
         $title = "Category";
@@ -16,14 +21,25 @@ class CategoryController extends Controller
         return view('admin/categories/index', compact('title', 'categories'));
     }
 
+    /**
+     * Show the form for creating a new resource
+     *
+     * @return view
+     */
     public function create()
     {
         $title = "Create Category";
         return view('admin.categories.create', compact('title'));
     }
 
+    /**
+     * Store a newly created resource in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
-{
+    {
     $request->validate([
         'category_name' => 'required|string|max:255',
         'is_nav' => 'required|boolean',
@@ -32,8 +48,14 @@ class CategoryController extends Controller
     Category::create($request->all());
 
     return redirect()->route('admin.categories')->with('success', 'Category created successfully');
-}
+    }   
 
+    /**
+     * Edit a resource
+     *
+     * @param [type] $id
+     * @return view
+     */
     public function edit($id)
     {
         $title = "Edit Category";
@@ -41,7 +63,12 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('title','category'));
     }
 
-
+    /**
+     * Update a resource
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function update(Request $request)
     {
         $valid = $request->validate([
@@ -65,7 +92,12 @@ class CategoryController extends Controller
         }
     }
 
-
+    /**
+     * Delete a resource
+     *
+     * @param [type] $id
+     * @return redirect
+     */
     public function destroy($id)
     {
         $category = Category::find($id);

@@ -10,7 +10,7 @@ class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @return view('admin/brands/index') with variables
+     * @return view
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class BrandController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return view('admin/brands/edit') with variables
+     * @return view
      */
     public function create()
     {
@@ -34,7 +34,7 @@ class BrandController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return redirect(route('admin.brands')) with variables
+     * @return redirect
      */
     public function store(Request $request)
     {
@@ -57,7 +57,7 @@ class BrandController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param string $id
-     * @return view('admin/brands/edit') with variables
+     * @return view
      */
     public function edit(string $id)
     {
@@ -70,7 +70,7 @@ class BrandController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @return redirect(route('admin.brands')) with variables
+     * @return redirect
      */
     public function update(Request $request)
     {
@@ -87,7 +87,7 @@ class BrandController extends Controller
      * Remove the specified resource from storage.
      *
      * @param string $id
-     * @return redirect(route('admin.brands')) with variables
+     * @return redirect
      */
     public function destroy(string $id)
     {

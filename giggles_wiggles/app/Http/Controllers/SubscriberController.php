@@ -7,6 +7,12 @@ use App\Models\Subscriber;
 
 class SubscriberController extends Controller
 {
+    /**
+     * Store newsletter subscriber in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
     {
         $valid=$request->validate([
