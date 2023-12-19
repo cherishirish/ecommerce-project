@@ -80,14 +80,14 @@ Route::get('/registry/create', [RegistryController::class, 'create'])->name('reg
 Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
 Route::get('/registry/edit/{id}', [RegistryController::class, 'edit'])->name('registry.edit')->middleware('auth');
 Route::put('/registry/update/{id}', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');
-Route::get('/registry/{id}', [RegistryController:: class, 'show'])->name('registry.show');
+Route::get('/registry/{id}', [RegistryController:: class, 'show'])->name('registry.show')->middleware('auth');
 Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->middleware('auth');
 Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
 Route::delete('/registry/{registry}/remove-product', [RegistryController::class, 'removeProduct'])->name('registry.removeProduct')->middleware('auth');
 
-
+// public routes
 Route::get('/public/{id}', [RegistryController::class, 'showPublic' ])->name('registries.public');
-
+Route::get('/search-registry', [RegistryController::class, 'search'])->name('registry.search');
 
 
 //--------------------------------------------------------------------------------------

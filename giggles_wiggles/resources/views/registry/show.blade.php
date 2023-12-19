@@ -31,7 +31,7 @@
                     <p>Registry #: <strong> {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }} </strong></p>
                     <p>Location: <strong>{{ $registry->user->address->city }} , {{ $registry->user->address->province }} </strong></p>
                     <p>Event Date: <strong>{{ (new DateTime($registry->eventDate))->format('M d, Y') }} </strong></p>
-                    <p class="font-italic" style="font-size:12px;">Copy the link to share to others: </p> 
+                    <p class="font-italic" style="font-size:12px;">Copy the public link to share the registry: </p> 
                     <div style="display:flex; flex-direction:row; width: 80%;">
                         <input type="text" value="team3.uwpace.ca/public/{{ $registry->id }}" id="myInput">
                             <button class="btn btn-light" onclick="myFunction()">
@@ -45,8 +45,6 @@
 
                     
                     <a href="{{ route('registry.edit', $registry->id) }}" class="btn btn-primary mt-4">Edit Registry Info</a>
-                    <a href="{{ route('registries.public', $registry->id) }}" class="btn btn-primary mt-4">PUBLIC Registry Info</a>
-                 
                 </div>
 
                 
@@ -55,18 +53,6 @@
                 </div>
             </div>
         </div>
-
-
-       
-<!-- 
-            @foreach ($products as $product)
-                <div>
-                    {{ $product->product_name }} - {{ $product->price }}
-                    <button onclick="deleteProduct({{ $product->id }})">Delete</button>
-                </div>
-            @endforeach
- -->
-
 
 
     <div class="container mt-4">

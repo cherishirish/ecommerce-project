@@ -692,7 +692,7 @@ button:focus {
 
 #registry-show-info input[type="text"]
 {
-  font-size: 10px !important;
+  font-size: 12px !important;
   border-radius: 10px;
   border: 1px solid  #E8A2A6;
   padding: 10px;
@@ -704,4 +704,14 @@ button:focus {
   padding: 20px;
   background-color:rgba(227, 222, 245, 0.553);
   border-radius: 10px;
+}
+#search-input form div
+{
+  align-items: center;
+  justify-content: space-between;
+}
+
+#search-input form input[type="text"]
+{
+  width: 80%;
 }

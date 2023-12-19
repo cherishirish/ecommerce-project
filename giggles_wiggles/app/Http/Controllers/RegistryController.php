@@ -96,13 +96,16 @@ class RegistryController extends Controller
     public function show($id)
     {
         $title = "Registry";
-        $registry = Registry::find($id);
+        $registry = Registry::findOrFail($id);
         $productIds = json_decode($registry->product_ids, true);
 
+        $productIds = json_decode($registry->product_ids, true);
         $products = Product::whereIn('id', $productIds)->get();
-
+    
         return view('registry.show', compact('registry', 'products', 'title'));
     }
+
+
 
     public function destroy($id)
     {
@@ -138,5 +141,24 @@ class RegistryController extends Controller
         return view('public', compact('registry', 'products', 'title'));
     }
 
+
+    public function search(Request $request)
+    {
+         
+        $title = "Registry";
+        $searchTerm = $request->input('search');
+        $registries = collect(); // Initialize as an empty collection
+    
+        if ($searchTerm) {
+            $year = substr($searchTerm, 0, 4);
+            $idWithPadding = substr($searchTerm, 4);
+            $originalId = intval($idWithPadding); // Convert to integer to remove leading zeros
+    
+            $registries = Registry::where('id', $originalId)->get();
+        }
+    
+        return view('search-registry', compact('registries', 'searchTerm', 'title'));
+    }
+    
 
 }
