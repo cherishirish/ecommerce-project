@@ -139,7 +139,9 @@ div#statistics{
     object-fit: cover;
 }
 
-
+.shadow {
+    box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
 .bg-primary {
     background-color: #F9EDF1 !important;
   }
