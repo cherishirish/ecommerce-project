@@ -147,14 +147,18 @@ class RegistryController extends Controller
          
         $title = "Registry";
         $searchTerm = $request->input('search');
-        $registries = collect(); // Initialize as an empty collection
+       
+        $registries = collect();
     
         if ($searchTerm) {
             $year = substr($searchTerm, 0, 4);
             $idWithPadding = substr($searchTerm, 4);
             $originalId = intval($idWithPadding); // Convert to integer to remove leading zeros
     
+            
+
             $registries = Registry::where('id', $originalId)->get();
+            
         }
     
         return view('search-registry', compact('registries', 'searchTerm', 'title'));

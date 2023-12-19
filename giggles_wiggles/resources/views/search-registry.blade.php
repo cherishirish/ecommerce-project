@@ -38,7 +38,7 @@
                             </form>
                         </div>
 
-                        @if(isset($searchTerm))
+                        @if(!isset($searchTerm))
                             <h4>Search Result</h4>
                             
                             @forelse ($registries as $registry)

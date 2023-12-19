@@ -46,7 +46,7 @@
 
                 
                 <div class="text-center barcode ">
-                    <img src="path-to-your-barcode-image.jpg" alt="Barcode Image">
+                    <img src="/images/giggleswiggles.png" width="200" height="200" alt="Barcode Image">
                 </div>
             </div>
         </div>
