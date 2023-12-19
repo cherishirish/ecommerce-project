@@ -124,6 +124,9 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
+Route::get('admin/users/search', [UserController::class, 'search'])
+->name('admin.users.search')->middleware('auth', 'is_admin');
+
 //REGISTRY
 
 Route::get('/registry', [RegistryController::class, 'index'])->name('registry.index'); // REGISTRY
@@ -176,6 +179,8 @@ Route::put('admin/orders/update', [AdminOrderController::class, 'update'])
 ->name('admin.orders.update')->middleware('auth', 'is_admin');
 Route::delete('admin/orders/delete/{id}', [AdminOrderController::class, 'destroy'])
 ->name('admin.orders.delete')->middleware('auth', 'is_admin');
+Route::get('/admin/orders/search', [AdminOrderController::class, 'search'])
+    ->name('admin.orders.search')->middleware('auth', 'is_admin');
 
 // Admin TaxRates CRUD
 

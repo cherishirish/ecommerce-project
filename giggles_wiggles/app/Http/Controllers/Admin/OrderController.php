@@ -89,4 +89,18 @@ class OrderController extends Controller
         $line_items->delete();
         return redirect(route('admin.orders'))->with('success', 'Order deleted successfully'); 
     }
+
+    public function search(Request $request)
+    {
+        $title = "Orders";
+        $search = $request->input('search');
+        $orders = Order::where('first_name', 'LIKE', '%' . $search . '%')
+        ->orWhere('user_id', 'LIKE', '%' . $search . '%')
+        ->orWhere('subtotal', 'LIKE', '%' . $search . '%')
+        ->orWhere('billing_address', 'LIKE', '%' . $search . '%')
+        ->orWhere('shipping_address', 'LIKE', '%' . $search . '%')
+        ->orWhere('total', 'LIKE', '%' . $search . '%')->get();
+
+        return view('admin/orders/index', compact('title', 'orders'));
+    }
 }
