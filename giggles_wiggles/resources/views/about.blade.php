@@ -3,8 +3,7 @@
 @section('content')
 
 <section class="py-3">
-    <div class="container px-4 px-lg-5">
-
+<div class="container px-4 px-lg-5">
         <!-- Main Content Header Image-->
         <div class="main-header mb-3">
             <img src="/images/breadcrumb.jpg" alt="">
@@ -16,17 +15,23 @@
             </ol>
         </nav>
 
-
-        
+        <!-- About Us Section -->
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-12 pt-5 pt-md-0">
-                <!-- About Form -->
+            <div class="col-md-6">
+                <!-- About Us Text -->
                 <div>
-                    <h2>About Us</h2>
-                    
+                    <h2 class="mb-4">Who We Are</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <!-- About Us Image -->
+                <img src="/images/about-image.jpg" alt="About Us Image" class="img-fluid rounded">
+            </div>
         </div>
+
     </div>
 </section>
 

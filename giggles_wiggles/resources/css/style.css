@@ -82,26 +82,21 @@ body {
   .navbar-nav li.nav-item {
     padding: 0px 40px;
   }
+
  
   .btn-primary {
     background-color: #7AC0D2;
     border-color: #7AC0D2;
+    transition: box-shadow 0.5s ease;
   }
 
   .btn-primary:hover {
-    background-color: #E6AAAB;
-    border-color: #E6AAAB;
+      background-color: #E6AAAB;
+      border-color: #E6AAAB;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
   }
 
-  .banner-heading {
-    float: end;
-    font-size: 40px;
-    color: #285765;
-    top: 30%;
-    left: 70%;
-  }
 
-  
 
   .image-overlay {
     position: absolute;
@@ -331,39 +326,8 @@ body {
   background-color: rgb(214, 106, 106);
 }
 
-/* Parallax container */
-.parallax-container {
-    position: relative;
-    height: 200px; 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-  }
 
-  /* Dark overlay to enhance text visibility */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Centered text within the parallax container */
-  .parallax-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    font-weight: bold;
-  }
-
-  /* Slider styles */
+ 
 
   /* Content styles */
 
@@ -402,7 +366,6 @@ body {
     border: 1px solid black;
   }
 
-  /* Add your own styles for the slider container and content */
   
   /* Footer styles */
   footer {
