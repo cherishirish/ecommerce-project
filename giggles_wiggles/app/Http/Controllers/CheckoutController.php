@@ -39,19 +39,6 @@ class CheckoutController extends Controller
             return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
         $user = Auth::user();
-<<<<<<< HEAD
-    
-        
-        $address = $user->address;
-    
-        if (!$address) {
-
-            return redirect()->route('cart.show')->with('error', 'Please update your address.');
-        }
-    
-        $province = $address->province;
-=======
->>>>>>> aac051ec1f7ebfd0776f3d42b92fa58948e43f14
         
         $cart = session('cart', []);
 
@@ -75,11 +62,8 @@ class CheckoutController extends Controller
             return redirect()->route('cart.show')->with('error', 'Your cart is empty.');
         }
 
-<<<<<<< HEAD
-=======
         // Calculate cart values
 
->>>>>>> aac051ec1f7ebfd0776f3d42b92fa58948e43f14
         $subtotal = array_sum(array_map(function($item) {
             return $item['quantity'] * $item['price'];
         }, $cart));
@@ -107,7 +91,7 @@ class CheckoutController extends Controller
 
         $user = Auth::user();
         $cart = session('cart', []);
-        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $address = Address::where('user_id', $user->id)->where('address_type', 'billing')->first();
         $province = $address->province;
         $taxRates = TaxRate::where('province', $province)->first();
         $gst_rate = $taxRates->gst;

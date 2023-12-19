@@ -7,10 +7,10 @@
     <h1>{{ $title }}</h1>
 
     <!-- Content Row -->
-    <div class="row">
+    <div class="container my-3">
         
         @if(isset($brand))
-        <form action="{{ route('admin.brands.update', ['id' => $brand->id]) }}" method="POST" class="px-3">
+        <form action="{{ route('admin.brands.update', ['id' => $brand->id]) }}" method="POST">
             @csrf
             @method('PUT')
             <input type="hidden" name="id" value="{{ $brand->id }}">
