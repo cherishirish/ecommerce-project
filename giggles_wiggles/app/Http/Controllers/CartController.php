@@ -54,7 +54,7 @@ class CartController extends Controller
      */
     public function showCart()
     {  
-        $title = 'Shopping Cart - ' . config('app.name');
+        $title = 'Shopping Cart';
         $cart = session()->get('cart', []);
       
         $totalPrice = array_sum(array_map(function($item) {
