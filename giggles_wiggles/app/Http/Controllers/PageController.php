@@ -100,7 +100,7 @@ class PageController extends Controller
             $address = Address::all();
             return view('/profile', compact('title', 'categories', 'orders', 'address'));
         }else{
-            
+            return redirect()->route('login');
         }
         
     }
