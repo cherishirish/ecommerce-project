@@ -11,6 +11,7 @@ class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return view
      */
     public function index()
     {
@@ -45,6 +46,7 @@ class OrderController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @return view
      */
     public function edit(string $id)
     {
@@ -55,6 +57,7 @@ class OrderController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @return redirect
      */
     public function update(Request $request)
     {
@@ -76,6 +79,7 @@ class OrderController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @return redirect
      */
     public function destroy(string $id)
     {

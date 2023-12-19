@@ -29,7 +29,7 @@ class AdminController extends Controller
     /**
      * Prepares data for Admin dashboard
      *
-     * @return view(admin/index)
+     * @return view
      */
     public function index()
     {
