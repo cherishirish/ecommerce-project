@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,6 +16,12 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class UserController extends Controller
 {
+
+    /**
+     * Show list of users
+     *
+     * @return view
+     */
     public function index()
     {
         $title = "Users";
@@ -25,6 +31,12 @@ class UserController extends Controller
         return view('admin/users/index', compact('title', 'users', 'billing_addresses', 'shipping_addresses'));
     }
 
+    /**
+     * Show form to edit a user
+     *
+     * @param [type] $id
+     * @return view
+     */
     public function edit($id)
     {
         $title = "Edit User";
@@ -32,6 +44,12 @@ class UserController extends Controller
         return view('admin.users.edit', compact('title', 'user'));
     }
 
+    /**
+     * Update user info in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function update(Request $request)
     {
         $valid=$request->validate([
@@ -60,6 +78,12 @@ class UserController extends Controller
         return redirect(route('admin.users'))->with('success', 'You have successfully edited a user');
     }
 
+    /**
+     * Delete user
+     *
+     * @param [type] $id
+     * @return redirect
+     */
     public function destroy($id)
     {
         $user = User::find($id);
@@ -67,6 +91,11 @@ class UserController extends Controller
         return redirect(route('admin.users'))->with('success', 'You have successfully deleted a user');
     }
 
+    /**
+     * Load form to create a new user
+     *
+     * @return view
+     */
     public function create()
     {
         $title = "Create User";
@@ -75,6 +104,12 @@ class UserController extends Controller
         return view('admin/users/create', compact('title', 'users', 'admin'));
     }
 
+    /**
+     * Store new user in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
     {
         $valid=$request->validate([

@@ -30,6 +30,13 @@ class LoginController extends Controller
     
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    /**
+     * Once authenticated, redirect to dashboard if admin, and profile if regular auth user
+     *
+     * @param Request $request
+     * @param [type] $user
+     * @return redirect
+     */
     protected function authenticated(Request $request, $user)
     {
         if($user->is_admin == 1){
