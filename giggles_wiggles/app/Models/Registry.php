@@ -16,10 +16,15 @@ class Registry extends Model
         'product_ids'
     ];
 
-    /**
+     /**
      * Reverse the migrations.
      *
      * @return void
      */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+   
    
 }

@@ -26,7 +26,6 @@ class PageController extends Controller
         $title = config('app.name');
         $category_id = $request->input('category_id');
         
-        // Fetch categories before checking category_id
         $categories = Category::all();
     
         if ($category_id) {
