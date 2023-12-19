@@ -28,6 +28,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+   
+        $title = "Checkout";
+        // if (!Auth::check()) {
+        //     return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
+        // }
         $cart = session('cart', []);
 
         if (empty($cart)) {
@@ -88,7 +93,7 @@ class CheckoutController extends Controller
         $categories = Category::all();
 
         // Include $address in the compact function
-        return view('checkout', compact('cart', 'subtotal', 'gst', 'pst', 'hst', 'gst_rate', 'pst_rate', 'hst_rate', 'total', 'province', 'address', 'categories'));
+        return view('checkout', compact('title', 'cart', 'subtotal', 'gst', 'pst', 'hst', 'gst_rate', 'pst_rate', 'hst_rate', 'total', 'province', 'address', 'categories'));
     }
 
     /**
