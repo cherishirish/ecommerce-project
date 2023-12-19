@@ -32,46 +32,45 @@
                         <p class="text-center">Let your loved ones make your day even more special by sharing your wish list of the must-have items you truly desire and need!</p>
 
 
-                <div>
-                    <h2>Registry Table</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Registry Name</th>
-                                        <th>Event Date</th>
-                                        <th>Link</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @php
-                                    $userId = Auth::id();
-                                    $filteredRegistries = $registries->filter(function($registry) use ($userId) {
-                                        return $registry->user_id == $userId;
-                                    });
-                                    @endphp
 
-                                    @foreach ($filteredRegistries as $registry)
 
-                                        <tr>
-                                            <td>{{ $registry->registryName }}</td>
-                                            <td>{{ $registry->eventDate }}</td>
-                                            <td>
-                                                <a href="{{ route('registry.show', $registry->id) }}">View</a>
-                                                <a href="{{ route('registry.edit', $registry->id) }}">Edit</a>
-                                                <form action="{{ route('registry.delete', $registry->id) }}" method="post">
+                        <div class="container">
+                        
+                        @php
+                            $userId = Auth::id();
+                            $filteredRegistries = $registries->filter(function($registry) use ($userId) {
+                                return $registry->user_id == $userId;
+                            });
+                            @endphp
+
+                            @foreach ($filteredRegistries as $registry)
+                            <div class="col-md-3 col-12 mb-4 mt-4">
+                                <div id="registry-card" class="card">
+                                    <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
+                                        <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                                <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }}</p>
+                                                <form action="{{ route('registry.delete', $registry->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger" 
-                                                    onclick="return confirm('Are you sure you want to delete this registry?')">X</button>
+                                                    <button type="submit"class="btn btn-sm btn-close"
+                                                        onclick="return confirm('Are you sure you want to delete this product?')"></button>
                                                 </form>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                        </div>
+                                        <h4 class="card-title mt-1">{{ $registry->registryName }}</h4>
+                                        <p class="card-text">
+                                            Registrant: <strong>{{ $registry->user->first_name }} {{ $registry->user->last_name }}</strong><br>
+                                            Event Date: {{ (new DateTime($registry->eventDate))->format('M d, Y') }}
+                                        </p>
 
+                                        <div>
+                                            <a href="{{ route('registry.show', $registry->id) }}" class="btn btn-outline-danger">View Registry</a>
+                                            <a href="{{ route('registry.edit', $registry->id) }}" class="btn btn-primary">Edit Registry Info</a>
+                                        </div>  
+                                </div>
+                                
+                            </div>
+                            @endforeach
+                    </div>
 
 
 

@@ -59,10 +59,9 @@ class TaxRateController extends Controller
     {
         $valid =$request->validate([
             'id' => 'required|integer',
-            'pst' => 'required|numeric',
+            'gst' => 'required|numeric',
             'gst' => 'required|numeric',
             'hst' => 'required|numeric',
-            'value_added' => 'required|numeric'
         ]);
         $tax_item = \App\Models\TaxRate::find($valid['id']);
         $tax_item->update($valid);

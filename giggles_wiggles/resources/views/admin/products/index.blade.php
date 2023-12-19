@@ -1,8 +1,9 @@
 @extends('layouts.admin') 
 
 @section('content')
-<div class="px-4 py-4 w-100">
+<div class="px-4 w-100">
    
+
     <div class="mt-5" style="display: flex; justify-content: space-between">
         <a href="{{ route('product.create') }}" class="btn btn-success mb-3">Create Product</a>
 
@@ -13,7 +14,6 @@
                  
     <input class=searchButton type="submit" value="Search" hidden />
     </form>
-
 </div>
 
     <table class=" mt-2 table table-bordered table-hover">
@@ -45,10 +45,6 @@
             @endforeach
         </tbody>
     </table>
-
-    <div>
-        {{ $products->links('pagination::bootstrap-5') }}
-    </div>
 
 
     <!-- <div class="container mt-4">

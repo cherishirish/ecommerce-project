@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $title = "Products";
-        $products = Product::latest()->paginate(12); 
+        $products = Product::all(); 
        
         return view('admin/products/index', compact('title','products'));
     }
@@ -133,7 +133,7 @@ class ProductController extends Controller
         $searchQuery = $request->input('search');
         $products = Product::where('product_name', 'LIKE', '%' . $searchQuery . '%')
                   ->orWhere('description', 'LIKE', '%' . $searchQuery . '%')
-                  ->paginate(12);
+                  ->get();
 
         return view('/admin/products/index', compact('products', 'title'));
     }

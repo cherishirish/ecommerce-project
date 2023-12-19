@@ -21,7 +21,7 @@
 
         <div class="registry-card shadow p-4 mb-5 bg-white rounded">
             <h2 class="text-center">{{ $registry->registryName }}</h2>
-            <p class="text-center text-muted font-italic">Share yourwish list of the must-have items to your loved ones</p>
+            <p class="text-center text-muted font-italic">Check out our registry!</p>
 
 
             <div id="registry-card-info">
@@ -42,11 +42,6 @@
                             2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
                             </svg>
                     </div>
-
-                    
-                    <a href="{{ route('registry.edit', $registry->id) }}" class="btn btn-primary mt-4">Edit Registry Info</a>
-                    <a href="{{ route('registries.public', $registry->id) }}" class="btn btn-primary mt-4">PUBLIC Registry Info</a>
-                 
                 </div>
 
                 
@@ -55,17 +50,6 @@
                 </div>
             </div>
         </div>
-
-
-       
-<!-- 
-            @foreach ($products as $product)
-                <div>
-                    {{ $product->product_name }} - {{ $product->price }}
-                    <button onclick="deleteProduct({{ $product->id }})">Delete</button>
-                </div>
-            @endforeach
- -->
 
 
 
@@ -96,31 +80,6 @@
             @endforeach
         </div>
     </div>
-
-
-
-
-
-
-        <!-- <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-12 pt-5 pt-md-0">
-                
-                            <h2 class="text-center">{{ $registry->registryName }}</h2> 
-                            <p class="text-center"> Event Date :  {{ $registry->eventDate }} </p>
-                           
-                            @foreach ($products as $product)
-                            <div>
-                                {{ $product->product_name }} - {{ $product->price }}
-                                <button onclick="deleteProduct({{ $product->id }})">Delete</button>
-                            </div>
-                        @endforeach
-
-
-                
-            </div>
-        </div> -->
-
-
 
 
 

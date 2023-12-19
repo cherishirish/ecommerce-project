@@ -28,8 +28,11 @@ class RegistryController extends Controller
     public function create()
     {
         $title = 'Create Registry';
+        $userId = Auth::id();   
+
+        $user = User::findOrFail($userId);
         $products = Product::all();  
-        return view('registry/create', compact('title', 'products'));
+        return view('registry/create', compact('title', 'products' ,'user'));
     }
 
 
@@ -49,7 +52,7 @@ class RegistryController extends Controller
         'product_ids' => json_encode($request->product_ids ?? [])
     ]);
 
-    return redirect()->route('/manage')->with('success', 'Registry created successfully!');
+    return redirect()->route('manage')->with('success', 'Registry created successfully!');
     }   
 
 
@@ -57,7 +60,10 @@ class RegistryController extends Controller
                 {
     $title = 'Edit Registry';
     $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
-    $products = Product::all();  
+    $selectedProductIds = json_decode($registry->product_ids, true);
+    $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
+        return !in_array($product->id, $selectedProductIds);
+    });
 
     return view('registry.edit', compact('title', 'products', 'registry'));
     }
@@ -119,6 +125,17 @@ class RegistryController extends Controller
     $registry->save();
 
     return response()->json(['success' => 'Product removed successfully']);
+    }
+
+
+    public function showPublic($registryId)
+    {   
+        $title = "Registry";
+        $registry = Registry::find($registryId);
+        $productIds = json_decode($registry->product_ids, true);
+        $products = Product::whereIn('id', $productIds)->get();
+        $registry = Registry::findOrFail($registryId);
+        return view('public', compact('registry', 'products', 'title'));
     }
 
 

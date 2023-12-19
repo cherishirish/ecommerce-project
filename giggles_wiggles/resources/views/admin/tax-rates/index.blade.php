@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="px-4 pt-4 w-100">
-    <table class="table">
+<div class="px-4 w-100">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>

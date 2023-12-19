@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -17,20 +16,11 @@ class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    /**
-     * Constructing AdminController instance
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Prepares data for Admin dashboard
-     *
-     * @return view(admin/index)
-     */
     public function index()
     {
         $title = "Admin Dashboard";
