@@ -22,7 +22,7 @@ class PageController extends Controller
 {
 
     public function index(Request $request) {
-        $title = "Home";
+        $title = "";
         $category_id = $request->input('category_id');
         
         $categories = Category::all();
