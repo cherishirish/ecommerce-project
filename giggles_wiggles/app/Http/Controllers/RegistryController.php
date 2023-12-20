@@ -135,7 +135,7 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        $title = "Registry";
+        $title = "Registry - " . config('app.name');
         $registry = Registry::findOrFail($id);
         $productIds = json_decode($registry->product_ids, true);
         $products = Product::whereIn('id', $productIds)->get();

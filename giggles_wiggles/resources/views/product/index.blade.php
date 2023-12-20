@@ -15,7 +15,7 @@
             <nav aria-label="breadcrumb">
                 <ol id="breadcrumb" class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    @if (!empty($categoryName))
+                    @if (isset($category_id) && !empty($categoryName))
                     <li class="breadcrumb-item active" aria-current="page">
                         <a href="{{ route('product.index', ['category_id' => $category_id]) }}">{{ $categoryName }}</a></li>
                     @endif
@@ -39,7 +39,8 @@
                         <option value="price_desc">Price: High to Low</option>
                         <option value="brand">Brand</option>
                     </select>
-                    <input type="hidden" name="category_id" value="{{ $category_id }}">
+                    <input type="hidden" name="category_id" value="{{ $category_id ?? '' }}">
+
                 </form>
 
             </div>
