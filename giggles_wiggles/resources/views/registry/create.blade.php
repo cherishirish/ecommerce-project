@@ -56,7 +56,9 @@
                             
                             <h4 class="mt-3 mb-3 text-center">Select Products for Your Registry</h4>
 
-
+                            <div class="form-group mt-2">
+                                <button type="submit" class="btn btn-primary">Create Registry</button>
+                            </div>
         
                         <div class="container mt-4">
                             <div class="row">

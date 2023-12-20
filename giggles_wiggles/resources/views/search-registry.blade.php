@@ -25,7 +25,8 @@
                         <img src="images/breadcrumb.jpg" alt="Header Image">
                     </div>
 
-
+                    <div class="container mt-4">
+                        <div class="row">
                     
                         <h2 class="text-center mb-3">Search Registries</h2>
                         <div id="search-input" class="mb-5">
@@ -38,21 +39,16 @@
                             </form>
                         </div>
 
-                        @if(!isset($searchTerm))
+
+                        @if($searchTerm && $registry->isNotEmpty())
                             <h4>Search Result</h4>
-                            
-                            @forelse ($registries as $registry)
-                            <div class="col-md-3 col-12 mb-4 mt-4">
+                            @foreach ($registry as $registry)
+                            <div class="col-md-4 col-12 mb-4 mt-4">
                                 <div id="registry-card" class="card">
-                                    <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
+                                         <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
                                         <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                                                <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }}</p>
-                                                <form action="{{ route('registry.delete', $registry->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"class="btn btn-sm btn-close"
-                                                        onclick="return confirm('Are you sure you want to delete this product?')"></button>
-                                                </form>
+                                                <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
+                                            
                                         </div>
                                         <h4 class="card-title mt-1">{{ $registry->registryName }}</h4>
                                         <p class="card-text">
@@ -66,9 +62,19 @@
                                 </div>
                                 
                             </div>
-                            @empty
-                                <p>No registries found.</p>
-                            @endforelse
+                            @endforeach
+                        @elseif($searchTerm)
+                            <p class="text-center">No registries found.</p>
                         @endif
+
+
+
+
+
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                     </div>
 @endsection

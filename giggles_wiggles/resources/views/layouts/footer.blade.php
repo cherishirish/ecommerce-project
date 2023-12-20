@@ -68,7 +68,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-3 border-top border-secondary font-weight-bold">
-      © 2023 Copyright:
+      © 2023 Copyrights. All Rights Reserved.
       <a class="text-dark " href="#">CLYK</a>
     </div>
     <!-- Copyright -->

@@ -135,10 +135,8 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        $title = "Registry";
-        $registry = Registry::find($id);
-        $productIds = json_decode($registry->product_ids, true);
-
+        $title = "Registry - " . config('app.name');
+        $registry = Registry::findOrFail($id);
         $productIds = json_decode($registry->product_ids, true);
         $products = Product::whereIn('id', $productIds)->get();
     
@@ -192,28 +190,30 @@ class RegistryController extends Controller
         return view('public', compact('registry', 'products', 'title'));
     }
 
-
-    public function search(Request $request)
-    {
-         
-        $title = "Registry";
-        $searchTerm = $request->input('search');
-       
-        $registries = collect();
-    
-        if ($searchTerm) {
-            $year = substr($searchTerm, 0, 4);
-            $idWithPadding = substr($searchTerm, 4);
-            $originalId = intval($idWithPadding); // Convert to integer to remove leading zeros
-    
+  
+        public function search(Request $request)
+        {
+            $title = "Registry";
+            $searchTerm = $request->input('search');
+        
+            if ($searchTerm) {
+               
+                $parts = explode('-', $searchTerm);
+        
+                if (isset($parts[1])) {
+                    $originalId = intval($parts[1]);
+                    $registry = Registry::where('id', $originalId)->get();
+                }
+            }else
+            {
+                $registry = 0;
+            }
             
-
-            $registries = Registry::where('id', $originalId)->get();
-            
+        
+            return view('search-registry', compact('registry', 'searchTerm', 'title'));
         }
-    
-        return view('search-registry', compact('registries', 'searchTerm', 'title'));
+
+
     }
     
-
-}
+    
