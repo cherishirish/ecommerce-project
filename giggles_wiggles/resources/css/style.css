@@ -376,6 +376,11 @@ body {
   padding: 20px;
 }
 
+#order_confirmation{
+  background-color: rgb(169, 169, 195);
+  padding: 20px;
+}
+
 /* flash messages */
 
 .alert-success{

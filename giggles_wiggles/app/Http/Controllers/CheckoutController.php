@@ -280,18 +280,19 @@ class CheckoutController extends Controller
     $order = Order::where('id', session('order'))->first();
     $user = User::where('id', $order->user_id)->first();
     $cart = session('cart', []);
-    $billing_address = json_decode($order->billing_address);
-
-    // dd($billing_address->city);
 
     $data = [
         'order' => $order,
         'user' => $user,
+        'email' => $user->email,
+        'first_name' => $user->first_name,
+        'last_name' => $user->last_name,
         'cart' => $cart
     ];
     
 
     Mail::send($template_path, $data, function($message){
+        $user = Auth::user();
         $message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Giggles Wiggles Order Confirmation');
 
         $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
