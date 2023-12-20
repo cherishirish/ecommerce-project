@@ -5,6 +5,12 @@
 
     <a href="{{ route('admin.brands.create') }}" class="btn btn-success mb-3">Create Brand</a> 
 
+    <form action="{{ route('admin.brands.search') }}" method="get" style="display:flex">
+        <a class="btn btn-info" href="{{route('admin.brands')}}" style="margin-right:20px;height:40px">All</a>
+        <input class="form-control mr-0" type="search" name="search" 
+            placeholder="Search here" aria-label="Search" 
+            value="{{ request('search') }}">
+    </form>
     <table class="table">
         <thead>
             <tr>

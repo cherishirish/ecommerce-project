@@ -112,7 +112,7 @@ class CheckoutController extends Controller
 
         $total = $subtotal + $gst + $pst;
 
-        $address_info = Address::where('user_id', Auth::user()->id)->first();
+        $address_info = Address::where('user_id', Auth::user()->id)->where('address_type', 'billing')->first();
 
         $billing_address = [
             'address' => $address_info['address'],
@@ -128,6 +128,11 @@ class CheckoutController extends Controller
             'province' => 'required',
             'postal_code' => 'required|string|min:1|max:255',
             ]);
+
+            $valid_address['user_id'] = $user->id;
+
+            $valid_address = Address::create($valid_address);
+            $valid_address->save();
         }
 
         $valid=$request->validate([
@@ -247,7 +252,8 @@ class CheckoutController extends Controller
      */
     public function orderConfirm()
     {
-        return view('order_confirmation');
+        $order = Order::where('id', session('order'))->first();
+        return view('order_confirmation', compact('order'));
     }
 
     /**
@@ -274,19 +280,20 @@ class CheckoutController extends Controller
     $order = Order::where('id', session('order'))->first();
     $user = User::where('id', $order->user_id)->first();
     $cart = session('cart', []);
-    $billing_address = json_decode($order->billing_address);
-
-    // dd($billing_address->city);
 
     $data = [
         'order' => $order,
         'user' => $user,
+        'email' => $user->email,
+        'first_name' => $user->first_name,
+        'last_name' => $user->last_name,
         'cart' => $cart
     ];
     
 
     Mail::send($template_path, $data, function($message){
-        $message->to('cheezbrgeryumm@gmail.com', 'Loresa Bueckert')->subject('Giggles Wiggles Order Confirmation');
+        $user = Auth::user();
+        $message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Giggles Wiggles Order Confirmation');
 
         $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
     });

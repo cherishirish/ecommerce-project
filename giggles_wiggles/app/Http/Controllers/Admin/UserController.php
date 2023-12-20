@@ -141,4 +141,16 @@ class UserController extends Controller
         return redirect(route('admin.users'))->with('success', 'You have successfully created a user');
     }
 
+    public function search(Request $request)
+    {
+        $title = "Users";
+        $search = $request->input('search');
+        $users = User::where('first_name', 'LIKE', '%' . $search . '%')
+        ->orWhere('last_name', 'LIKE', '%' . $search . '%')
+        ->orWhere('email', 'LIKE', '%' . $search . '%')->get();
+        $billing_addresses = Address::all()->where('address_type', 'billing');
+        $shipping_addresses = Address::all()->where('address_type', 'shipping');
+        return view('admin/users/index', compact('title', 'users', 'billing_addresses', 'shipping_addresses'));
+    }
+
 }

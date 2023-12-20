@@ -1,11 +1,19 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="px-4 pt-4 w-100">
+    
     <!-- Pagination -->
-    <div>
+    <div>         
         {{ $orders->links('pagination::bootstrap-5') }}
     </div>
+    <form action="{{ route('admin.orders.search') }}" method="get" style="display:flex">
+    <a class="btn btn-info" href="{{route('admin.orders')}}" style="margin-right:20px;">All</a>
+            <input class="form-control mr-0" type="search" name="search" 
+                  placeholder="Search here" aria-label="Search" 
+                  value="{{ request('search') }}">
+        </form>
     <table class="table table-striped">
         <thead>
             <tr>

@@ -10,10 +10,11 @@ class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return view
      */
     public function index(Request $request)
     {
-        $title = 'Products';
+        $title = 'GiggleWiggles Products';
         $categoryName = '';
         $categories = Category::all();
         $category_id = $request->input('category_id', null);
@@ -25,8 +26,8 @@ class ProductController extends Controller
             ->get();
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
-            $title = ucfirst($categoryName);
         } else {
+
             $products = Product::where('availability', 1)->get();
         }
     
@@ -52,6 +53,7 @@ class ProductController extends Controller
                 $query->orderBy('price', 'desc');
                 break;
             case 'brand':
+                // Assuming you have a 'brand_name' field in your 'brands' table
                 $query->join('brands', 'products.brand_id', '=', 'brands.id')
                     ->orderBy('brands.brand_name', 'asc');
                 break;
@@ -84,12 +86,13 @@ class ProductController extends Controller
 
     /**
      * Display the specified resource.
+     * @return view
      */
     public function show($id)
     {
+        // $title = "";
         $product = Product::with('category', 'brand')->find($id); // Use 'category' relationship
-        // $title = $product->category->category_name;
-        $title = ucfirst($product->product_name);
+        $title = $product->category->category_name;
         $categories = Category::all();
 
         if (!$product) {
@@ -129,6 +132,12 @@ class ProductController extends Controller
         //
     }
 
+    /**
+     * Search for product
+     *
+     * @param Request $request
+     * @return view
+     */
     public function search(Request $request)
     {
         $searchQuery = $request->input('search');

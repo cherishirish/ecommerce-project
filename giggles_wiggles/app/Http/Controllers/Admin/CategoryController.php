@@ -17,8 +17,8 @@ class CategoryController extends Controller
     public function index()
     {
         $title = "Category";
-        $categories = Category::all();
-        return view('admin/categories/index', compact('title', 'categories'));
+        $category = Category::all();
+        return view('admin/categories/index', compact('title', 'category'));
     }
 
     /**
@@ -104,6 +104,16 @@ class CategoryController extends Controller
         $category->delete();
         
         return redirect()->route('admin.categories')->with('success', 'Category deleted successfully');
+    }
+
+    public function search(Request $request)
+    {
+        $title = "Categories";
+        $search = $request->input('search');
+        $category = Category::where('category_name', 'LIKE', '%' . $search . '%')
+        ->orWhere('is_nav', 'LIKE', '%' . $search . '%')->get();
+
+        return view('admin/categories/index', compact('title', 'category'));
     }
 
 }
