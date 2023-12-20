@@ -83,7 +83,28 @@ body {
     padding: 0px 40px;
   }
 
+  .top-36{
+    top: 36%;
+  }
  
+  .banner-heading {
+    color: #285765;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+  }
+
+  .tablet-banner-heading {
+    color: #285765;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
   .btn-primary {
     background-color: #7AC0D2;
     border-color: #7AC0D2;
@@ -96,7 +117,18 @@ body {
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
   }
 
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.9); 
+    transition: background-color 0.3s ease-in-out;
+}
 
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
   .image-overlay {
     position: absolute;
@@ -237,7 +269,7 @@ body {
   width: 100%;
   height: 70px;
   text-align: center;
-  background-color: #000;
+  background-color: #598475;
   color: #fff;
   padding: 15px;
   font-size: 30px;
@@ -325,9 +357,6 @@ body {
   text-align: center;
   background-color: rgb(214, 106, 106);
 }
-
-
- 
 
   /* Content styles */
 

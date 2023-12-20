@@ -29,7 +29,7 @@ class CheckoutController extends Controller
     public function index()
     {
    
-        $title = "Checkout - " . config('app.name');
+        $title = "Checkout";
         // if (!Auth::check()) {
         //     return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
         // }

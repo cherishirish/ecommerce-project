@@ -19,7 +19,7 @@ class RegistryController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'Registry - ' . config('app.name');
+        $title = 'Registry';
         $registry = Registry::all();
         return view('registry/index', compact('title', 'registry'));
     }
@@ -33,7 +33,7 @@ class RegistryController extends Controller
     public function manage(Request $request)
     {
         $userId = Auth::id();
-        $title = 'Manage Registry - ' . config('app.name');
+        $title = 'Manage Registry';
         $registries = Registry::where('user_id', $userId)->get();
         return view('/manage', compact('title','registries','userId'));
     }
@@ -45,7 +45,7 @@ class RegistryController extends Controller
      */
     public function create()
     {
-        $title = 'Create Registry - ' . config('app.name');
+        $title = 'Create Registry';
         $userId = Auth::id();   
 
         $user = User::findOrFail($userId);
@@ -87,15 +87,15 @@ class RegistryController extends Controller
      * @return view
      */
     public function edit($id)
-                {
-    $title = 'Edit Registry - ' . config('app.name');
-    $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
-    $selectedProductIds = json_decode($registry->product_ids, true);
-    $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
-        return !in_array($product->id, $selectedProductIds);
-    });
+    {
+        $title = 'Edit Registry';
+        $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
+        $selectedProductIds = json_decode($registry->product_ids, true);
+        $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
+            return !in_array($product->id, $selectedProductIds);
+        });
 
-    return view('registry.edit', compact('title', 'products', 'registry'));
+        return view('registry.edit', compact('title', 'products', 'registry'));
     }
 
     /**
@@ -190,22 +190,7 @@ class RegistryController extends Controller
         return view('public', compact('registry', 'products', 'title'));
     }
 
-    // public function search(Request $request)
-    // {
-    //     $title = "Registry";
-    //     $searchTerm = $request->input('search');
-    //     // $registries = collect();
-
-    //     if ($searchTerm) {
-    //             $year = substr($searchTerm, 0, 4);
-    //             $idWithPadding = substr($searchTerm, 4);
-    //             $originalId = intval($idWithPadding);
-    //     }
-    //     $registry = Registry::where('id', $searchTerm)->get();
-    
-    //     return view('search-registry', compact('registry', 'searchTerm', 'title'));
-
-    //}
+  
         public function search(Request $request)
         {
             $title = "Registry";

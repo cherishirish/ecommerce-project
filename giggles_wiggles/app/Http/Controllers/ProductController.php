@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'Products - ' . config('app.name');
+        $title = 'Products';
         $categoryName = '';
         $categories = Category::all();
         $category_id = $request->input('category_id');
@@ -24,7 +24,7 @@ class ProductController extends Controller
             ->get();
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
-            $title = ucfirst($categoryName) . ' - ' . config('app.name');
+            $title = ucfirst($categoryName);
         } else {
             $products = Product::where('availability', 1)->get();
         }
@@ -88,7 +88,7 @@ class ProductController extends Controller
     {
         $product = Product::with('category', 'brand')->find($id); // Use 'category' relationship
         // $title = $product->category->category_name;
-        $title = ucfirst($product->product_name) . ' - ' . config('app.name');
+        $title = ucfirst($product->product_name);
         $categories = Category::all();
 
         if (!$product) {
