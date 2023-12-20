@@ -252,7 +252,8 @@ class CheckoutController extends Controller
      */
     public function orderConfirm()
     {
-        return view('order_confirmation');
+        $order = Order::where('id', session('order'))->first();
+        return view('order_confirmation', compact('order'));
     }
 
     /**
@@ -291,7 +292,7 @@ class CheckoutController extends Controller
     
 
     Mail::send($template_path, $data, function($message){
-        $message->to('cheezbrgeryumm@gmail.com', 'Loresa Bueckert')->subject('Giggles Wiggles Order Confirmation');
+        $message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Giggles Wiggles Order Confirmation');
 
         $message->from('lbwebdev@outlook.com', 'Giggles Wiggles');
     });

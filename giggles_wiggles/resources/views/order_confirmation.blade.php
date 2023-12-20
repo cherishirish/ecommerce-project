@@ -12,6 +12,10 @@
                     <h2>Your Order Has Been Placed!</h2>
                     <p>We have sent a receipt to your email</p>
                 </div>
+                <div id="order_confirmation_details">
+                    <h2>Order Details</h2>
+                    <p>{{$order->total}}</p>
+                </div>
             </div>
         </div>
     </section>

@@ -371,7 +371,10 @@ body {
   margin: 0 auto;
 }
 
-
+#order_confirmation_details{
+  box-shadow: 2px 2px 7px darkgrey;
+  padding: 20px;
+}
 
 /* flash messages */
 
