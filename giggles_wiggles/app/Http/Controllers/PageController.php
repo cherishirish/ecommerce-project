@@ -28,7 +28,7 @@ class PageController extends Controller
      * @return view
      */
     public function index(Request $request) {
-        $title = "Home";
+        $title = "";
         $category_id = $request->input('category_id');
         
         // Fetch categories before checking category_id
