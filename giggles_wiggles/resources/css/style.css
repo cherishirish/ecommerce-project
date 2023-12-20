@@ -35,15 +35,23 @@ body {
     width: 15%; /* Adjust the width as needed */
   }
 
-  #header-row {
+  #header-row-desktop {
     display: flex;
     align-items: baseline;
   }
 
-  #header-search input {
-    border-radius: 50px;;
+  #header-row-tablet {
+    display: flex;
+    align-items: baseline;
   }
 
+  #header-search-desktop input {
+    border-radius: 50px;
+  }
+
+  #header-search-tablet input {
+    border-radius: 50px;
+  }
 
   .navbar-toggler {
     background-color: none;

@@ -28,7 +28,7 @@
 @endif
 <header class="bg-primary pt-5 d-none d-lg-block">
   <div class="container">
-    <div class="row mt-3" id="header-row">
+    <div class="row mt-3" id="header-row-desktop">
       <div class="col-md-3">
         <!-- Logo on the left -->
         <img src="/images/logo.png" alt="Logo" class="img-fluid">
@@ -36,8 +36,7 @@
       
       <div class="col-md-6">
         <!-- Search bar in the middle -->
-        <!-- <form id="header-search" class="form-inline "> -->
-          <form id="header-search" method="get" action="{{ route('product.search') }}">
+          <form id="header-search-desktop" method="get" action="{{ route('product.search') }}">
 
             <input class="form-control mr-0" type="search" name="search" 
                   placeholder="Search here" aria-label="Search" 
@@ -82,14 +81,12 @@
             @endif
           @endguest
 
-          
-      </a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Desktop view -->
+<!-- Tablet view -->
 @if(Session::has('success'))
 <div class="alert alert-success" id="success">
   {{Session::pull('success')}}
@@ -103,7 +100,7 @@
 @endif
 <header class="bg-primary pt-5 d-none d-md-block d-lg-none">
   <div class="container">
-    <div class="row mt-3" id="header-row">
+    <div class="row mt-3" id="header-row-tablet">
       <div class="col-md-3">
         <!-- Logo on the left -->
         <img src="/images/logo.png" alt="Logo" class="img-fluid">
@@ -112,7 +109,7 @@
       <div class="col-md-5">
         <!-- Search bar in the middle -->
         <!-- <form id="header-search" class="form-inline "> -->
-          <form id="header-search" method="get" action="{{ route('product.search') }}">
+          <form id="header-search-tablet" method="get" action="{{ route('product.search') }}">
 
             <input class="form-control mr-0" type="search" name="search" 
                   placeholder="Search here" aria-label="Search" 
@@ -157,8 +154,6 @@
             @endif
           @endguest
 
-          
-      </a>
       </div>
     </div>
   </div>
