@@ -300,7 +300,6 @@ body {
 /* Payment Gateway */
 
 #payment_form{
-  width: 700px;
   box-shadow: 2px 2px 7px darkgrey;
   padding: 20px;
 
@@ -325,7 +324,7 @@ body {
 #card_type_field{
   display: flex;
   justify-content: space-evenly;
-  width: 350px;
+  max-width: 350px;
 }
 
 #card_type_field img:hover{
@@ -334,13 +333,42 @@ body {
   border: 3px solid white;
 }
 
-#payment_form{
+#payment_container{
+  max-width: 75%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 7px darkgrey;
+  padding: 20px;
+  margin-top: 40px;
+
   display: flex;
   justify-content: space-evenly;
 }
 
-#checkout_container{
-  width: 75%;
+@media (max-width: 767px) {
+  #payment_container{
+    flex-wrap: wrap;
+  }
+}
+
+#payment_container h3{
+  background-color: rgb(169, 169, 195);
+  margin: 0;
+  padding: 20px;
+}
+
+#user_info{
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+#shipping_address_different{
+  border: 1px solid black;
+
+}
+
+#billing_details{
+  width: 100%;
+  margin: 0 auto;
 }
 
 

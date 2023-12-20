@@ -112,7 +112,7 @@ class CheckoutController extends Controller
 
         $total = $subtotal + $gst + $pst;
 
-        $address_info = Address::where('user_id', Auth::user()->id)->first();
+        $address_info = Address::where('user_id', Auth::user()->id)->where('address_type', 'billing')->first();
 
         $billing_address = [
             'address' => $address_info['address'],
@@ -128,6 +128,11 @@ class CheckoutController extends Controller
             'province' => 'required',
             'postal_code' => 'required|string|min:1|max:255',
             ]);
+
+            $valid_address['user_id'] = $user->id;
+
+            $valid_address = Address::create($valid_address);
+            $valid_address->save();
         }
 
         $valid=$request->validate([
