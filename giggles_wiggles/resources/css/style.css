@@ -105,6 +105,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
+
   .btn-primary {
     background-color: #7AC0D2;
     border-color: #7AC0D2;
@@ -650,10 +651,8 @@ button:focus {
 /* REGISTRY */
 
 .registry-section {
-  width: 30%;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 10px;
   background-color: rgba(227, 222, 245, 0.553);
   border-radius: 10px;
 }
@@ -672,17 +671,8 @@ button:focus {
   font-weight: bold;
 }
 
-.clearfix{
-  clear: both;
-  display: flex;
-  flex-direction:row;
-  justify-content: space-around;
-  gap: 5px;
-}
-
 #registry-card
 {
-  width: 400px;
   margin: auto;
   display: flex;
   border: 2px solid  #7BBDD1;
@@ -715,7 +705,6 @@ button:focus {
   padding: 10px 20px;
   line-height: 15px;;
   display: flex;
-  width: 30%;
   flex-direction: column;
   align-items: flex-start;
 }
