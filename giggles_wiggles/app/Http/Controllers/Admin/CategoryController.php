@@ -17,8 +17,8 @@ class CategoryController extends Controller
     public function index()
     {
         $title = "Category";
-        $categories = Category::all();
-        return view('admin/categories/index', compact('title', 'categories'));
+        $category = Category::all();
+        return view('admin/categories/index', compact('title', 'category'));
     }
 
     /**
@@ -110,10 +110,10 @@ class CategoryController extends Controller
     {
         $title = "Categories";
         $search = $request->input('search');
-        $categories = Category::where('category_name', 'LIKE', '%' . $search . '%')
+        $category = Category::where('category_name', 'LIKE', '%' . $search . '%')
         ->orWhere('is_nav', 'LIKE', '%' . $search . '%')->get();
 
-        return view('admin/categories/index', compact('title', 'categories'));
+        return view('admin/categories/index', compact('title', 'category'));
     }
 
 }

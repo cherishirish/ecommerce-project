@@ -21,10 +21,17 @@ use Illuminate\Support\Facades\File;
 class PageController extends Controller
 {
 
+    /**
+     * Display home page
+     *
+     * @param Request $request
+     * @return view
+     */
     public function index(Request $request) {
         $title = "Home";
         $category_id = $request->input('category_id');
         
+        // Fetch categories before checking category_id
         $categories = Category::all();
     
         if ($category_id) {
@@ -54,19 +61,34 @@ class PageController extends Controller
         return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals'));
     }
     
+    /**
+     * Show about page
+     *
+     * @return view
+     */
     function about() {
-        $title = 'About Us';
+        $title = "About Us";
         $categories = Category::all();
         return view('/about', compact('title', 'categories'));
     }
 
+    /**
+     * Show contact page
+     *
+     * @return view
+     */
     function contact() {
         $title = "Contact Us";
-        
         $categories = Category::all();
         return view('/contact', compact('title', 'categories'));
     }
 
+    /**
+     * Store new contact request
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function store(Request $request)
     {
         $valid = $request->validate([
@@ -82,28 +104,35 @@ class PageController extends Controller
         return redirect()->route('page.contact.success')->with('contact_id', $contact->id)->withInput();
     }
     
-
+    /**
+     * Show success page for contact
+     *
+     * @return view
+     */
     public function success()
     {
         $categories = Category::all();
         return view('success', compact('categories'));
     }
 
-
+    /**
+     * show profile page
+     *
+     * @return view
+     */
     public function profile() {
-        if(Auth::check()){
-            $title = "Profile";
-        
-            $categories = Category::all();
-            $orders = Order::where('user_id', auth()->id())->get();
-            $address = Address::all();
-            return view('/profile', compact('title', 'categories', 'orders', 'address'));
-        }else{
-            return redirect()->route('login');
-        }
-        
+        $title = "Profile";
+        $categories = Category::all();
+        $orders = Order::where('user_id', auth()->id())->get();
+        $address = Address::all();
+        return view('/profile', compact('title', 'categories', 'orders', 'address'));
     }
 
+    /**
+     * display form/page for editing user
+     *
+     * @return view
+     */
     public function profileEdit()
     {
         $title = "Edit Profile";
@@ -112,6 +141,12 @@ class PageController extends Controller
         return view('profile_edit', compact('title', 'categories','user'));
     }
 
+    /**
+     * Update user information in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function updateProfile(Request $request)
     {
         $request->validate([
@@ -132,6 +167,11 @@ class PageController extends Controller
         return redirect()->route('page.profile')->with('success', 'Profile changes updated successfully.');
     }
 
+    /**
+     * display form for updating shipping address
+     *
+     * @return view
+     */
     public function ShippingAddressEdit()
     {
         $title = "Edit Shipping Address";
@@ -140,6 +180,12 @@ class PageController extends Controller
         return view('shippingaddress_edit', compact('title','categories'));
     }
    
+    /**
+     * update user shipping address in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function updateShippingAddress(Request $request)
     {
         // Validate the request data
@@ -166,6 +212,11 @@ class PageController extends Controller
         return redirect()->route('page.profile')->with('success', 'Shipping Address updated successfully.');
     }
 
+    /**
+     * delete shipping address
+     *
+     * @return redirect
+     */
     public function deleteShippingAddress()
     {
         $user = Auth::user();
@@ -174,6 +225,11 @@ class PageController extends Controller
         return redirect()->route('page.profile')->with('success', 'Shipping Address deleted successfully.');
     }
 
+    /**
+     * Show form to edit billing address
+     *
+     * @return view
+     */
     public function BillingAddressEdit()
     {
         $title = "Edit Billing Address";
@@ -182,6 +238,12 @@ class PageController extends Controller
         return view('billingaddress_edit', compact('title','categories'));
     }
    
+    /**
+     * Update billing address in database
+     *
+     * @param Request $request
+     * @return redirect
+     */
     public function updateBillingAddress(Request $request)
     {
         // Validate the request data
@@ -208,6 +270,11 @@ class PageController extends Controller
         return redirect()->route('page.profile')->with('success', 'Billing Address updated successfully.');
     }
 
+    /**
+     * Delete user billing address
+     *
+     * @return redirect
+     */
     public function deleteBillingAddress()
     {
         $user = Auth::user();
@@ -216,6 +283,11 @@ class PageController extends Controller
         return redirect()->route('page.profile')->with('success', 'Billing Address deleted successfully.');
     }
 
+    /**
+     * Display invoice after purchase
+     *
+     * @return view
+     */
     public function invoice()
     {
         $title = "Your Invoice";
@@ -230,6 +302,11 @@ class PageController extends Controller
         return view('/invoice', compact('title', 'categories', 'user', 'orders', 'lineItems', 'address'));
     }
 
+    /**
+     * Display gift registry page
+     *
+     * @return view
+     */
     function registry() {
         $title = "Gift Registry";
         $categories = Category::all();
