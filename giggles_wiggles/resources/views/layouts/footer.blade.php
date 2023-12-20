@@ -70,6 +70,12 @@
     <div class="text-center p-3 border-top border-secondary font-weight-bold">
       © 2023 Copyrights. All Rights Reserved.
       <a class="text-dark " href="#">CLYK</a>
+
+
+      <p style="font-size:10px;">
+        DISCLAIMER: This project is a student submission for academic purposes. Images and content used in this project are for illustrative and educational use only. <br>
+        All rights reserved to the original copyright owners. No claim of ownership is made on the images presented.
+      <p>
     </div>
     <!-- Copyright -->
   </footer>
