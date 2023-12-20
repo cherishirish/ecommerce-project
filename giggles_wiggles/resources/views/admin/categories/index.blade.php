@@ -3,8 +3,17 @@
 @section('content')
 <div class="px-4 w-100">
 
-    <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-3">Create Category</a> 
+    <div style="display:flex;justify-content:space-between;margin-top:40px">
+        <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-3">Create Category</a> 
 
+        <form action="{{ route('admin.categories.search') }}" method="get" style="display:flex">
+            <a class="btn btn-info" href="{{route('admin.categories')}}" style="margin-right:20px;height:40px">All</a>
+            <input class="form-control mr-0" type="search" name="search" 
+                placeholder="Search here" aria-label="Search" 
+                value="{{ request('search') }}">
+        </form>    
+    </div>
+    
     <table class="table">
         <thead>
             <tr>

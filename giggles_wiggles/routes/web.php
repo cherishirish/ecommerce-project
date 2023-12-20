@@ -148,6 +148,8 @@ Route::put('admin/categories/update', [CategoryController::class, 'update'])
 ->name('admin.categories.update')->middleware('auth', 'is_admin');
 Route::post('admin/categories/store', [CategoryController::class, 'store'])
 ->name('admin.categories.store')->middleware('auth', 'is_admin');
+Route::get('admin/categories/search', [CategoryController::class, 'search'])
+->name('admin.categories.search')->middleware('auth', 'is_admin');
 
 // Admin Brands CRUD
 

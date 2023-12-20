@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\LineItem;
 
 class OrderController extends Controller
@@ -94,12 +95,15 @@ class OrderController extends Controller
     {
         $title = "Orders";
         $search = $request->input('search');
-        $orders = Order::where('first_name', 'LIKE', '%' . $search . '%')
-        ->orWhere('user_id', 'LIKE', '%' . $search . '%')
+        $user = User::where('first_name', 'LIKE', '%' . $search . '%')
+        ->orWhere('last_name', 'LIKE', '%' . $search . '%')->first();
+        $orders = Order::with('user', 'lineItems')
+        ->where('user_id', 'LIKE', '%' . $search . '%')
         ->orWhere('subtotal', 'LIKE', '%' . $search . '%')
         ->orWhere('billing_address', 'LIKE', '%' . $search . '%')
         ->orWhere('shipping_address', 'LIKE', '%' . $search . '%')
-        ->orWhere('total', 'LIKE', '%' . $search . '%')->get();
+        ->orWhere('total', 'LIKE', '%' . $search . '%')->latest()->paginate(12);
+
 
         return view('admin/orders/index', compact('title', 'orders'));
     }
