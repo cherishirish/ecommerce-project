@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -17,10 +16,12 @@ class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    /**
+
+     /**
      * Constructing AdminController instance
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('auth');

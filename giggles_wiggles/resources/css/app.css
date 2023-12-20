@@ -32,6 +32,10 @@ body {
 }
 
 #admin_sidebar{
+    grid-column-start: 0;
+    grid-column-end: 2;
+    grid-row-start: 0;
+    grid-row-end: 3;
     position: relative;
     width: 240px;
     min-height: 800px;
@@ -65,6 +69,10 @@ div#admin_content{
     height: auto;
     background-color: whitesmoke;
     overflow-y: hidden;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
 }
 
 div#statistics{
@@ -99,13 +107,23 @@ div#statistics{
     border: 1px solid #285765;
     background-color: #285765;
 }
-
 .card-font-color-1 {
     color: #285765;
 }
 
 .card-font-color-2 {
     color: #79bacd;
+}
+.shadow {
+    box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
+
+.bg-primary {
+    background-color: #F9EDF1 !important;
+}
+
+.shadow {
+    box-shadow: 0 5px 16px rgba(0,0,0,0.4);
 }
 
 .stat_card h2{
@@ -124,17 +142,16 @@ div#statistics{
 .shadow {
     box-shadow: 0 5px 16px rgba(0,0,0,0.4);
 }
-
 .bg-primary {
     background-color: #F9EDF1 !important;
-}
+  }
 
-.blue-font {
+  .blue-font {
     color: #377f95;
-}
+  }
 
 
-header {
+  header {
     background-color: #007BFF; /* Use your desired background color */
     color: #fff;
     padding: 10px;
@@ -175,14 +192,14 @@ header {
 .btn-primary {
     background-color: #7AC0D2;
     border-color: #7AC0D2;
-}
+  }
 
-.btn-primary:hover {
+  .btn-primary:hover {
     background-color: #377f95;
     border-color: #377f95;
 }
 
-.big-font {
+  .big-font {
     font-size: 54px;
     font-weight: 800;
-}
+  }

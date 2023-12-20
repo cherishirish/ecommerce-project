@@ -54,6 +54,7 @@ class CartController extends Controller
      */
     public function showCart()
     {  
+        $title = 'Shopping Cart';
         $cart = session()->get('cart', []);
       
         $totalPrice = array_sum(array_map(function($item) {
@@ -62,7 +63,7 @@ class CartController extends Controller
 
         $categories = Category::all();
       
-        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice] );
+        return view('cart', ['cart' => $cart, 'totalPrice' => $totalPrice, 'title' => $title ] );
     }
 
     /**

@@ -25,7 +25,6 @@ class PageController extends Controller
         $title = "Home";
         $category_id = $request->input('category_id');
         
-        // Fetch categories before checking category_id
         $categories = Category::all();
     
         if ($category_id) {
@@ -56,13 +55,14 @@ class PageController extends Controller
     }
     
     function about() {
-        $title = "About Us";
+        $title = 'About Us';
         $categories = Category::all();
         return view('/about', compact('title', 'categories'));
     }
 
     function contact() {
         $title = "Contact Us";
+        
         $categories = Category::all();
         return view('/contact', compact('title', 'categories'));
     }
@@ -91,11 +91,17 @@ class PageController extends Controller
 
 
     public function profile() {
-        $title = "Profile";
-        $categories = Category::all();
-        $orders = Order::where('user_id', auth()->id())->get();
-        $address = Address::all();
-        return view('/profile', compact('title', 'categories', 'orders', 'address'));
+        if(Auth::check()){
+            $title = "Profile";
+        
+            $categories = Category::all();
+            $orders = Order::where('user_id', auth()->id())->get();
+            $address = Address::all();
+            return view('/profile', compact('title', 'categories', 'orders', 'address'));
+        }else{
+            return redirect()->route('login');
+        }
+        
     }
 
     public function profileEdit()
