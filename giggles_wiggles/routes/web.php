@@ -86,6 +86,10 @@ Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->mi
 Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
 Route::delete('/registry/{registry}/remove-product', [RegistryController::class, 'removeProduct'])->name('registry.removeProduct')->middleware('auth');
 
+// public routes
+Route::get('/public/{id}', [RegistryController::class, 'showPublic' ])->name('registries.public');
+Route::get('/search-registry', [RegistryController::class, 'search' ])->name('registry.search');
+
 
 //--------------------------------------------------------------------------------------
 

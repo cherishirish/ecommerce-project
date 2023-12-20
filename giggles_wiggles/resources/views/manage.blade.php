@@ -6,9 +6,8 @@
 <section class="py-3">
     <div class="container px-4 px-lg-5">
 
-        <!-- Main Content Header Image-->
-        <div class="main-header mb-3">
-            <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+        <div class="main-header mb-5">
+            <img src="images/breadcrumb.jpg" alt="Header Image">
         </div>
 
         <nav aria-label="breadcrumb">
@@ -23,10 +22,7 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!--  -->
                 <div>
-                    <div class="main-header mb-5">
-                        <img src="images/breadcrumb.jpg" alt="Header Image">
-                    </div>
-
+                   
 
                         <h2 class="text-center">Make Your Special Occasion Unforgettable</h2>
                         <p class="text-center">Let your loved ones make your day even more special by sharing your wish list of the must-have items you truly desire and need!</p>
@@ -34,8 +30,8 @@
 
 
 
-                        <div class="container">
-                        
+                    <div class="container mt-4">
+                        <div class="row">
                         @php
                             $userId = Auth::id();
                             $filteredRegistries = $registries->filter(function($registry) use ($userId) {
@@ -44,7 +40,8 @@
                             @endphp
 
                             @foreach ($filteredRegistries as $registry)
-                            <div class="col-md-3 col-12 mb-4 mt-4">
+                           
+                            <div class="col-md-4 col-12 mb-4 mt-4">
                                 <div id="registry-card" class="card">
                                     <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
                                         <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
@@ -66,10 +63,11 @@
                                             <a href="{{ route('registry.show', $registry->id) }}" class="btn btn-outline-danger">View Registry</a>
                                             <a href="{{ route('registry.edit', $registry->id) }}" class="btn btn-primary">Edit Registry Info</a>
                                         </div>  
-                                </div>
-                                
-                            </div>
+                                    </div>
+                                </div>      
+                            
                             @endforeach
+                        </div>
                     </div>
 
 
