@@ -16,7 +16,8 @@ class ProductController extends Controller
         $title = 'Products';
         $categoryName = '';
         $categories = Category::all();
-        $category_id = $request->input('category_id');
+        $category_id = $request->input('category_id', null);
+
 
         if ($category_id) {
             $products = Product::where('category_id', $category_id)
