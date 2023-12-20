@@ -33,6 +33,7 @@
       <!-- Links -->
     
     </div>
+  </div>
 </nav>
 
 <!-- jQuery and Bootstrap JS  -->
