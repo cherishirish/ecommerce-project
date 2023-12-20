@@ -183,7 +183,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="d-flex justify-content-between align-items-center">
-          <img src="images/logo.png" alt="Logo" class="img-fluid">
+          <img src="/images/logo.png" alt="Logo" class="img-fluid">
 
           <div class="d-flex align-items-center">
          <!-- Display logout link if the user is authenticated -->
