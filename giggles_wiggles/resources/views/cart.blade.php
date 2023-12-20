@@ -18,7 +18,7 @@
             <tbody>
                 @forelse($cart as $id => $item)
                     <tr>
-                        <td>{{ $item['name'] }}</td>
+                        <td><a href="{{route('product.show', ['id' => $item['product_id']]) }})}}" class="cart_link">{{ $item['name'] }}</a></td>
                         <td>{{ $item['quantity'] }}</td>
                         <td>${{ number_format($item['price'], 2) }}</td>
                         <td>${{ number_format($item['quantity'] * $item['price'], 2) }}</td>
@@ -43,10 +43,10 @@
 
         @if(!empty($cart))
             <div class="cart-checkout btn btn-primary"> 
-                <a href="{{ route('checkout.index') }}" class="text-white">Checkout</a>
+                <a href="{{ route('checkout.index') }}" class="text-white cart_link_white">Checkout</a>
             </div>  
             <!-- <div class="cart-checkout btn btn-primary"> <a href="{{ route('checkout.index') }}" class="text-white">Checkout</a></div> -->
-            <div class="cart-clear btn btn-danger"><a href="{{ route('cart.clear') }}" class="text-white">Clear</a></div>
+            <div class="cart-clear btn btn-danger"><a href="{{ route('cart.clear') }}" class="text-white cart_link_white">Clear</a></div>
         </div>
         @endif
 
