@@ -165,6 +165,8 @@ Route::put('admin/brands/update', [AdminBrandController::class, 'update'])
 ->name('admin.brands.update')->middleware('auth', 'is_admin');
 Route::post('admin/brands/store', [AdminBrandController::class, 'store'])
 ->name('admin.brands.store')->middleware('auth', 'is_admin');
+Route::get('admin/brands/search', [CategoryController::class, 'search'])
+->name('admin.brands.search')->middleware('auth', 'is_admin');
 
 // Admin Orders CRUD
 
