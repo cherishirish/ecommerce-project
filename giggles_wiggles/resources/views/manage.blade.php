@@ -37,26 +37,30 @@
                     <div class="col-md-4 col-12 mb-4 mt-4">
                         <div id="registry-card" class="card">
 
-                                @if(!$registry->is_default)
-                                    
-                                    <form action="{{ route('registry.set_default', $registry->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn" style="font-size:10px;">SET AS DEFAULT</button>
-                                    </form>
-                                @else
-                                  
-                                        <button class="btn" style="font-size:12px; font-weight:400; color:#E8A2A6; border:none;" disabled>CURRENT DEFAULT REGISTRY</button>
-                                @endif
-                                
-                                <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                                        <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
-                                        <form action="{{ route('registry.delete', $registry->id) }}" method="POST">
+                        <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">  
+                                <div>
+                                    @if(!$registry->is_default)
+                                        
+                                        <form action="{{ route('registry.set_default', $registry->id) }}" method="POST">
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit"class="btn btn-sm btn-close"
-                                                onclick="return confirm('Are you sure you want to delete this registry?')"></button>
+                                            <button type="submit" class="btn btn-outline-dark p-1 mb-2" style="font-size:10px;">SET AS DEFAULT</button>
                                         </form>
+                                    @else
+                                    
+                                            <button class="btn mb-1" style="font-size:12px; font-weight:400; color:#E8A2A6; border:none;" disabled>CURRENT DEFAULT REGISTRY</button>
+                                    @endif
                                 </div>
+                                
+                                <form action="{{ route('registry.delete', $registry->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"class="btn btn-sm btn-close"
+                                    onclick="return confirm('Are you sure you want to delete this registry?')"></button>
+                                </form>
+                                </div>
+                                        
+                                       
+                                <p class="card-subtitle">REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
                                 <h4 class="card-title mt-1">{{ $registry->registryName }}</h4>
                                 <p class="card-text">
                                     Registrant: <strong>{{ $registry->user->first_name }} {{ $registry->user->last_name }}</strong><br>

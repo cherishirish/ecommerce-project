@@ -194,27 +194,26 @@ class RegistryController extends Controller
     }
 
   
-        public function search(Request $request)
-        {
-            $title = "Registry";
-            $searchTerm = $request->input('search');
-        
-            if ($searchTerm) {
-               
-                $parts = explode('-', $searchTerm);
-        
-                if (isset($parts[1])) {
-                    $originalId = intval($parts[1]);
-                    $registry = Registry::where('id', $originalId)->get();
-                }
-            }else
-            {
-                $registry = 0;
+    public function search(Request $request)
+    {
+        $title = "Registry";
+        $searchTerm = $request->input('search');
+    
+    
+        $registry = collect();
+    
+        if ($searchTerm) {
+            $parts = explode('-', $searchTerm);
+            if (isset($parts[1])) {
+                $originalId = intval($parts[1]);
+                $registry = Registry::where('id', $originalId)->get();
             }
-            
-        
-            return view('search-registry', compact('registry', 'searchTerm', 'title'));
         }
+        
+        return view('search-registry', compact('registry', 'searchTerm', 'title'));
+    }
+    
+    
 
 
 
@@ -239,7 +238,8 @@ class RegistryController extends Controller
                 
                 
 
-                // Decode the current product_ids array, add the new product ID, and encode it back
+                // Decode the current product_ids array
+                // add and encode back
                 $productIds = json_decode($defaultRegistry->product_ids, true) ?? [];
                 if (!in_array($productId, $productIds)) {
                     $productIds[] = $productId;
