@@ -14,7 +14,6 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'GiggleWiggles Products';
         $categoryName = '';
         $categories = Category::all();
         $category_id = $request->input('category_id', null);
@@ -26,6 +25,7 @@ class ProductController extends Controller
             ->get();
             $category = Category::find($category_id);
             $categoryName = $category ? $category->category_name : '';
+            $title = ucfirst($categoryName);
         } else {
 
             $products = Product::where('availability', 1)->get();
@@ -101,6 +101,7 @@ class ProductController extends Controller
 
         $categoryName = $product->category ? $product->category->category_name : '';
         $productName = $product->product_name;
+        $title = $productName;
 
         return view('product.show', compact('title', 'product', 'categoryName', 'productName','categories'));
     }
