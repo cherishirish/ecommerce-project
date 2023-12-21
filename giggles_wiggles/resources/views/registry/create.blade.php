@@ -28,6 +28,11 @@
                         
                         <form action="{{ route('registry.store') }}" method="post">
                             @csrf
+                            
+                            <div class="mb-2">
+                                <label for="defaultRegistry">Set as Default Registry:</label>
+                                <input  type="checkbox" id="defaultRegistry" name="is_default" value="1" checked>
+                            </div>
                             <div class="row info">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -54,21 +59,22 @@
                             </div>
 
                             
-                            <h4 class="mt-3 mb-3 text-center">Select Products for Your Registry</h4>
+                            <!-- <h4 class="mt-3 mb-3 text-center">Select Products for Your Registry</h4> -->
 
                             <div class="form-group mt-2">
                                 <button type="submit" class="btn btn-primary">Create Registry</button>
                             </div>
         
-                        <div class="container mt-4">
+
+
+
+
+                        <!-- <div class="container mt-4">
                             <div class="row">
                                 @foreach ($products as $product)
                                     <div class="col-md-4 mb-4">
                                         <div class="card">
-                                            
-                                            <!-- <div class="card-header">
-                                            </div> -->
-                                            
+                                        
                                             
                                             <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="card-img-top">
 
@@ -93,7 +99,7 @@
                         @endforeach
                     </div>
                 </div>
-                            
+                             -->
 
                             
 
@@ -111,14 +117,6 @@
 
 
 
-
-
-
-
-
-                            <div class="form-group mt-2">
-                                <button type="submit" class="btn btn-primary">Create Registry</button>
-                            </div>
                         </form>
                     </div>
                 </div>

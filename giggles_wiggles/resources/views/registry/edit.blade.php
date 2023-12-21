@@ -30,6 +30,7 @@
                         <!-- Desktop and tablet view -->
                         <div class="row info d-none d-md-block">
                             <div class="col-md-6 d-flex mb-5 mt-5 pt-5 pb-4 rounded" style="width:100%; justify-content: space-around; background-color: rgba(227, 222, 245, 0.553);">
+
                                 <div class="form-group d-flex flex-column flex-md-row px-3 gap-3">
                                     <label for="registryName">Registry Name:</label>
                                     <input type="text" id="registryName" name="registryName" value="{{ $registry->registryName }}" required>
@@ -38,6 +39,9 @@
                                 <div class="form-group d-flex flex-column flex-md-row px-3 gap-3">
                                     <label for="eventDate">Event's Date:</label>
                                     <input type="date" id="eventDate" name="eventDate" value="{{ $registry->eventDate }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary" value="Update Info">
                                 </div>
                             </div>
                         </div>
@@ -48,61 +52,52 @@
                                 <div class="form-group col-12 px-3 pt-3">
                                     <label for="registryName">Registry Name:</label>
                                     <input type="text" id="registryName" name="registryName" value="{{ $registry->registryName }}" required>
+                                    
                                 </div>
 
                                 <div class="form-group col-12 px-3 pt-2">
                                     <label for="eventDate">Event's Date:</label>
                                     <input type="date" id="eventDate" name="eventDate" value="{{ $registry->eventDate }}" required>
                                 </div>
+
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary" value="Update Info">
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Update Registry">
-                        </div>
-
-                        <h4 class="mt-3 mb-3 text-center">Update Products for Your Registry</h4>
-
+                        </form>
                         <div class="container mt-4">
                             <div class="row">
-                        
-                            @foreach ($products as $product)
-                       
+                                @foreach ($products as $product)
+                                    
+                                        <div class="col-md-4 mb-4">
 
-                                <div class="col-md-4 mb-4">
-                                        <div class="card">
+                                            <div class="card rounded">
+                                                <a href="{{ route('product.show', ['id' => $product->id]) }}">
+                                                    <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="card-img-top">
+                                                </a>
                                             
-                                            <a href="{{ route('product.show', ['id' => $product->id]) }}">
-                                                <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->product_name }}" class="card-img-top">
-                                            </a>
+                                                <div class="card-footer bg-light ">
+                                                    <div class="float-start d-flex">
+                                                        {{ $product->product_name }} -   <p style="color:red "> ${{ $product-> price }} </p>
+                                                    </div>
 
-                                            <div class="card-footer bg-light">
+                                                    <div class="float-end d-flex">
+                                                        <button class="btn btn-close" onclick="deleteProduct({{ $product->id }})"></button>
+                                                    </div>
 
-                                                <div class="float-start d-flex">
-                                                     {{ $product->product_name }} -   <p style="color:red"> ${{ $product-> price }} </p>
-                                                </div>
-                                                
-                                                <div class="float-end">
-                                                <input type="checkbox" name="product_ids[]" value="{{ $product->id }}"
-                                                    {{ in_array($product->id, json_decode($registry->product_ids, true)) ? 'checked' : '' }}>
+                                                    
                                                 </div>
                                             </div>
-
-
                                         </div>
-                                    </div>
-
-                          
+                                
                                         @if($loop->iteration % 3 == 0)
-                                        </div><div class="row">
-                                    @endif
+                                            </div><div class="row">
+                                        @endif 
                                 @endforeach
                             </div>
                         </div>
-
-
-                        
-                    </form>
+   
                 </div>
             </div>
         </div>
@@ -111,7 +106,7 @@
 
 
 <script>
-    function deleteProduct(productId) {
+  function deleteProduct(productId) {
         if(confirm('Are you sure you want to remove this product?')) {
             axios.post('{{ route("registry.removeProduct", $registry->id) }}', {
                 productId: productId,
@@ -126,5 +121,8 @@
             });
         }
     }
+
+
+    
 </script>
 @endsection

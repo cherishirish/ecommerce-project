@@ -36,14 +36,25 @@
                     
                     <div class="col-md-4 col-12 mb-4 mt-4">
                         <div id="registry-card" class="card">
-                            <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
+
+                                @if(!$registry->is_default)
+                                    
+                                    <form action="{{ route('registry.set_default', $registry->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn" style="font-size:10px;">SET AS DEFAULT</button>
+                                    </form>
+                                @else
+                                  
+                                        <button class="btn" style="font-size:12px; font-weight:400; color:#E8A2A6; border:none;" disabled>CURRENT DEFAULT REGISTRY</button>
+                                @endif
+                                
                                 <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                                        <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }}</p>
+                                        <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
                                         <form action="{{ route('registry.delete', $registry->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"class="btn btn-sm btn-close"
-                                                onclick="return confirm('Are you sure you want to delete this product?')"></button>
+                                                onclick="return confirm('Are you sure you want to delete this registry?')"></button>
                                         </form>
                                 </div>
                                 <h4 class="card-title mt-1">{{ $registry->registryName }}</h4>

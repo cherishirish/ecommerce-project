@@ -5,8 +5,8 @@
     <div class="container px-4 px-lg-5">
 
         <!-- Main Content Header Image-->
-        <div class="main-header mb-3">
-            <img src="/images/jose-jovena-M70eJ8KGcZs-unsplash.jpg" alt="">
+        <div class="main-header mb-5">
+            <img src="images/breadcrumb.jpg" alt="Header Image">
         </div>
 
         <nav aria-label="breadcrumb">
@@ -21,9 +21,6 @@
             <div class="col-md-12 pt-5 pt-md-0">
                 <!--  -->
                 <div>
-                    <div class="main-header mb-5">
-                        <img src="images/breadcrumb.jpg" alt="Header Image">
-                    </div>
 
                     <div class="container mt-4">
                         <div class="row">
