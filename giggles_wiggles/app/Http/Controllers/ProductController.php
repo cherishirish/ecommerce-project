@@ -27,7 +27,7 @@ class ProductController extends Controller
             $categoryName = $category ? $category->category_name : '';
             $title = ucfirst($categoryName);
         } else {
-
+            $title = 'All Products';
             $products = Product::where('availability', 1)->get();
         }
     
