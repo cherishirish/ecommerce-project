@@ -190,6 +190,7 @@ class RegistryController extends Controller
         $productIds = json_decode($registry->product_ids, true);
         $products = Product::whereIn('id', $productIds)->get();
         $registry = Registry::findOrFail($registryId);
+
         return view('public', compact('registry', 'products', 'title'));
     }
 
@@ -198,7 +199,6 @@ class RegistryController extends Controller
     {
         $title = "Registry";
         $searchTerm = $request->input('search');
-    
     
         $registry = collect();
     

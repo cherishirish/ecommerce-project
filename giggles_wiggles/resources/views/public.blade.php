@@ -28,8 +28,7 @@
 
                 <div id="registry-show-info"  class="text-center mt-4 me-5">
                     <p>{{ $registry->registryName }}</p>
-                    <p class="py-2">Registry #: </p>
-                <p><strong> {{ date('Y') }}-{{ $registry->id }} </strong></p>
+                    <p class="py-2">Registry #: <strong> {{ date('Y') }}-{{ $registry->id }} </strong></p>
                     <p>Location: <strong>{{ $registry->user->address->city }} , {{ $registry->user->address->province }} </strong></p>
                     <p>Event Date: <strong>{{ (new DateTime($registry->eventDate))->format('M d, Y') }} </strong></p>
                     <p class="font-italic" style="font-size:12px;">Copy the public link to share the registry: </p> 
@@ -52,7 +51,7 @@
             </div>
         </div>
 
-         <!-- Mobile view -->
+         <!-- Mobile view
     <div class="registry-card shadow p-4 mb-5 bg-white rounded d-sm-block d-md-none">
         <h2 class="text-center">{{ $registry->registryName }}</h2>
         <p class="text-center text-muted font-italic">Share your wish list of the must-have items to your loved ones</p>
@@ -80,7 +79,7 @@
                         </svg>
                 </div>
         </div>
-    </div>
+    </div> -->
 
 
 
