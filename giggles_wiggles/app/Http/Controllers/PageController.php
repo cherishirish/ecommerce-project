@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
+use App\Models\Brand;
 use App\Models\LineItem;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -44,21 +45,9 @@ class PageController extends Controller
         }
 
         $deals = Product::orderBy('price', 'ASC')->limit(8)->get();
+        $brands = Brand::all();
 
-        // $image_one = Image::where('product_id', $deals[0]->id)->first('image');
-
-        // $image_two = Image::where('product_id', $deals[1]->id)->first('image');
-
-        // $image_three = Image::where('product_id', $deals[2]->id)->first('image');
-
-        // $image_four = Image::where('product_id', $deals[3]->id)->first('image');
-
-        // $image_five = Image::where('product_id', $deals[4]->id)->first('image');
-
-        // $image_six = Image::where('product_id', $deals[5]->id)->first('image');
-        //dd($categories);
-
-        return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals'));
+        return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals', 'brands'));
     }
     
     /**
