@@ -126,6 +126,7 @@ html {
 															</td>
 														</tr>
                                                         <?php foreach($cart as $item): ?>
+
 														<tr em="atom">
                                                             
                                                                 <!-- <td width="13%" style="border-bottom: 1px solid #c0c0c0;">
@@ -134,18 +135,13 @@ html {
                                                                  style="display: inline-block; width: 100%; max-width: 60px;"></a>
 																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="20"></td></tr></table>
 															</td> -->
-                                                            
+
 															
-															<td style="border-bottom: 1px solid #c0c0c0; padding: 0 10px;">
-																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="20"></td></tr></table>
-																<a href="" target="_blank" style="line-height: normal; font-size: 13px; font-family: system-ui, -apple-system, 'Segoe UI', 
-                                                                'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; line-height: color: text-decoration:"><?= $item['name'] ?></a>
-																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="10"></td></tr></table>
-															</td>
+
 															<td align="right" style="border-bottom: 1px solid #c0c0c0; padding: 0 10px;">
 																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="20"></td></tr></table>
 																<div style="line-height: normal; font-size: 14px; font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', 
-                                                                Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:=""><?= $item['quantity'] ?></div>
+                                                                Helvetica, Roboto, Arial, sans-serif;" ui="" helvetica="" neue="" font-size:="" line-height:="" color:=""><?= $item['name'] . '  --  ' . $item['quantity'] ?></div>
 																<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="20"></td></tr></table>
 															</td>
 															<td align="right" style="border-bottom: 1px solid #c0c0c0; padding: 0 10px;">
