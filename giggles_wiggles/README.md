@@ -2,7 +2,7 @@
 
 ## About this project
 
-A e-commerce website based on Laravel 10.x
+An e-commerce website based on Laravel 10.x
 
 ## How to recover this project
 
@@ -34,11 +34,11 @@ composer install                       # re-create ./vendor directory from compo
 ```
 npm run build
 ```
-Then configure Apache use `GigglesWiggles/giggles_wiggles` as Document_root dir.
+Then configure Apache use `GigglesWiggles/giggles_wiggles` as DOCUMENT_ROOT dir.
 
 or 
 
-- Continue develop this project (in development environment)
+- Continue to develop this project (in development environment)
 
 ```
 npm install && npm run dev
