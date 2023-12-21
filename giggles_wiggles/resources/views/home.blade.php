@@ -198,7 +198,7 @@
 </div>
 
 <!-- shop -->
-<div class="container mt-5 px-3 px-md-0">
+<div class="container mt-5 px-3 px-md-0 section-animation">
     <div class="row">
       <!-- Left column with one big image, title, and button -->
       <div class="col-md-8 position-relative mb-3">
@@ -242,8 +242,9 @@
 
   <hr class="custom-hr">
 
+
 <!-- Bestsellers - Three-Column Layout -->
-<div class="container my-5 px-3 px-md-0">
+<div class="container my-5 px-3 px-md-0 section-animation">
     <div class="row">
       <!-- First column with a big title, centered and left-aligned, and a "Shop Now" button -->
       <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">

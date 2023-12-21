@@ -6,7 +6,8 @@
     <div class="mt-5" style="display: flex; justify-content: space-between">
         <a href="{{ route('product.create') }}" class="btn btn-success mb-3">Create Product</a>
 
-    <form action="{{ route('admin.products.search') }}" method="get">
+    <form action="{{ route('admin.products.search') }}" method="get" style="display:flex;">
+    <a class="btn btn-info" href="{{route('admin.products')}}" style="margin-right:20px;height:40px;">All</a>
     <input class="form-control mr-0" type="search" name="search" 
                   placeholder="Search here" aria-label="Search" 
                   value="{{ request('search') }}">

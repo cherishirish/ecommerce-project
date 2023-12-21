@@ -135,6 +135,8 @@ Route::get('admin/users/create', [UserController::class, 'create'])
 Route::post('admin/users/store', [UserController::class, 'store'])
 ->name('admin.users.store')->middleware('auth', 'is_admin');
 
+Route::get('admin/users/search', [UserController::class, 'search'])
+->name('admin.users.search')->middleware('auth', 'is_admin');
 //--------------------------------------------------------------------------------------
 
 
@@ -153,6 +155,8 @@ Route::put('admin/categories/update', [CategoryController::class, 'update'])
 ->name('admin.categories.update')->middleware('auth', 'is_admin');
 Route::post('admin/categories/store', [CategoryController::class, 'store'])
 ->name('admin.categories.store')->middleware('auth', 'is_admin');
+Route::get('admin/categories/search', [CategoryController::class, 'search'])
+->name('admin.categories.search')->middleware('auth', 'is_admin');
 
 // Admin Brands CRUD
 
@@ -168,6 +172,8 @@ Route::put('admin/brands/update', [AdminBrandController::class, 'update'])
 ->name('admin.brands.update')->middleware('auth', 'is_admin');
 Route::post('admin/brands/store', [AdminBrandController::class, 'store'])
 ->name('admin.brands.store')->middleware('auth', 'is_admin');
+Route::get('admin/brands/search', [AdminBrandController::class, 'search'])
+->name('admin.brands.search')->middleware('auth', 'is_admin');
 
 // Admin Orders CRUD
 
@@ -179,6 +185,8 @@ Route::put('admin/orders/update', [AdminOrderController::class, 'update'])
 ->name('admin.orders.update')->middleware('auth', 'is_admin');
 Route::delete('admin/orders/delete/{id}', [AdminOrderController::class, 'destroy'])
 ->name('admin.orders.delete')->middleware('auth', 'is_admin');
+Route::get('/admin/orders/search', [AdminOrderController::class, 'search'])
+    ->name('admin.orders.search')->middleware('auth', 'is_admin');
 
 // Admin TaxRates CRUD
 
