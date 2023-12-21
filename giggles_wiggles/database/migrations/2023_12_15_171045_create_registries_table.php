@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('registryName');
             $table->date('eventDate');
             $table->json('product_ids');
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
     }
