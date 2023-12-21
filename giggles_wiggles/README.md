@@ -33,6 +33,13 @@ composer install                       # re-create ./vendor directory from compo
 
 ```
 npm run build
+
+sudo chown -R ubuntu:www-data public/images/products/
+
+sudo chmod -R 775 public/images/products/
+
+sudo chmod -R g+s public/images/products/
+
 ```
 Then configure Apache use `GigglesWiggles/giggles_wiggles` as DOCUMENT_ROOT dir.
 
