@@ -267,7 +267,11 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 40px;
-  font-size: 1.2em;
+}
+
+.deal_info p{
+  font-size: 1.3em !important;
+  margin: 0;
 }
 
 .deal_price{
@@ -301,7 +305,6 @@ body {
 .old_price{
   text-decoration: line-through;
   color: #111;
-  font-size: 20px !important;
   font-style: normal !important;
 }
 
