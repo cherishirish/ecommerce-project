@@ -80,7 +80,8 @@ Route::get('/registry', [RegistryController::class, 'index'])->name('registry.in
 Route::get('/registry/create', [RegistryController::class, 'create'])->name('registry.create')->middleware('auth');
 Route::post('/registry/store', [RegistryController::class, 'store'])->name('registry.store')->middleware('auth');
 Route::get('/registry/edit/{id}', [RegistryController::class, 'edit'])->name('registry.edit')->middleware('auth');
-Route::put('/registry/update/{id}', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');
+Route::put('/registry/{registry}', [RegistryController::class, 'update'])->name('registry.update')->middleware('auth');;
+
 Route::get('/registry/{id}', [RegistryController:: class, 'show'])->name('registry.show')->middleware('auth');
 Route::get('/manage', [RegistryController::class, 'manage'])->name('manage')->middleware('auth');
 Route::delete('/registry/delete/{id}', [RegistryController::class, 'destroy'])->name('registry.delete')->middleware('auth');
@@ -93,6 +94,12 @@ Route::get('/search-registry', [RegistryController::class, 'search' ])->name('re
 
 //--------------------------------------------------------------------------------------
 
+
+Route::post('/registry/add/{id}', [RegistryController::class, 'add'])->name('registry.add')->middleware('auth');
+Route::post('/registry/set-default/{id}', [RegistryController::class, 'setDefault'])->name('registry.set_default')->middleware('auth');
+
+
+//--------------------------------------------------------------------------------------
 
 
 

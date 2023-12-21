@@ -20,7 +20,7 @@
             
             <div class="col-md-6 pb-3 pb-md-0">
                 <!-- About Us Image -->
-                <img src="/images/mobile-banner-1.jpg" alt="About Us Image" class="img-fluid rounded">
+                <img src="/images/about.jpg" alt="About Us Image" class="img-fluid rounded">
             </div>
 
             <div class="col-md-6">
