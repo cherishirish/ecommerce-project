@@ -31,7 +31,8 @@
     <div class="row mt-3" id="header-row-desktop">
       <div class="col-md-3">
         <!-- Logo on the left -->
-        <img src="/images/logo.png" alt="Logo" class="img-fluid">
+        <a href="{{ route('home') }}"><img src="/images/logo.png" alt="Logo" class="img-fluid"></a>
+        
       </div>
       
       <div class="col-md-6">
