@@ -91,7 +91,7 @@ class CheckoutController extends Controller
 
         $user = Auth::user();
         $cart = session('cart', []);
-        $address = Address::where('id', $user->id)->where('address_type', 'billing')->first();
+        $address = Address::where('user_id', $user->id)->where('address_type', 'billing')->first();
         $province = $address->province;
         $taxRates = TaxRate::where('province', $province)->first();
         $gst_rate = $taxRates->gst;
@@ -138,7 +138,7 @@ class CheckoutController extends Controller
         $valid=$request->validate([
             'name_on_card' => 'required|string|min:1|max:255',
             'card_number' => 'required|integer|digits_between:15,16',
-            'month' => 'required|integer|min:01|max:12|digits:2',
+            'month' => 'required|numeric|min:01|max:12|digits:2',
             'year' => 'required|integer|min:23|max:50|digits:2',
             'cvv' => 'required|integer|digits:3',
             'card_type' => ['required', Rule::in(['visa', 'mastercard', 'amex'])]
@@ -176,8 +176,10 @@ class CheckoutController extends Controller
 
             Session::put('order', $order->id);
 
+            $order = Order::where('id', session('order'))->first();
+
         }else{
-            $order = Order::where('id', session()->get('order'))->first();
+            $order = Order::where('id', session('order'))->first();
         }
 
         $transaction = new _5bx(env('BX_LOGIN_ID'), env('BX_API_KEY'));
@@ -281,6 +283,7 @@ class CheckoutController extends Controller
     $user = User::where('id', $order->user_id)->first();
     $cart = session('cart', []);
 
+
     $data = [
         'order' => $order,
         'user' => $user,
@@ -290,7 +293,6 @@ class CheckoutController extends Controller
         'cart' => $cart
     ];
     
-
     Mail::send($template_path, $data, function($message){
         $user = Auth::user();
         $message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Giggles Wiggles Order Confirmation');
