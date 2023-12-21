@@ -104,7 +104,7 @@
     <div class="row mt-3" id="header-row-tablet">
       <div class="col-md-3">
         <!-- Logo on the left -->
-        <img src="/images/logo.png" alt="Logo" class="img-fluid">
+        <a href="{{ route('home') }}"><img src="/images/logo.png" alt="Logo" class="img-fluid"></a>
       </div>
       
       <div class="col-md-5">
@@ -179,7 +179,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="d-flex justify-content-between align-items-center">
-          <img src="/images/logo.png" alt="Logo" class="img-fluid">
+        <a href="{{ route('home') }}"><img src="/images/logo.png" alt="Logo" class="img-fluid"></a>
 
           <div class="d-flex align-items-center">
          <!-- Display logout link if the user is authenticated -->

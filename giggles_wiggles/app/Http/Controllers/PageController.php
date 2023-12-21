@@ -13,6 +13,7 @@ use App\Models\Address;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\LineItem;
+use App\Models\Registry;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -31,6 +32,7 @@ class PageController extends Controller
     public function index(Request $request) {
         $title = "";
         $category_id = $request->input('category_id');
+        $registry = Registry::all();
         
         // Fetch categories before checking category_id
         $categories = Category::all();
@@ -47,7 +49,7 @@ class PageController extends Controller
         $deals = Product::orderBy('price', 'ASC')->limit(8)->get();
         $brands = Brand::all();
 
-        return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals', 'brands'));
+        return view('/home', compact('title', 'category_id', 'products', 'categoryName', 'categories', 'deals', 'brands', 'registry'));
     }
     
     /**

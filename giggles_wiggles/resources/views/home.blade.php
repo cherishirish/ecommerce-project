@@ -22,7 +22,7 @@
             <img class="d-block w-100" src="images/banner-2.jpg" alt="Second slide">
             <div class="carousel-caption top-36">
                 <h2 class="banner-heading text-shadow">Make Your Own Registry</h2>
-                <a class="btn btn-primary text-dark mt-3" href="#">Shop Now</a>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('registry.index') }}">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -64,7 +64,7 @@
             <img class="d-block w-100" src="images/banner-2.jpg" alt="Second slide">
             <div class="carousel-caption">
                 <h2 class="tablet-banner-heading text-shadow">Make Your Own Registry</h2>
-                <a class="btn btn-primary text-dark mt-3" href="#">Shop Now</a>
+                <a class="btn btn-primary text-dark mt-3" href="{{ route('registry.index') }}">Shop Now</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -96,21 +96,21 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="/images/mobile-banner-1.jpg" class="d-block w-100" alt="...">
+        <img src="/images/mobile-banner-1.jpg" class="d-block w-100" alt="Mobile banner 1">
         <div class="carousel-caption">
           <h5 class="text-dark text-shadow">Welcome to Giggles Wiggles</h5>
           <a class="btn btn-primary text-dark" href="{{ route('product.index') }}">Shop now</a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="/images/mobile-banner-2.jpg" class="d-block w-100" alt="...">
+        <img src="/images/mobile-banner-2.jpg" class="d-block w-100" alt="Mobile banner 2">
         <div class="carousel-caption">
           <h5 class="text-dark text-shadow">Make Your Own Registry</h5>
-          <a class="btn btn-primary text-dark" href="#">Shop now</a>
+          <a class="btn btn-primary text-dark" href="{{ route('registry.index') }}">Shop now</a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="/images/mobile-banner-3.jpg" class="d-block w-100" alt="...">
+        <img src="/images/mobile-banner-3.jpg" class="d-block w-100" alt="Mobile banner 3">
         <div class="carousel-caption">
           <h5 class="text-dark text-shadow">Get to Know About Us</h5>
           <a class="btn btn-primary text-dark" href="{{ route('page.about') }}">Shop now</a>
