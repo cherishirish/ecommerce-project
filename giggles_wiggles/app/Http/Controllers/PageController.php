@@ -110,11 +110,15 @@ class PageController extends Controller
      * @return view
      */
     public function profile() {
-        $title = "Profile";
-        $categories = Category::all();
-        $orders = Order::where('user_id', auth()->id())->get();
-        $address = Address::all();
-        return view('/profile', compact('title', 'categories', 'orders', 'address'));
+        if(Auth::check()){
+            $title = "Profile";
+            $categories = Category::all();
+            $orders = Order::where('user_id', auth()->id())->get();
+            $address = Address::all();
+            return view('/profile', compact('title', 'categories', 'orders', 'address'));
+        }else{
+            return redirect()->route('login');
+        }
     }
 
     /**
