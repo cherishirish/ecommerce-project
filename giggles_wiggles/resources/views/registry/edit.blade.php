@@ -31,14 +31,15 @@
                         <div class="row info d-none d-md-block">
                             <div class="col-md-6 d-flex mb-5 mt-5 pt-5 pb-4 rounded" style="width:100%; justify-content: space-around; background-color: rgba(227, 222, 245, 0.553);">
 
+                                <input type="hidden" name="id" value="{{ $registry->id }}">
                                 <div class="form-group d-flex flex-column flex-md-row px-3 gap-3">
                                     <label for="registryName">Registry Name:</label>
-                                    <input type="text" id="registryName" name="registryName" value="{{ $registry->registryName }}" required>
+                                    <input type="text" id="registryName" name="registryName" value="{{ old('registryName') ?? $registry->registryName }}" required>
                                 </div>
 
                                 <div class="form-group d-flex flex-column flex-md-row px-3 gap-3">
                                     <label for="eventDate">Event's Date:</label>
-                                    <input type="date" id="eventDate" name="eventDate" value="{{ $registry->eventDate }}" required>
+                                    <input type="date" id="eventDate" name="eventDate" value="{{ old('eventDate') ?? $registry->eventDate }}" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Update Info">
@@ -46,25 +47,25 @@
                             </div>
                         </div>
 
-                        <!-- Mobile view -->
+                        <!--                         
                         <div class="row info d-sm-block d-md-none">
                             <div class="my-3 rounded" style="width:100%; justify-content: space-around; background-color: rgba(227, 222, 245, 0.553);">
                                 <div class="form-group col-12 px-3 pt-3">
                                     <label for="registryName">Registry Name:</label>
-                                    <input type="text" id="registryName" name="registryName" value="{{ $registry->registryName }}" required>
+                                    <input type="text" id="registryName" name="registryName" value="{{ old('registryName') ?? $registry->registryName }}" required>
                                     
                                 </div>
 
                                 <div class="form-group col-12 px-3 pt-2">
                                     <label for="eventDate">Event's Date:</label>
-                                    <input type="date" id="eventDate" name="eventDate" value="{{ $registry->eventDate }}" required>
+                                    <input type="date" id="eventDate" name="eventDate" value="{{ old('eventDate') ?? $registry->eventDate }}" required>
                                 </div>
 
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Update Info">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         </form>
                         <div class="container mt-4">
                             <div class="row">

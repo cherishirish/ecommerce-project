@@ -29,7 +29,7 @@
             <div id="registry-show-info"  class="col-md-6 mt-4">
                 <p>{{ $registry->registryName }}</p>
                 <p class="py-2">Registry #: </p>
-                <p><strong> {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }} </strong></p>
+                <p><strong> {{ date('Y') }}-{{ $registry->id }} </strong></p>
                 <p class="py-2">Location: </p>
                 <p><strong>{{ $registry->user->address->city }} , {{ $registry->user->address->province }} </strong></p>
                 <p class="py-2">Event Date: </p>
@@ -70,7 +70,7 @@
             </div>
             <div id="registry-show-info"  class="col-12 mt-4">
                 <p>{{ $registry->registryName }}</p>
-                <p class="py-2">Registry #: <strong> {{ date('Y') }}{{ str_pad($registry->id, 3, '0', STR_PAD_LEFT) }} </strong></p>
+                <p class="py-2">Registry #: <strong> {{ date('Y') }}-{{ $registry->id }} </strong></p>
                 <p class="py-2">Location: <strong>{{ $registry->user->address->city }} , {{ $registry->user->address->province }} </strong></p>
                 <p class="py-2">Event Date: <strong>{{ (new DateTime($registry->eventDate))->format('M d, Y') }} </strong></p>
                 <p class="font-italic py-2" style="font-size:12px;">Copy the public link to share the registry: </p> 

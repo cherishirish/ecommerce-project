@@ -13,7 +13,8 @@ class Registry extends Model
         'user_id',
         'registryName',
         'eventDate',
-        'product_ids'
+        'product_ids',
+        'is_default'
     ];
 
      /**

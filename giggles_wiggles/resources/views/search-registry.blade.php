@@ -42,9 +42,9 @@
                             @foreach ($registry as $registry)
                             <div class="col-md-4 col-12 mb-4 mt-4">
                                 <div id="registry-card" class="card">
-                                         <!-- I USE STR_PAD TO POPULATE THE ID WITH ZERO OF THE REGISTRY ID -->
+                                       
                                         <div style="display:flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                                                <p class="card-subtitle">DEFAULT REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
+                                                <p class="card-subtitle">REGISTRY # {{ date('Y') }}-{{ $registry->id }}</p>
                                             
                                         </div>
                                         <h4 class="card-title mt-1">{{ $registry->registryName }}</h4>
