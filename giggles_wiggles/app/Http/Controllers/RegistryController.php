@@ -69,15 +69,21 @@ class RegistryController extends Controller
         'product_ids.*' => 'exists:products,id'
     ]);
 
+    $isDefault = $request->has('is_default') ? 1 : 0;
+   
+    if ($isDefault) {
+        Auth::user()->registries()->update(['is_default' => false]);
+    }
     $registry = Registry::create([
         'user_id' => Auth::id(),
         'registryName' => $request->registryName,
         'eventDate' => $request->eventDate,
-        'product_ids' => json_encode($request->product_ids ?? [])
+        'product_ids' => json_encode($request->product_ids ?? []),
+        'is_default' => 1
     ]);
 
     return redirect()->route('manage')->with('success', 'Registry created successfully!');
-    }   
+}
 
 
     /**
@@ -89,11 +95,12 @@ class RegistryController extends Controller
     public function edit($id)
     {
         $title = 'Edit Registry';
+
+        
+
         $registry = Registry::where('user_id', Auth::id())->findOrFail($id);
-        $selectedProductIds = json_decode($registry->product_ids, true);
-        $products = Product::all()->sortBy(function($product) use ($selectedProductIds) {
-            return !in_array($product->id, $selectedProductIds);
-        });
+        $productIds = json_decode($registry->product_ids, true);
+        $products = Product::whereIn('id', $productIds)->get();
 
         return view('registry.edit', compact('title', 'products', 'registry'));
     }
@@ -107,20 +114,16 @@ class RegistryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valid = $request->validate([
+        $request->validate([
             'registryName' => 'required|string|max:255',
             'eventDate' => 'required|date',
-            'product_ids' => 'nullable|array',
-            'product_ids.*' => 'exists:products,id'
         ]);
     
         $registry = Registry::find($id);
-        $registry->update([
-            'registryName' => $request->registryName,
-            'eventDate' => $request->eventDate,
-            'product_ids' => json_encode($request->product_ids ?? [])
-        ]);
+        $registry->registryName = $request->input('registryName');
+        $registry->eventDate = $request->input('eventDate');
 
+        // Only save fields that are being updated
         $registry->save();
     
         return redirect()->route('manage')->with('success', 'Registry updated successfully!');
@@ -214,6 +217,51 @@ class RegistryController extends Controller
         }
 
 
+
+         // -------------------------------------------------------------------------------------------------------------
+
+
+         public function add(Request $request, $productId)
+            {
+                $user = Auth::user();
+
+                $registries = $user->registries;
+                if ($registries->isEmpty()) {
+                    return redirect()->route('registry.create')
+                        ->with('danger', 'You don\'t have a registry. Create one now!');
+                }
+
+                $defaultRegistry = $user->registries()->where('is_default', true)->first();
+                if (!$defaultRegistry) {
+                    return redirect()->route('manage')
+                        ->with('danger', 'You don\'t have a default registry. Set one now!');
+                }
+                
+                
+
+                // Decode the current product_ids array, add the new product ID, and encode it back
+                $productIds = json_decode($defaultRegistry->product_ids, true) ?? [];
+                if (!in_array($productId, $productIds)) {
+                    $productIds[] = $productId;
+                }
+                $defaultRegistry->product_ids = json_encode($productIds);
+                $defaultRegistry->save();
+
+                return redirect()->back()->with('success', 'Product added to default registry!');
+            }
+
+         
+            public function setDefault($registryId)
+            {
+                $user = Auth::user();
+                
+                $user->registries()->update(['is_default' => false]);
+                $user->registries()->where('id', $registryId)->update(['is_default' => true]);
+
+                return redirect()->back()->with('success', 'Default registry updated!');
+            }
+
+            
     }
     
     

@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
     return $this->hasOne(Registry::class);
     }
+    public function registries()
+    {
+        return $this->hasMany(Registry::class);
+    }
+
 }

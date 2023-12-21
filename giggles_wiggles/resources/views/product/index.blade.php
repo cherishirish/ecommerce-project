@@ -7,7 +7,7 @@
         <div class="container px-4 px-lg-5">
             <!-- Main Content Header Image-->
             <div class="main-header mb-5">
-                <img src="images/breadcrumb.jpg" alt="Header Image">
+                <img src="/images/breadcrumb.jpg" alt="Header Image">
             </div>
 
 
@@ -86,8 +86,12 @@
                                     </div> 
                                 </div>
                                 <!-- Product actions -->
-                                <div class="card-footer p-3 border-top-0 bg-transparent">
-                                    <!-- <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div> -->
+                                <div class="card-footer p-0 mt-5 bg-light">
+                                    <form action="{{ route('registry.add', $product->id) }}" method="POST">
+                                        @csrf
+                                        
+                                        <button type="submit" class="btn float-end" style="font-size:12px">ADD TO REGISTRY</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
