@@ -32,6 +32,8 @@ php artisan key:generate               # Generate the `APP_KEY` in .env
 - Make it live on Server (in Production environment)
 
 ```
+npm install
+
 npm run build
 
 sudo chown -R ubuntu:www-data public/images/products/
