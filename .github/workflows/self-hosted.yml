@@ -2,6 +2,7 @@ on:
   push:
     branches:
     - kun
+
 jobs:
   build:
     runs-on: self-hosted
