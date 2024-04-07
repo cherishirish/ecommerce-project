@@ -10,4 +10,4 @@ jobs:
     - uses: actions/checkout@v4
     - name: a test action from self-hosted runner
       run: |
-        echo `date` > /tmp/date
+        echo 111 > /tmp/date
