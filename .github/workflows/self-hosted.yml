@@ -1,13 +1,13 @@
+name: A test of Github Actions
+
 on:
   push:
     branches:
     - kun
 jobs:
   build:
-    name: rebuild node.js
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v4
     - name: a test action from self-hosted runner
       run: |
-        echo 111 > /tmp/date
+        name -a
